@@ -50,10 +50,10 @@ We can also use square as a building block in defining other procedures. For exa
 (+ (square x) (square y))
 ```
 
- We can easily define a procedure ``sum-of-squares`` that, given any two numbers as arguments, produces the sum of their squares:
+We can easily define a procedure ``sum-of-squares`` that, given any two numbers as arguments, produces the sum of their squares:
  
  ```lisp
- > (defun sum-of-squares (x y)
+> (defun sum-of-squares (x y)
      (+ (square x) (square y)))
 sum-of-squares
 > (sum-of-squares 3 4)
