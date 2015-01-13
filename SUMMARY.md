@@ -4,7 +4,6 @@
 * [Title Page](fm/title-page.md)
 * [Copyright Page](fm/copyright-page.md)
 * [Dedication](fm/dedication.md)
-* [Contents](SUMMARY.md)
 * [Foreword](fm/foreword.md)
 * [Preface to the LFE Edition](fm/preface-3.md)
 * [Preface to the Second Edition](fm/preface-2.md)
