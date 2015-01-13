@@ -6,6 +6,11 @@
         "mathjax"
     ],
     "pluginsConfig": {
+        "fontSettings": {
+            "theme": "night",
+            "family": "serif",
+            "size": 1
+        },
         "ga": {
             "token": "UA-38274766-4"
         }
