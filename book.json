@@ -1,13 +1,11 @@
 {
     "title": "Structure and Interpretation of Computer Programs",
     "description": "The LFE Edition of the Classic Scheme Book",
-    "plugins": ["ga"],
+    "plugins": [
+        "ga",
+        "MathJax"
+    ],
     "pluginsConfig": {
-        "fontSettings": {
-            "theme": "night",
-            "family": "serif",
-            "size": 1
-        },
         "ga": {
             "token": "UA-38274766-4"
         }
