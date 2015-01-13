@@ -2,7 +2,8 @@
     "title": "Structure and Interpretation of Computer Programs",
     "description": "The LFE Edition of the Classic Scheme Book",
     "plugins": [
-        "ga"
+        "ga",
+        "mathjax"
     ],
     "pluginsConfig": {
         "ga": {
