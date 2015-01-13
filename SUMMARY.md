@@ -1,4 +1,4 @@
-# Summary
+# Contents
 
 * [Introduction](README.md)
 * [Title Page](fm/title-page.md)
@@ -8,7 +8,7 @@
 * [Foreword](fm/foreword.md)
 * [Preface to the LFE Edition](fm/preface-3.md)
 * [Preface to the Second Edition](fm/preface-2.md)
-* [Preface to the First Edition](fm/preface-2.md)
+* [Preface to the First Edition](fm/preface-1.md)
 * [Acknowledgments](fm/acknowledgments.md)
 * [Building Abstractions with Procedures](ch1/building-abstractions-with-procedures.md)
    * [Programming in Lisp](ch1/programming-in-lisp.md)
