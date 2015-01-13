@@ -4,7 +4,7 @@
 Is it possible that software is not like anything else, that it is meant to be discarded: that the whole point is to always see it as a soap bubble?
 </blockquote>
 
--- Alan J. Perlis
+*-- Alan J. Perlis*
 
 The material in this book has been the basis of MIT's entry-level computer science subject since 1980. We had been teaching this material for four years when the first edition was published, and twelve more years have elapsed until the appearance of this second edition. We are pleased that our work has been widely adopted and incorporated into other texts. We have seen our students take the ideas and programs in this book and build them in as the core of new computer systems and languages. In literal realization of an ancient Talmudic pun, our students have become our builders. We are lucky to have such capable students and such accomplished builders.
 
