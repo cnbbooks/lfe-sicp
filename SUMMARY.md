@@ -16,7 +16,7 @@
        * [Naming and the Environment](ch1/naming-and-the-environment.md)
        * [Evaluating Combinations](ch1/evaluating-combinations.md)
        * [Compound Procedures](ch1/compound-procedures.md)
-       * [The Substitution Model for Procedure Application](ch1/the-substitution-modelfor-procedure-application.md)
+       * [The Substitution Model for Procedure Application](ch1/the-substitution-model-for-procedure-application.md)
        * [Conditional Expressions and Predicates](ch1/conditional-expressions-and-predicates.md)
        * [Example: Square Roots by Newton's Method](ch1/example-square-roots-by-newtons-method.md)
        * [Procedures as Black-Box Abstractions](ch1/procedures-as-black-box-abstractions.md)
