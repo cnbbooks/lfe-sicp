@@ -86,7 +86,7 @@ This gives the same answer as our previous evaluation model, but the process is 
 (* x x)
 ```
 
-with x replaced respectively by ``(+ 5 1)`` and ``(* 5 2)``.
+with ``x`` replaced respectively by ``(+ 5 1)`` and ``(* 5 2)``.
 
 This alternative "fully expand and then reduce" evaluation method is known as *normal-order evaluation*, in contrast to the "evaluate the arguments and then apply" method that the interpreter actually uses, which is called *applicative-order evaluation*. It can be shown that, for procedure applications that can be modeled using substitution (including all the procedures in the first two chapters of this book) and that yield legitimate values, normal-order and applicative-order evaluation produce the same value. (See exercise 1.5 for an instance of an "illegitimate" value where normal-order and applicative-order evaluation do not give the same result.)
 
