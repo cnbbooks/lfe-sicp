@@ -129,11 +129,11 @@ or alternatively as
 
 ----
 
-[^1]: "Interpreted as either true or false" means this: In LFE, there are two distinguished values that are denoted by the atoms ``true`` and ``false``. When the interpreter checks a predicate's value, it interprets ``'false`` as false. Any other value is treated as true. (Thus, providing ``'true`` is logically unnecessary, but it is convenient.)
+[^1]: "Interpreted as either true or false" means this: In LFE, there are two distinguished values that are denoted by the atoms ``true`` and ``false``. When the interpreter checks a predicate's value, if the result cannot be interpreted as either ``true`` or ``false``, an error is raised (for ``cond`` and ``if`` you will see an ``if_clause`` exception).
 
 [^2]: ``abs`` also uses the "minus" operator ``-``, which, when used with a single operand, as in ``(- x)``, indicates negation. 
 
-[^3]: Note that atoms in LFE must be quoted (to distinguish them from variables or functions). In situations where there is no evaluation, no quote is necessary. As such, return values of atoms will always be rendered without a quote.
+[^3]: Note that atoms in LFE must be quoted (to distinguish them from variables or functions). In situations where there is no evaluation, no quote is necessary. As such, return values of atoms will always be rendered without a quote. Similarly, when discussing the values ``true`` and ``false`` in this book, we will do so without quotes, as there is no evaluation!
 
 [^4]: A minor difference between ``if`` and ``cond`` is that the ``<e>`` part of each ``cond`` clause may be a sequence of expressions. If the corresponding ``<p>`` is found to be ``true``, the expressions ``<e>`` are evaluated in sequence and the value of the final expression in the sequence is returned as the value of the ``cond``. In an ``if`` expression, however, the ``<consequent>`` and ``<alternative>`` must be single expressions. 
 
