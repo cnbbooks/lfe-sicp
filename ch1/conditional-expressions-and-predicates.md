@@ -92,7 +92,7 @@ To evaluate an ``if`` expression, the interpreter starts by evaluating the ``<pr
 
 #### The ``case`` Form
 
-#### Pattern Matching
+#### Procedure Argument Patterns
 
 #### Logical Operators as Predicates
 
