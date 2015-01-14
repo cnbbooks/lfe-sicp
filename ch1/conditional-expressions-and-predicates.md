@@ -19,7 +19,7 @@ This construct is called a *case analysis*, and there are special forms in LFE f
 * ``cond``
 * ``if``
 * ``case``
-* pattern matching
+* pattern matching and guards
 
 We will now explore those.
 
@@ -138,20 +138,16 @@ We can rewrite our absolute-value procedure using a simple pattern and guards
 
 ```lisp
 (defun abs
-  ((x) (when (> x 0))
-   x)
-  ((x) (when (== x 0))
-   0)
-  ((x) (when (< x 0))
-   (- x)))
+  ((x) (when (> x 0)) x)
+  ((x) (when (== x 0)) 0)
+  ((x) (when (< x 0)) (- x)))
 ```
 
 which of course could be consolidated to
 
 ```lisp
 (defun abs
-  ((x) (when (< x 0))
-   (- x))
+  ((x) (when (< x 0)) (- x))
   ((x) x))
 ```
 
