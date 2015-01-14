@@ -89,11 +89,45 @@ This uses the special form if, a restricted type of conditional that can be used
 
 To evaluate an ``if`` expression, the interpreter starts by evaluating the ``<predicate>`` part of the expression. If the ``<predicate>`` evaluates to a ``true`` value, the interpreter then evaluates the ``<consequent>`` and returns its value. Otherwise it evaluates the ``<alternative>`` and returns its value.[^4]
 
+
 #### The ``case`` Form
 
 #### Pattern Matching
 
+#### Logical Operators as Predicates
 
+In addition to primitive predicates such as ``<``, ``=``, and ``>``, there are logical composition operations, which enable us to construct compound predicates. The three most frequently used are these:
+
+* ``(and <e1> ... <en>)`` - 
+  The interpreter evaluates the expressions ``<e>`` one at a time, in left-to-right order. If any ``<e>`` evaluates to ``false``, the value of the ``and`` expression is ``false``, and the rest of the ``<e>``'s are not evaluated. If all ``<e>``'s evaluate to ``true`` values, the value of the ``and`` expression is ``true``.
+* ``(or <e1> ... <en>)`` - 
+   The interpreter evaluates the expressions ``<e>`` one at a time, in left-to-right order. If any ``<e>`` evaluates to a ``true`` value, the value of the ``or`` expression is ``true``, and the rest of the ``<e>``'s are not evaluated. If all ``<e>``'s evaluate to ``false``, the value of the ``or`` expression is ``false``.
+* ``(not <e>)`` - 
+  The value of a ``not`` expression is ``true`` when the expression ``<e>`` evaluates to ``false``, and ``false`` otherwise.
+
+Notice that ``and`` and ``or`` are special forms, not procedures, because the subexpressions are not necessarily all evaluated. ``not`` is an ordinary procedure.
+
+As an example of how these are used, the condition that a number $$x$$ be in the range $$5 < x < 10$$ may be expressed as
+
+```lisp
+(and (> x 5) (< x 10))
+```
+
+As another example, we can define a predicate to test whether one number is greater than or equal to another as
+ 
+```lisp
+(defun gte (x y)
+  (or (> x y) (== x y)))
+```
+
+or alternatively as
+
+```lisp
+(defun gte (x y)
+  (not (< x y)))
+```
+
+----
 
 [^1]: "Interpreted as either true or false" means this: In LFE, there are two distinguished values that are denoted by the atoms ``true`` and ``false``. When the interpreter checks a predicate's value, it interprets ``'false`` as false. Any other value is treated as true. (Thus, providing ``'true`` is logically unnecessary, but it is convenient.)
 
