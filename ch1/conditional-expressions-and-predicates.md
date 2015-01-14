@@ -50,10 +50,10 @@ Thanks to that fact that Erlang underlies LFE, the LFE ``cond`` supports both pa
 
 ```lisp
 (cond (<p1> <e1>)
-      ((?= <pattern> <p2>) <e2>)
-      ((?= <pattern> <guard> <p3>) <e3>)
+      ((?= <pattern2> <p2>) <e2>)
+      ((?= <pattern3> <guard3> <p3>) <e3>)
       ...
-      (<pn> <en>))
+      ((?= <patternn> <guardn> <pn>) <en>))
 ```
 
 Conditional expressions are evaluated as follows. The predicate ``<p1>`` is evaluated first. If its value is false, then``<p2>`` is evaluated. If ``<p2>``'s value is also false, then ``<p3>`` is evaluated. This process continues until a predicate is found whose value is true, in which case the interpreter returns the value of the corresponding *consequent expression* ``<e>`` of the clause as the value of the conditional expression. If none of the ``<p>``'s is found to be ``true``, the value of the ``cond`` is ``false``.
@@ -92,8 +92,31 @@ To evaluate an ``if`` expression, the interpreter starts by evaluating the ``<pr
 
 #### The ``case`` Form
 
+Through Erlang, LFE supports a form not found by default in most Lisps: ``case``. ``case`` takes an expression and then provides conditions based on matches for that expression. Here is the general form:
+
+```lisp
+(case <expression>
+  (<pattern1> <e1>)
+  (<pattern2> <guard2> <e2>)
+  ...
+  (<patternn> <guardn> <en>))
+```
+
+We could rewrite our absolute-value procedure using ``case`` like this:
+
+```lisp
+
+(defun abs (x)
+  (case (< x 0)
+        ('true (- x))
+        (_ x)))
+```
+
+When the final pattern matched against is the "I-don't-care variable",[^5] the effect is the same as the final ``'true`` in the ``cond`` form: if all else fails to match, the expression associated with the ``_`` pattern is returned.
+
 #### Procedure Argument Patterns
 
+In our discussion of conditionals, 
 #### Logical Operators as Predicates
 
 In addition to primitive predicates such as ``<``, ``=``, and ``>``, there are logical composition operations, which enable us to construct compound predicates. The three most frequently used are these:
@@ -137,7 +160,7 @@ or alternatively as
 
 [^4]: A minor difference between ``if`` and ``cond`` is that the ``<e>`` part of each ``cond`` clause may be a sequence of expressions. If the corresponding ``<p>`` is found to be ``true``, the expressions ``<e>`` are evaluated in sequence and the value of the final expression in the sequence is returned as the value of the ``cond``. In an ``if`` expression, however, the ``<consequent>`` and ``<alternative>`` must be single expressions. 
 
-
+[^5]: The single underscore, anonymous variable, "blah", "don't care", or "throw-away" variable has a long history in computing. Many languages, including Prolog, C, Erlang, OCaml, Pyton, Ruby, etc., share a tradition of treating the underscore as a special variable; special in the sense that the value is not seen as being of any pertinent interest in the given context. In Prolog and Erlang, and thus LFE, the anonymous variable has a significant functional purpose: it is never bound to a value and as such can be used multiple times in pattern matching without throwing an error (which would happen in Prolog or Erlang if you tried to match multiple patterns with a regular, bound variable).
 
 
 
