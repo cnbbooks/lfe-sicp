@@ -14,7 +14,7 @@ $$
 \end{align}
 $$
 
-This construct is called a *case analysis*, and there are special forms in LFE for notating such a case analyses:
+This construct is called a *case analysis*, and there are special forms in LFE for notating such case analyses:
 
 * ``cond``
 * ``if``
