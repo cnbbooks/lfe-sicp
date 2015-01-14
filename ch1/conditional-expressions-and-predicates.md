@@ -2,17 +2,6 @@
 
 The expressive power of the class of procedures that we can define at this point is very limited, because we have no way to make tests and to perform different operations depending on the result of a test. For instance, we cannot define a procedure that computes the absolute value of a number by testing whether the number is positive, negative, or zero and taking different actions in the different cases according to the rule
 
-$$
-\begin{align}
-\mid \ r \mid \ = \ \left\{
-\begin{array}{1 1}
-\ \ r \quad \text{if } r > 0 \\
-\ \ 0 \quad \text{if } r = 0 \\
--r \quad \text{if } r < 0
-\end{array}
-\right.\
-\end{align}
-$$
 
 This construct is called a *case analysis*, and there are special forms in LFE for notating such a case analyses:
 
