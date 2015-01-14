@@ -116,7 +116,48 @@ When the final pattern matched against is the "I-don't-care variable",[^5] the e
 
 #### Procedure Argument Patterns
 
-In our discussion of conditionals, 
+In our discussion of conditionals, we would be remiss in our duties if we did not bring up the topic of pattern-matching in procedure arguments, or in this case, patterns and guards.
+
+Ordinarily in LFE you define a procedure as we have discussed, using the form
+
+```lisp
+(defun <name> (<arguments>) <body>)
+```
+
+However, like Erlang, LFE supports pattern matching and guards in procedures. The more general form of procedure definition is
+
+```lisp
+(defun <name>
+  ((<argpattern1>) <body1>)
+  ((<argpattern2>) <guard2> <body2>)
+  ...
+  ((<argpatternn>) <guardn> <bodyn>))
+```
+
+We can rewrite our absolute-value procedure using a simple pattern and guards
+
+```lisp
+(defun abs
+  ((x) (when (> x 0))
+   x)
+  ((x) (when (== x 0))
+   0)
+  ((x) (when (< x 0))
+   (- x)))
+```
+
+which of course could be consolidated to
+
+```lisp
+(defun abs
+  ((x) (when (< x 0))
+   (- x))
+  ((x) x))
+```
+
+Note that in both definitions above our argument pattern is simply ``x``. We are not using the mechanics of pattern matching, per se, to implement our conditional logic. Rather, in this case we are taking advantage of the argument pattern's optional guard.
+
+
 #### Logical Operators as Predicates
 
 In addition to primitive predicates such as ``<``, ``=``, and ``>``, there are logical composition operations, which enable us to construct compound predicates. The three most frequently used are these:
