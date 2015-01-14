@@ -81,7 +81,7 @@ Another condition form available to most Lisps and to LFE is ``if``. Here is yet
       x))
 ```
 
-This uses the special form if, a restricted type of conditional that can be used when there are precisely two cases in the case analysis. The general form of an if expression is
+This uses the special form ``if``, a restricted type of conditional that can be used when there are precisely two cases in the case analysis. The general form of an if expression is
 
 ```lisp
 (if <predicate> <consequent> <alternative>)
