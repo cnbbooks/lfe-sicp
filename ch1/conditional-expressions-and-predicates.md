@@ -1,2 +1,110 @@
-# Conditional Expressions and Predicates
+### Conditional Expressions and Predicates
+
+The expressive power of the class of procedures that we can define at this point is very limited, because we have no way to make tests and to perform different operations depending on the result of a test. For instance, we cannot define a procedure that computes the absolute value of a number by testing whether the number is positive, negative, or zero and taking different actions in the different cases according to the rule
+
+$$
+\begin{align}
+\mid \ r \mid \ = \ \left\{
+\begin{array}{1 1}
+\ \ r \quad \text{if } r > 0 \\
+\ \ 0 \quad \text{if } r = 0 \\
+-r \quad \text{if } r < 0
+\end{array}
+\right.\
+\end{align}
+$$
+
+This construct is called a *case analysis*, and there are special forms in LFE for notating such a case analyses:
+
+* ``cond``
+* ``if``
+* ``case``
+* pattern matching
+
+We will now explore those.
+
+#### The ``cond`` Form
+
+It is called ``cond`` (which stands for "conditional"), and it is used as follows:
+
+```lisp
+(defun abs (x)
+  (cond ((> x 0) x)
+        ((== x 0) 0)
+        ((< x 0) (- x))))
+```
+
+In non-LFE Lisps, the general form of a conditional expression is
+
+```lisp
+(cond (<p1> <e1>)
+      (<p2> <e2>)
+      (<p3> <e3>)
+      ...
+      (<pn> <en>))
+```
+
+consisting of the symbol cond followed by parenthesized pairs of expressions ``(<p> <e>)`` called clauses. The first expression in each pair is a predicate -- that is, an expression whose value is interpreted as either true or false.[^1]
+
+Thanks to that fact that Erlang underlies LFE, the LFE ``cond`` supports both pattern-matching and what Erlang calls "[guards](http://learnyousomeerlang.com/syntax-in-functions#guards-guards)". As such, the predicates in LFE ``cond``s may take the following additional forms:
+
+```lisp
+(cond (<p1> <e1>)
+      ((?= <pattern> <p2>) <e2>)
+      ((?= <pattern> <guard> <p3>) <e3>)
+      ...
+      (<pn> <en>))
+```
+
+Conditional expressions are evaluated as follows. The predicate ``<p1>`` is evaluated first. If its value is false, then``<p2>`` is evaluated. If ``<p2>``'s value is also false, then ``<p3>`` is evaluated. This process continues until a predicate is found whose value is true, in which case the interpreter returns the value of the corresponding *consequent expression* ``<e>`` of the clause as the value of the conditional expression. If none of the ``<p>``'s is found to be ``true``, the value of the ``cond`` is ``false``.
+
+The word *predicate* is used for procedures that return ``true`` or ``false``, as well as for expressions that evaluate to ``true`` or ``false``. The absolute-value procedure ``abs`` makes use of the primitive predicates ``>``, ``<``, and ``==``.[^2] These take two numbers as arguments and test whether the first number is, respectively, greater than, less than, or equal to the second number, returning true or false accordingly.
+
+Another way to write the absolute-value procedure is
+
+```lisp
+(defun abs (x)
+  (cond ((< x 0) (- x))
+        ('true x)))
+```
+
+which could be expressed in English as "If ``x`` is less than zero return ``-x``; otherwise return ``x``." Since in LFE a ``cond`` with no ``true`` predicates returns ``false``, if we want a final, "default" value, we need to provide a predicate that always evaluates to ``true``. The simplest such predicate is the atom ``true``. [^3]
+
+#### The ``if`` Form
+
+Another condition form available to most Lisps and to LFE is ``if``. Here is yet another way to write the absolute-value procedure:
+
+```lisp
+(defun abs (x)
+  (if (< x 0)
+      (- x)
+      x))
+```
+
+This uses the special form if, a restricted type of conditional that can be used when there are precisely two cases in the case analysis. The general form of an if expression is
+
+```lisp
+(if <predicate> <consequent> <alternative>)
+```
+
+To evaluate an ``if`` expression, the interpreter starts by evaluating the ``<predicate>`` part of the expression. If the ``<predicate>`` evaluates to a ``true`` value, the interpreter then evaluates the ``<consequent>`` and returns its value. Otherwise it evaluates the ``<alternative>`` and returns its value.[^4]
+
+#### The ``case`` Form
+
+#### Pattern Matching
+
+
+
+[^1]: "Interpreted as either true or false" means this: In LFE, there are two distinguished values that are denoted by the atoms ``true`` and ``false``. When the interpreter checks a predicate's value, it interprets ``'false`` as false. Any other value is treated as true. (Thus, providing ``'true`` is logically unnecessary, but it is convenient.)
+
+[^2]: ``abs`` also uses the "minus" operator ``-``, which, when used with a single operand, as in ``(- x)``, indicates negation. 
+
+[^3]: Note that atoms in LFE must be quoted (to distinguish them from variables or functions). In situations where there is no evaluation, no quote is necessary. As such, return values of atoms will always be rendered without a quote.
+
+[^4]: A minor difference between ``if`` and ``cond`` is that the ``<e>`` part of each ``cond`` clause may be a sequence of expressions. If the corresponding ``<p>`` is found to be ``true``, the expressions ``<e>`` are evaluated in sequence and the value of the final expression in the sequence is returned as the value of the ``cond``. In an ``if`` expression, however, the ``<consequent>`` and ``<alternative>`` must be single expressions. 
+
+
+
+
+
 
