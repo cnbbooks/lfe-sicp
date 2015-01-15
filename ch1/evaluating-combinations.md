@@ -18,7 +18,7 @@ Notice how succinctly the idea of recursion can be used to express what, in the 
 requires that the evaluation rule be applied to four different combinations. We can obtain a picture of this process by representing the combination in the form of a tree, as shown in [figure 1.1](#figure-1). Each combination is represented by a node with branches corresponding to the operator and the operands of the combination stemming from it. The terminal nodes (that is, nodes with no branches stemming from them) represent either operators or numbers. Viewing evaluation in terms of the tree, we can imagine that the values of the operands percolate upward, starting from the terminal nodes and then combining at higher and higher levels. In general, we shall see that recursion is a very powerful technique for dealing with hierarchical, treelike objects. In fact, the "percolate values upward" form of the evaluation rule is an example of a general kind of process known as *tree accumulation*.
 
 <a name="figure-1"></a>
-![Tree representation](images/ch1-Z-G-1.gif)
+![Tree representation](images/ch1-Z-G-1.png)
 
 **Figure 1.1**:  Tree representation, showing the value of each subcombination.
 
