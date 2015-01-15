@@ -1,2 +1,2 @@
-# Example: Square Roots by Newton's Method
+## Example: Square Roots by Newton's Method
 
