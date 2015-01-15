@@ -31,6 +31,13 @@ Below is a sequence of expressions. What is the result printed by the interprete
 
 Translate the following expression into prefix form 
 
+$$
+\begin{align}
+\frac{5+4+(2-(3-\left(6+\frac{4}{5}\right)}
+{3(6-2)(2-7)}
+\end{align}
+$$
+
 #### Exercise 1.3
 
 Define a procedure that takes three numbers as arguments and returns the sum of the squares of the two larger numbers. 
