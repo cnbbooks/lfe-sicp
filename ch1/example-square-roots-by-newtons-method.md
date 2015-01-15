@@ -53,7 +53,7 @@ A guess is improved by averaging it with the quotient of the radicand and the ol
 where
 
 ```lisp
-(define (average x y)
+(defun average (x y)
   (/ (+ x y) 2))
 ```
 
@@ -67,7 +67,7 @@ We also have to say what we mean by "good enough." The following will do for ill
 Finally, we need a way to get started. For instance, we can always guess that the square root of any number is 1:[^4]
 
 ```lisp
-(define (sqrt x)
+(defun sqrt (x)
   (sqrt-iter 1.0 x))
 ```
 
