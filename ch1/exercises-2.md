@@ -2,7 +2,7 @@
 
 #### Exercise 1.6
 
-Bob Bitwright doesn't see why ``if`` needs to be provided as a special form. "Why can't I just define it as an ordinary procedure in terms of cond?" he asks. Bob's friend Eva Lu Ator claims this can indeed be done, and she defines a new version of ``if``:
+Bob Bitwright doesn't see why ``if`` needs to be provided as a special form. "Why can't I just define it as an ordinary procedure in terms of ``cond``?" he asks. Bob's friend Eva Lu Ator claims this can indeed be done, and she defines a new version of ``if``:
 
 ```lisp
 (defun new-if (predicate then-clause else-clause)
@@ -13,10 +13,9 @@ Bob Bitwright doesn't see why ``if`` needs to be provided as a special form. "Wh
 Eva demonstrates the program for Bob:
 
 ```lisp
-(new-if (== 2 3) 0 5)
+> (new-if (== 2 3) 0 5)
 5
-
-(new-if (== 1 1) 0 5)
+> (new-if (== 1 1) 0 5)
 0
 ```
 
