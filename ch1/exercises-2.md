@@ -20,7 +20,7 @@ Eva demonstrates the program for Bob:
 0
 ```
 
-Delighted, Bob uses ``new-if`` to rewrite the square-root program:
+Delighted, Bob uses ``new-if/3`` to rewrite the square-root program:
 
 ```lisp
 (defun sqrt (guess x)
