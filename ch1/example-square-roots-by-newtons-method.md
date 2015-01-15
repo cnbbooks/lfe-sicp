@@ -74,13 +74,15 @@ Finally, we need a way to get started. For instance, we can always guess that th
 If we type these definitions to the interpreter, we can use ``sqrt`` just as we can use any procedure:
 
 ```lisp
-(sqrt 9)
+> (defun square (x) (* x x))
+square
+> (sqrt 9)
 3.00009155413138
-(sqrt (+ 100 37))
+> (sqrt (+ 100 37))
 11.704699917758145
-(sqrt (+ (sqrt 2) (sqrt 3)))
+> (sqrt (+ (sqrt 2) (sqrt 3)))
 1.7739279023207892
-(square (sqrt 1000))
+> (square (sqrt 1000))
 1000.000369924366
 ```
 
