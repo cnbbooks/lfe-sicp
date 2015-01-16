@@ -9,7 +9,7 @@ We begin by considering the factorial function, defined by
 
 $$
 \begin{align}
-n!=n(n-1)(n-2)\cdots3\cdot2\cdot1
+n!=n\ (n-1)\ (n-2)\cdots3\cdot2\cdot1
 \end{align}
 $$
 
@@ -17,7 +17,7 @@ There are many ways to compute factorials. One way is to make use of the observa
 
 $$
 \begin{align}
-n!=\left[n(n-1)(n-2)\cdots3\cdot2\cdot1\right] = n(n-1)!
+n!=\left[n\ (n-1)\ (n-2)\cdots3\cdot2\cdot1\right] = n\ (n-1)!
 \end{align}
 $$
 
