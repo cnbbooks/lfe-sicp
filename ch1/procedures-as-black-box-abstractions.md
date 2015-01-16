@@ -73,7 +73,7 @@ We have one kind of name isolation available to us so far: The formal parameters
 (defun square (x) (* x x))
 ```
 
-The last three are obviously quite general and useful in many contexts. This leaves us with the following special-purpose functions:
+The last three are fairly general, useful in many contexts. This leaves us with the following special-purpose functions from our square-root program:
 
 ```lisp
 (defun sqrt (x)
@@ -89,7 +89,7 @@ The last three are obviously quite general and useful in many contexts. This lea
   (average guess (/ x guess)))
 ```
 
-The problem with this program is that the only procedure that is important to users of the square-root program  is ``sqrt/1``. The other procedures (``sqrt/2``, ``good-enough?/2``, and ``improve/2``) only clutter up their minds. They may not define any other procedure called ``good-enough?/2`` as part of another program to work together with the square-root program, because the square-root program needs it. The problem is especially severe in the construction of large systems by many separate programmers. For example, in the construction of a large library of numerical procedures, many numerical functions are computed as successive approximations and thus might have procedures named ``good-enough?/2`` and ``improve/2`` as auxiliary procedures. We would like to localize the subprocedures, hiding them inside ``sqrt/1`` so that the square-root program could coexist with other successive approximations, each having its own private ``good-enough?/2`` procedure. To make this possible, we allow a procedure to have internal definitions that are local to that procedure. For example, in the square-root problem we can write
+The problem with this program is that the only function that is important to users of the square-root program  is ``sqrt/1``. The other procedures (``sqrt/2``, ``good-enough?/2``, and ``improve/2``) only clutter up their minds. They may not define any other function called ``good-enough?/2`` as part of another program to work together with the square-root program, because the square-root program needs it. The problem is especially severe in the construction of large systems by many separate programmers. For example, in the construction of a large library of numerical procedures, many numerical functions are computed as successive approximations and thus might have procedures named ``good-enough?/2`` and ``improve/2`` as auxiliary procedures. We would like to localize the subprocedures, hiding them inside ``sqrt/1`` so that the square-root program could coexist with other successive approximations, each having its own private ``good-enough?/2`` procedure. To make this possible, we allow a procedure to have internal definitions that are local to that procedure. For example, in the square-root problem we can write
 
 ```lisp
 (defun sqrt (x)
@@ -111,9 +111,9 @@ The problem with this program is that the only procedure that is important to us
     (sqrt (* 0.5 x) x)))
 ```
 
-The use of ``flet`` ("function let"), ``flet*`` (sequential "function let"s) , and ``fletrec`` ("recursive function let"s) allows one to define *locally scoped* functions, or functions that are only scoped within the given form. This is one of the classic solutions to the problem of naming collisions in older Lisp programs.
+The use of ``flet`` ("function let"), ``flet*`` (sequential "function let"s) , and ``fletrec`` ("recursive function let"s) allows one to define *locally scoped* functions, or functions that are only scoped within the given form. This is one of the classic solutions to the problem of naming collisions in older Lisp programs.[^3]
 
-But there is a better idea lurking here. In addition to internalizing the definitions of the auxiliary procedures, we can simplify them. Since ``x`` is bound in the definition of ``sqrt/1``, the functions ``good-enough?/2``, ``improve/2``, and ``sqrt/2``, which are defined internally to sqrt, are in the scope of ``x``. Thus, it is not necessary to pass ``x`` explicitly to each of these procedures. Instead, we allow ``x`` to be a free variable in the internal definitions, as shown below. Then ``x`` gets its value from the argument with which the enclosing function ``sqrt/1`` is called. This discipline is called *lexical scoping*.[^3]
+But there is a better idea lurking here. In addition to internalizing the definitions of the auxiliary procedures, we can simplify them. Since ``x`` is bound in the definition of ``sqrt/1``, the functions ``good-enough?/2``, ``improve/2``, and ``sqrt/2``, which are defined internally to sqrt, are in the scope of ``x``. Thus, it is not necessary to pass ``x`` explicitly to each of these procedures. Instead, we allow ``x`` to be a free variable in the internal definitions, as shown below. Then ``x`` gets its value from the argument with which the enclosing function ``sqrt/1`` is called. This discipline is called *lexical scoping*.[^4]
 
 ```lisp
 (defun sqrt (x)
@@ -136,7 +136,68 @@ But there is a better idea lurking here. In addition to internalizing the defini
 
 Note that this required to rename ``sqrt/2``, since we dropped its arity from 2 to 1, thus causing a name collision with our outer-most ``sqrt/1``.
 
+The idea of this sort of nested structure originated with the programming language Algol 60. It appears in most advanced programming languages and, as mentioned, used to be an important tool for helping to organize the construction of large programs.
+
 #### Modules, exports, and private functions
+
+While Algol 60 pioneered the concept of nested function definitions,[^5]
+later versions of Algol 68 advanced the concept of *modules*.[^6] This made a significant impact in the world of practical computing to the extent that most modern languages have some form of module support built in.
+
+LFE supports modules, and the proper way to provide a "black box" program to an LFE developer for their use is to define all the functions in one or more modules, exporting only those which are useful for consumption by other developers.
+
+Instead of using ``fletrec``, here is the square-root program using a module with one exported function:
+
+```lisp
+(defmodule sqrt
+  (export (sqrt 1)))
+
+(defun sqrt (x)
+  (sqrt (* 0.5 x) x))
+
+(defun sqrt (guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt (improve guess x)
+            x)))
+
+(defun good-enough? (guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(defun improve (guess x)
+  (average guess (/ x guess)))
+
+(defun average (x y)
+  (/ (+ x y) 2))
+
+(defun abs
+  ((x) (when (< x 0)) (- x))
+  ((x) x))
+
+(defun square (x) (* x x))
+```
+
+Then from the LFE REPL we can compile the module and run it, using the LFE ``(module:function ...)`` calling syntax
+
+```lisp
+> (c "sqrt.lfe")
+#(module sqrt)
+> (sqrt:sqrt 25)
+5.000012953048684
+> (sqrt:sqrt 1)
+1.0003048780487804
+> (sqrt:sqrt 2)
+1.4142156862745097
+```
+
+Attempting to use functions that are not exported results in an error
+
+```lisp
+> (sqrt:sqrt 1 25)
+exception error: undef
+  in (: sqrt sqrt 1 25)
+```
+
+We will use modules extensively to help us break up large programs into tractable pieces.
 
 ----
 
@@ -144,8 +205,13 @@ Note that this required to rename ``sqrt/2``, since we dropped its arity from 2 
 
 [^2]: The concept of consistent renaming is actually subtle and difficult to define formally. Famous logicians have made embarrassing errors here. 
 
-[^3]: Lexical scoping dictates that free variables in a function are taken to refer to bindings made by enclosing function definitions; that is, they are looked up in the environment in which the function was defined. We will see how this works in detail in chapter 11 when we study environments and the detailed behavior of the interpreter. 
+[^3]: This is one of the pillars of the [structured programming](https://en.wikipedia.org/wiki/Structured_programming) paradigm.
 
+[^4]: Lexical scoping dictates that free variables in a function are taken to refer to bindings made by enclosing function definitions; that is, they are looked up in the environment in which the function was defined. We will see how this works in detail in chapter 11 when we study environments and the detailed behavior of the interpreter. 
+
+[^5]: Also called *block structures*.
+
+[^6]: Extensions for module support in Algol 68 were released in 1970. In 1975, Modula was the first language designed from the beginning to have support for modules. Due to Modula's use of the "dot" ``.`` to separate modules and objects, that usage became popular in such languages as Python and and Java. In contrast, Erlang and LFE use the colon ``:`` to separate modules from functions.
 
 
 
