@@ -23,7 +23,7 @@
        * [Example: Square Roots by Newton's Method](ch1/example-square-roots-by-newtons-method.md)
        * [Exercises](ch1/exercises-2.md)
        * [Functions as Black-Box Abstractions](ch1/functions-as-black-box-abstractions.md)
-   * [Functions and the Processes They Generate](functions_and_the_processes_they_generate.md)
+   * [Functions and the Processes They Generate](ch1/functions_and_the_processes_they_generate.md)
        * [Linear Recursion and Iteration](ch1/linear_recursion_and_iteration.md)
        * [Exercises](ch1/exercises-3.md)
        * [Tree Recursion](ch1/tree_recursion.md)
