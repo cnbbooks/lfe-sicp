@@ -64,11 +64,11 @@ We also have to say what we mean by "good enough." The following will do for ill
   (< (abs (- (square guess) x)) 0.001))
 ```
 
-Finally, we need a way to get started. For instance, we can always guess that the square root of any number is $$\frac{1}{2}$$:[^4]
+Finally, we need a way to get started. For instance, we can always guess that the square root of some $$x$$ is $$\frac{x}{2}$$:[^4]
 
 ```lisp
 (defun sqrt (x)
-  (sqrt 0.5 x))
+  (sqrt (* 0.5 x) x))
 ```
 
 Note that we used the same name as a previous procedure, the iterative procedure that took two arguments. In LFE, not only do functions and variables have a difference namespace (unlike Scheme), but procedures are also dfferentiated by their arity. As such, functions with different arity may share the same name.[^5]
