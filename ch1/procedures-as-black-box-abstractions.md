@@ -1,13 +1,13 @@
 ### Procedures as Black-Box Abstractions
 
-``sqrt/1`` is our first example of a process defined by a set of mutually defined procedures. Notice that the definition of ``sqrt/2`` is recursive; that is, the procedure is defined in terms of itself. The idea of being able to define a procedure in terms of itself may be disturbing; it may seem unclear how such a "circular" definition could make sense at all, much less specify a well-defined process to be carried out by a computer. This will be addressed more carefully in section 9.3. But first let's consider some other important points illustrated by the ``sqrt`` example.
+``sqrt/1`` is our first example of a process defined by a set of mutually defined procedures. Notice that the definition of ``sqrt/2`` is recursive; that is, the procedure is defined in terms of itself. The idea of being able to define a procedure in terms of itself may be disturbing; it may seem unclear how such a "circular" definition could make sense at all, much less specify a well-defined process to be carried out by a computer. This will be addressed more carefully in section 9.3. But first let's consider some other important points illustrated by the examples of the square-root program.
 
-Observe that the problem of computing square roots breaks up naturally into a number of subproblems: how to tell whether a guess is good enough, how to improve a guess, and so on. Each of these tasks is accomplished by a separate procedure. The entire ``sqrt`` program can be viewed as a cluster of procedures (shown in [figure 1.2](#figure-2)) that mirrors the decomposition of the problem into subproblems.
+Observe that the problem of computing square roots breaks up naturally into a number of subproblems: how to tell whether a guess is good enough, how to improve a guess, and so on. Each of these tasks is accomplished by a separate procedure. The entire square-root program  can be viewed as a cluster of procedures (shown in [figure 1.2](#figure-2)) that mirrors the decomposition of the problem into subproblems.
 
 <a name="figure-2"></a>
 ![Tree representation](images/ch1-Z-G-6.png)
 
-**Figure 1.2**:  Procedural decomposition of the ``sqrt`` program.
+**Figure 1.2**:  Procedural decomposition of the square-root program.
 
 The importance of this decomposition strategy is not simply that one is dividing the program into parts. After all, we could take any large program and divide it into parts -- the first ten lines, the next ten lines, the next ten lines, and so on. Rather, it is crucial that each procedure accomplishes an identifiable task that can be used as a module in defining other procedures. For example, when we define the ``good-enough?/2`` procedure in terms of ``square/1``, we are able to regard the ``square/1`` procedure as a "black box." We are not at that moment concerned with how the procedure computes its result, only with the fact that it computes the square. The details of how the square is computed can be suppressed, to be considered at a later time. Indeed, as far as the ``good-enough?/2`` procedure is concerned, ``square/1`` is not quite a procedure but rather an abstraction of a procedure, a so-called procedural abstraction. At this level of abstraction, any procedure that computes the square is equally good.
 
@@ -51,18 +51,46 @@ In the definition of ``good-enough?/2`` above, ``guess`` and ``x`` are bound var
 
 #### Internal definitions and block structure
 
-```lisp
+We have one kind of name isolation available to us so far: The formal parameters of a procedure are local to the body of the procedure. The square-root program illustrates another way in which we would like to control the use of names. The existing program consists of separate procedures:
 
+```lisp
+(defun sqrt (x)
+  (sqrt (* 0.5 x) x))
 (defun sqrt (guess x)
   (if (good-enough? guess x)
       guess
       (sqrt (improve guess x)
                  x)))
+(defun good-enough? (guess x)
+  (< (abs (- (square guess) x)) 0.001))
+(defun improve (guess x)
+  (average guess (/ x guess)))
+(defun average (x y)
+  (/ (+ x y) 2))
 (defun abs
   ((x) (when (< x 0)) (- x))
   ((x) x))
 (defun square (x) (* x x))
 ```
+
+The last three are obviously quite general and useful in many contexts. This leaves us with the following special-purpose functions:
+
+```lisp
+(defun sqrt (x)
+  (sqrt (* 0.5 x) x))
+(defun sqrt (guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt (improve guess x)
+                 x)))
+(defun good-enough? (guess x)
+  (< (abs (- (square guess) x)) 0.001))
+(defun improve (guess x)
+  (average guess (/ x guess)))
+```
+
+The problem with this program is that the only procedure that is important to users of the square-root program  is ``sqrt/1``. The other procedures (``sqrt/2``, ``good-enough?/2``, and ``improve/2``) only clutter up their minds. They may not define any other procedure called ``good-enough?/2`` as part of another program to work together with the square-root program, because the square-root program needs it. The problem is especially severe in the construction of large systems by many separate programmers. For example, in the construction of a large library of numerical procedures, many numerical functions are computed as successive approximations and thus might have procedures named ``good-enough?/2`` and ``improve/2`` as auxiliary procedures. We would like to localize the subprocedures, hiding them inside ``sqrt/1`` so that the square-root program could coexist with other successive approximations, each having its own private ``good-enough?/2`` procedure. To make this possible, we allow a procedure to have internal definitions that are local to that procedure. For example, in the square-root problem we can write
+
 
 #### Modules, exports, and private functions
 
