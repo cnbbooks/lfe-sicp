@@ -51,6 +51,11 @@ In the definition of ``good-enough?/2`` above, ``guess`` and ``x`` are bound var
 
 #### Internal definitions and block structure
 
+```lisp
+
+(defun square (x) (* x x))
+```
+
 #### Modules, exports, and private functions
 
 ----
