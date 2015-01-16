@@ -5,6 +5,7 @@
 * [Copyright Page](fm/copyright-page.md)
 * [Dedication](fm/dedication.md)
 * [Foreword](fm/foreword.md)
+* [Foreword to the LFE Edition](fm/lfe-foreword.md)
 * [Preface to the LFE Edition](fm/preface-3.md)
 * [Preface to the Second Edition](fm/preface-2.md)
 * [Preface to the First Edition](fm/preface-1.md)
