@@ -23,18 +23,20 @@
        * [Example: Square Roots by Newton's Method](ch1/example-square-roots-by-newtons-method.md)
        * [Exercises](ch1/exercises-2.md)
        * [Functions as Black-Box Abstractions](ch1/functions-as-black-box-abstractions.md)
-   * Functions and the Processes They Generate
-       * Linear Recursion and Iteration
-       * Tree Recursion
-       * Orders of Growth
-       * Exponentiation
-       * Greatest Common Divisors
-       * Example: Testing for Primality
-   * Formulating Abstractions with Higher-Order Functions
-       * Functions as Arguments
-       * Constructing Functions Using Lambda
-       * Functions as General Methods
-       * Functions as Returned Values
+   * [Functions and the Processes They Generate](functions_and_the_processes_they_generate.md)
+       * [Linear Recursion and Iteration](ch1/linear_recursion_and_iteration.md)
+       * [Exercises](ch1/exercises-3.md)
+       * [Tree Recursion](ch1/tree_recursion.md)
+       * [Exercises](ch1/exercises-4.md)
+       * [Orders of Growth](ch1/orders_of_growth.md)
+       * [Exponentiation](ch1/exponentiation.md)
+       * [Greatest Common Divisors](ch1/greatest_common_divisors.md)
+       * [Example: Testing for Primality](ch1/example_testing_for_primality.md)
+   * [Formulating Abstractions with Higher-Order Functions](ch1/formulating_abstractions_with_higher-order_functions.md)
+       * [Functions as Arguments](ch1/functions_as_arguments.md)
+       * [Constructing Functions Using Lambda](ch1/constructing_functions_using_lambda.md)
+       * [Functions as General Methods](ch1/functions_as_general_methods.md)
+       * [Functions as Returned Values](ch1/functions_as_returned_values.md)
 * Building Abstractions with Data
    * Introduction to Data Abstraction
        * Example: Arithmetic Operations for Rational Numbers
