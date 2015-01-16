@@ -53,6 +53,11 @@ In the definition of ``good-enough?/2`` above, ``guess`` and ``x`` are bound var
 
 ```lisp
 
+(defun sqrt (guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt (improve guess x)
+                 x)))
 (defun abs
   ((x) (when (< x 0)) (- x))
   ((x) x))
