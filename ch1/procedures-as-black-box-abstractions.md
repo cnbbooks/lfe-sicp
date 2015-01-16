@@ -60,7 +60,7 @@ We have one kind of name isolation available to us so far: The formal parameters
   (if (good-enough? guess x)
       guess
       (sqrt (improve guess x)
-                 x)))
+            x)))
 (defun good-enough? (guess x)
   (< (abs (- (square guess) x)) 0.001))
 (defun improve (guess x)
@@ -82,7 +82,7 @@ The last three are obviously quite general and useful in many contexts. This lea
   (if (good-enough? guess x)
       guess
       (sqrt (improve guess x)
-                 x)))
+            x)))
 (defun good-enough? (guess x)
   (< (abs (- (square guess) x)) 0.001))
 (defun improve (guess x)
@@ -91,6 +91,28 @@ The last three are obviously quite general and useful in many contexts. This lea
 
 The problem with this program is that the only procedure that is important to users of the square-root program  is ``sqrt/1``. The other procedures (``sqrt/2``, ``good-enough?/2``, and ``improve/2``) only clutter up their minds. They may not define any other procedure called ``good-enough?/2`` as part of another program to work together with the square-root program, because the square-root program needs it. The problem is especially severe in the construction of large systems by many separate programmers. For example, in the construction of a large library of numerical procedures, many numerical functions are computed as successive approximations and thus might have procedures named ``good-enough?/2`` and ``improve/2`` as auxiliary procedures. We would like to localize the subprocedures, hiding them inside ``sqrt/1`` so that the square-root program could coexist with other successive approximations, each having its own private ``good-enough?/2`` procedure. To make this possible, we allow a procedure to have internal definitions that are local to that procedure. For example, in the square-root problem we can write
 
+```lisp
+(defun sqrt (x)
+  (fletrec ((improve (guess x)
+              "Improve a given guess for the square root."
+              (average guess (/ x guess)))
+            (good-enough? (guess x)
+              "A predicate which determines if a guess is
+              close enough to a correct result."
+              (< (abs (- (square guess) x)) 0.001))
+            (sqrt (guess x)
+              "A recursive function for approximating
+              the square root of a given number."
+              (if (good-enough? guess x)
+                guess
+                (sqrt (improve guess x)
+                      x)))))
+    (sqrt (* 0.5 x) x)))
+```
+
+The use of ``flet`` ("function let"), ``flet*`` (sequential "function let"s) , and ``fletrec`` ("recursive function let"s) allows one to defined *locaally scoped* functions
+
+Such nesting of definitions is sometimes called *block structure*, is basically the right solution to the simplest name-packaging problem. But there is a better idea lurking here. In addition to internalizing the definitions of the auxiliary procedures, we can simplify them. Since x is bound in the definition of sqrt, the procedures good-enough?, improve, and sqrt-iter, which are defined internally to sqrt, are in the scope of x. Thus, it is not necessary to pass x explicitly to each of these procedures. Instead, we allow x to be a free variable in the internal definitions, as shown below. Then x gets its value from the argument with which the enclosing procedure sqrt is called. This discipline is called lexical scoping.27
 
 #### Modules, exports, and private functions
 
