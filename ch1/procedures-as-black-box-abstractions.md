@@ -51,6 +51,7 @@ In the definition of ``good-enough?/2`` above, ``guess`` and ``x`` are bound var
 
 #### Internal definitions and block structure
 
+#### Modules, exports, and private functions
 
 ----
 
