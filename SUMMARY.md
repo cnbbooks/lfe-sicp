@@ -25,7 +25,9 @@
        * [Functions as Black-Box Abstractions](ch1/functions-as-black-box-abstractions.md)
    * [Functions and the Processes They Generate](functions_and_the_processes_they_generate.md)
        * Linear Recursion and Iteration
+       * [Exercises](ch1/exercises-3.md)
        * Tree Recursion
+       * [Exercises](ch1/exercises-4.md)
        * Orders of Growth
        * Exponentiation
        * Greatest Common Divisors
