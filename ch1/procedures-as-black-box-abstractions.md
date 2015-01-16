@@ -53,6 +53,9 @@ In the definition of ``good-enough?/2`` above, ``guess`` and ``x`` are bound var
 
 ```lisp
 
+(defun abs
+  ((x) (when (< x 0)) (- x))
+  ((x) x))
 (defun square (x) (* x x))
 ```
 
