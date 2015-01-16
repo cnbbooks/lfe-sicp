@@ -40,11 +40,11 @@ $$
 
 #### Exercise 1.3
 
-Define a procedure that takes three numbers as arguments and returns the sum of the squares of the two larger numbers. 
+Define a function that takes three numbers as arguments and returns the sum of the squares of the two larger numbers. 
 
 #### Exercise 1.4
 
-Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following procedure: 
+Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following function: 
 
 ```lisp
 (defun a-plus-abs-b (a b)
@@ -56,7 +56,7 @@ Observe that our model of evaluation allows for combinations whose operators are
 
 #### Exercise 1.5
 
-Alice Algol has invented a test to determine whether the interpreter she is faced with is using applicative-order evaluation or normal-order evaluation. She defines the following two procedures:
+Alice Algol has invented a test to determine whether the interpreter she is faced with is using applicative-order evaluation or normal-order evaluation. She defines the following two functions:
 
 ```lisp
 (defun p () (p))

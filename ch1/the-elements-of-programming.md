@@ -8,9 +8,9 @@ A powerful programming language is more than just a means for instructing a comp
 
 * means of abstraction, by which compound elements can be named and manipulated as units.
 
-In programming, we deal with two kinds of elements: procedures and data. (Later we will discover that they are really not so distinct.) Informally, data is "stuff" that we want to manipulate, and procedures are descriptions of the rules for manipulating the data. Thus, any powerful programming language should be able to describe primitive data and primitive procedures and should have methods for combining and abstracting procedures and data.
+In programming, we deal with two kinds of elements: functions and data. (Later we will discover that they are really not so distinct.) Informally, data is "stuff" that we want to manipulate, and functions are descriptions of the rules for manipulating the data. Thus, any powerful programming language should be able to describe primitive data and primitive functions and should have methods for combining and abstracting functions and data.
 
-In this chapter we will deal only with simple numerical data so that we can focus on the rules for building procedures.[^1] In later chapters we will see that these same rules allow us to build procedures to manipulate compound data as well.
+In this chapter we will deal only with simple numerical data so that we can focus on the rules for building functions.[^1] In later chapters we will see that these same rules allow us to build functions to manipulate compound data as well.
 
 ----
 

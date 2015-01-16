@@ -1,6 +1,6 @@
 ### Conditional Expressions and Predicates
 
-The expressive power of the class of procedures that we can define at this point is very limited, because we have no way to make tests and to perform different operations depending on the result of a test. For instance, we cannot define a procedure that computes the absolute value of a number by testing whether the number is positive, negative, or zero and taking different actions in the different cases according to the rule
+The expressive power of the class of functions that we can define at this point is very limited, because we have no way to make tests and to perform different operations depending on the result of a test. For instance, we cannot define a function that computes the absolute value of a number by testing whether the number is positive, negative, or zero and taking different actions in the different cases according to the rule
 
 $$
 \begin{align}
@@ -58,9 +58,9 @@ Thanks to that fact that Erlang underlies LFE, the LFE ``cond`` supports both pa
 
 Conditional expressions are evaluated as follows. The predicate ``<p1>`` is evaluated first. If its value is false, then``<p2>`` is evaluated. If ``<p2>``'s value is also false, then ``<p3>`` is evaluated. This process continues until a predicate is found whose value is true, in which case the interpreter returns the value of the corresponding *consequent expression* ``<e>`` of the clause as the value of the conditional expression. If none of the ``<p>``'s is found to be ``true``, the value of the ``cond`` is ``false``.
 
-The word *predicate* is used for procedures that return ``true`` or ``false``, as well as for expressions that evaluate to ``true`` or ``false``. The absolute-value procedure ``abs`` makes use of the primitive predicates ``>``, ``<``, and ``==``.[^2] These take two numbers as arguments and test whether the first number is, respectively, greater than, less than, or equal to the second number, returning true or false accordingly.
+The word *predicate* is used for functions that return ``true`` or ``false``, as well as for expressions that evaluate to ``true`` or ``false``. The absolute-value function ``abs`` makes use of the primitive predicates ``>``, ``<``, and ``==``.[^2] These take two numbers as arguments and test whether the first number is, respectively, greater than, less than, or equal to the second number, returning true or false accordingly.
 
-Another way to write the absolute-value procedure is
+Another way to write the absolute-value function is
 
 ```lisp
 (defun abs (x)
@@ -72,7 +72,7 @@ which could be expressed in English as "If ``x`` is less than zero return ``-x``
 
 #### The ``if`` Form
 
-Another condition form available to most Lisps and to LFE is ``if``. Here is yet another way to write the absolute-value procedure:
+Another condition form available to most Lisps and to LFE is ``if``. Here is yet another way to write the absolute-value function:
 
 ```lisp
 (defun abs (x)
@@ -102,7 +102,7 @@ Through Erlang, LFE supports a form not found by default in most Lisps: ``case``
   (<patternn> <guardn> <en>))
 ```
 
-We could rewrite our absolute-value procedure using ``case`` like this:
+We could rewrite our absolute-value function using ``case`` like this:
 
 ```lisp
 
@@ -114,17 +114,17 @@ We could rewrite our absolute-value procedure using ``case`` like this:
 
 When the final pattern matched against is the "I-don't-care variable",[^5] the effect is the same as the final ``'true`` in the ``cond`` form: if all else fails to match, the expression associated with the ``_`` pattern is returned.
 
-#### Procedure Argument Patterns
+#### Function Argument Patterns
 
-In our discussion of conditionals, we would be remiss in our duties if we did not bring up the topic of pattern-matching in procedure arguments, or in this case, patterns and guards.
+In our discussion of conditionals, we would be remiss in our duties if we did not bring up the topic of pattern-matching in function arguments, or in this case, patterns and guards.
 
-Ordinarily in LFE you define a procedure as we have discussed, using the form
+Ordinarily in LFE you define a function as we have discussed, using the form
 
 ```lisp
 (defun <name> (<arguments>) <body>)
 ```
 
-However, like Erlang, LFE supports pattern matching and guards in procedures. The more general form of procedure definition is
+However, like Erlang, LFE supports pattern matching and guards in functions. The more general form of function definition is
 
 ```lisp
 (defun <name>
@@ -134,7 +134,7 @@ However, like Erlang, LFE supports pattern matching and guards in procedures. Th
   ((<argpatternn>) <guardn> <bodyn>))
 ```
 
-We can rewrite our absolute-value procedure using a simple pattern and guards
+We can rewrite our absolute-value function using a simple pattern and guards
 
 ```lisp
 (defun abs
@@ -165,7 +165,7 @@ In addition to primitive predicates such as ``<``, ``=``, and ``>``, there are l
 * ``(not <e>)`` - 
   The value of a ``not`` expression is ``true`` when the expression ``<e>`` evaluates to ``false``, and ``false`` otherwise.
 
-Notice that ``and`` and ``or`` are special forms, not procedures, because the subexpressions are not necessarily all evaluated. ``not`` is an ordinary procedure.
+Notice that ``and`` and ``or`` are special forms, not functions, because the subexpressions are not necessarily all evaluated. ``not`` is an ordinary function.
 
 As an example of how these are used, the condition that a number $$x$$ be in the range $$5 < x < 10$$ may be expressed as
 

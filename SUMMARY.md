@@ -9,31 +9,31 @@
 * [Preface to the Second Edition](fm/preface-2.md)
 * [Preface to the First Edition](fm/preface-1.md)
 * [Acknowledgments](fm/acknowledgments.md)
-* [Building Abstractions with Procedures](ch1/building-abstractions-with-procedures.md)
+* [Building Abstractions with Functions](ch1/building-abstractions-with-functions.md)
    * [Programming in Lisp](ch1/programming-in-lisp.md)
    * [The Elements of Programming](ch1/the-elements-of-programming.md)
        * [Expressions](ch1/expressions.md)
        * [Naming and the Environment](ch1/naming-and-the-environment.md)
        * [Evaluating Combinations](ch1/evaluating-combinations.md)
-       * [Compound Procedures](ch1/compound-procedures.md)
-       * [The Substitution Model for Procedure Application](ch1/the-substitution-model-for-procedure-application.md)
+       * [Compound Functions](ch1/compound-functions.md)
+       * [The Substitution Model for Function Application](ch1/the-substitution-model-for-function-application.md)
        * [Conditional Expressions and Predicates](ch1/conditional-expressions-and-predicates.md)
        * [Exercises](ch1/exercises-1.md)
        * [Example: Square Roots by Newton's Method](ch1/example-square-roots-by-newtons-method.md)
        * [Exercises](ch1/exercises-2.md)
-       * [Procedures as Black-Box Abstractions](ch1/procedures-as-black-box-abstractions.md)
-   * Procedures and the Processes They Generate
+       * [Functions as Black-Box Abstractions](ch1/functions-as-black-box-abstractions.md)
+   * Functions and the Processes They Generate
        * Linear Recursion and Iteration
        * Tree Recursion
        * Orders of Growth
        * Exponentiation
        * Greatest Common Divisors
        * Example: Testing for Primality
-   * Formulating Abstractions with Higher-Order Procedures
-       * Procedures as Arguments
-       * Constructing Procedures Using Lambda
-       * Procedures as General Methods
-       * Procedures as Returned Values
+   * Formulating Abstractions with Higher-Order Functions
+       * Functions as Arguments
+       * Constructing Functions Using Lambda
+       * Functions as General Methods
+       * Functions as Returned Values
 * Building Abstractions with Data
    * Introduction to Data Abstraction
        * Example: Arithmetic Operations for Rational Numbers
@@ -65,7 +65,7 @@
        * The Costs of Introducing Assignment
    * The Environment Model of Evaluation
        * The Rules for Evaluation
-       * Applying Simple Procedures
+       * Applying Simple Functions
        * Frames as the Repository of Local State
        * Internal Definitions
    * Modeling with Mutable Data
@@ -115,7 +115,7 @@
    * A Register-Machine Simulator
        * The Machine Model
        * The Assembler
-       * Generating Execution Procedures for Instructions
+       * Generating Execution Functions for Instructions
        * Monitoring Machine Performance
    * Storage Allocation and Garbage Collection
        * Memory as Vectors

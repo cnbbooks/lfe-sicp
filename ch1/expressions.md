@@ -14,7 +14,7 @@ the interpreter will respond by printing[^1]
 42
 ```
 
-Expressions representing numbers may be combined with an expression representing a primitive procedure (such as ``+`` or ``*``) to form a compound expression that represents the application of the procedure to those numbers. For example:
+Expressions representing numbers may be combined with an expression representing a primitive function (such as ``+`` or ``*``) to form a compound expression that represents the application of the function to those numbers. For example:
 
 ```lisp
 > (- 309 267)
@@ -29,9 +29,9 @@ Expressions representing numbers may be combined with an expression representing
 12.7
 ```
 
-Expressions such as these, formed by delimiting a list of expressions within parentheses in order to denote procedure application, are called *combinations*. The leftmost element in the list is called the *operator*, and the other elements are called *operands*. The value of a combination is obtained by applying the procedure specified by the operator to the arguments that are the values of the operands.
+Expressions such as these, formed by delimiting a list of expressions within parentheses in order to denote function application, are called *combinations*. The leftmost element in the list is called the *operator*, and the other elements are called *operands*. The value of a combination is obtained by applying the function specified by the operator to the arguments that are the values of the operands.
 
-The convention of placing the operator to the left of the operands is known as *prefix notation*, and it may be somewhat confusing at first[^2] because it departs significantly from the customary mathematical convention. Prefix notation has several advantages, however. One of them is that it can accommodate procedures that may take an arbitrary number of arguments, as in the following examples:
+The convention of placing the operator to the left of the operands is known as *prefix notation*, and it may be somewhat confusing at first[^2] because it departs significantly from the customary mathematical convention. Prefix notation has several advantages, however. One of them is that it can accommodate functions that may take an arbitrary number of arguments, as in the following examples:
 
 ```lisp
 > (+ 21 35 12 7)

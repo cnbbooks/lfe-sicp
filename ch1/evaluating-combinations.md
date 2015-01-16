@@ -1,10 +1,10 @@
 ### Evaluating Combinations
 
-One of our goals in this chapter is to isolate issues about thinking procedurally. As a case in point, let us consider that, in evaluating combinations, the interpreter is itself following a procedure.
+One of our goals in this chapter is to isolate issues about thinking procedurally. As a case in point, let us consider that, in evaluating combinations, the interpreter is itself following a function.
 
 * To evaluate a combination, do the following: 
     1.  Evaluate the subexpressions of the combination.
-    1.  Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).
+    1.  Apply the function that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).
     
 Even this simple rule illustrates some important points about processes in general. First, observe that the first step dictates that in order to accomplish the evaluation process for a combination we must first perform the evaluation process on each element of the combination. Thus, the evaluation rule is recursive in nature; that is, it includes, as one of its steps, the need to invoke the rule itself.[^1]
 
@@ -36,7 +36,7 @@ Such exceptions to the general evaluation rule are called ``special forms``. ``s
 
 ----
 
-[^1]: It may seem strange that the evaluation rule says, as part of the first step, that we should evaluate the leftmost element of a combination, since at this point that can only be an operator such as ``+`` or ``*`` representing a built-in primitive procedure such as addition or multiplication. We will see later that it is useful to be able to work with combinations whose operators are themselves compound expressions. 
+[^1]: It may seem strange that the evaluation rule says, as part of the first step, that we should evaluate the leftmost element of a combination, since at this point that can only be an operator such as ``+`` or ``*`` representing a built-in primitive function such as addition or multiplication. We will see later that it is useful to be able to work with combinations whose operators are themselves compound expressions. 
 
 [^2]: Special syntactic forms that are simply convenient alternative surface structures for things that can be written in more uniform ways are sometimes called ``syntactic sugar``, to use a phrase coined by Peter Landin. In comparison with users of other languages, Lisp programmers, as a rule, are less concerned with matters of syntax. (By contrast, examine any Pascal manual and notice how much of it is devoted to descriptions of syntax.) This disdain for syntax is due partly to the flexibility of Lisp, which makes it easy to change surface syntax, and partly to the observation that many "convenient" syntactic constructs, which make the language less uniform, end up causing more trouble than they are worth when programs become large and complex. In the words of Alan Perlis, "Syntactic sugar causes cancer of the semicolon."
 
