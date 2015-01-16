@@ -94,25 +94,47 @@ The problem with this program is that the only procedure that is important to us
 ```lisp
 (defun sqrt (x)
   (fletrec ((improve (guess x)
-              "Improve a given guess for the square root."
+              ;; Improve a given guess for the square root.
               (average guess (/ x guess)))
             (good-enough? (guess x)
-              "A predicate which determines if a guess is
-              close enough to a correct result."
+              ;; A predicate which determines if a guess is
+              ;; close enough to a correct result.
               (< (abs (- (square guess) x)) 0.001))
             (sqrt (guess x)
-              "A recursive function for approximating
-              the square root of a given number."
+              ;; A recursive function for approximating
+              ;; the square root of a given number.
               (if (good-enough? guess x)
-                guess
-                (sqrt (improve guess x)
-                      x)))))
+                  guess
+                  (sqrt (improve guess x)
+                        x))))
+    ;; the main body of the function
     (sqrt (* 0.5 x) x)))
 ```
 
-The use of ``flet`` ("function let"), ``flet*`` (sequential "function let"s) , and ``fletrec`` ("recursive function let"s) allows one to defined *locaally scoped* functions
+The use of ``flet`` ("function let"), ``flet*`` (sequential "function let"s) , and ``fletrec`` ("recursive function let"s) allows one to define *locally scoped* functions, or functions that are only scoped within the given form. This is one of the classic solutions to the problem of naming collisions in older Lisp programs.
 
-Such nesting of definitions is sometimes called *block structure*, is basically the right solution to the simplest name-packaging problem. But there is a better idea lurking here. In addition to internalizing the definitions of the auxiliary procedures, we can simplify them. Since x is bound in the definition of sqrt, the procedures good-enough?, improve, and sqrt-iter, which are defined internally to sqrt, are in the scope of x. Thus, it is not necessary to pass x explicitly to each of these procedures. Instead, we allow x to be a free variable in the internal definitions, as shown below. Then x gets its value from the argument with which the enclosing procedure sqrt is called. This discipline is called lexical scoping.27
+But there is a better idea lurking here. In addition to internalizing the definitions of the auxiliary procedures, we can simplify them. Since ``x`` is bound in the definition of ``sqrt/1``, the functions ``good-enough?/2``, ``improve/2``, and ``sqrt/2``, which are defined internally to sqrt, are in the scope of ``x``. Thus, it is not necessary to pass ``x`` explicitly to each of these procedures. Instead, we allow ``x`` to be a free variable in the internal definitions, as shown below. Then ``x`` gets its value from the argument with which the enclosing function ``sqrt/1`` is called. This discipline is called *lexical scoping*.[^3]
+
+```lisp
+(defun sqrt (x)
+  (fletrec ((improve (guess)
+              ;; Improve a given guess for the square root.
+              (average guess (/ x guess)))
+            (good-enough? (guess)
+              ;; A predicate which determines if a guess is
+              ;; close enough to a correct result.
+              (< (abs (- (square guess) x)) 0.001))
+            (sqrt-rec (guess)
+              ;; A recursive function for approximating
+              ;; the square root of a given number.
+              (if (good-enough? guess)
+                  guess
+                  (sqrt-rec (improve guess)))))
+    ;; the main body of the function
+    (sqrt-rec (* 0.5 x))))
+```
+
+Note that this required to rename ``sqrt/2``, since we dropped its arity from 2 to 1, thus causing a name collision with our outer-most ``sqrt/1``.
 
 #### Modules, exports, and private functions
 
@@ -122,7 +144,7 @@ Such nesting of definitions is sometimes called *block structure*, is basically 
 
 [^2]: The concept of consistent renaming is actually subtle and difficult to define formally. Famous logicians have made embarrassing errors here. 
 
-
+[^3]: Lexical scoping dictates that free variables in a function are taken to refer to bindings made by enclosing function definitions; that is, they are looked up in the environment in which the function was defined. We will see how this works in detail in chapter 11 when we study environments and the detailed behavior of the interpreter. 
 
 
 
