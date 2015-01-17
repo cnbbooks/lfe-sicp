@@ -1,7 +1,7 @@
 ### Linear Recursion and Iteration
 
 <a name="figure-3"></a>
-![A linear recursive process for computing 6 factorial](images/ch1-Z-G-10.png)
+![A linear recursive process for computing 6 factorial](images/ch1-Z-G-7.png)
 
 **Figure 1.3**:  A linear recursive process for computing $$6!$$.
 
@@ -41,7 +41,7 @@ counter $$\gets$$ counter $$+ 1$$
 and stipulating that $$n!$$ is the value of the product when the counter exceeds $$n$$.
 
 <a name="figure-4"></a>
-![A linear iterative process for computing 6 factorial](images/ch1-Z-G-13.png)
+![A linear iterative process for computing 6 factorial](images/ch1-Z-G-10.png)
 
 **Figure 1.4**:  A linear iterative process for computing $$6!$$.
 
