@@ -134,18 +134,30 @@ But there is a better idea lurking here. In addition to internalizing the defini
     (sqrt-rec (* 0.5 x))))
 ```
 
-Note that this required to rename ``sqrt/2``, since we dropped its arity from 2 to 1, thus causing a name collision with our outer-most ``sqrt/1``.
+Note that this required the renaming of the ``sqrt/2`` function. We dropped the
+arity of ``sqrt/2`` from 2 to 1, thus causing a name collision with our
+outer-most ``sqrt/1`` and thus renamed it to ``sqrt-rec/1``.
 
-The idea of this sort of nested structure originated with the programming language Algol 60. It appears in most advanced programming languages and, as mentioned, used to be an important tool for helping to organize the construction of large programs.
+The idea of this sort of nested structure originated with the programming
+language Algol 60. It appears in most advanced programming languages and, as
+mentioned, used to be an important tool for helping to organize the
+construction of large programs.
+
 
 #### Modules, exports, and private functions
 
 While Algol 60 pioneered the concept of nested function definitions,[^5]
-later versions of Algol 68 advanced the concept of *modules*.[^6] This made a significant impact in the world of practical computing to the extent that most modern languages have some form of module support built in.
+later versions of Algol 68 advanced the concept of *modules*.[^6] This made a
+significant impact in the world of practical computing to the extent that most
+modern languages have some form of module support built in.
 
-LFE supports modules, and the proper way to provide a "black box" program to an LFE developer for their use is to define all the functions in one or more modules, exporting only those which are useful for consumption by other developers.
+LFE supports modules. The proper way to provide a "black box" program to an
+LFE developer for their use is to define all the functions in one or more
+modules and export only those functions which are intended to be
+consumed by a developers.
 
-Instead of using ``fletrec``, here is the square-root program using a module with one exported function:
+Instead of using ``fletrec``, here is the square-root program using a module
+with one exported function:
 
 ```lisp
 (defmodule sqrt
