@@ -24,5 +24,10 @@ $$
 Thus, we can compute $$n!$$ by computing $$(n - 1)!$$ and multiplying the result by $$n$$. If we add the stipulation that $$1!$$ is equal to $$1$$, this observation translates directly into a function:
 
 ```lisp
-
+(defun factorial (n)
+  (if (== n 1)
+      1
+      (* n (factorial (- n 1)))))
 ```
+
+We can use the substitution model of section [10.2.5]() to watch this procedure in action computing $$6!$$, as shown in [figure 1.3](#figure-3).
