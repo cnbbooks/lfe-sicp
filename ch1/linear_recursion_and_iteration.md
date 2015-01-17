@@ -59,6 +59,8 @@ Once again, we can recast our description as a procedure for computing factorial
                  max-count)))
 ```
 
+As before, we can use the substitution model to visualize the process of computing 6!, as shown in [figure 1.4](#figure-4).
+
 ----
 
 [^1]: 
