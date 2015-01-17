@@ -4,11 +4,11 @@ We have identified in Lisp some of the elements that must appear in any powerful
 
 * Numbers and arithmetic operations are primitive data and functions.
 * Nesting of combinations provides a means of combining operations.
-* Definitions that associate names with values provide a limited means of abstraction. 
+* Definitions that associate names with values provide a limited means of abstraction.
 
 Now we will learn about *function definitions*, a much more powerful abstraction technique by which a compound operation can be given a name and then referred to as a unit.
 
-We begin by examining how to express the idea of "squaring." We might say, "To square something, multiply it by itself." This is expressed in our language as 
+We begin by examining how to express the idea of "squaring." We might say, "To square something, multiply it by itself." This is expressed in our language as
 
 ```lisp
 (defun square (x) (* x x))
@@ -51,7 +51,7 @@ We can also use square as a building block in defining other functions. For exam
 ```
 
 We can easily define a function ``sum-of-squares`` that, given any two numbers as arguments, produces the sum of their squares:
- 
+
  ```lisp
 > (defun sum-of-squares (x y)
      (+ (square x) (square y)))
@@ -70,15 +70,29 @@ f
 136
 ```
 
-Compound functions are used in exactly the same way as primitive functions. Indeed, one could not tell by looking at the definition of ``sum-of-squares`` given above whether ``square`` was built into the interpreter, like ``+`` and ``*``, or defined as a compound function.
+Compound functions are used in exactly the same way as primitive functions.
+Indeed, one could not tell by looking at the definition of ``sum-of-squares``
+given above whether ``square`` was built into the interpreter, like ``+`` and
+``*``, or defined as a compound function.
 
 ----
 
-[^1]: Observe that there are two different operations being combined here: we are creating the function, and we are giving it the name ``square``. It is possible, indeed important, to be able to separate these two notions -- to create functions without naming them, and to give names to functions that have already been created. We will see how to do this in section [9.4.2](). 
+[^1]: Observe that there are two different operations being combined here: we
+are creating the function, and we are giving it the name ``square``. It is
+possible, indeed important, to be able to separate these two notions -- to
+create functions without naming them, and to give names to functions that have
+already been created. We will see how to do this in the section [Constructing
+Procedures Using Lambda]().
 
-[^2]: Throughout this book, we will describe the general syntax of expressions by using italic symbols delimited by angle brackets -- e.g., ``<name>`` -- to denote the "slots" in the expression to be filled in when such an expression is actually used. 
+[^2]: Throughout this book, we will describe the general syntax of expressions
+by using italic symbols delimited by angle brackets -- e.g., ``<name>`` -- to
+denote the "slots" in the expression to be filled in when such an expression is
+actually used.
 
-[^3]: More generally, the body of the function can be a sequence of expressions. In this case, the interpreter evaluates each expression in the sequence in turn and returns the value of the final expression as the value of the function application. 
+[^3]: More generally, the body of the function can be a sequence of
+expressions. In this case, the interpreter evaluates each expression in the
+sequence in turn and returns the value of the final expression as the value of
+the function application.
 
 
 

@@ -1,22 +1,50 @@
 ### Functions as Black-Box Abstractions
 
-``sqrt/1`` is our first example of a program defined by a set of mutually defined functions. Notice that the definition of ``sqrt/2`` is recursive; that is, the function is defined in terms of itself. The idea of being able to define a function in terms of itself may be disturbing; it may seem unclear how such a "circular" definition could make sense at all, much less specify a well-defined process to be carried out by a computer. This will be addressed more carefully in section 9.3. But first let's consider some other important points illustrated by the examples of the square-root program.
+``sqrt/1`` is our first example of a program defined by a set of mutually
+defined functions. Notice that the definition of ``sqrt/2`` is recursive; that
+is, the function is defined in terms of itself. The idea of being able to
+define a function in terms of itself may be disturbing; it may seem unclear how
+such a "circular" definition could make sense at all, much less specify a
+well-defined process to be carried out by a computer. This will be addressed
+more carefully in the section [Procedures and the Processes They Generate]().
+But first let's consider some other important points illustrated by the
+examples of the square-root program.
 
-Observe that the problem of computing square roots breaks up naturally into a number of subproblems: how to tell whether a guess is good enough, how to improve a guess, and so on. Each of these tasks is accomplished by a separate function. The entire square-root program  can be viewed as a cluster of functions (shown in [figure 1.2](#figure-2)) that mirrors the decomposition of the problem into subproblems.
+Observe that the problem of computing square roots breaks up naturally into a
+number of subproblems: how to tell whether a guess is good enough, how to
+improve a guess, and so on. Each of these tasks is accomplished by a separate
+function. The entire square-root program  can be viewed as a cluster of
+functions (shown in [figure 1.2](#figure-2)) that mirrors the decomposition of
+the problem into subproblems.
 
 <a name="figure-2"></a>
 ![Tree representation](images/ch1-Z-G-6.png)
 
 **Figure 1.2**:  Procedural decomposition of the square-root program.
 
-The importance of this decomposition strategy is not simply that one is dividing the program into parts. After all, we could take any large program and divide it into parts -- the first ten lines, the next ten lines, the next ten lines, and so on. Rather, it is crucial that each function accomplishes an identifiable task that can be used as a module in defining other functions. For example, when we define the ``good-enough?/2`` function in terms of ``square/1``, we are able to regard the ``square/1`` function as a "black box." We are not at that moment concerned with how the function computes its result, only with the fact that it computes the square. The details of how the square is computed can be suppressed, to be considered at a later time. Indeed, as far as the ``good-enough?/2`` function is concerned, ``square/1`` is not quite a function but rather an abstraction of a function, a so-called procedural abstraction. At this level of abstraction, any function that computes the square is equally good.
+The importance of this decomposition strategy is not simply that one is
+dividing the program into parts. After all, we could take any large program and
+divide it into parts -- the first ten lines, the next ten lines, the next ten
+lines, and so on. Rather, it is crucial that each function accomplishes an
+identifiable task that can be used as a module in defining other functions. For
+example, when we define the ``good-enough?/2`` function in terms of
+``square/1``, we are able to regard the ``square/1`` function as a "black box."
+We are not at that moment concerned with how the function computes its result,
+only with the fact that it computes the square. The details of how the square
+is computed can be suppressed, to be considered at a later time. Indeed, as far
+as the ``good-enough?/2`` function is concerned, ``square/1`` is not quite a
+function but rather an abstraction of a function, a so-called procedural
+abstraction. At this level of abstraction, any function that computes the
+square is equally good.
 
-Thus, considering only the values they return, the following two functions for squaring a number should be indistinguishable. Each takes a numerical argument and produces the square of that number as the value.[^1]
+Thus, considering only the values they return, the following two functions for
+squaring a number should be indistinguishable. Each takes a numerical argument
+and produces the square of that number as the value.[^1]
 
 ```lisp
 (defun square (x) (* x x))
 
-(defun square (x) 
+(defun square (x)
   (exp (double (log x))))
 
 (defun double (x) (+ x x))
@@ -209,21 +237,37 @@ exception error: undef
   in (: sqrt sqrt 1 25)
 ```
 
-We will use modules extensively to help us break up large programs into tractable pieces.
+We will use modules extensively to help us break up large programs into
+tractable pieces.
 
 ----
 
-[^1]: It is not even clear which of these functions is a more efficient implementation. This depends upon the hardware available. There are machines for which the "obvious" implementation is the less efficient one. Consider a machine that has extensive tables of logarithms and antilogarithms stored in a very efficient manner. 
+[^1]: It is not even clear which of these functions is a more efficient
+implementation. This depends upon the hardware available. There are machines
+for which the "obvious" implementation is the less efficient one. Consider a
+machine that has extensive tables of logarithms and antilogarithms stored in a
+very efficient manner.
 
-[^2]: The concept of consistent renaming is actually subtle and difficult to define formally. Famous logicians have made embarrassing errors here. 
+[^2]: The concept of consistent renaming is actually subtle and difficult to
+define formally. Famous logicians have made embarrassing errors here.
 
-[^3]: This is one of the pillars of the [structured programming](https://en.wikipedia.org/wiki/Structured_programming) paradigm.
+[^3]: This is one of the pillars of the [structured
+programming](https://en.wikipedia.org/wiki/Structured_programming) paradigm.
 
-[^4]: Lexical scoping dictates that free variables in a function are taken to refer to bindings made by enclosing function definitions; that is, they are looked up in the environment in which the function was defined. We will see how this works in detail in chapter 11 when we study environments and the detailed behavior of the interpreter. 
+[^4]: Lexical scoping dictates that free variables in a function are taken to
+refer to bindings made by enclosing function definitions; that is, they are
+looked up in the environment in which the function was defined. We will see how
+this works in detail in chapter 11 when we study environments and the detailed
+behavior of the interpreter.
 
 [^5]: Also called *block structures*.
 
-[^6]: Extensions for module support in Algol 68 were released in 1970. In 1975, Modula was the first language designed from the beginning to have support for modules. Due to Modula's use of the "dot" ``.`` to separate modules and objects, that usage became popular in such languages as Python and and Java. In contrast, Erlang and LFE use the colon ``:`` to separate modules from functions.
+[^6]: Extensions for module support in Algol 68 were released in 1970. In 1975,
+Modula was the first language designed from the beginning to have support for
+modules. Due to Modula's use of the "dot" ``.`` to separate modules and
+objects, that usage became popular in such languages as Python and and Java. In
+contrast, Erlang and LFE use the colon ``:`` to separate modules from
+functions.
 
 
 
