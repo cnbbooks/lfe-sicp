@@ -1,2 +1,2 @@
-# Exponentiation
+### Exponentiation
 
