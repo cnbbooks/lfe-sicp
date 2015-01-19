@@ -1,2 +1,2 @@
-# Orders of Growth
+### Orders of Growth
 
