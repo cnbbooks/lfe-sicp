@@ -23,7 +23,8 @@ The numbers at the edge of the triangle are all 1, and each number inside the tr
 
 #### Exercise 1.13
 
-Prove that $$Fib(n)$$ is the closest integer to n/5, where = (1 + 5)/2. Hint: Let = (1 - 5)/2. Use induction and the definition of the Fibonacci numbers (see section 1.2.2) to prove that Fib(n) = (n - n)/5. 
+Prove that $$Fib(n)$$ is the closest integer to $$\frac{\phi^n}{\sqrt 5}$$, where $$\phi = \frac{1 + \sqrt 5}{2}$$. Hint: Let $$\psi = \frac{1 - \sqrt 5}{2}$$. Use induction and the definition of the Fibonacci numbers (see the section [Tree Recursion]()) to prove that $$Fib(n) = \frac{\phi^n - \psi^n}{\sqrt5}$$. 
+
 
 ----
 
