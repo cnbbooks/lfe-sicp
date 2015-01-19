@@ -29,6 +29,7 @@
        * [Tree Recursion](ch1/tree_recursion.md)
        * [Exercises](ch1/exercises-4.md)
        * [Orders of Growth](ch1/orders_of_growth.md)
+       * [Exercises](ch1/exercises-5.md)
        * [Exponentiation](ch1/exponentiation.md)
        * [Greatest Common Divisors](ch1/greatest_common_divisors.md)
        * [Example: Testing for Primality](ch1/example_testing_for_primality.md)
