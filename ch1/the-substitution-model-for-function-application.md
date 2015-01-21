@@ -158,19 +158,9 @@ and 12.[^2]
 
 ----
 
-[^1]: Despite the simplicity of the substitution idea, it turns out to be
-surprisingly complicated to give a rigorous mathematical definition of the
-substitution process. The problem arises from the possibility of confusion
-between the names used for the formal parameters of a function and the
-(possibly identical) names used in the expressions to which the function may be
-applied. Indeed, there is a long history of erroneous definitions of
-substitution in the literature of logic and programming semantics. See Stoy
-1977 for a careful discussion of substitution.
+[^1]: Despite the simplicity of the substitution idea, it turns out to be surprisingly complicated to give a rigorous mathematical definition of the substitution process. The problem arises from the possibility of confusion between the names used for the formal parameters of a function and the (possibly identical) names used in the expressions to which the function may be applied. Indeed, there is a long history of erroneous definitions of substitution in the literature of logic and programming semantics. See Stoy 1977 for a careful discussion of substitution.
 
-[^2]: In chapter 11 we will introduce stream processing, which is a way of
-handling apparently "infinite" data structures by incorporating a limited form
-of normal-order evaluation. In section 12.2 we will modify the LFE interpreter
-to produce a normal-order variant of LFE.
+[^2]: In chapter 11 we will introduce stream processing, which is a way of handling apparently "infinite" data structures by incorporating a limited form of normal-order evaluation. In section 12.2 we will modify the LFE interpreter to produce a normal-order variant of LFE.
 
 
 

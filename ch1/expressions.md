@@ -103,38 +103,13 @@ interpreter to print the value of the expression.[^4]
 
 ----
 
-[^1]: Throughout this book, when we wish to emphasize the distinction between
-the input typed by the user and the response printed by the interpreter, we
-will present the former with the standard LFE REPL prompt, ``>``.
+[^1]: Throughout this book, when we wish to emphasize the distinction between the input typed by the user and the response printed by the interpreter, we will present the former with the standard LFE REPL prompt, ``>``.
 
-[^2]: Such confusion was fabulously and lovingly presented in a playful blog
-post by Cristina Videira Lopes, entitled [Jedi
-Masters](http://tagide.com/blog/2014/10/jedi-masters/): "Master Yoda spoke in
-an unusual way. If he needed to add 2 to 5 and then multiply the result by 3,
-he would say “multiply by 3 the result of adding 2 to 5.” This made
-conversations with him always intriguing, as when asked for directions to the
-bathroom he would say things like “come back to the council room after counting
-two doors on the left after turning left after coming out of the bathroom after
-washing your hands after peeing after entering the bathroom on the 3rd door on
-the right after counting two doors on your right after turning right after
-exiting the council room.” As a consequence, all Jedi spoke like that… at least
-until many years later, when a rebellious Jedi called Jolee Bindo found a
-clever way of transforming the language of the Force into the language spoken
-by non-Force-sensitives, which helped a lot of people not to get lost on their
-way to the bathroom… while still being puzzled about whether they were actually
-allowed to pee, as that would irreversibly change the state of the world.
-Anyway, I digress."
+[^2]: Such confusion was fabulously and lovingly presented in a playful blog post by Cristina Videira Lopes, entitled [Jedi Masters](http://tagide.com/blog/2014/10/jedi-masters/): "Master Yoda spoke in an unusual way. If he needed to add 2 to 5 and then multiply the result by 3, he would say “multiply by 3 the result of adding 2 to 5.” This made conversations with him always intriguing, as when asked for directions to the bathroom he would say things like “come back to the council room after counting two doors on the left after turning left after coming out of the bathroom after washing your hands after peeing after entering the bathroom on the 3rd door on the right after counting two doors on your right after turning right after exiting the council room.” As a consequence, all Jedi spoke like that… at least until many years later, when a rebellious Jedi called Jolee Bindo found a clever way of transforming the language of the Force into the language spoken by non-Force-sensitives, which helped a lot of people not to get lost on their way to the bathroom… while still being puzzled about whether they were actually allowed to pee, as that would irreversibly change the state of the world. Anyway, I digress."
 
-[^3]: Lisp-enabled text-editors and IDEs (including vi and emacs) typically
-provide features to aid the user in formatting expressions. Two especially
-useful features are one that automatically indents to the proper pretty-print
-position whenever a new line is started and one that highlights the matching
-left parenthesis whenever a right parenthesis is typed.
+[^3]: Lisp-enabled text-editors and IDEs (including vi and emacs) typically provide features to aid the user in formatting expressions. Two especially useful features are one that automatically indents to the proper pretty-print position whenever a new line is started and one that highlights the matching left parenthesis whenever a right parenthesis is typed.
 
-[^4]: Lisp obeys the convention that every expression has a value. This
-convention, together with the old reputation of Lisp as an inefficient
-language, is the source of the quip by Alan Perlis (paraphrasing Oscar Wilde)
-that "Lisp programmers know the value of everything but the cost of nothing."
+[^4]: Lisp obeys the convention that every expression has a value. This convention, together with the old reputation of Lisp as an inefficient language, is the source of the quip by Alan Perlis (paraphrasing Oscar Wilde) that "Lisp programmers know the value of everything but the cost of nothing."
 
 
 
