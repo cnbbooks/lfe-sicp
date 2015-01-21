@@ -4,7 +4,7 @@ Consider the problem of computing the exponential of a given number. We would li
 
 $$
 \begin{align}
-& b^n= b \cdot b^{n-1} \\
+& b^n = b \cdot b^{n-1} \\
 & b^0 = 1
 \end{align}
 $$
@@ -33,3 +33,28 @@ This is a linear recursive process, which requires $$\Theta(n)$$ steps and $$\Th
 ```
 
 This version requires $$\Theta(n)$$ steps and $$\Theta(1)$$ space.
+
+We can compute exponentials in fewer steps by using successive squaring. For instance, rather than computing $$b^8$$ as 
+
+$$
+b \cdot (b \cdot (b \cdot (b \cdot (b \cdot (b \cdot (b \cdot b))))))
+$$
+
+we can compute it using three multiplications: 
+
+$$
+\begin{align}
+& b^2 = b \cdot b \\
+& b^4 = b^2 \cdot b^2 \\
+& b^8 = b^4 \cdot b^4 \\
+\end{align}
+$$
+
+This method works fine for exponents that are powers of 2. We can also take advantage of successive squaring in computing exponentials in general if we use the rule
+
+
+
+
+
+
+
