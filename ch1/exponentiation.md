@@ -52,8 +52,28 @@ $$
 
 This method works fine for exponents that are powers of 2. We can also take advantage of successive squaring in computing exponentials in general if we use the rule
 
+$$
+\begin{align}
+& b^n = (b^\frac{n}{2})^2 & \mbox{if } n \ \text{is even} \\
+& b^n = b \cdot b^{n-1} & \mbox{if } n \ \text{is odd} \\
+\end{align}
+$$
 
+We can express this method as a function:
 
+```lisp
+(defun fast-expt (b n)
+  (cond ((== n 0) 1)
+        ((even? n) (square (fast-expt b (/ n 2))))
+        ('true (* b (fast-expt b (- n 1))))))
+```
+
+where the predicate to test whether an integer is even is defined in terms of the primitive function ``rem`` by 
+ 
+```lisp
+(defun even? (n)
+  (=:= 0 (rem (trunc n) 2)))
+```
 
 
 
