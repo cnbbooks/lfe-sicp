@@ -111,63 +111,19 @@ than the ordinary ability to call a function.[^7]
 
 ----
 
-[^1]: Declarative and imperative descriptions are intimately related, as indeed
-are mathematics and computer science. For instance, to say that the answer
-produced by a program is "correct" is to make a declarative statement about the
-program. There is a large amount of research aimed at establishing techniques
-for proving that programs are correct, and much of the technical difficulty of
-this subject has to do with negotiating the transition between imperative
-statements (from which programs are constructed) and declarative statements
-(which can be used to deduce things). In a related vein, an important current
-area in programming-language design is the exploration of so-called very
-high-level languages, in which one actually programs in terms of declarative
-statements. The idea is to make interpreters sophisticated enough so that,
-given "what is" knowledge specified by the programmer, they can generate "how
-to" knowledge automatically. This cannot be done in general, but there are
-important areas where progress has been made. We shall revisit this idea in
-chapter 12.
+[^1]: Declarative and imperative descriptions are intimately related, as indeed are mathematics and computer science. For instance, to say that the answer produced by a program is "correct" is to make a declarative statement about the program. There is a large amount of research aimed at establishing techniques for proving that programs are correct, and much of the technical difficulty of this subject has to do with negotiating the transition between imperative statements (from which programs are constructed) and declarative statements (which can be used to deduce things). In a related vein, an important current area in programming-language design is the exploration of so-called very high-level languages, in which one actually programs in terms of declarative statements. The idea is to make interpreters sophisticated enough so that, given "what is" knowledge specified by the programmer, they can generate "how to" knowledge automatically. This cannot be done in general, but there are important areas where progress has been made. We shall revisit this idea in chapter 12.
 
-[^2]: This square-root algorithm is actually a special case of Newton's method,
-which is a general technique for finding roots of equations. The square-root
-algorithm itself was developed by [Heron of
-Alexandria](https://en.wikipedia.org/wiki/Heron_of_Alexandria) in the first
-century A.D. We will see how to express the general [Newton's
-method](https://en.wikipedia.org/wiki/Newton%27s_method) as a Lisp function in
-the section [Procedures as Returned Values]().
+[^2]: This square-root algorithm is actually a special case of Newton's method, which is a general technique for finding roots of equations. The square-root algorithm itself was developed by [Heron of Alexandria](https://en.wikipedia.org/wiki/Heron_of_Alexandria) in the first century A.D. We will see how to express the general [Newton's method](https://en.wikipedia.org/wiki/Newton%27s_method) as a Lisp function in the section [Procedures as Returned Values]().
 
-[^3]: We will usually give predicates names ending with question marks, to help
-us remember that they are predicates. This is just a stylistic convention. As
-far as the interpreter is concerned, the question mark is just an ordinary
-character.
+[^3]: We will usually give predicates names ending with question marks, to help us remember that they are predicates. This is just a stylistic convention. As far as the interpreter is concerned, the question mark is just an ordinary character.
 
-[^4]: We could also have expressed our initial guess as an integer. As with
-many Lisp implementations, LFE will convert an integer to a float if an
-operation (such as division) would result in a non-integer. The first two
-editions of this text, however, used MIT Scheme and not LFE. MIT Scheme *did*
-distinguish between exact integers and decimal values, and dividing two
-integers produces a rational number rather than a decimal. For example,
-dividing 10 by 6 yielded $$\frac{5}{3}$$, while dividing 10.0 by 6.0 yielded
-1.6666666666666667. (We will learn how to implement arithmetic on rational
-numbers in the section [Example: Arithmetic Operations for Rational Numbers]().)
-In MIT Scheme, if the initial guess had been an integer and the passed argument
-$$x$$ was an integer, all subsequent values produced in the square-root
-computation would have been rational numbers rather than decimals. Mixed
-operations on rational numbers and decimals always yielded decimals, so
-starting with an initial guess that was a decimal forced all subsequent values
-to be decimals.
+[^4]: We could also have expressed our initial guess as an integer. As with many Lisp implementations, LFE will convert an integer to a float if an operation (such as division) would result in a non-integer. The first two editions of this text, however, used MIT Scheme and not LFE. MIT Scheme *did* distinguish between exact integers and decimal values, and dividing two integers produces a rational number rather than a decimal. For example, dividing 10 by 6 yielded $$\frac{5}{3}$$, while dividing 10.0 by 6.0 yielded 1.6666666666666667. (We will learn how to implement arithmetic on rational numbers in the section [Example: Arithmetic Operations for Rational Numbers]().) In MIT Scheme, if the initial guess had been an integer and the passed argument $$x$$ was an integer, all subsequent values produced in the square-root computation would have been rational numbers rather than decimals. Mixed operations on rational numbers and decimals always yielded decimals, so starting with an initial guess that was a decimal forced all subsequent values to be decimals.
 
-[^5]: Not only is this common practice in Erlang and LFE, but it is considered
-good style.If two functions of differing arity share the same name it is
-understood that they should be designed to solve the same problem.
+[^5]: Not only is this common practice in Erlang and LFE, but it is considered good style.If two functions of differing arity share the same name it is understood that they should be designed to solve the same problem.
 
-[^6]: Due to the fact that functions of different arity may share the same
-name, to correctly identify a function, we need to refer to its arity. This is
-done with a "slash" (``/``) after the function name, followed by the number
-representing the function's arity, for example, ``average/2`` or ``sqrt/1``.
+[^6]: Due to the fact that functions of different arity may share the same name, to correctly identify a function, we need to refer to its arity. This is done with a "slash" (``/``) after the function name, followed by the number representing the function's arity, for example, ``average/2`` or ``sqrt/1``.
 
-[^7]: Readers who are worried about the efficiency issues involved in using
-function calls to implement iteration should note the remarks on "tail
-recursion" in the section [Linear Recursion and Iteration]().
+[^7]: Readers who are worried about the efficiency issues involved in using function calls to implement iteration should note the remarks on "tail recursion" in the section [Linear Recursion and Iteration]().
 
 
 
