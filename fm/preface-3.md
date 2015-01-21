@@ -31,6 +31,7 @@ to no impact on its essence. These liberties include the following:
 * Very rarely some of the original text is omitted when not at all applicable
   to LFE.
 * Updating examples to modern, accepted forms (e.g., the Ackermann function).
+* Exercises are broken out into their own sections (while preserving their original order and placement in the chapters).
 
 Some of the terminology in the text has also been changed to maintain
 consistency with that used by the Erlang and LFE community. Most prominently,
