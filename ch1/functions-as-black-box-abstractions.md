@@ -242,32 +242,17 @@ tractable pieces.
 
 ----
 
-[^1]: It is not even clear which of these functions is a more efficient
-implementation. This depends upon the hardware available. There are machines
-for which the "obvious" implementation is the less efficient one. Consider a
-machine that has extensive tables of logarithms and antilogarithms stored in a
-very efficient manner.
+[^1]: It is not even clear which of these functions is a more efficient implementation. This depends upon the hardware available. There are machines for which the "obvious" implementation is the less efficient one. Consider a machine that has extensive tables of logarithms and antilogarithms stored in a very efficient manner.
 
-[^2]: The concept of consistent renaming is actually subtle and difficult to
-define formally. Famous logicians have made embarrassing errors here.
+[^2]: The concept of consistent renaming is actually subtle and difficult to define formally. Famous logicians have made embarrassing errors here.
 
-[^3]: This is one of the pillars of the [structured
-programming](https://en.wikipedia.org/wiki/Structured_programming) paradigm.
+[^3]: This is one of the pillars of the [structured programming](https://en.wikipedia.org/wiki/Structured_programming) paradigm.
 
-[^4]: Lexical scoping dictates that free variables in a function are taken to
-refer to bindings made by enclosing function definitions; that is, they are
-looked up in the environment in which the function was defined. We will see how
-this works in detail in chapter 11 when we study environments and the detailed
-behavior of the interpreter.
+[^4]: Lexical scoping dictates that free variables in a function are taken to refer to bindings made by enclosing function definitions; that is, they are looked up in the environment in which the function was defined. We will see how this works in detail in chapter 11 when we study environments and the detailed behavior of the interpreter.
 
 [^5]: Also called *block structures*.
 
-[^6]: Extensions for module support in Algol 68 were released in 1970. In 1975,
-Modula was the first language designed from the beginning to have support for
-modules. Due to Modula's use of the "dot" ``.`` to separate modules and
-objects, that usage became popular in such languages as Python and and Java. In
-contrast, Erlang and LFE use the colon ``:`` to separate modules from
-functions.
+[^6]: Extensions for module support in Algol 68 were released in 1970. In 1975, Modula was the first language designed from the beginning to have support for modules. Due to Modula's use of the "dot" ``.`` to separate modules and objects, that usage became popular in such languages as Python and and Java. In contrast, Erlang and LFE use the colon ``:`` to separate modules from functions.
 
 
 
