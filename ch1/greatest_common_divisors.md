@@ -15,9 +15,9 @@ $$
 \begin{align}
 \DeclareMathOperator*{\gcd}{GCD}
 \gcd(206, 40) = \gcd(40, 6) \\
-& = \gcd(6, 4) \\
-& = \gcd(4, 2) \\
-& = \gcd(2, 0) \\
-& 2
+= \gcd(6, 4) \ \ \\
+= \gcd(4, 2) \ \ \\
+= \gcd(2, 0) \ \ \\
+= 2\;\;\;\;\;\;\;\;\;\;\;\;\:\,
 \end{align}
 $$
