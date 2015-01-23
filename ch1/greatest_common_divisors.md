@@ -39,7 +39,7 @@ The fact that the number of steps required by Euclid's Algorithm has logarithmic
 
 **Lamé's Theorem**: If Euclid's Algorithm requires $$k$$ steps to compute the GCD of some pair, then the smaller number in the pair must be greater than or equal to the $$k$$th Fibonacci number.[^2]
 
-We can use this theorem to get an order-of-growth estimate for Euclid's Algorithm. Let $$n$$ be the smaller of the two inputs to the procedure. If the process takes k steps, then we must have n> Fib (k) k/5. Therefore the number of steps k grows as the logarithm (to the base ) of n. Hence, the order of growth is (log n).
+We can use this theorem to get an order-of-growth estimate for Euclid's Algorithm. Let $$n$$ be the smaller of the two inputs to the procedure. If the process takes $$k$$ steps, then we must have $$n \ge Fib (k) \approx \frac{\phi^k}{\sqrt 5}$$. Therefore the number of steps $$k$$ grows as the logarithm (to the base $$\phi$$) of $$n$$. Hence, the order of growth is $$\Theta(log n)$$.
 
 ----
 
