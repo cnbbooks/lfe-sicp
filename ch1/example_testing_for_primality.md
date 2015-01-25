@@ -60,14 +60,15 @@ The Fermat test is performed by choosing at random a number $$a$$ between 1 and 
 (defun fermat-test (n)
   (flet ((try-it (a)
            (== (expmod a n n) a)))
-    (try-it (+ 1 (random:uniform n)))))
+    (try-it (random:uniform (- n 1)))))
 ```
 
 The following procedure runs the test a given number of times, as specified by a parameter. Its value is true if the test succeeds every time, and false otherwise.
  
 ```lisp
 (defun fast-prime? (n times)
-  (cond ((== times 0) true)
+  (cond ((== n 1) 'true)
+        ((== times 0) 'true)
         ((fermat-test n) (fast-prime? n (- times 1)))
         ('true 'false)))
 ```
