@@ -31,6 +31,7 @@ There is a clever algorithm for computing the Fibonacci numbers in a logarithmic
 ```lisp
 (defun fib (n)
   (fib 1 0 0 1 n))
+
 (defun fib (a b p q count)
   (cond ((== count 0) b)
         ((even? count)
