@@ -6,8 +6,8 @@ $$
 0,\;1,\;1,\;2,\;3,\;5,\;8,\;13,\;21,\;34,\;55,\;89,\;144,\; \ldots\;
 $$
 
-In general, the Fibonacci numbers can be defined by the rule 
- 
+In general, the Fibonacci numbers can be defined by the rule
+
 $$
 Fib(n) =
 \begin{cases}
@@ -18,7 +18,7 @@ Fib(n-1) + Fib(n-2) & \mbox{otherwise }
 $$
 
 We can immediately translate this definition into a recursive procedure for computing Fibonacci numbers:
- 
+
 ```lisp
 (defun fib
   ((0) 0)
@@ -49,7 +49,7 @@ $$
 
 Thus, the process uses a number of steps that grows exponentially with the input. On the other hand, the space required grows only linearly with the input, because we need keep track only of which nodes are above us in the tree at any point in the computation. In general, the number of steps required by a tree-recursive process will be proportional to the number of nodes in the tree, while the space required will be proportional to the maximum depth of the tree.
 
-We can also formulate an iterative process for computing the Fibonacci numbers. The idea is to use a pair of integers a and b, initialized to $$Fib(1) = 1$$ and $$Fib(0) = 0$$, and to repeatedly apply the simultaneous transformations 
+We can also formulate an iterative process for computing the Fibonacci numbers. The idea is to use a pair of integers a and b, initialized to $$Fib(1) = 1$$ and $$Fib(0) = 0$$, and to repeatedly apply the simultaneous transformations
 
 $$a \gets a + b$$
 
@@ -82,7 +82,7 @@ This problem has a simple solution as a recursive procedure. Suppose we think of
 The number of ways to change amount $$a$$ using $$n$$ kinds of coins equals
 
 * the number of ways to change amount $$a$$ using all but the first kind of coin, plus
-* the number of ways to change amount $$a$$ - $$d$$ using all n kinds of coins, where $$d$$ is the denomination of the first kind of coin. 
+* the number of ways to change amount $$a$$ - $$d$$ using all n kinds of coins, where $$d$$ is the denomination of the first kind of coin.
 
 To see why this is true, observe that the ways to make change can be divided into two groups: those that do not use any of the first kind of coin, and those that do. Therefore, the total number of ways to make change for some amount is equal to the number of ways to make change for the amount without using any of the first kind of coin, plus the number of ways to make change assuming that we do use the first kind of coin. But the latter number is equal to the number of ways to make change for the amount that remains after using a coin of the first kind.
 
@@ -90,14 +90,14 @@ Thus, we can recursively reduce the problem of changing a given amount to the pr
 
 * If $$a$$ is exactly 0, we should count that as 1 way to make change.
 * If $$a$$ is less than 0, we should count that as 0 ways to make change.
-* If $$n$$ is 0, we should count that as 0 ways to make change. 
+* If $$n$$ is 0, we should count that as 0 ways to make change.
 
 We can easily translate this description into a recursive procedure:
 
 ```lisp
 (defun count-change (amount)
   (cc amount 5))
-  
+
 (defun cc (amount kinds-of-coins)
   (cond ((== amount 0) 1)
         ((or (< amount 0) (== kinds-of-coins 0)) 0)
@@ -128,11 +128,11 @@ We can now answer our original question about changing a dollar:
 
 ----
 
-[^1]: An example of this was hinted at in the section [Evaluating Combinations](): The interpreter itself evaluates expressions using a tree-recursive process. 
+[^1]: An example of this was hinted at in the section [Evaluating Combinations](): The interpreter itself evaluates expressions using a tree-recursive process.
 
-[^2]: For example, work through in detail how the reduction rule applies to the problem of making change for 10 cents using pennies and nickels. 
+[^2]: For example, work through in detail how the reduction rule applies to the problem of making change for 10 cents using pennies and nickels.
 
-[^3]: One approach to coping with redundant computations is to arrange matters so that we automatically construct a table of values as they are computed. Each time we are asked to apply the procedure to some argument, we first look to see if the value is already stored in the table, in which case we avoid performing the redundant computation. This strategy, known as *tabulation* or *memoization*, can be implemented in a straightforward way. Tabulation can sometimes be used to transform processes that require an exponential number of steps (such as ``count-change``) into processes whose space and time requirements grow linearly with the input. See exercise 3.27. 
+[^3]: One approach to coping with redundant computations is to arrange matters so that we automatically construct a table of values as they are computed. Each time we are asked to apply the procedure to some argument, we first look to see if the value is already stored in the table, in which case we avoid performing the redundant computation. This strategy, known as *tabulation* or *memoization*, can be implemented in a straightforward way. Tabulation can sometimes be used to transform processes that require an exponential number of steps (such as ``count-change``) into processes whose space and time requirements grow linearly with the input. See exercise 3.27.
 
 
 

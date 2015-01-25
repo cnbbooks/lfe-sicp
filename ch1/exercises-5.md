@@ -16,7 +16,9 @@ to reduce the size of the argument of $$sin$$. (For purposes of this exercise an
 
 ```lisp
 (defun cube (x) (* x x x))
+
 (defun p (x) (- (* 3 x) (* 4 (cube x))))
+
 (defun sine (angle)
    (if (not (> (abs angle) 0.1))
        angle

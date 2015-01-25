@@ -1,6 +1,6 @@
 ### Exponentiation
 
-Consider the problem of computing the exponential of a given number. We would like a procedure that takes as arguments a base $$b$$ and a positive integer exponent $$n$$ and computes $$b^n$$. One way to do this is via the recursive definition 
+Consider the problem of computing the exponential of a given number. We would like a procedure that takes as arguments a base $$b$$ and a positive integer exponent $$n$$ and computes $$b^n$$. One way to do this is via the recursive definition
 
 $$
 \begin{align}
@@ -9,7 +9,7 @@ $$
 \end{align}
 $$
 
-which translates readily into the procedure 
+which translates readily into the procedure
 
 ```lisp
 (defun expt (b n)
@@ -29,18 +29,18 @@ This is a linear recursive process, which requires $$\Theta(n)$$ steps and $$\Th
       product
       (expt b
             (- counter 1)
-            (* b product)))) 
+            (* b product))))
 ```
 
 This version requires $$\Theta(n)$$ steps and $$\Theta(1)$$ space.
 
-We can compute exponentials in fewer steps by using successive squaring. For instance, rather than computing $$b^8$$ as 
+We can compute exponentials in fewer steps by using successive squaring. For instance, rather than computing $$b^8$$ as
 
 $$
 b \cdot (b \cdot (b \cdot (b \cdot (b \cdot (b \cdot (b \cdot b))))))
 $$
 
-we can compute it using three multiplications: 
+we can compute it using three multiplications:
 
 $$
 \begin{align}
@@ -68,8 +68,8 @@ We can express this method as a function:
         ('true (* b (fast-expt b (- n 1))))))
 ```
 
-where the predicate to test whether an integer is even is defined in terms of the primitive function ``rem`` by 
- 
+where the predicate to test whether an integer is even is defined in terms of the primitive function ``rem`` by
+
 ```lisp
 (defun even? (n)
   (=:= 0 (rem (trunc n) 2)))
@@ -81,7 +81,7 @@ The difference between $$\Theta(\log n)$$ growth and $$\Theta(n)$$ growth become
 
 ----
 
-[^1]: More precisely, the number of multiplications required is equal to 1 less than the log base 2 of $$n$$ plus the number of ones in the binary representation of $$n$$. This total is always less than twice the log base 2 of $$n$$. The arbitrary constants $$k_1$$ and $$k_2$$ in the definition of order notation imply that, for a logarithmic process, the base to which logarithms are taken does not matter, so all such processes are described as $$\Theta(\log n)$$. 
+[^1]: More precisely, the number of multiplications required is equal to 1 less than the log base 2 of $$n$$ plus the number of ones in the binary representation of $$n$$. This total is always less than twice the log base 2 of $$n$$. The arbitrary constants $$k_1$$ and $$k_2$$ in the definition of order notation imply that, for a logarithmic process, the base to which logarithms are taken does not matter, so all such processes are described as $$\Theta(\log n)$$.
 
 [^2]: You may wonder why anyone would care about raising numbers to the 1000th power. See the section [Example: Testing for Primality]().
 

@@ -52,8 +52,11 @@ Consider the following functions, where ``ackermann`` is the procedure defined a
 
 ```lisp
 (defun f (n) (ackermann 0 n))
+
 (defun g (n) (ackermann 1 n))
+
 (defun h (n) (ackermann 2 n))
+
 (defun k (n) (* 5 n n))
 ```
 

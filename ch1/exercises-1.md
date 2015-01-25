@@ -10,8 +10,8 @@ Below is a sequence of expressions. What is the result printed by the interprete
 (- 9 1)
 (/ 6 2)
 (+ (* 2 4) (- 4 6))
-(define a 3)
-(define b (+ a 1))
+(set a 3)
+(set b (+ a 1))
 (+ a b (* a b))
 (= a b)
 (if (and (> b a) (< b (* a b)))
@@ -29,7 +29,7 @@ Below is a sequence of expressions. What is the result printed by the interprete
 
 #### Exercise 1.2
 
-Translate the following expression into prefix form 
+Translate the following expression into prefix form
 
 $$
 \begin{align}
@@ -40,11 +40,11 @@ $$
 
 #### Exercise 1.3
 
-Define a function that takes three numbers as arguments and returns the sum of the squares of the two larger numbers. 
+Define a function that takes three numbers as arguments and returns the sum of the squares of the two larger numbers.
 
 #### Exercise 1.4
 
-Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following function: 
+Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following function:
 
 ```lisp
 (defun a-plus-abs-b (a b)
@@ -75,6 +75,6 @@ Then she evaluates the expression
 (test 0 (p))
 ```
 
-What behavior will Alice observe with an interpreter that uses applicative-order evaluation? What behavior will she observe with an interpreter that uses normal-order evaluation? Explain your answer. (Assume that the evaluation rule for the special form if is the same whether the interpreter is using normal or applicative order: The predicate expression is evaluated first, and the result determines whether to evaluate the consequent or the alternative expression.) 
+What behavior will Alice observe with an interpreter that uses applicative-order evaluation? What behavior will she observe with an interpreter that uses normal-order evaluation? Explain your answer. (Assume that the evaluation rule for the special form if is the same whether the interpreter is using normal or applicative order: The predicate expression is evaluated first, and the result determines whether to evaluate the consequent or the alternative expression.)
 
 
