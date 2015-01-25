@@ -26,12 +26,51 @@ Using these functions, write a funtion ``search-for-primes`` that checks the pri
 
 #### Exercise 1.23
 
+The ``smallest-divisor/1`` function shown at the start of the last section does lots of needless testing: After it checks to see if the number is divisible by 2 there is no point in checking to see if it is divisible by any larger even numbers. This suggests that the values used for ``test-divisor`` should not be 2, 3, 4, 5, 6, ..., but rather 2, 3, 5, 7, 9, .... To implement this change, define a function ``next/1`` that returns 3 if its input is equal to 2 and otherwise returns its input plus 2. Modify the ``smallest-divisor`` function to use ``(next test-divisor)`` instead of ``(+ test-divisor 1)``. With ``timed-prime-test/1`` incorporating this modified version of ``smallest-divisor/1``, run the test for each of the 12 primes found in exercise 1.22. Since this modification halves the number of test steps, you should expect it to run about twice as fast. Is this expectation confirmed? If not, what is the observed ratio of the speeds of the two algorithms, and how do you explain the fact that it is different from 2? 
+
 #### Exercise 1.24
+
+Modify the ``timed-prime-test/1`` procedure of exercise 1.22 to use ``fast-prime?/2`` (the Fermat method), and test each of the 12 primes you found in that exercise. Since the Fermat test has $$\Theta(\log n)$$ growth, how would you expect the time to test primes near 1,000,000 to compare with the time needed to test primes near 1000? Do your data bear this out? Can you explain any discrepancy you find? 
 
 #### Exercise 1.25
 
+Alyssa P. Hacker complains that we went to a lot of extra work in writing ``expmod/3``. After all, she says, since we already know how to compute exponentials, we could have simply written
+
+```lisp
+(defun expmod (base exp m)
+  (rem (trunc (fast-expt base exp)) m))
+```
+
+Is she correct? Would this procedure serve as well for our fast prime tester? Explain. 
+
 #### Exercise 1.26
+
+Louis Reasoner is having great difficulty doing exercise 1.24. His ``fast-prime?/2`` test seems to run more slowly than his ``prime?/1`` test. Louis calls his friend Eva Lu Ator over to help. When they examine Louis's code, Eva finds that he has rewritten the ``expmod/3`` procedure to use an explicit multiplication, rather than calling square:
+
+```lisp
+(defun expmod (base exp m)
+  (cond ((== exp 0) 1)
+        ((even? exp)
+         (rem (* (expmod base (/ exp 2) m)
+                       (expmod base (/ exp 2) m))
+              m))
+        (else
+         (rem (* base (expmod base (- exp 1) m))
+              m))))
+```
+
+"I don't see what difference that could make," says Louis. "I do." says Eva. "By writing the procedure like that, you have transformed the $$\Theta(\log n)$$ process into a $$\Theta(n)$$ process." Explain. 
+
 
 #### Exercise 1.27
 
+Demonstrate that the Carmichael numbers listed in the [Carmichael footnote](example_testing_for_primality.html#fn_4) really do fool the Fermat test. That is, write a function that takes an integer $$n$$ and tests whether $$a^n$$ is congruent to $$a$$ modulo n for every $$a<n$$, and try your procedure on the given Carmichael numbers. 
+
 #### Exercise 1.28
+
+One variant of the Fermat test that cannot be fooled is called the *Miller-Rabin test* (Miller 1976; Rabin 1980). This starts from an alternate form of Fermat's Little Theorem, which states that if $$n$$ is a prime number and $$a$$ is any positive integer less than $$n$$, then $$a$$ raised to the $$(n - 1)$$st power is congruent to 1 modulo $$n$$. To test the primality of a number $$n$$ by the Miller-Rabin test, we pick a random number $$a<n$$ and raise $$a$$ to the $$(n - 1)$$st power modulo $$n$$ using the ``expmod/3`` function. However, whenever we perform the squaring step in ``expmod/3``, we check to see if we have discovered a "nontrivial square root of 1 modulo $$n$$," that is, a number not equal to 1 or $$n - 1$$ whose square is equal to 1 modulo $$n$$. It is possible to prove that if such a nontrivial square root of 1 exists, then $$n$$ is not prime. It is also possible to prove that if $$n$$ is an odd number that is not prime, then, for at least half the numbers $$a<n$$, computing $$a^{n-1}$$ in this way will reveal a nontrivial square root of 1 modulo $$n$$. (This is why the Miller-Rabin test cannot be fooled.) Modify the ``expmod/3`` function to signal if it discovers a nontrivial square root of 1, and use this to implement the Miller-Rabin test with a function analogous to ``fermat-test/1``. Check your procedure by testing various known primes and non-primes. Hint: One convenient way to make ``expmod/3`` signal is to have it return 0. 
+
+
+
+
+
