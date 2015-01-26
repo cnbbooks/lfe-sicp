@@ -3,7 +3,7 @@
 *The LFE Edition*
 
 
-## Introduction
+## About
 
 This Gitbook (available [here](http://lfe.gitbooks.io/sicp/))
 is a work in progress, converting the MIT classic
