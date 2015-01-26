@@ -38,6 +38,7 @@
        * [Exercises](ch1/exercises-8.md)
    * [Formulating Abstractions with Higher-Order Functions](ch1/formulating_abstractions_with_higher-order_functions.md)
        * [Functions as Arguments](ch1/functions_as_arguments.md)
+       * [Exercises](ch1/exercises-9.md)
        * [Constructing Functions Using Lambda](ch1/constructing_functions_using_lambda.md)
        * [Functions as General Methods](ch1/functions_as_general_methods.md)
        * [Functions as Returned Values](ch1/functions_as_returned_values.md)
