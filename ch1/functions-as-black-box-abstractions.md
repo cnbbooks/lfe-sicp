@@ -191,7 +191,7 @@ modern languages have some form of module support built in.
 LFE supports modules. The proper way to provide a "black box" program to an
 LFE developer for their use is to define all the functions in one or more
 modules and export only those functions which are intended to be
-consumed by a developers.
+consumed by a developer.
 
 Instead of using ``fletrec``, here is the square-root program using a module
 with one exported function:
