@@ -35,7 +35,7 @@ which converges to $$\frac{\pi}{8}$$ (very slowly):[^1]
       (+ (/ 1.0 (* a (+ a 2))) (pi-sum (+ a 4) b))))
 ```
 
-These three procedures clearly share a common underlying pattern. They are for the most part identical, differing only in the name of the procedure, the function of ``a`` used to compute the term to be added, and the function that provides the next value of ``a``. We could generate each of the procedures by filling in slots in the same template:
+These three functions clearly share a common underlying pattern. They are for the most part identical, differing only in the name of the function, the function of ``a`` used to compute the term to be added, and the function that provides the next value of ``a``. We could generate each of the functions by filling in slots in the same template:
 
 ```lisp
 (defun <name> (a b)
@@ -55,7 +55,7 @@ $$
 
 to express this concept. The power of sigma notation is that it allows mathematicians to deal with the concept of summation itself rather than only with particular sums -- for example, to formulate general results about sums that are independent of the particular series being summed.
 
-Similarly, as program designers, we would like our language to be powerful enough so that we can write a function that expresses the concept of summation itself rather than only procedures that compute particular sums. We can do so readily in our procedural language by taking the common template shown above and transforming the "slots" into formal parameters:
+Similarly, as program designers, we would like our language to be powerful enough so that we can write a function that expresses the concept of summation itself rather than only functions that compute particular sums. We can do so readily in our procedural language by taking the common template shown above and transforming the "slots" into formal parameters:
 
 ```lisp
 (defun sum (term a next b)
@@ -108,7 +108,7 @@ We can also define pi-sum in the same way:[^2]
     (sum #'pi-term/1 a #'pi-next/1 b)))
 ```
 
-Using these procedures, we can compute an approximation to $$\pi$$:
+Using these functions, we can compute an approximation to $$\pi$$:
 
 ```lisp
 > (* 8 (pi-sum 1 100000))
@@ -152,7 +152,7 @@ for small values of $$dx$$. We can express this directly as a function:
 
 [^1]: This series, usually written in the equivalent form $$\frac{pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots $$, is due to Leibniz. We'll see how to use this as the basis for some fancy numerical tricks in the section [Exploiting the Stream Paradigm]().
 
-[^2]: Notice that we have used ``flet``s (from the section [Procedures as Black-Box Abstractions]()) to embed the definitions of ``pi-next/1`` and ``pi-term/1`` within ``pi-sum/2``, since these functions are unlikely to be useful for any other purpose. We will learn more about how these work when we get to the section [Constructing Procedures Using Lambda]().
+[^2]: Notice that we have used ``flet``s (from the section [Functions as Black-Box Abstractions]()) to embed the definitions of ``pi-next/1`` and ``pi-term/1`` within ``pi-sum/2``, since these functions are unlikely to be useful for any other purpose. We will learn more about how these work when we get to the section [Constructing Functions Using Lambda]().
 
 
 

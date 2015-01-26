@@ -77,7 +77,7 @@ given above whether ``square`` was built into the interpreter, like ``+`` and
 
 ----
 
-[^1]: Observe that there are two different operations being combined here: we are creating the function, and we are giving it the name ``square``. It is possible, indeed important, to be able to separate these two notions -- to create functions without naming them, and to give names to functions that have already been created. We will see how to do this in the section [Constructing Procedures Using Lambda]().
+[^1]: Observe that there are two different operations being combined here: we are creating the function, and we are giving it the name ``square``. It is possible, indeed important, to be able to separate these two notions -- to create functions without naming them, and to give names to functions that have already been created. We will see how to do this in the section [Constructing Functions Using Lambda]().
 
 [^2]: Throughout this book, we will describe the general syntax of expressions by using italic symbols delimited by angle brackets -- e.g., ``<name>`` -- to denote the "slots" in the expression to be filled in when such an expression is actually used.
 

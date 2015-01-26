@@ -7,7 +7,7 @@ Design a function that evolves an iterative exponentiation process that uses suc
 
 #### Exercise 1.17
 
-The exponentiation algorithms in this section are based on performing exponentiation by means of repeated multiplication. In a similar way, one can perform integer multiplication by means of repeated addition. The following multiplication procedure (in which it is assumed that our language can only add, not multiply) is analogous to the ``expt`` function:
+The exponentiation algorithms in this section are based on performing exponentiation by means of repeated multiplication. In a similar way, one can perform integer multiplication by means of repeated addition. The following multiplication function (in which it is assumed that our language can only add, not multiply) is analogous to the ``expt`` function:
 
 ```lisp
 (defun mult (a b)
@@ -16,17 +16,17 @@ The exponentiation algorithms in this section are based on performing exponentia
       (+ a (mult a (- b 1)))))
 ```
 
-This algorithm takes a number of steps that is linear in ``b``. Now suppose we include, together with addition, operations ``double``, which doubles an integer, and ``halve``, which divides an (even) integer by 2. Using these, design a multiplication procedure analogous to ``fast-expt`` that uses a logarithmic number of steps.
+This algorithm takes a number of steps that is linear in ``b``. Now suppose we include, together with addition, operations ``double``, which doubles an integer, and ``halve``, which divides an (even) integer by 2. Using these, design a multiplication function analogous to ``fast-expt`` that uses a logarithmic number of steps.
 
 
 #### Exercise 1.18.
 
-Using the results of exercises 1.16 and 1.17 above, devise a procedure that generates an iterative process for multiplying two integers in terms of adding, doubling, and halving and uses a logarithmic number of steps.[^1]
+Using the results of exercises 1.16 and 1.17 above, devise a function that generates an iterative process for multiplying two integers in terms of adding, doubling, and halving and uses a logarithmic number of steps.[^1]
 
 
 #### Exercise 1.19
 
-There is a clever algorithm for computing the Fibonacci numbers in a logarithmic number of steps. Recall the transformation of the state variables $$a$$ and $$b$$ in the iterative version of ``fib/1`` (with ``fib/2``) in the section [Tree Recursion](): $$a \gets a + b$$ and $$b \gets a $$. Call this transformation $$T$$, and observe that applying $$T$$ over and over again $$n$$ times, starting with 1 and 0, produces the pair $$Fib(n + 1)$$ and $$Fib(n)$$. In other words, the Fibonacci numbers are produced by applying $$T^n$$, the $$n$$th power of the transformation $$T$$, starting with the pair $$(1,0)$$. Now consider $$T$$ to be the special case of $$p = 0$$ and $$q = 1$$ in a family of transformations $$T_{pq}$$, where $$T_{pq}$$ transforms the pair $$(a,b)$$ according to a $$a \gets bq + aq + ap$$ and $$b \gets bp + aq$$. Show that if we apply such a transformation $$T_{pq}$$ twice, the effect is the same as using a single transformation $$T_{p'q'}$$ of the same form, and compute $$p'$$ and $$q'$$ in terms of $$p$$ and $$q$$. This gives us an explicit way to square these transformations, and thus we can compute $$T^n$$ using successive squaring, as in the ``fast-expt/2`` procedure. Put this all together to complete the following functions, which run in a logarithmic number of steps:[^2]
+There is a clever algorithm for computing the Fibonacci numbers in a logarithmic number of steps. Recall the transformation of the state variables $$a$$ and $$b$$ in the iterative version of ``fib/1`` (with ``fib/2``) in the section [Tree Recursion](): $$a \gets a + b$$ and $$b \gets a $$. Call this transformation $$T$$, and observe that applying $$T$$ over and over again $$n$$ times, starting with 1 and 0, produces the pair $$Fib(n + 1)$$ and $$Fib(n)$$. In other words, the Fibonacci numbers are produced by applying $$T^n$$, the $$n$$th power of the transformation $$T$$, starting with the pair $$(1,0)$$. Now consider $$T$$ to be the special case of $$p = 0$$ and $$q = 1$$ in a family of transformations $$T_{pq}$$, where $$T_{pq}$$ transforms the pair $$(a,b)$$ according to a $$a \gets bq + aq + ap$$ and $$b \gets bp + aq$$. Show that if we apply such a transformation $$T_{pq}$$ twice, the effect is the same as using a single transformation $$T_{p'q'}$$ of the same form, and compute $$p'$$ and $$q'$$ in terms of $$p$$ and $$q$$. This gives us an explicit way to square these transformations, and thus we can compute $$T^n$$ using successive squaring, as in the ``fast-expt/2`` function. Put this all together to complete the following functions, which run in a logarithmic number of steps:[^2]
 
 ```lisp
 (defun fib (n)

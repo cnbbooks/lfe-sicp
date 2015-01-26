@@ -1,6 +1,6 @@
 ### Exponentiation
 
-Consider the problem of computing the exponential of a given number. We would like a procedure that takes as arguments a base $$b$$ and a positive integer exponent $$n$$ and computes $$b^n$$. One way to do this is via the recursive definition
+Consider the problem of computing the exponential of a given number. We would like a function that takes as arguments a base $$b$$ and a positive integer exponent $$n$$ and computes $$b^n$$. One way to do this is via the recursive definition
 
 $$
 \begin{align}
@@ -9,7 +9,7 @@ $$
 \end{align}
 $$
 
-which translates readily into the procedure
+which translates readily into the function
 
 ```lisp
 (defun expt (b n)

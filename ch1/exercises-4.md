@@ -2,7 +2,7 @@
 
 ####  Exercise 1.11
 
-A function $$f$$ is defined by the rule that $$f(n) = n$$ if $$n < 3$$ and $$f(n) = f(n - 1) + 2 \cdot f(n - 2) + 3 \cdot f(n - 3)$$ if $$n > 3$$. Write a procedure that computes $$f$$ by means of a recursive process. Write a procedure that computes $$f$$ by means of an iterative process. 
+A function $$f$$ is defined by the rule that $$f(n) = n$$ if $$n < 3$$ and $$f(n) = f(n - 1) + 2 \cdot f(n - 2) + 3 \cdot f(n - 3)$$ if $$n > 3$$. Write a function that computes $$f$$ by means of a recursive process. Write a function that computes $$f$$ by means of an iterative process. 
 
 ####  Exercise 1.12
 
@@ -19,7 +19,7 @@ $$
 \end{array}
 $$
 
-The numbers at the edge of the triangle are all 1, and each number inside the triangle is the sum of the two numbers above it.[^1] Write a procedure that computes elements of Pascal's triangle by means of a recursive process. 
+The numbers at the edge of the triangle are all 1, and each number inside the triangle is the sum of the two numbers above it.[^1] Write a function that computes elements of Pascal's triangle by means of a recursive process. 
 
 #### Exercise 1.13
 

@@ -22,7 +22,7 @@ To illustrate this process, let's evaluate the combination
 ```
 
 where ``f`` is the function defined in section
-[Compound Procedures](compound-functions.html). We begin by retrieving the body
+[Compound Functions](compound-functions.html). We begin by retrieving the body
 of ``f``:
 
 ```lisp

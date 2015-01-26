@@ -17,7 +17,7 @@ Fib(n-1) + Fib(n-2) & \mbox{otherwise }
 \end{cases}
 $$
 
-We can immediately translate this definition into a recursive procedure for computing Fibonacci numbers:
+We can immediately translate this definition into a recursive function for computing Fibonacci numbers:
 
 ```lisp
 (defun fib
@@ -35,7 +35,7 @@ We can immediately translate this definition into a recursive procedure for comp
 
 Consider the pattern of this computation. To compute ``(fib 5)``, we compute ``(fib 4)`` and ``(fib 3)``. To compute ``(fib 4)``, we compute ``(fib 3)`` and ``(fib 2)``. In general, the evolved process looks like a tree, as shown in [figure 1.5](#figure-5). Notice that the branches split into two at each level (except at the bottom); this reflects the fact that the ``fib/1`` function calls itself twice each time it is invoked.
 
-This procedure is instructive as a prototypical tree recursion, but it is a terrible way to compute Fibonacci numbers because it does so much redundant computation. Notice in [figure 1.5](#figure-5) that the entire computation of ``(fib 3)`` -- almost half the work -- is duplicated. In fact, it is not hard to show that the number of times the procedure will compute ``(fib 1)`` or ``(fib 0)`` (the number of leaves in the above tree, in general) is precisely $$Fib(n + 1)$$. To get an idea of how bad this is, one can show that the value of $$Fib(n)$$ grows exponentially with $$n$$. More precisely (see exercise 1.13), $$Fib(n)$$ is the closest integer to $$\frac{\phi^n}{\sqrt 5}$$, where
+This function is instructive as a prototypical tree recursion, but it is a terrible way to compute Fibonacci numbers because it does so much redundant computation. Notice in [figure 1.5](#figure-5) that the entire computation of ``(fib 3)`` -- almost half the work -- is duplicated. In fact, it is not hard to show that the number of times the function will compute ``(fib 1)`` or ``(fib 0)`` (the number of leaves in the above tree, in general) is precisely $$Fib(n + 1)$$. To get an idea of how bad this is, one can show that the value of $$Fib(n)$$ grows exponentially with $$n$$. More precisely (see exercise 1.13), $$Fib(n)$$ is the closest integer to $$\frac{\phi^n}{\sqrt 5}$$, where
 
 $$
 \phi = \frac{1 + \sqrt 5}{2} \approx 1.61803
@@ -55,7 +55,7 @@ $$a \gets a + b$$
 
 $$b \gets a $$
 
-It is not hard to show that, after applying this transformation $$n$$ times, $$a$$ and $$b$$ will be equal, respectively, to $$Fib(n + 1)$$ and $$Fib(n)$$. Thus, we can compute Fibonacci numbers iteratively using the procedure
+It is not hard to show that, after applying this transformation $$n$$ times, $$a$$ and $$b$$ will be equal, respectively, to $$Fib(n + 1)$$ and $$Fib(n)$$. Thus, we can compute Fibonacci numbers iteratively using the function
 
 ```lisp
 (defun fib
@@ -75,9 +75,9 @@ One should not conclude from this that tree-recursive processes are useless. Whe
 
 #### Example: Counting change
 
-It takes only a bit of cleverness to come up with the iterative Fibonacci algorithm. In contrast, consider the following problem: How many different ways can we make change of $ 1.00, given half-dollars, quarters, dimes, nickels, and pennies? More generally, can we write a procedure to compute the number of ways to change any given amount of money?
+It takes only a bit of cleverness to come up with the iterative Fibonacci algorithm. In contrast, consider the following problem: How many different ways can we make change of $ 1.00, given half-dollars, quarters, dimes, nickels, and pennies? More generally, can we write a function to compute the number of ways to change any given amount of money?
 
-This problem has a simple solution as a recursive procedure. Suppose we think of the types of coins available as arranged in some order. Then the following relation holds:
+This problem has a simple solution as a recursive function. Suppose we think of the types of coins available as arranged in some order. Then the following relation holds:
 
 The number of ways to change amount $$a$$ using $$n$$ kinds of coins equals
 
@@ -92,7 +92,7 @@ Thus, we can recursively reduce the problem of changing a given amount to the pr
 * If $$a$$ is less than 0, we should count that as 0 ways to make change.
 * If $$n$$ is 0, we should count that as 0 ways to make change.
 
-We can easily translate this description into a recursive procedure:
+We can easily translate this description into a recursive function:
 
 ```lisp
 (defun count-change (amount)
@@ -115,7 +115,7 @@ We can easily translate this description into a recursive procedure:
         ((== kinds-of-coins 5) 50)))
 ```
 
-(The ``first-denomination`` procedure takes as input the number of kinds of coins available and returns the denomination of the first kind. Here we are thinking of the coins as arranged in order from largest to smallest, but any order would do as well.)
+(The ``first-denomination`` function takes as input the number of kinds of coins available and returns the denomination of the first kind. Here we are thinking of the coins as arranged in order from largest to smallest, but any order would do as well.)
 
 We can now answer our original question about changing a dollar:
 
@@ -124,7 +124,7 @@ We can now answer our original question about changing a dollar:
 292
 ```
 
-``count-change`` generates a tree-recursive process with redundancies similar to those in our first implementation of ``fib``. (It will take quite a while for that 292 to be computed.) On the other hand, it is not obvious how to design a better algorithm for computing the result, and we leave this problem as a challenge. The observation that a tree-recursive process may be highly inefficient but often easy to specify and understand has led people to propose that one could get the best of both worlds by designing a "smart compiler" that could transform tree-recursive procedures into more efficient procedures that compute the same result.[^3]
+``count-change`` generates a tree-recursive process with redundancies similar to those in our first implementation of ``fib``. (It will take quite a while for that 292 to be computed.) On the other hand, it is not obvious how to design a better algorithm for computing the result, and we leave this problem as a challenge. The observation that a tree-recursive process may be highly inefficient but often easy to specify and understand has led people to propose that one could get the best of both worlds by designing a "smart compiler" that could transform tree-recursive functions into more efficient functions that compute the same result.[^3]
 
 ----
 
@@ -132,7 +132,7 @@ We can now answer our original question about changing a dollar:
 
 [^2]: For example, work through in detail how the reduction rule applies to the problem of making change for 10 cents using pennies and nickels.
 
-[^3]: One approach to coping with redundant computations is to arrange matters so that we automatically construct a table of values as they are computed. Each time we are asked to apply the procedure to some argument, we first look to see if the value is already stored in the table, in which case we avoid performing the redundant computation. This strategy, known as *tabulation* or *memoization*, can be implemented in a straightforward way. Tabulation can sometimes be used to transform processes that require an exponential number of steps (such as ``count-change``) into processes whose space and time requirements grow linearly with the input. See exercise 3.27.
+[^3]: One approach to coping with redundant computations is to arrange matters so that we automatically construct a table of values as they are computed. Each time we are asked to apply the function to some argument, we first look to see if the value is already stored in the table, in which case we avoid performing the redundant computation. This strategy, known as *tabulation* or *memoization*, can be implemented in a straightforward way. Tabulation can sometimes be used to transform processes that require an exponential number of steps (such as ``count-change``) into processes whose space and time requirements grow linearly with the input. See exercise 3.27.
 
 
 

@@ -6,7 +6,7 @@ is, the function is defined in terms of itself. The idea of being able to
 define a function in terms of itself may be disturbing; it may seem unclear how
 such a "circular" definition could make sense at all, much less specify a
 well-defined process to be carried out by a computer. This will be addressed
-more carefully in the section [Procedures and the Processes They Generate]().
+more carefully in the section [Functions and the Processes They Generate]().
 But first let's consider some other important points illustrated by the
 examples of the square-root program.
 

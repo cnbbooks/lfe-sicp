@@ -58,7 +58,7 @@ $$
 $$
 
 Use this formula to implement a cube-root function analogous to the square-root
-function. (In the section [Procedures as Returned Values]() we will see how to
+function. (In the section [Functions as Returned Values]() we will see how to
 implement Newton's method in general as an abstraction of these square-root and
 cube-root functions.)
 

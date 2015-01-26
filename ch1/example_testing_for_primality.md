@@ -39,7 +39,7 @@ The $$\Theta(\log n)$$ primality test is based on a result from number theory kn
 
 If $$n$$ is not prime, then, in general, most of the numbers $$a \lt n$$ will not satisfy the above relation. This leads to the following algorithm for testing primality: Given a number $$n$$, pick a random number $$a \lt n$$ and compute the remainder of $$a^n$$ modulo $$n$$. If the result is not equal to $$a$$, then $$n$$ is certainly not prime. If it is $$a$$, then chances are good that $$n$$ is prime. Now pick another random number $$a$$ and test it with the same method. If it also satisfies the equation, then we can be even more confident that $$n$$ is prime. By trying more and more values of $$a$$, we can increase our confidence in the result. This algorithm is known as the Fermat test.
 
-To implement the Fermat test, we need a procedure that computes the exponential of a number modulo another number:
+To implement the Fermat test, we need a function that computes the exponential of a number modulo another number:
 
 ```lisp
 (defun expmod (base exp m)
@@ -52,7 +52,7 @@ To implement the Fermat test, we need a procedure that computes the exponential 
               m))))
 ```
 
-This is very similar to the ``fast-expt/2`` procedure of the section [Exponentiation](). It uses successive squaring, so that the number of steps grows logarithmically with the exponent.[^3]
+This is very similar to the ``fast-expt/2`` function of the section [Exponentiation](). It uses successive squaring, so that the number of steps grows logarithmically with the exponent.[^3]
 
 The Fermat test is performed by choosing at random a number $$a$$ between 1 and $$n - 1$$ inclusive and checking whether the remainder modulo $$n$$ of the $$n$$th power of $$a$$ is equal to $$a$$. The random number $$a$$ is chosen using the ``uniform/1`` function from the ``random`` module in the Erlang standard library. ``uniform/1`` returns a nonnegative integer between ``1`` and the provided input, inclusive; this is exactly what we need.
 
@@ -63,7 +63,7 @@ The Fermat test is performed by choosing at random a number $$a$$ between 1 and 
     (try-it (random:uniform (- n 1)))))
 ```
 
-The following procedure runs the test a given number of times, as specified by a parameter. Its value is true if the test succeeds every time, and false otherwise.
+The following function runs the test a given number of times, as specified by a parameter. Its value is true if the test succeeds every time, and false otherwise.
 
 ```lisp
 (defun fast-prime? (n times)
