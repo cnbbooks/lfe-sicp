@@ -44,10 +44,10 @@ The resulting function is just as much a function as one that is created using d
 We can read a lambda expression as follows:
 
 ```lisp
-   (lambda             (x)              (+    x     4))
-      ^                 ^                ^    ^     ^
-      |                 |                |    |     |
- the function   of an argument x  that adds  x and 4
+   (lambda             (x)            (+     x       4))
+      ^                 ^              ^     ^       ^
+      |                 |              |     |       |
+ the function   of an argument x  that adds  x  and  4
 ```
 
 Like any expression that has a function as its value, a ``lambda`` expression can be used as the operator in a combination such as
