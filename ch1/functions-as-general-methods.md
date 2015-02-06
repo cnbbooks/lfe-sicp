@@ -5,7 +5,7 @@ We introduced compound functions in the section [Compound Functions]() as a mech
 
 #### Finding roots of equations by the half-interval method
 
-The *half-interval method* is a simple but powerful technique for finding roots of an equation $$f(x) = 0$$, where $$f$$ is a continuous function. The idea is that, if we are given points $$a$$ and $$b$$ such that $$f(a) < 0 < f(b)$$, then $$f$$ must have at least one zero between $$a$$ and $$b$$. To locate a zero, let $$x$$ be the average of $$a$$ and $$b$$ and compute $$f(x)$$. If $$f(x) > 0$$, then $$f$$ must have a zero between $$a$$ and $$x$$. If $$f(x) < 0$$, then $$f$$ must have a zero between $$x$$ and $$b$$. Continuing in this way, we can identify smaller and smaller intervals on which $$f$$ must have a zero. When we reach a point where the interval is small enough, the process stops. Since the interval of uncertainty is reduced by half at each step of the process, the number of steps required grows as $$\Theta(log( L/T))$$, where $$L$$ is the length of the original interval and $$T$$ is the error tolerance (that is, the size of the interval we will consider "small enough"). Here is a procedure that implements this strategy:
+The *half-interval method* is a simple but powerful technique for finding roots of an equation $$f(x) = 0$$, where $$f$$ is a continuous function. The idea is that, if we are given points $$a$$ and $$b$$ such that $$f(a) < 0 < f(b)$$, then $$f$$ must have at least one zero between $$a$$ and $$b$$. To locate a zero, let $$x$$ be the average of $$a$$ and $$b$$ and compute $$f(x)$$. If $$f(x) > 0$$, then $$f$$ must have a zero between $$a$$ and $$x$$. If $$f(x) < 0$$, then $$f$$ must have a zero between $$x$$ and $$b$$. Continuing in this way, we can identify smaller and smaller intervals on which $$f$$ must have a zero. When we reach a point where the interval is small enough, the process stops. Since the interval of uncertainty is reduced by half at each step of the process, the number of steps required grows as $$\Theta(log( L/T))$$, where $$L$$ is the length of the original interval and $$T$$ is the error tolerance (that is, the size of the interval we will consider "small enough"). Here is a function that implements this strategy:
 
 ```lisp
 (defun negative? (x)
@@ -28,14 +28,14 @@ The *half-interval method* is a simple but powerful technique for finding roots 
 
 We assume that we are initially given the function $$f$$ together with points at which its values are negative and positive. We first compute the midpoint of the two given points. Next we check to see if the given interval is small enough, and if so we simply return the midpoint as our answer. Otherwise, we compute as a test value the value of $$f$$ at the midpoint. If the test value is positive, then we continue the process with a new interval running from the original negative point to the midpoint. If the test value is negative, we continue with the interval from the midpoint to the positive point. Finally, there is the possibility that the test value is 0, in which case the midpoint is itself the root we are searching for.
 
-To test whether the endpoints are "close enough" we can use a procedure similar to the one used in the section [Example: Square Roots by Newton's Method]() for computing square roots:[^1]
+To test whether the endpoints are "close enough" we can use a function similar to the one used in the section [Example: Square Roots by Newton's Method]() for computing square roots:[^1]
 
 ```lisp
 (defun close-enough? (x y)
   (< (abs (- x y)) 0.001))
 ```
 
-``search/3`` is awkward to use directly, because we can accidentally give it points at which $$f$$'s values do not have the required sign, in which case we get a wrong answer. Instead we will use ``search/3`` via the following procedure, which checks to see which of the endpoints has a negative function value and which has a positive value, and calls the ``search/3`` procedure accordingly. If the function has the same sign on the two given points, the half-interval method cannot be used, in which case the procedure signals an error.[^2]
+``search/3`` is awkward to use directly, because we can accidentally give it points at which $$f$$'s values do not have the required sign, in which case we get a wrong answer. Instead we will use ``search/3`` via the following function, which checks to see which of the endpoints has a negative function value and which has a positive value, and calls the ``search/3`` function accordingly. If the function has the same sign on the two given points, the half-interval method cannot be used, in which case the function signals an error.[^2]
 
 ```lisp
 
@@ -76,7 +76,7 @@ f(x),f(f(x)), f(f(f(x))), \dots
 \end{align}
 $$
 
-until the value does not change very much. Using this idea, we can devise a procedure ``fixed-point/2`` that takes as inputs a function and an initial guess and produces an approximation to a fixed point of the function. We apply the function repeatedly until we find two successive values whose difference is less than some prescribed tolerance:
+until the value does not change very much. Using this idea, we can devise a function ``fixed-point/2`` that takes as inputs a function and an initial guess and produces an approximation to a fixed point of the function. We apply the function repeatedly until we find two successive values whose difference is less than some prescribed tolerance:
 
 ```lisp
 (defun fixed-point (f first-guess)
@@ -127,7 +127,7 @@ One way to control such oscillations is to prevent the guesses from changing so 
 
 (Note that $$y = \frac{y + \frac{x}{y}}{2}$$ is a simple transformation of the equation $$y = \frac{x}{y}$$; to derive it, add $$y$$ to both sides of the equation and divide by 2.)
 
-With this modification, the square-root procedure works. In fact, if we unravel the definitions, we can see that the sequence of approximations to the square root generated here is precisely the same as the one generated by our original square-root procedure of the section [Example: Square Roots by Newton's Method](). This approach of averaging successive approximations to a solution, a technique we that we call *average damping*, often aids the convergence of fixed-point searches.
+With this modification, the square-root function works. In fact, if we unravel the definitions, we can see that the sequence of approximations to the square root generated here is precisely the same as the one generated by our original square-root function of the section [Example: Square Roots by Newton's Method](). This approach of averaging successive approximations to a solution, a technique we that we call *average damping*, often aids the convergence of fixed-point searches.
 
 ----
 
