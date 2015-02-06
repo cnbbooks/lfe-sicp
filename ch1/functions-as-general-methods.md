@@ -137,4 +137,4 @@ With this modification, the square-root procedure works. In fact, if we unravel 
 
 [^3]: Try this during a boring lecture: Set your calculator to radians mode and then repeatedly press the ``cos`` button until you obtain the fixed point.
 
-[^4]: $$\mapsto$$ (pronounced "maps to") is the mathematician's way of writing ``lambda``. $$y \mapsto \frac{x}{y} means ``(lambda(y) (/ x y))``, that is, the function whose value at $$y$$ is $$\frac{x}{y}$$.
+[^4]: $$\mapsto$$ (pronounced "maps to") is the mathematician's way of writing ``lambda``. $$y \mapsto \frac{x}{y}$$ means ``(lambda(y) (/ x y))``, that is, the function whose value at $$y$$ is $$\frac{x}{y}$$.
