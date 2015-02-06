@@ -64,13 +64,112 @@ or, more generally, in any context where we would normally use a procedure name.
   (+ x y (square z)))
 ```
 
-We would apply it the same way as we did the ``lambda`` expression:
+we would apply it the same way as we did the ``lambda`` expression:
 
 ```lisp
 > (apply #'add-sq/3 '(1 2 3))
 12
 ```
 
+#### Using ``let`` to create local variables
+
+Another use of ``lambda`` is in creating local variables. We often need local variables in our procedures other than those that have been bound as formal parameters. For example, suppose we wish to compute the function
+
+$$
+\begin{align}
+f(x, y) = x(1 + xy)^2 + y(1 -y) + (1 + xy)(1 - y)
+\end{align}
+$$
+
+which we could also express as
+
+$$
+TBD
+$$
+
+In writing a procedure to compute $$f$$, we would like to include as local variables not only $$x$$ and $$y$$ but also the names of intermediate quantities like $$a$$ and $$b$$. One way to accomplish this is to use an auxiliary procedure to bind the local variables:
+
+```lisp
+(defun f (x y)
+  (flet ((f-helper (a b)
+          (+ (* x (square a))
+             (* y b)
+             (* a b))))
+    (f-helper (+ 1 (* x y))
+              (- 1 y))))
+```
+
+Of course, we could use a ``lambda`` expression to specify an anonymous procedure for binding our local variables. The body of ``f`` then becomes a single call to that procedure:
+
+```lisp
+(defun f (x y)
+  (funcall
+    (lambda (a b)
+      (+ (* x (square a))
+         (* y b)
+         (* a b)))
+    (+ 1 (* x y))
+    (- 1 y)))
+```
+
+This construct is so useful that there is a special form called let to make its use more convenient. Using let, the f procedure could be written as
+
+```lisp
+(defun f (x y)
+  (let ((a (+ 1 (* x y)))
+        (b (- 1 y)))
+    (+ (* x (square a))
+       (* y b)
+       (* a b))))
+```
+
+ The general form of a ``let`` expression is
+
+```lisp
+(let ((<var-1> <exp-1>)
+      (<var-2> <exp-2>)
+      ...
+      (<var-n> <exp-n>))
+   <body>)
+```
+
+which can be thought of as saying
+
+let $$<var_1>$$ have the value $$<exp_1>$$ and
+    $$<var_2>$$ have the value $$<exp_2>$$ and
+    ...
+    $$<var_n>$$ have the value $$<exp_n>$$
+in  $$<body>$$
+
+The first part of the ``let`` expression is a list of name-expression pairs. When the ``let`` is evaluated, each name is associated with the value of the corresponding expression. The body of the ``let`` is evaluated with these names bound as local variables. The way this happens is that the ``let`` expression is interpreted as an alternate syntax for
+
+```lisp
+(funcall (lambda (<var-1> ...<var-n>)
+    <body>)
+ <exp-1>
+ ...
+ <exp-n>)
+```
+
+No new mechanism is required in the interpreter in order to provide local variables. A ``let`` expression is simply syntactic sugar for the underlying ``lambda`` application.
+
+We can see from this equivalence that the scope of a variable specified by a ``let`` expression is the body of the ``let``. This implies that:
+
+* ``let`` allows one to bind variables as locally as possible to where they are to be used. For example, if the value of ``x`` is 5, the value of the expression
+  ```lisp
+  (+ (let ((x 3))
+     (+ x (* x 10)))
+   x)
+  ```
+  is 38. Here, the ``x`` in the body of the ``let`` is 3, so the value of the let expression is 33. On the other hand, the ``x`` that is the second argument to the outermost ``+`` is still 5.
+
+* The variables' values are computed outside the ``let``. This matters when the expressions that provide the values for the local variables depend upon variables having the same names as the local variables themselves. For example, if the value of ``x`` is 2, the expression
+  ```lisp
+  (let ((x 3)
+      (y (+ x 2)))
+  (* x y))
+  ```
+  will have the value 12 because, inside the body of the ``let``, ``x`` will be 3 and ``y`` will be 4 (which is the outer ``x`` plus 2).
 
 ----
 
