@@ -48,7 +48,7 @@ A continued fraction representation of the tangent function was published in 177
 
 $$
 \begin{align}
-tan r = \frac{r}{1 - \frac{r^2}{3 - \frac{r^2}{5 - \ddots}}}
+\tan r = \frac{r}{1 - \frac{r^2}{3 - \frac{r^2}{5 - \ddots}}}
 \end{align}
 $$
 

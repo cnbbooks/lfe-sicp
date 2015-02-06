@@ -54,7 +54,7 @@ Louis Reasoner is having great difficulty doing exercise 1.24. His ``fast-prime?
          (rem (* (expmod base (/ exp 2) m)
                        (expmod base (/ exp 2) m))
               m))
-        (else
+        ('true
          (rem (* base (expmod base (- exp 1) m))
               m))))
 ```

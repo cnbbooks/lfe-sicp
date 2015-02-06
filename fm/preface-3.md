@@ -6,7 +6,13 @@ Unbound creativity is the power and the weakness of the Force. The Art of Progra
 
 *--Cristina Videira Lopes, "Jedi Masters", on the history of Lisp and programming*
 
-TBD
+## The Place of Lisp in the 21st Century
+
+[Forthcoming]
+
+## The Interplay of Distributed Systems and Lisps
+
+[Forthcoming]
 
 
 ## Notes on Changes from the Original
@@ -30,6 +36,8 @@ to no impact on its essence. These liberties include the following:
   with the subject matter of the original text.
 * Very rarely some of the original text is omitted when not at all applicable
   to LFE.
+* LFE doesn't support nested ``defun``s like Scheme supports nested ``define``s; ``flet`` and ``flectrec`` are used instead. However, as a result, these are introduced before ``let``. This is awkward, but not diasterous.
+* The LFE Edition uses LaTeX, and as such, equations are much easier to read.
 * Updating examples to modern, accepted forms (e.g., the Ackermann function).
 * Exercises are broken out into their own sections (while preserving their original order and placement in the chapters).
 

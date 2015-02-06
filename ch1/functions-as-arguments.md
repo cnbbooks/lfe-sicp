@@ -150,7 +150,7 @@ for small values of $$dx$$. We can express this directly as a function:
 
 ----
 
-[^1]: This series, usually written in the equivalent form $$\frac{pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots $$, is due to Leibniz. We'll see how to use this as the basis for some fancy numerical tricks in the section [Exploiting the Stream Paradigm]().
+[^1]: This series, usually written in the equivalent form $$\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots $$, is due to Leibniz. We'll see how to use this as the basis for some fancy numerical tricks in the section [Exploiting the Stream Paradigm]().
 
 [^2]: Notice that we have used ``flet``s (from the section [Functions as Black-Box Abstractions]()) to embed the definitions of ``pi-next/1`` and ``pi-term/1`` within ``pi-sum/2``, since these functions are unlikely to be useful for any other purpose. We will learn more about how these work when we get to the section [Constructing Functions Using Lambda]().
 
