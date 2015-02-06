@@ -116,7 +116,7 @@ Of course, we could use a ``lambda`` expression to specify an anonymous function
     (- 1 y)))
 ```
 
-This construct is so useful that there is a special form called let to make its use more convenient. Using let, the f function could be written as
+This construct is so useful that there is a special form called ``let`` to make its use more convenient. Using ``let``, the ``f/2`` function could be written as
 
 ```lisp
 (defun f (x y)
