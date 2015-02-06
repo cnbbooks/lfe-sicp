@@ -84,7 +84,11 @@ $$
 which we could also express as
 
 $$
-TBD
+\begin{align}
+a = & \ 1 + xy \\
+b = & \ 1 - y \\
+f(x, y) = & \ ra^2 + yb + ab.
+\end{align}
 $$
 
 In writing a procedure to compute $$f$$, we would like to include as local variables not only $$x$$ and $$y$$ but also the names of intermediate quantities like $$a$$ and $$b$$. One way to accomplish this is to use an auxiliary procedure to bind the local variables:
@@ -135,20 +139,21 @@ This construct is so useful that there is a special form called let to make its 
 
 which can be thought of as saying
 
-let $$<var_1>$$ have the value $$<exp_1>$$ and
-    $$<var_2>$$ have the value $$<exp_2>$$ and
-    ...
-    $$<var_n>$$ have the value $$<exp_n>$$
-in  $$<body>$$
+* Let ``<var-1>`` have the value ``<exp-1>`` and
+* Let ``<var-2>`` have the value ``<exp-2>`` and
+* ... and
+* Let ``<var-n>`` have the value ``<exp-n>``
+* All in the context of ``<body>``
 
 The first part of the ``let`` expression is a list of name-expression pairs. When the ``let`` is evaluated, each name is associated with the value of the corresponding expression. The body of the ``let`` is evaluated with these names bound as local variables. The way this happens is that the ``let`` expression is interpreted as an alternate syntax for
 
 ```lisp
-(funcall (lambda (<var-1> ...<var-n>)
+(funcall
+  (lambda (<var-1> ... <var-n>)
     <body>)
- <exp-1>
- ...
- <exp-n>)
+   <exp-1>
+   ...
+   <exp-n>)
 ```
 
 No new mechanism is required in the interpreter in order to provide local variables. A ``let`` expression is simply syntactic sugar for the underlying ``lambda`` application.
