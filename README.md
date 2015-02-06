@@ -10,7 +10,7 @@ is a work in progress, converting the MIT classic
 [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/)
 to Lisp Flavored Erlang. We are forever indebted to Harold Abelson, Gerald 
 Jay Sussman, and Julie Sussman for their labor of love and intelligence.
-Needless to saw, our gratitude also extends to the MIT press for their
+Needless to say, our gratitude also extends to the MIT press for their
 generosity in licensing this work as Creative Commons.
 
 ## Contributing
