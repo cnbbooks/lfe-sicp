@@ -6,7 +6,7 @@ Show that the golden ratio $$\phi$$ (the section [Tree Recursion]()) is a fixed 
 
 #### Exercise 1.36
 
-Modify ``fixed-point/2`` so that it prints the sequence of approximations it generates, using ``io:format`` as shown in exercise 1.22. Then find a solution to $$x^x = 1000$$ by finding a fixed point of $$x \mapsto \frac{log(1000)}{log(x)}. (Use Erlang's ``math:log`` function, which computes natural logarithms.) Compare the number of steps this takes with and without average damping. (Note that you cannot start ``fixed-point/2`` with a guess of 1, as this would cause division by $$log(1) = 0$$.)
+Modify ``fixed-point/2`` so that it prints the sequence of approximations it generates, using ``io:format`` as shown in exercise 1.22. Then find a solution to $$x^x = 1000$$ by finding a fixed point of $$x \mapsto \frac{log(1000)}{log(x)}. (Use Erlang's ``math:log`` function, which computes natural logarithms.) Compare the number of steps this takes with and without average damping. (Note that you cannot start ``fixed-point/2`` with a guess of 1, as this would cause division by $$log(1) = 0 $$.)
 
 #### Exercise 1.37
 

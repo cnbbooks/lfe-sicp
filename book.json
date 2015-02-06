@@ -3,7 +3,7 @@
     "description": "The LFE Edition of the Classic Scheme Book",
     "plugins": [
         "ga",
-        "katex"
+        "mathjax"
     ],
     "pluginsConfig": {
         "fontSettings": {
