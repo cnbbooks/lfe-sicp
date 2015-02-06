@@ -57,7 +57,7 @@ Like any expression that has a function as its value, a ``lambda`` expression ca
 12
 ```
 
-or, more generally, in any context where we would normally use a procedure name.[^1] For example, if we defined the ``lambda`` expression above as a function
+or, more generally, in any context where we would normally use a function name.[^1] For example, if we defined the ``lambda`` expression above as a function
 
 ```lisp
 (defun add-sq (x y z)
@@ -73,7 +73,7 @@ we would apply it the same way as we did the ``lambda`` expression:
 
 #### Using ``let`` to create local variables
 
-Another use of ``lambda`` is in creating local variables. We often need local variables in our procedures other than those that have been bound as formal parameters. For example, suppose we wish to compute the function
+Another use of ``lambda`` is in creating local variables. We often need local variables in our functions other than those that have been bound as formal parameters. For example, suppose we wish to compute the function
 
 $$
 \begin{align}
@@ -91,7 +91,7 @@ f(x, y) = & \ ra^2 + yb + ab.
 \end{align}
 $$
 
-In writing a procedure to compute $$f$$, we would like to include as local variables not only $$x$$ and $$y$$ but also the names of intermediate quantities like $$a$$ and $$b$$. One way to accomplish this is to use an auxiliary procedure to bind the local variables:
+In writing a function to compute $$f$$, we would like to include as local variables not only $$x$$ and $$y$$ but also the names of intermediate quantities like $$a$$ and $$b$$. One way to accomplish this is to use an auxiliary function to bind the local variables:
 
 ```lisp
 (defun f (x y)
@@ -103,7 +103,7 @@ In writing a procedure to compute $$f$$, we would like to include as local varia
               (- 1 y))))
 ```
 
-Of course, we could use a ``lambda`` expression to specify an anonymous procedure for binding our local variables. The body of ``f`` then becomes a single call to that procedure:
+Of course, we could use a ``lambda`` expression to specify an anonymous function for binding our local variables. The body of ``f`` then becomes a single call to that function:
 
 ```lisp
 (defun f (x y)
@@ -116,7 +116,7 @@ Of course, we could use a ``lambda`` expression to specify an anonymous procedur
     (- 1 y)))
 ```
 
-This construct is so useful that there is a special form called let to make its use more convenient. Using let, the f procedure could be written as
+This construct is so useful that there is a special form called let to make its use more convenient. Using let, the f function could be written as
 
 ```lisp
 (defun f (x y)
@@ -178,4 +178,4 @@ We can see from this equivalence that the scope of a variable specified by a ``l
 
 ----
 
-[^1]: It would be clearer and less intimidating to people learning Lisp if a name more obvious than ``lambda``, such as ``make-procedure``, were used. But the convention is firmly entrenched. The notation is adopted from the $$\lambda$$ calculus, a mathematical formalism introduced by the mathematical logician Alonzo Church (1941). Church developed the $$\lambda$$ calculus to provide a rigorous foundation for studying the notions of function and function application. The $$\lambda$$ calculus has become a basic tool for mathematical investigations of the semantics of programming languages.
+[^1]: It would be clearer and less intimidating to people learning Lisp if a name more obvious than ``lambda``, such as ``make-function``, were used. But the convention is firmly entrenched. The notation is adopted from the $$\lambda$$ calculus, a mathematical formalism introduced by the mathematical logician Alonzo Church (1941). Church developed the $$\lambda$$ calculus to provide a rigorous foundation for studying the notions of function and function application. The $$\lambda$$ calculus has become a basic tool for mathematical investigations of the semantics of programming languages.

@@ -40,6 +40,7 @@
        * [Functions as Arguments](ch1/functions-as-arguments.md)
        * [Exercises](ch1/exercises-9.md)
        * [Constructing Functions Using Lambda](ch1/constructing-functions-using-lambda.md)
+       * [Exercises](ch1/exercises-10.md)
        * [Functions as General Methods](ch1/functions-as-general-methods.md)
        * [Functions as Returned Values](ch1/functions-as-returned-values.md)
 * Building Abstractions with Data
