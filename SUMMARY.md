@@ -44,6 +44,7 @@
        * [Functions as General Methods](ch1/functions-as-general-methods.md)
        * [Exercises](ch1/exercises-11.md)
        * [Functions as Returned Values](ch1/functions-as-returned-values.md)
+       * [Exercises](ch1/exercises-12.md)
 * Building Abstractions with Data
    * Introduction to Data Abstraction
        * Example: Arithmetic Operations for Rational Numbers
