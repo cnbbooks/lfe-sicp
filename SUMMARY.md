@@ -45,7 +45,7 @@
        * [Exercises](ch1/exercises-11.md)
        * [Functions as Returned Values](ch1/functions-as-returned-values.md)
        * [Exercises](ch1/exercises-12.md)
-* [Building Abstractions with Data](building-abstractions-with-data.md)
+* [Building Abstractions with Data](ch2/building-abstractions-with-data.md)
    * Introduction to Data Abstraction
        * Example: Arithmetic Operations for Rational Numbers
        * Abstraction Barriers
