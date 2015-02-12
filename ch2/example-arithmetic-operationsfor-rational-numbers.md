@@ -40,7 +40,7 @@ $$
 
 $$
 \begin{align}
-\frac{n_1}{d_1} = \frac{n_2}{d_2} \text{if and only if}
+\frac{n_1}{d_1} = \frac{n_2}{d_2} \text{if and only if }
 n_1 d_2 = n_2 d_1
 \end{align}
 $$
