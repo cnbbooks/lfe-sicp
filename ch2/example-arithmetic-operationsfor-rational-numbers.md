@@ -70,3 +70,37 @@ We can express these rules as functions:
 Now we have the operations on rational numbers defined in terms of the selector and constructor functions ``numer/1``, ``denom/1``, and ``make-rat/2``. But we haven't yet defined these. What we need is some way to glue together a numerator and a denominator to form a rational number.
 
 Now we have the operations on rational numbers defined in terms of the selector and constructor functions ``numer/1``, ``denom/1``, and ``make-rat/2``. But we haven't yet defined these. What we need is some way to glue together a numerator and a denominator to form a rational number.
+
+#### Pairs
+
+To enable us to implement the concrete level of our data abstraction, our language provides a compound structure called a *pair*, which can be constructed with the primitive procedure ``cons/2``. This procedure takes two arguments and returns a compound data object that contains the two arguments as parts. Given a pair, we can extract the parts using the primitive procedures ``car/1`` and ``cdr/1``.[^1] Thus, we can use ``cons/2``, ``car/1``, and ``cdr/1`` as follows:
+
+```lisp
+> (set x (cons 1 2))
+(1 . 2)
+> (car x)
+1
+> (cdr x)
+2
+```
+
+Notice that a pair is a data object that can be given a name and manipulated, just like a primitive data object. Moreover, ``cons/2`` can be used to form pairs whose elements are pairs, and so on:
+
+```lisp
+> (set x (cons 1 2))
+(1 . 2)
+> (set y (cons 3 4))
+(3 . 4)
+> (set z (cons x y))
+((1 . 2) 3 . 4)
+> (car (car z))
+1
+> (car (cdr z))
+3
+```
+
+In the section [Hierarchical Data and the Closure Property]() we will see how this ability to combine pairs means that pairs can be used as general-purpose building blocks to create all sorts of complex data structures. The single compound-data primitive *pair*, implemented by the procedures ``cons/2``, ``car/1``, and ``cdr/1``, is the only glue we need. Data objects constructed from pairs are called *list-structured* data.
+
+----
+
+[^1]: The name ``cons`` stands for "construct." The names ``car`` and ``cdr`` derive from the original implementation of Lisp on the IBM 704. That machine had an addressing scheme that allowed one to reference the "address" and "decrement" parts of a memory location. ``car`` stands for "Contents of Address part of Register" and ``cdr`` (pronounced "could-er" or "cudder") stands for "Contents of Decrement part of Register."
