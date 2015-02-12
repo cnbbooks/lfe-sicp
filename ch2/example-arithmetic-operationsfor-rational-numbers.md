@@ -101,6 +101,65 @@ Notice that a pair is a data object that can be given a name and manipulated, ju
 
 In the section [Hierarchical Data and the Closure Property]() we will see how this ability to combine pairs means that pairs can be used as general-purpose building blocks to create all sorts of complex data structures. The single compound-data primitive *pair*, implemented by the procedures ``cons/2``, ``car/1``, and ``cdr/1``, is the only glue we need. Data objects constructed from pairs are called *list-structured* data.
 
+#### Representing rational numbers
+
+Pairs offer a natural way to complete the rational-number system. Simply represent a rational number as a pair of two integers: a numerator and a denominator. Then ``make-rat/2``, ``numer/1``, and ``denom/1`` and are readily implemented as follows:[^2]
+
+```lisp
+(defun make-rat (x y)
+  (cons x y))
+(defun numer (x)
+  (car x))
+(defun denom (x)
+  (cdr x))
+```
+
+Also, in order to display the results of our computations, we can print rational numbers by printing the numerator, a slash, and the denominator:4
+
+```lisp
+(defun print-rat (x)
+  (io:format "~p/~p~n" (list (numer x) (denom x))))
+```
+
+Now we can try our rational-number procedures:
+
+```lisp
+> (set one-half (make-rat 1 2))
+(1 . 2)
+> (print-rat one-half)
+1/2
+ok
+> (print-rat (add-rat one-half one-third))
+5/6
+ok
+> (print-rat (mul-rat one-half one-third))
+1/6
+ok
+> (print-rat (add-rat one-third one-third))
+6/9
+ok
+```
+
+As the final example shows, our rational-number implementation does not reduce rational numbers to lowest terms. We can remedy this by changing ``make-rat/2``. If we have a ``gcd/2`` procedure like the one in the section [Greatest Common Divisors]() that produces the greatest common divisor of two integers, we can use ``gcd/2`` to reduce the numerator and the denominator to lowest terms before constructing the pair:
+
+```lisp
+(defun make-rat (n d)
+  (let ((g (gcd n d)))
+    (cons (trunc (/ n g))
+          (trunc (/ d g)))))
+```
+
+Now we have
+
+```lisp
+> (print-rat (add-rat one-third one-third))
+2/3
+ok
+```
+
+as desired. This modification was accomplished by changing the constructor ``make-rat/2`` without changing any of the procedures (such as ``add-rat/2`` and ``mul-rat/2``) that implement the actual operations.
+
 ----
 
-[^1]: The name ``cons`` stands for "construct." The names ``car`` and ``cdr`` derive from the original implementation of Lisp on the IBM 704. That machine had an addressing scheme that allowed one to reference the "address" and "decrement" parts of a memory location. ``car`` stands for "Contents of Address part of Register" and ``cdr`` (pronounced "could-er" or "cudder") stands for "Contents of Decrement part of Register."
+[^1]: The name ``cons`` stands for "construct." The names ``car`` and ``cdr`` derive from the original implementation of Lisp on the [IBM 704](http://en.wikipedia.org/wiki/IBM_704). That machine had an addressing scheme that allowed one to reference the "address" and "decrement" parts of a memory location. ``car`` stands for "Contents of Address part of Register" and ``cdr`` (pronounced "could-er" or "cudder") stands for "Contents of Decrement part of Register."
+

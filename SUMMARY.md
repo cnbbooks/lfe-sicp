@@ -48,6 +48,7 @@
 * [Building Abstractions with Data](ch2/building-abstractions-with-data.md)
    * [Introduction to Data Abstraction](ch2/introduction-to-data-abstraction.md)
        * [Example: Arithmetic Operations for Rational Numbers](ch2/example-arithmetic-operationsfor-rational-numbers.md)
+       * [Exercises](ch2/exercises-1.md)
        * Abstraction Barriers
        * What Is Meant by Data?
        * Extended Exercise: Interval Arithmetic
