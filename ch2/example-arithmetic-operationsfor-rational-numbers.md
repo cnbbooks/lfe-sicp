@@ -73,7 +73,7 @@ Now we have the operations on rational numbers defined in terms of the selector 
 
 #### Pairs
 
-To enable us to implement the concrete level of our data abstraction, our language provides a compound structure called a *pair*, which can be constructed with the primitive procedure ``cons/2``. This procedure takes two arguments and returns a compound data object that contains the two arguments as parts. Given a pair, we can extract the parts using the primitive procedures ``car/1`` and ``cdr/1``.[^1] Thus, we can use ``cons/2``, ``car/1``, and ``cdr/1`` as follows:
+To enable us to implement the concrete level of our data abstraction, our language provides a compound structure called a *pair*, which can be constructed with the primitive function ``cons/2``. This function takes two arguments and returns a compound data object that contains the two arguments as parts. Given a pair, we can extract the parts using the primitive functions ``car/1`` and ``cdr/1``.[^1] Thus, we can use ``cons/2``, ``car/1``, and ``cdr/1`` as follows:
 
 ```lisp
 > (set x (cons 1 2))
@@ -99,7 +99,7 @@ Notice that a pair is a data object that can be given a name and manipulated, ju
 3
 ```
 
-In the section [Hierarchical Data and the Closure Property]() we will see how this ability to combine pairs means that pairs can be used as general-purpose building blocks to create all sorts of complex data structures. The single compound-data primitive *pair*, implemented by the procedures ``cons/2``, ``car/1``, and ``cdr/1``, is the only glue we need. Data objects constructed from pairs are called *list-structured* data.
+In the section [Hierarchical Data and the Closure Property]() we will see how this ability to combine pairs means that pairs can be used as general-purpose building blocks to create all sorts of complex data structures. The single compound-data primitive *pair*, implemented by the functions ``cons/2``, ``car/1``, and ``cdr/1``, is the only glue we need. Data objects constructed from pairs are called *list-structured* data.
 
 #### Representing rational numbers
 
@@ -121,7 +121,7 @@ Also, in order to display the results of our computations, we can print rational
   (io:format "~p/~p~n" (list (numer x) (denom x))))
 ```
 
-Now we can try our rational-number procedures:
+Now we can try our rational-number functions:
 
 ```lisp
 > (set one-half (make-rat 1 2))
@@ -140,7 +140,7 @@ ok
 ok
 ```
 
-As the final example shows, our rational-number implementation does not reduce rational numbers to lowest terms. We can remedy this by changing ``make-rat/2``. If we have a ``gcd/2`` procedure like the one in the section [Greatest Common Divisors]() that produces the greatest common divisor of two integers, we can use ``gcd/2`` to reduce the numerator and the denominator to lowest terms before constructing the pair:
+As the final example shows, our rational-number implementation does not reduce rational numbers to lowest terms. We can remedy this by changing ``make-rat/2``. If we have a ``gcd/2`` function like the one in the section [Greatest Common Divisors]() that produces the greatest common divisor of two integers, we can use ``gcd/2`` to reduce the numerator and the denominator to lowest terms before constructing the pair:
 
 ```lisp
 (defun make-rat (n d)
@@ -157,7 +157,7 @@ Now we have
 ok
 ```
 
-as desired. This modification was accomplished by changing the constructor ``make-rat/2`` without changing any of the procedures (such as ``add-rat/2`` and ``mul-rat/2``) that implement the actual operations.
+as desired. This modification was accomplished by changing the constructor ``make-rat/2`` without changing any of the functions (such as ``add-rat/2`` and ``mul-rat/2``) that implement the actual operations.
 
 ----
 
