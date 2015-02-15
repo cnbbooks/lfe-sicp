@@ -133,8 +133,9 @@ Though nothing obvious is gained through the use of pattern matching here[^2], t
 In order to display the results of our computations, we can print rational numbers by printing the numerator, a slash, and the denominator:4
 
 ```lisp
-(defun print-rat (x)
-  (io:format "~p/~p~n" (list (numer x) (denom x))))
+(defun print-rat (rat)
+  (io:format "~p/~p~n" (list (numer rat)
+                             (denom rat))))
 ```
 
 Now we can try our rational-number functions:
