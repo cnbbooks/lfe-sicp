@@ -103,7 +103,7 @@ In the section [Hierarchical Data and the Closure Property]() we will see how th
 
 #### Representing rational numbers
 
-Pairs offer a natural way to complete the rational-number system. Simply represent a rational number as a pair of two integers: a numerator and a denominator. Then ``make-rat/2``, ``numer/1``, and ``denom/1`` and are readily implemented as follows:[^2]
+Pairs offer a natural way to complete the rational-number system. Simply represent a rational number as a pair of two integers: a numerator and a denominator. Then ``make-rat/2``, ``numer/1``, and ``denom/1`` and are readily implemented as follows:[^1]
 
 ```lisp
 (defun make-rat (x y)
