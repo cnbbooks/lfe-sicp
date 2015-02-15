@@ -49,7 +49,8 @@
    * [Introduction to Data Abstraction](ch2/introduction-to-data-abstraction.md)
        * [Example: Arithmetic Operations for Rational Numbers](ch2/example-arithmetic-operationsfor-rational-numbers.md)
        * [Exercises](ch2/exercises-1.md)
-       * Abstraction Barriers
+       * [Abstraction Barriers](ch2/abstraction-barriers.md)
+       * [Exercises](ch2/exercises-2.md)
        * What Is Meant by Data?
        * Extended Exercise: Interval Arithmetic
    * Hierarchical Data and the Closure Property
