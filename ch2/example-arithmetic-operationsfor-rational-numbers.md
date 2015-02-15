@@ -108,13 +108,29 @@ Pairs offer a natural way to complete the rational-number system. Simply represe
 ```lisp
 (defun make-rat (x y)
   (cons x y))
-(defun numer (x)
-  (car x))
-(defun denom (x)
-  (cdr x))
+
+(defun numer (rat)
+  (car rat))
+
+(defun denom (rat)
+  (cdr rat))
 ```
 
-Also, in order to display the results of our computations, we can print rational numbers by printing the numerator, a slash, and the denominator:4
+However, LFE pattern matching provides another possibility for implementating ``numer/1`` and ``denom/1``. Without using ``car`` or ``cdr``, we can match the numerator and denomenator in function arguments itself, without making a call in the body of the function.
+
+```lisp
+(defun numer
+  (((cons x _))
+    x))
+
+(defun denom
+  (((cons _ y))
+    y))
+```
+
+Though nothing obvious is gained through the use of pattern matching here[^2], this is a good opportunity to see its usage again, after the introduction in the first chapter.
+
+In order to display the results of our computations, we can print rational numbers by printing the numerator, a slash, and the denominator:4
 
 ```lisp
 (defun print-rat (x)
@@ -165,3 +181,4 @@ as desired. This modification was accomplished by changing the constructor ``mak
 
 [^1]: The name ``cons`` stands for "construct." The names ``car`` and ``cdr`` derive from the original implementation of Lisp on the [IBM 704](http://en.wikipedia.org/wiki/IBM_704). That machine had an addressing scheme that allowed one to reference the "address" and "decrement" parts of a memory location. ``car`` stands for "Contents of Address part of Register" and ``cdr`` (pronounced "could-er" or "cudder") stands for "Contents of Decrement part of Register."
 
+[^2]: In fact, something is lost: about 2 $$\mu$$seconds. Arguably, this could be within a margin of uncertainty, though the results are consistent. The timing was performed upon the LFE author's 2009 MacBook Air using ``(set counts (lists:seq 1 10000))`` and ``(/ (lists:sum (lists:map (lambda (_) (element 1 (timer:tc #'numer/1 (list one-half)))) counts)) (length counts))``. Without pattern matching, results ranged between 7 and 8 $$\mu$$seconds; with pattern matching, results ranged from 8 to 11 $$\mu$$seconds.
