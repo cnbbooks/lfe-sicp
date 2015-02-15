@@ -129,6 +129,8 @@ Now we can try our rational-number functions:
 > (print-rat one-half)
 1/2
 ok
+> (set one-third (make-rat 1 3))
+(1 . 3)
 > (print-rat (add-rat one-half one-third))
 5/6
 ok
