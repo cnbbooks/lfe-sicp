@@ -5,11 +5,13 @@ As we have seen, pairs provide a primitive "glue" that we can use to construct c
 We have already seen that ``cons`` can be used to combine not only numbers but pairs as well. (You made use of this fact, or should have, in doing exercises 2.2 and 2.3.) As a consequence, pairs provide a universal building block from which we can construct all sorts of data structures. [Figure 2.3](#figure-3) shows two ways to use pairs to combine the numbers 1, 2, 3, and 4.
 
 <a name="figure-2"></a>
+
 ![Box-and-pointer representation of (cons 1 2)l](images/ch2-Z-G-11.png)
 
 **Figure 2.2**:  Box-and-pointer representation of (cons 1 2).
 
 <a name="figure-3"></a>
+
 ![Two ways to combine 1, 2, 3, and 4 using pairs](images/ch2-Z-G-12.png)
 
 **Figure 2.3**:  Two ways to combine 1, 2, 3, and 4 using pairs.
