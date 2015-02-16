@@ -44,4 +44,4 @@ The point of exhibiting the procedural representation of pairs is not that our l
 
 [^3]: In this case we have a very good justification for the use of pattern nmatching in the function arguments: value-based dispatch.
 
-[^4]: We had to rename our functions from ``cons``, ``car``, and ``cdr``. to ``cons2``, etc. in order to avoid having LFE silently ignore them: LFE doesn't allow shadowing of certain forms (``cons``, etc. being among thouse).
+[^4]: We had to rename our functions from ``cons``, ``car``, and ``cdr``. to ``cons2``, etc. in order to avoid having LFE silently ignore them: LFE doesn't allow shadowing of certain forms (``cons``, etc. being among those).
