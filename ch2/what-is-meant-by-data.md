@@ -6,8 +6,8 @@ But exactly what is meant by *data*? It is not enough to say "whatever is implem
 
 $$
 \begin{align}
-\frac{(numer x)}{(denom x)} = \frac{n}{d}
-\end{aligh}
+\frac{\text{(numer x)}}{\text{(denom x)}} = \frac{\text{n}}{\text{d}}
+\end{align}
 $$
 
 In fact, this is the only condition ``make-rat/2``, ``numer/1``, and ``denom/1`` must fulfill in order to form a suitable basis for a rational-number representation. In general, we can think of data as defined by some collection of selectors and constructors, together with specified conditions that these functions must fulfill in order to be a valid representation.[^1]
