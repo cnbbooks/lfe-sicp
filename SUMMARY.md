@@ -51,7 +51,7 @@
        * [Exercises](ch2/exercises-1.md)
        * [Abstraction Barriers](ch2/abstraction-barriers.md)
        * [Exercises](ch2/exercises-2.md)
-       * What Is Meant by Data?
+       * [What Is Meant by Data?](ch2/what-is-meant-by-data.md)
        * Extended Exercise: Interval Arithmetic
    * Hierarchical Data and the Closure Property
        * Representing Sequences
