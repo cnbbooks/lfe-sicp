@@ -16,11 +16,11 @@ What is the corresponding definition of ``cdr3/1``? (Hint: To verify that this w
 
 #### Exercise 2.5
 
-Show that we can represent pairs of nonnegative integers using only numbers and arithmetic operations if we represent the pair $$a$$ and $$b$$ as the integer that is the product $$2^a \cdot 3^b$$. Give the corresponding definitions of the procedures ``cons4/2``, ``car4/1``, and ``cdr4/1``.
+Show that we can represent pairs of nonnegative integers using only numbers and arithmetic operations if we represent the pair $$a$$ and $$b$$ as the integer that is the product $$2^a \cdot 3^b$$. Give the corresponding definitions of the functions ``cons4/2``, ``car4/1``, and ``cdr4/1``.
 
 #### Exercise 2.6
 
-In case representing pairs as procedures wasn't mind-boggling enough, consider that, in a language that can manipulate procedures, we can get by without numbers (at least insofar as nonnegative integers are concerned) by implementing 0 and the operation of adding 1 as
+In case representing pairs as functions wasn't mind-boggling enough, consider that, in a language that can manipulate functions, we can get by without numbers (at least insofar as nonnegative integers are concerned) by implementing 0 and the operation of adding 1 as
 
 ```lisp
 (defun zero
@@ -34,4 +34,4 @@ In case representing pairs as procedures wasn't mind-boggling enough, consider t
 ```
 This representation is known as *Church numerals*, after its inventor, Alonzo Church, the logician who invented the $$\lambda$$-calculus.
 
-Define ``one`` and ``two`` directly (not in terms of ``zero/1`` and ``add-1/1``). (Hint: Use substitution to evaluate ``(funcall add-1 zero)``). Give a direct definition of the addition procedure ``#'+/2`` (not in terms of repeated application of ``add-1/1``).
+Define ``one`` and ``two`` directly (not in terms of ``zero/1`` and ``add-1/1``). (Hint: Use substitution to evaluate ``(funcall add-1 zero)``). Give a direct definition of the addition function ``#'+/2`` (not in terms of repeated application of ``add-1/1``).

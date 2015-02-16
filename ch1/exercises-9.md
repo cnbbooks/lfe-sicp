@@ -53,7 +53,7 @@ a. Show that ``sum/4`` and ``product`` (exercise 1.31) are both special cases of
 
 ``accumulate/6`` takes as arguments the same term and range specifications as sum and ``product``, together with a ``combiner`` function (of two arguments) that specifies how the current term is to be combined with the accumulation of the preceding terms and a ``null-value`` that specifies what base value to use when the terms run out. Write ``accumulate/6`` and show how ``sum`` and ``product`` can both be defined as simple calls to ``accumulate/6``.
 
-b. If your ``accumulate/6`` procedure generates a recursive process, write one that generates an iterative process. If it generates an iterative process, write one that generates a recursive process.
+b. If your ``accumulate/6`` function generates a recursive process, write one that generates an iterative process. If it generates an iterative process, write one that generates a recursive process.
 
 #### Exercise 1.33
 

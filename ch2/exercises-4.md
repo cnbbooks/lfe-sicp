@@ -13,7 +13,7 @@ Define selectors ``upper-bound`` and ``lower-bound`` to complete the implementat
 
 #### Exercise 2.8
 
-Using reasoning analogous to Alyssa's, describe how the difference of two intervals may be computed. Define a corresponding subtraction procedure, called ``sub-interval``.
+Using reasoning analogous to Alyssa's, describe how the difference of two intervals may be computed. Define a corresponding subtraction function, called ``sub-interval``.
 
 #### Exercise 2.9
 
@@ -25,7 +25,7 @@ Ben Bitdiddle, an expert systems programmer, looks over Alyssa's shoulder and co
 
 #### Exercise 2.11
 
-In passing, Ben also cryptically comments: "By testing the signs of the endpoints of the intervals, it is possible to break mul-interval into nine cases, only one of which requires more than two multiplications." Rewrite this procedure using Ben's suggestion.
+In passing, Ben also cryptically comments: "By testing the signs of the endpoints of the intervals, it is possible to break mul-interval into nine cases, only one of which requires more than two multiplications." Rewrite this function using Ben's suggestion.
 
 After debugging her program, Alyssa shows it to a potential user, who complains that her program solves the wrong problem. He wants a program that can deal with numbers represented as a center value and an additive tolerance; for example, he wants to work with intervals such as 3.5± 0.15 rather than [3.35, 3.65]. Alyssa returns to her desk and fixes this problem by supplying an alternate constructor and alternate selectors:
 
