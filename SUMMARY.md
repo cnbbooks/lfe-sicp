@@ -55,7 +55,7 @@
        * [Exercises](ch2/exercises-3.md)
        * [Extended Exercise: Interval Arithmetic](ch2/extended-exercise-interval-arithmetic.md)
        * [Exercises](ch2/exercises-4.md)
-   * Hierarchical Data and the Closure Property
+   * [Hierarchical Data and the Closure Property](ch2/hierarchical-data-and-the-closure-property.md)
        * Representing Sequences
        * Hierarchical Structures
        * Sequences as Conventional Interfaces
