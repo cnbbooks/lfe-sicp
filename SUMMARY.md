@@ -54,6 +54,7 @@
        * [What Is Meant by Data?](ch2/what-is-meant-by-data.md)
        * [Exercises](ch2/exercises-3.md)
        * [Extended Exercise: Interval Arithmetic](ch2/extended-exercise-interval-arithmetic.md)
+       * [Exercises](ch2/exercises-4.md)
    * Hierarchical Data and the Closure Property
        * Representing Sequences
        * Hierarchical Structures
