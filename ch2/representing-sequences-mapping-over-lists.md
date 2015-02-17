@@ -6,9 +6,9 @@ One extremely useful operation is to apply some transformation to each element i
 (defun scale-list
   (('() _)
    '())
-  ((items factor)
-   (cons (* (car items) factor)
-         (scale-list (cdr items) factor))))
+  (((cons head tail) factor)
+   (cons (* head factor)
+         (scale-list tail factor))))
 ```
 ```lisp
 > (scale-list (list 1 2 3 4 5) 10)
@@ -21,9 +21,9 @@ We can abstract this general idea and capture it as a common pattern expressed a
 (defun mapper
   ((_ '())
    '())
-  ((func items)
-   (cons (funcall func (car items))
-         (mapper func (cdr items)))))
+  ((func (cons head tail))
+   (cons (funcall func head)
+         (mapper func tail))))
 ```
 ```lisp
 > (mapper #'abs/1 (list -10 2.5 -11.6 17))
