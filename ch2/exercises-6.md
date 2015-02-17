@@ -30,10 +30,10 @@ Louis Reasoner tries to rewrite the first square-list function of exercise 2.21 
   (square-list items '())
 
 (defun square-list
-  (('() answer) answer) 
-  ((things answer)
-    (iter (cdr things) 
-          (cons (square (car things))
+  (('() answer) answer)
+  (((cons head tail) answer)
+    (iter tail
+          (cons (square head)
                 answer))))
 ```
 
@@ -46,11 +46,11 @@ Louis then tries to fix his bug by interchanging the arguments to cons:
   (square-list items '())
 
 (defun square-list
-  (('() answer) answer) 
-  ((things answer)
-    (iter (cdr things) 
+  (('() answer) answer)
+  (((cons head tail) answer)
+    (iter tail
           (cons answer
-                (square (car things))))))
+                (square head)))))
 ```
 
 This doesn't work either. Explain.
