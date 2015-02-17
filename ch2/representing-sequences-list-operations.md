@@ -1,6 +1,6 @@
 #### List Operations
 
-The use of pairs to represent sequences of elements as lists is accompanied by conventional programming techniques for manipulating lists by successively "``cdr``ing down" the lists. For example, the procedure ``list-ref/2`` takes as arguments a list and a number $$n$$ and returns the $$n$$th item of the list. In Erlang, and thus LFE, is customary to number the elements of the list beginning with 1. The method for computing ``list-ref/2`` is the following: [^1]
+The use of pairs to represent sequences of elements as lists is accompanied by conventional programming techniques for manipulating lists by successively "``cdr``ing down" the lists. For example, the function ``list-ref/2`` takes as arguments a list and a number $$n$$ and returns the $$n$$th item of the list. In Erlang, and thus LFE, is customary to number the elements of the list beginning with 1. The method for computing ``list-ref/2`` is the following: [^1]
 
 * For $$n = 1$$, ``list-ref/2`` should return the ``car`` of the list.
 * Otherwise, ``list-ref/2`` should return the $$n$$th item of the ``cdr`` of the list.
@@ -18,7 +18,7 @@ The use of pairs to represent sequences of elements as lists is accompanied by c
 16
 ```
 
-Often we "``cdr`` down" the whole list. The procedure ``len/1``,[^2] which returns the number of items in a list, illustrates this typical pattern of use:
+Often we "``cdr`` down" the whole list. The function ``len/1``,[^2] which returns the number of items in a list, illustrates this typical pattern of use:
 
 ```lisp
 (defun len
@@ -34,7 +34,7 @@ Often we "``cdr`` down" the whole list. The procedure ``len/1``,[^2] which retur
 4
 ```
 
-The ``len/1`` procedure implements a simple recursive plan. The reduction step is:
+The ``len/1`` function implements a simple recursive plan. The reduction step is:
 
 * The length of any list is 1 plus the length of the ``cdr`` of the list.
 
@@ -55,7 +55,7 @@ We could also compute length in an iterative style:
    (len (cdr a) (+ 1 count))))
 ```
 
-Another conventional programming technique is to "``cons`` up" an answer list while ``cdr``ing down a list, as in the procedure ``append/2``,[^3] which takes two lists as arguments and combines their elements to make a new list:
+Another conventional programming technique is to "``cons`` up" an answer list while ``cdr``ing down a list, as in the function ``append/2``,[^3] which takes two lists as arguments and combines their elements to make a new list:
 
 ```lisp
 > (append squares odds)

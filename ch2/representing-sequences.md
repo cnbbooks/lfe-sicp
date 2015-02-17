@@ -31,7 +31,7 @@ Lisp systems conventionally print lists by printing the sequence of elements, en
 (1 2 3 4)
 ```
 
-Be careful not to confuse the expression ``(list 1 2 3 4)`` with the list ``(1 2 3 4)``, which is the result obtained when the expression is evaluated. Attempting to evaluate the expression ``(1 2 3 4)`` will signal an error when the interpreter tries to apply the procedure ``1/3`` to arguments ``2``, ``3``, and ``4``.
+Be careful not to confuse the expression ``(list 1 2 3 4)`` with the list ``(1 2 3 4)``, which is the result obtained when the expression is evaluated. Attempting to evaluate the expression ``(1 2 3 4)`` will signal an error when the interpreter tries to apply the function ``1/3`` to arguments ``2``, ``3``, and ``4``.
 
 We can think of ``car`` as selecting the first item in the list, and of ``cdr`` as selecting the sublist consisting of all but the first item. Nested applications of ``car`` and ``cdr`` can be used to extract the second, third, and subsequent items in the list.[^3] The constructor ``cons`` makes a list like the original one, but with an additional item at the beginning.
 
@@ -54,4 +54,4 @@ We can think of ``car`` as selecting the first item in the list, and of ``cdr`` 
 
 [^2]: In this book, we use *list* to mean a chain of pairs terminated by the end-of-list marker. In contrast, the term *list structure* refers to any data structure made out of pairs, not just to lists.
 
-[^3]: Since nested applications of ``car`` and ``cdr`` are cumbersome to write, Lisp dialects provide abbreviations for them -- for instance, ``(cadr <arg>)`` is equivalent to ``(car (cdr <arg>))``. The names of all such procedures start with ``c`` and end with ``r``. Each ``a`` between them stands for a ``car`` operation and each ``d`` for a ``cdr`` operation, to be applied in the same order in which they appear in the name. The names ``car`` and ``cdr`` persist because simple combinations like cadr are pronounceable.
+[^3]: Since nested applications of ``car`` and ``cdr`` are cumbersome to write, Lisp dialects provide abbreviations for them -- for instance, ``(cadr <arg>)`` is equivalent to ``(car (cdr <arg>))``. The names of all such functions start with ``c`` and end with ``r``. Each ``a`` between them stands for a ``car`` operation and each ``d`` for a ``cdr`` operation, to be applied in the same order in which they appear in the name. The names ``car`` and ``cdr`` persist because simple combinations like cadr are pronounceable.

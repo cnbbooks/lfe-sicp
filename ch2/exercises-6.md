@@ -2,7 +2,7 @@
 
 #### Exercise 2.21
 
-The procedure ``square-list/1`` takes a list of numbers as argument and returns a list of the squares of those numbers.
+The function ``square-list/1`` takes a list of numbers as argument and returns a list of the squares of those numbers.
 
 ```lisp
 > (square-list (list 1 2 3 4))
@@ -23,7 +23,7 @@ Here are two different definitions of ``square-list/1``. Complete both of them b
 
 #### Exercise 2.22
 
-Louis Reasoner tries to rewrite the first square-list procedure of exercise 2.21 so that it evolves an iterative process:
+Louis Reasoner tries to rewrite the first square-list function of exercise 2.21 so that it evolves an iterative process:
 
 ```lisp
 (defun square-list (items)
@@ -57,7 +57,7 @@ This doesn't work either. Explain.
 
 #### Exercise 2.23
 
-The built-in LFE procedure ``lists:foreach/2`` is similar to our ``mapper/2`` and the built-in ``lists:map/2``. It takes as arguments a procedure and a list of elements. However, rather than forming a list of the results, ``foreach/2`` just applies the procedure to each of the elements in turn, from left to right. The values returned by applying the procedure to the elements are not used at all -- ``foreach/2`` is used with procedures that perform an action, such as printing. For example,
+The built-in LFE function ``lists:foreach/2`` is similar to our ``mapper/2`` and the built-in ``lists:map/2``. It takes as arguments a function and a list of elements. However, rather than forming a list of the results, ``foreach/2`` just applies the function to each of the elements in turn, from left to right. The values returned by applying the function to the elements are not used at all -- ``foreach/2`` is used with functions that perform an action, such as printing. For example,
 
 ```lisp
 > (lists:foreach (lambda (x) (io:format "~n~p~n (list x)))

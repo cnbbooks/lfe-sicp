@@ -12,7 +12,7 @@ Here is an alternative procedural representation of pairs. For this representati
   (funcall z (lambda (p q) p)))
 ```
 
-What is the corresponding definition of ``cdr3/1``? (Hint: To verify that this works, make use of the substitution model from the section [The Substitution Model for Procedure Application]().)
+What is the corresponding definition of ``cdr3/1``? (Hint: To verify that this works, make use of the substitution model from the section [The Substitution Model for Function Application]().)
 
 #### Exercise 2.5
 
