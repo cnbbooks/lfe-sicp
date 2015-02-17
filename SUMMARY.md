@@ -56,7 +56,11 @@
        * [Extended Exercise: Interval Arithmetic](ch2/extended-exercise-interval-arithmetic.md)
        * [Exercises](ch2/exercises-4.md)
    * [Hierarchical Data and the Closure Property](ch2/hierarchical-data-and-the-closure-property.md)
-       * Representing Sequences
+       * [Representing Sequences](ch2/representing-sequences.md)
+         * [List operations](ch2/representing-sequences-list-operations.md)
+         * [Exercises](ch2/exercises-5.md)
+         * [Mapping over lists](ch2/representing-sequences-mapping-over-lists.md)
+         * [Exercises](ch2/exercises-6.md)
        * Hierarchical Structures
        * Sequences as Conventional Interfaces
        * Example: A Picture Language
