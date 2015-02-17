@@ -32,19 +32,21 @@ There is a clever algorithm for computing the Fibonacci numbers in a logarithmic
 (defun fib (n)
   (fib 1 0 0 1 n))
 
-(defun fib (a b p q count)
-  (cond ((== count 0) b)
-        ((even? count)
-         (fib-iter a
-                   b
-                   <??>      ; compute p'
-                   <??>      ; compute q'
-                   (/ count 2)))
-        ('true (iter (+ (* b q) (* a q) (* a p))
-                     (+ (* b p) (* a q))
-                     p
-                     q
-                     (- count 1)))))
+(defun fib
+  ((_ b _ _ 0)
+   b)
+  ((a b p q count)
+   (if (even? count)
+       (fib a
+            b
+            <??>      ; compute p'
+            <??>      ; compute q'
+            (/ count 2))
+       (fib (+ (* b q) (* a q) (* a p))
+            (+ (* b p) (* a q))
+            p
+            q
+            (- count 1)))))
 ```
 
 ----
