@@ -4,8 +4,11 @@ Before continuing with more examples of compound data and data abstraction, let 
 
 We can envision the structure of the rational-number system as shown in the figure below. The horizontal lines represent *abstraction barriers* that isolate different "levels" of the system. At each level, the barrier separates the programs (above) that use the data abstraction from the programs (below) that implement the data abstraction. Programs that use rational numbers manipulate them solely in terms of the functions supplied "for public use" by the rational-number package: ``add-rat/2``, ``sub-rat/2``, ``mul-rat/2``, ``div-rat/2``, and ``equal-rat?/2``. These, in turn, are implemented solely in terms of the constructor and selectors ``make-rat/2``, ``numer/1``, and ``denom/1``, which themselves are implemented in terms of pairs. The details of how pairs are implemented are irrelevant to the rest of the rational-number package so long as pairs can be manipulated by the use of ``cons/2``, ``car/1``, and ``cdr/1``. In effect, functions at each level are the interfaces that define the abstraction barriers and connect the different levels.
 
-<a name="figure-5"></a>
+<a name="figure-1"></a>
+
 ![Data-abstraction barriers in the rational-number package](images/ch2-Z-G-6.png)
+
+**Figure 2.1**: Data-abstraction barriers in the rational-number package.
 
 This simple idea has many advantages. One advantage is that it makes programs much easier to maintain and to modify. Any complex data structure can be represented in a variety of ways with the primitive data structures provided by a programming language. Of course, the choice of representation influences the programs that operate on it; thus, if the representation were to be changed at some later time, all such programs might have to be modified accordingly. This task could be time-consuming and expensive in the case of large programs unless the dependence on the representation were to be confined by design to a very few program modules.
 
