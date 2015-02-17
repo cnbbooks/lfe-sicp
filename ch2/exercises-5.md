@@ -40,15 +40,16 @@ We could then call ``cc/2`` as follows:
 To do this will require changing the program ``cc/2`` somewhat. It will still have the same form, but it will access its second argument differently, as follows:
 
 ```lisp
-(defun cc (amount coin-values)
-  (cond ((= amount 0) 1)
-        ((or (< amount 0) (no-more? coin-values)) 0)
-        ('true
-         (+ (cc amount
-                (except-first-denomination coin-values))
-            (cc (- amount
-                   (first-denomination coin-values))
-                coin-values)))))
+(defun cc
+  ((0 _) 1)
+  ((amount coin-values)
+   (if (or (< amount 0) (no-more? coin-values))
+       0
+       (+ (cc amount
+              (except-first-denomination coin-values))
+          (cc (- amount
+                 (first-denomination coin-values))
+              coin-values)))))
 ```
                 
 Define the functions ``first-denomination/1``, ``except-first-denomination/1``, and ``no-more?/1`` in terms of primitive operations on list structures. Does the order of the list coin-values affect the answer produced by ``cc/2``? Why or why not?
