@@ -55,7 +55,8 @@ Define the procedures ``first-denomination/1``, ``except-first-denomination/1``,
 
 #### Exercise 2.20
 
-[Removed from the LFE Edition.[^1] ]
+Removed from the LFE Edition.[^1]
+
 
 ----
 
