@@ -59,4 +59,4 @@ Define the procedures ``first-denomination/1``, ``except-first-denomination/1``,
 
 ----
 
-[^1]: In the Scheme 2nd edition, Exercises 2.20  covers a feature in Scheme that is not present in LFE. The analog would require creating a macro with a single parameter that is the body of the code; as we haven't covered quoting or macros yet, this is not a suitable exercise at this point.
+[^1]: In the Scheme 2nd edition, [Exercise 2.20](http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-15.html) covers a feature in Scheme that is not present in LFE. The analog would require creating a macro with a single parameter that is the body of the code; as we haven't covered quoting or macros yet, this is not a suitable exercise at this point.
