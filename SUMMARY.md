@@ -61,7 +61,10 @@
          * [Exercises](ch2/exercises-5.md)
          * [Mapping over lists](ch2/representing-sequences-mapping-over-lists.md)
          * [Exercises](ch2/exercises-6.md)
-       * Hierarchical Structures
+       * [Hierarchical Structures](ch2/hierarchical-structures.md)
+         * [Exercises](ch2/exercises-7.md)
+         * [Mapping over trees](ch2/hierarchical-structures-mapping-over-trees.md)
+         * [Exercises](ch2/exercises-8.md)
        * Sequences as Conventional Interfaces
        * Example: A Picture Language
    * Symbolic Data
