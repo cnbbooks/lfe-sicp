@@ -19,7 +19,7 @@ Unbound creativity is the power and the weakness of the Force. The Art of Progra
 
 The original text of Structure and Interpretation of Computer Programs was
 published in the 80s, but has material in it preceding even that time. Though
-the essenve of what was taught in that course and with this text remains just
+the essence of what was taught in that course and with this text remains just
 as relevant today, much context has changed in the field of computing since
 then.
 
