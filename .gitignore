@@ -30,5 +30,13 @@ tramp
 
 # cask packages
 .cask/
+
 # Gitbook
 _book
+
+# LFE
+*.beam
+lfe/*
+
+# Images
+*.xcf
