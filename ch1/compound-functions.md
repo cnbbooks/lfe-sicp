@@ -54,7 +54,7 @@ We can easily define a function ``sum-of-squares`` that, given any two numbers a
 
  ```lisp
 > (defun sum-of-squares (x y)
-     (+ (square x) (square y)))
+    (+ (square x) (square y)))
 sum-of-squares
 > (sum-of-squares 3 4)
 25

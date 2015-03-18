@@ -40,7 +40,7 @@ Now let's formalize the process in terms of functions. We start with a value for
   (if (good-enough? guess x)
       guess
       (sqrt (improve guess x)
-                 x)))
+            x)))
 ```
 
 A guess is improved by averaging it with the quotient of the radicand and the

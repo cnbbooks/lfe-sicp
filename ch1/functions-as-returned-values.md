@@ -104,7 +104,7 @@ The ``newton-transform/1`` function expresses the formula at the beginning of th
 We've seen two ways to express the square-root computation as an instance of a more general method, once as a fixed-point search and once using Newton's method. Since Newton's method was itself expressed as a fixed-point process, we actually saw two ways to compute square roots as fixed points. Each method begins with a function and finds a fixed point of some transformation of the function. We can express this general idea itself as a function:
 
 ```lisp
-(define (fixed-point-of-transform g transform guess)
+(defun fixed-point-of-transform (g transform guess)
   (fixed-point (transform g) guess))
 ```
 

@@ -228,7 +228,7 @@ with one exported function:
 Then from the LFE REPL we can compile the module and run it, using the LFE ``(module:function ...)`` calling syntax
 
 ```lisp
-> (c "sqrt.lfe")
+> (c "ch1/sqrt.lfe")
 #(module sqrt)
 > (sqrt:sqrt 25)
 5.000012953048684

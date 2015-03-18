@@ -21,15 +21,15 @@ The use of compound data also enables us to increase the modularity of our progr
 The use of compound data leads to a real increase in the expressive power of our programming language. Consider the idea of forming a "linear combination" $$a x + b y$$. We might like to write a function that would accept $$a$$, $$b$$, $$x$$, and $$y$$ as arguments and return the value of ax + by. This presents no difficulty if the arguments are to be numbers, because we can readily define the function
 
 ```lisp
-(defun linear-combination (a b x y) 
+(defun linear-combination (a b x y)
   (+ (* a x) (* b y)))
 ```
 
 But suppose we are not concerned only with numbers. Suppose we would like to express, in procedural terms, the idea that one can form linear combinations whenever addition and multiplication are defined -- for rational numbers, complex numbers, polynomials, or whatever. We could express this as a function of the form
 
 ```lisp
-(defune linear-combination (a b x y)     
-  (add (mul a x) (mul b y))) 
+(defun linear-combination (a b x y)
+  (add (mul a x) (mul b y)))
 ```
 
 where ``add/2`` and ``mul/2`` are not the primitive functions ``+`` and ``*`` but rather more complex things that will perform the appropriate operations for whatever kinds of data we pass in as the arguments ``a``, ``b``, ``x``, and ``y``. The key point is that the only thing ``linear-combination/4`` should need to know about ``a``, ``b``, ``x``, and ``y`` is that the functions ``add/2`` and ``mul/2`` will perform the appropriate manipulations. From the perspective of the function ``linear-combination/4``, it is irrelevant what ``a``, ``b``, ``x``, and ``y`` are and even more irrelevant how they might happen to be represented in terms of more primitive data. This same example shows why it is important that our programming language provide the ability to manipulate compound objects directly: Without this, there is no way for a function such as ``linear-combination/2`` to pass its arguments along to ``add/2`` and ``mul/2`` without having to know their detailed structure.[^1] We begin this chapter by implementing the rational-number arithmetic system mentioned above. This will form the background for our discussion of compound data and data abstraction. As with compound functions, the main issue to be addressed is that of abstraction as a technique for coping with complexity, and we will see how data abstraction enables us to erect suitable *abstraction barriers* between different parts of a program.
@@ -42,7 +42,7 @@ Next we will take up the problem of working with data that may be represented di
 
 ----
 
-[^1]: The ability to directly manipulate functions provides an analogous increase in the expressive power of a programming language. For example, in the section [Functions as Arguments]() we introduced the ``sum/4`` function, which takes a function ``term`` as an argument and computes the sum of the values of ``term`` over some specified interval. In order to define ``sum/4``, it is crucial that we be able to speak of a function such as ``term`` as an entity in its own right, without regard for how term might be expressed with more primitive operations. Indeed, if we did not have the notion of "a function," it is doubtful that we would ever even think of the possibility of defining an operation such as ``sum/4``. Moreover, insofar as performing the summation is concerned, the details of how ``term`` may be constructed from more primitive operations are irrelevant. 
+[^1]: The ability to directly manipulate functions provides an analogous increase in the expressive power of a programming language. For example, in the section [Functions as Arguments]() we introduced the ``sum/4`` function, which takes a function ``term`` as an argument and computes the sum of the values of ``term`` over some specified interval. In order to define ``sum/4``, it is crucial that we be able to speak of a function such as ``term`` as an entity in its own right, without regard for how term might be expressed with more primitive operations. Indeed, if we did not have the notion of "a function," it is doubtful that we would ever even think of the possibility of defining an operation such as ``sum/4``. Moreover, insofar as performing the summation is concerned, the details of how ``term`` may be constructed from more primitive operations are irrelevant.
 
 
 
