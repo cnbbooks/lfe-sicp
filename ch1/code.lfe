@@ -542,4 +542,4 @@ circumference
                             1.0))
 
 
-(io:format "Loaded Chapter 1 code.~n")
+(io:format "Chapter 1 loaded.~n")

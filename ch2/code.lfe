@@ -233,5 +233,4 @@
 (len (list x x))
 (count-leaves (list x x))
 
-(io:format "Loaded Chapter 2 code.~n")
-
+(io:format "Chapter 2 loaded.~n")
