@@ -56,9 +56,18 @@ cd ../
 
 #### Loading the Chapter Code
 
-```lfe
+```lisp
 Erlang/OTP 17 [erts-6.3] [source] [64-bit] [smp:4:4] ...
 
 LFE Shell V6.3 (abort with ^G)
 > (run "ch1/code.lfe")
+Loading Chapter 1 code ...
+Chapter 1 loaded.
+ok
+```
+Quick check to make sure that everything loaded as expected:
+
+```lisp
+> (square 2)
+4
 ```
