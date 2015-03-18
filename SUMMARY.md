@@ -16,7 +16,7 @@
   * [The Inspiration for LFE](fm/preface-3/lfe.md)
   * [The Place of Lisp in the 21st Century](fm/preface-3/21stcent.md)
   * [Notes on Changes from the Original](fm/preface-3/changes.md)
-  * [Obtaining the Book and Related Code](fm/preface-3/source.md)
+  * [Obtaining the Book and Related Code](fm/preface-3/sources.md)
 * [Preface to the Second Edition](fm/preface-2.md)
 * [Preface to the First Edition](fm/preface-1.md)
 * [Acknowledgments](fm/acknowledgments.md)
