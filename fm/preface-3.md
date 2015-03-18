@@ -15,20 +15,20 @@ In the spirit of Alan Perlis' "keeping fun in computing" and Cristina Lopes' ent
 * Source Code for This Book
 
 
-## The Origins of Lisp
+## The Hidden Origins of Lisp
 
-Beginnings are important. If they don't dictate the trajectory of their antecedants, they certainly have a profound impact on their character. They are also a source of inspiration, in the case of good beinginnings, or shame, in the case of bad ones. The story of Lisp has a good beginning; several of them, in fact.
+Beginnings are important. They may not fully dictate the trajectory of their antecedants, yet it does seem they do have a profound impact on the character of their effects. For the human observer, beginnings are also a source of inspiration: good beginnings lend a strength of purpose, the possibility of greater good. The story of Lisp has a good beginning -- several of them, in fact -- closely tied to the theories of numbers, mathematical logic, functions and types as well as that of computing itself.
 
-The history of programming languages hinges upon the principle of computability. This, in turn, ultimately traces its roots to the fundamental concepts of number theory: what are numbers and how to we define them rigorously? These questions were eventually answered in a particularly useful way by the Italian mathematician Giuseppe Peano. Subsequently they were elaborated by successive generations of mathematicians prior to the advent of "high-level" programming languages in the 1950s.
+At their root, the histories of programming languages spring from, on one hand, the practical considerations of engineering and developer experience, and on the other hand, the principle of computability. This, in turn, ultimately traces its beginnings to the fundamental concepts of arithmetic and mathematical logic: what are numbers and how to we define them rigorously? These questions were asked and considered -- sometimes from a fairly vague philosophical perspective --  by great minds such as Leibniz (drafts published posthumously), Boole (1847), Grassmann (1861), Peirce (1881), Frege (1884), and Dedekind (1888). It was the Italian mathematician Giuseppe Peano, though, who in 1889 finally identified and distill the essence of these explorations in terms that were more precisely formated than those of his peers or intellectual forebearers. These were subsequently elaborated by successive generations of mathematicians prior to the advent of "high-level" programming languages in the 1950s.
 
-There is a complex lineage of mathematics leading to Lisp. However, for the sake of clarity this is siplified below. The four dominant historical figures discussed provide distinct insights and represent corresponding themes as mathematics evolved unwittingly toward a support for computing. These themes could be summarized as the following:
+Histories are complicated: complete ones are impossible and readable ones are necessarily limited and incomplete. In our particular case, there is a complex lineage of mathematics leading to Lisp. However, for the sake of clarity and due to this simply being a preface and not a book in its own right, this has been greatly siplified below. The four dominant historical figures discussed provide distinct insights and represent corresponding themes as mathematics evolved unwittingly toward a support for computing. Of the many themes one could discern, we focus on the following:
 
-* Understanding and defining the underpinnings of mathematics itself ("What are numbers? What is counting?")
+* Understanding and defining the underpinnings of arithmetic and logic ("What are numbers? What is counting?")
 * Attempting to formally unifiy all of mathematics in a consistent framework of logic ("Can I express all of math in discrete logical assertions and statements?")
 * Formally defining algorithms and computability ("Is there a procedure that can take any precise mathematical statement and decide whether the statement is true or false?")
 * Creating the means by which symbolic computation and artificial reasoning could be made manifest ("Can we make machines solve problems that are usually considered to require intelligence?")[^1]
 
-Each of these hinged directly upon its predecessor, and the four famous mathematcians listed below embodied these. Exerpts from their lives and work are shared as believed to have impacted the course of events that lead to Lisp's inception.
+Each major topic above depended -- in one form or another -- upon its predecessor, and the four famous mathematcians listed below embodied one of these themes. Exerpts from their lives and work are shared as believed to have impacted the course of events that lead to Lisp's inception.
 
 
 ### Giuseppe Peano
@@ -39,7 +39,9 @@ Each of these hinged directly upon its predecessor, and the four famous mathemat
 
 **Figure P.1**: Giuseppe Peano, circa 1910.
 
-Giuseppe Peano was born 100 years before Lisp, in August of 1858. Having graduated from the University of Turin with high honors, he was asked to assist in teaching responsibilities there. Within a few years, he had begun tackling problems in logic and exploring the foundations of the formal philosophy of mathematics. During this time, Peano introduced the world to his now-famous axioms. In particular, the nineth axiom (by modern count, his fifth) is considered the first definition of primitive recursive functions.[^2]
+Giuseppe Peano was born 100 years before Lisp, August of 1858 at his family's farmhouse in the north of Italy. At a young age he was recognized as having an exceptionally quick mind, and through the favor of an uncle obtained a good early education in Turin, where he not only stayed for university, but for his career as well.
+
+After graduated from the University of Turin with high honors, he was asked to assist in teaching responsibilities there. Within a few years, he had begun tackling problems in logic and exploring the foundations of the formal philosophy of mathematics. During this time, Peano introduced the world to his now-famous axioms. In particular, the nineth axiom (by modern count, his fifth) is considered the first definition of primitive recursive functions.[^2]
 
 
 ### Bertrand Russell
@@ -64,7 +66,7 @@ In 1900, Russell attended the First International Conference of Philosophy where
 
 "The Congress was a turning point in my intellectual life, because I there met Peano. I already knew him by name and had seen some of his work, but had not taken the trouble to master his notation. In discussions at the Congress I observed that he was more precise than anyone else, and that he invariably got the better of any argument upon which he embarked. As the days went by, I decided that this must be owing to his mathematical logic. I therefore got him to give me all his works, and as soon as the Congress was over I retired to Fernhurst to study quietly every word written by him and his disciples. It became clear to me that his notation afforded an instrument of logical analysis such as I had been seeking for years, and that by studying him I was acquiring anew powerful technique for the work that I had long wanted to do. By the end of August I had become completely familiar with all the work of his school. I spent September in extending his methods to the logic of relations. It seemed to mein retrospect that, through that month, every day was warm and sunny. The Whiteheads stayed with us at Fernhurst, and I explained my new ideas to him. Every evening the discussion ended with some difficulty, and every morning I found that the difficulty of the previous evening had solved itself while I slept. The time was one of intellectual intoxication. My sensations resembled those one has after climbing a mountain in a mist when, on reaching the summit, the mist suddenly clears, and the country becomes visible for forty miles in every direction. For years I had been endeavoring to analyse the fundamental notions of mathematics, such as order and cardinal numbers. Suddenly, in the space of a few weeks, I discovered that appeared to be definitive answers to the problems which had baffled me for years. And in the course of discovering these answers, I was introducing a new mathematical technique, by which regions formerly abandoned to the vaguenesses of phliosophers were conquered for the precision of exact formulae. Intellectually, the month of September 1900 was the highest point of my life."[^br2]
 
-Over the course of the next 10 years, Russell and Whitehead collaborated on a work that ultimately inspired Gödel's incompleteness theorems and Church's $$lambda$$-calculus.
+Russell sent an early edition of the *Principia* to Peano after working on it for three years. A biographer of Peano noted that he "immediately recognized it's value ... and wrote that the book 'marks an epoch in the field of philosophy of mathematics.'" [^br3] Over the course of remaining decade, Russell and Whitehead continued to collaborate on the *Principia*, a work that ultimately inspired Gödel's incompleteness theorems and Church's $$lambda$$-calculus.
 
 ### Alonzo Church
 
@@ -231,6 +233,8 @@ readers of the original text will notice that we do not use the term
 [^br1]: The 1998 reissued hardback "Autobiography" of Bertrand Russell, pages 30 and 31. 
 
 [^br2]: Ibid., page 147.
+
+[^br3]: Kennedy, page 105-106.
 
 [^ac1]: See the [Introduction](http://www.math.ucla.edu/~hbe/church.pdf) to the Collected Works of Alonzo Church, MIT Press, not yet published.
 

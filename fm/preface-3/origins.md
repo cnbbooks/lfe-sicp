@@ -1,0 +1,18 @@
+## The Hidden Origins of Lisp
+
+Beginnings are important. They may not fully dictate the trajectory of their antecedants, yet it does seem they do have a profound impact on the character of their effects. For the human observer, beginnings are also a source of inspiration: good beginnings lend a strength of purpose, the possibility of greater good. The story of Lisp has a good beginning -- several of them, in fact -- closely tied to the theories of numbers, mathematical logic, functions and types as well as that of computing itself.
+
+At their root, the histories of programming languages spring from, on one hand, the practical considerations of engineering and developer experience, and on the other hand, the principle of computability. This, in turn, ultimately traces its beginnings to the fundamental concepts of arithmetic and mathematical logic: what are numbers and how to we define them rigorously? These questions were asked and considered -- sometimes from a fairly vague philosophical perspective --  by great minds such as Leibniz (drafts published posthumously), Boole (1847), Grassmann (1861), Peirce (1881), Frege (1884), and Dedekind (1888). It was the Italian mathematician Giuseppe Peano, though, who in 1889 finally identified and distill the essence of these explorations in terms that were more precisely formated than those of his peers or intellectual forebearers. These were subsequently elaborated by successive generations of mathematicians prior to the advent of "high-level" programming languages in the 1950s.
+
+Histories are complicated: complete ones are impossible and readable ones are necessarily limited and incomplete. In our particular case, there is a complex lineage of mathematics leading to Lisp. However, for the sake of clarity and due to this simply being a preface and not a book in its own right, this has been greatly siplified below. The four dominant historical figures discussed provide distinct insights and represent corresponding themes as mathematics evolved unwittingly toward a support for computing. Of the many themes one could discern, we focus on the following:
+
+* Understanding and defining the underpinnings of arithmetic and logic ("What are numbers? What is counting?")
+* Attempting to formally unifiy all of mathematics in a consistent framework of logic ("Can I express all of math in discrete logical assertions and statements?")
+* Formally defining algorithms and computability ("Is there a procedure that can take any precise mathematical statement and decide whether the statement is true or false?")
+* Creating the means by which symbolic computation and artificial reasoning could be made manifest ("Can we make machines solve problems that are usually considered to require intelligence?")[^1]
+
+Each major topic above depended -- in one form or another -- upon its predecessor, and the four famous mathematcians listed below embodied one of these themes. Exerpts from their lives and work are shared as believed to have impacted the course of events that lead to Lisp's inception.
+
+----
+
+[^1]: An almost word-for-word quote from John McCarthy's January 1962 submisstion in the quarterly progress report for MIT's RLE, titled [XXI. ARTIFICIAL INTELLIGENCE](http://dspace.mit.edu/bitstream/handle/1721.1/53661/RLE_QPR_064_XXI.pdf), page 189 on the original hard copy. The table of contents for the original is available [here](http://dspace.mit.edu/bitstream/handle/1721.1/53645/RLE_QPR_064_TOC.pdf).
