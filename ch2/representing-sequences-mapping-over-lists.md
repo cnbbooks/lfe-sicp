@@ -33,7 +33,7 @@ We can abstract this general idea and capture it as a common pattern expressed a
 (1 4 9 16)
 ```
 
-Now we can give a new definition of ``scale-list/2`` in terms of map:
+Now we can give a new definition of ``scale-list/2`` in terms of ``mapper/2``:
 
 ```lisp
 (defun scale-list (items factor)
@@ -41,7 +41,7 @@ Now we can give a new definition of ``scale-list/2`` in terms of map:
     (lambda (x) (* x factor))
     items))
 ```
-       
+
 ``mapper/2`` is an important construct, not only because it captures a common pattern, but because it establishes a higher level of abstraction in dealing with lists. In the original definition of ``scale-list/2``, the recursive structure of the program draws attention to the element-by-element processing of the list. Defining ``scale-list/2`` in terms of ``mapper/2`` suppresses that level of detail and emphasizes that scaling transforms a list of elements to a list of results. The difference between the two definitions is not that the computer is performing a different process (it isn't) but that we think about the process differently. In effect, ``mapper/2`` helps establish an abstraction barrier that isolates the implementation of functions that transform lists from the details of how the elements of the list are extracted and combined. Like the barriers shown in [figure 2.1](abstraction-barriers.html#figure-1), this abstraction gives us the flexibility to change the low-level details of how sequences are implemented, while preserving the conceptual framework of operations that transform sequences to sequences. The section [Sequences as Conventional Interfaces]() expands on this use of sequences as a framework for organizing programs.
 
 ----
