@@ -7,7 +7,7 @@ The source code for the LFE edition of this book uses the same license as the or
 There are two related sources available for this book:
 
 * The original text for the second edition is available on the [MIT Press site](http://mitpress.mit.edu/sicp/).
-* The source code for the LFE edition is available on [Github](https://github.com/lfe/sicp).
+* The source code for the LFE edition (mostly Markdown) is available on [Github](https://github.com/lfe/sicp).
 
 You may obtain a copy of the source code via ``git``:
 
@@ -23,7 +23,7 @@ Each chapter of this book defines functions and uses code from the previous chap
 
 ### Running the Code in the Book
 
-To following along in each chapter or to run the code that has been provided with each chapter, you will need the following:
+To follow along in each chapter or to run the code that has been provided, you will need the following:
 
 * A recent version of Erlang (the code in this book was tested with Erlang 17.4)
 * LFE
@@ -42,7 +42,9 @@ git clone https://github.com/rvirding/lfe.git
 or direct download: [https://github.com/rvirding/lfe/archive/develop.zip](https://github.com/rvirding/lfe/archive/develop.zip). If you use the direct download method, move and rename the unzipped directory to match the ``git clone`` method:
 
 ```bash
-mv ~/Downloads/lfe-develop ./lfe
+cd sicp
+unzip ~/Downloads/lfe-develop.zip
+mv lfe-develop ./lfe
 ```
 
 Now you can compile LFE, start the REPL, and load some code (you can safely ignore compiler warnings):
