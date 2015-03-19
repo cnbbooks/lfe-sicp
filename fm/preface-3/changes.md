@@ -1,15 +1,10 @@
 ## Notes on Changes from the Original
 
-The original text of Structure and Interpretation of Computer Programs was
-published in the 80s, but has material in it preceding even that time. Though
-the essenve of what was taught in that course and with this text remains just
-as relevant today, much context has changed in the field of computing since
-then.
+The original text of *Structure and Interpretation of Computer Programs* was
+published in the 80s, but has material in it preceding even that time, dating back to courses taught at MIT in the 60s. Though the *essence* of what was taught in those lecture halls -- and with the original SICP text -- remains just as relevant today, much context has changed in the field of computing since then. As such, some changes in a new edition are to be expected.
 
 Furthermore, this edition of SICP is an adaptation for a different programming
-language -- through still a Lisp -- whose syntax differs in varying degrees,
-but perhaps most significant, is built upon a very different programming
-language: Erlang.
+language -- through still a Lisp -- whose syntax differs in varying degrees. More than syntax, though, LFE is built upon a very different VM, one whose focus is on such concerns as fault-tolerance, massive scale, and reliability.
 
 As such, we have taken liberties in our edition of SICP, hopefully with little
 to no impact on its essence. These liberties include the following:
