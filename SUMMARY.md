@@ -75,8 +75,23 @@
            * [Exercises](ch2/exercises-7.md)
            * [Mapping over trees](ch2/hierarchical-structures-mapping-over-trees.md)
            * [Exercises](ch2/exercises-8.md)
-       * Sequences as Conventional Interfaces
-       * Example: A Picture Language
+       * [Sequences as Conventional Interfaces](ch2/sequences-as-conventional-interfaces.md)
+           * [Sequence operations](ch2/sequence-operations.md)
+           * [Exercises](ch2/exercises-9.md)
+           * [Nested mappings](ch2/nested-mappings.md)
+           * [Exercises](ch2/exercises-10.md)
+       * [Example: A Picture Language[(ch2/example-picture-language.md)
+           * [The picture language[(ch2/the-picture-language.md)
+           * [Exercises](ch2/exercises-11.md)
+           * [Higher order operations](ch2/higher-order-operations.md)
+           * [Frames](ch2/frames.md)
+           * [Exercises](ch2/exercises-12.md)
+           * [Painters](ch2/painters.md)
+           * [Exercises](ch2/exercises-13.md)
+           * [Transforming and combining painters](ch2/transforming-and-combining-painters.md)
+           * [Exercises](ch2/exercises-14.md)
+           * [Levels of language for robust design](ch2/levels-of-language-for-robust-design.md)
+           * [Exercises](ch2/exercises-15.md)
    * Symbolic Data
        * Quotation
        * Example: Symbolic Differentiation
