@@ -295,4 +295,64 @@
 
 (filter #'odd?/1 (list 1 2 3 4 5))
 
+(defun accumulate
+  ((_ initial '())
+   initial)
+  ((op initial (cons head tail))
+   (funcall op head (accumulate op initial tail))))
+
+(accumulate #'+/2 0 (list 1 2 3 4 5))
+(accumulate #'*/2 1 (list 1 2 3 4 5))
+(accumulate #'cons/2 '() (list 1 2 3 4 5))
+
+(defun enumerate-interval
+ ((low high) (when (> low high))
+  '())
+ ((low high)
+  (cons low (enumerate-interval (+ low 1) high))))
+
+(enumerate-interval 2 7)
+
+(defun enumerate-tree
+ (('())
+  '())
+ (((cons head tail))
+  (append (enumerate-tree head)
+          (enumerate-tree tail)))
+ ((tree)
+  (list tree)))
+
+(enumerate-tree (list 1 (list 2 (list 3 4)) 5))
+
+(defun sum-odd-squares (tree)
+  (accumulate #'+/2
+              0
+              (mapper #'square/1
+                      (filter #'odd?/1
+                              (enumerate-tree tree)))))
+
+(defun even-fibs (n)
+  (accumulate #'cons/2
+              '()
+              (filter #'even?/1
+                      (mapper #'fib/1
+                              (enumerate-interval 0 n)))))
+
+(defun list-fib-squares (n)
+  (accumulate #'cons/2
+              '()
+              (mapper #'square/1
+                      (mapper #'fib/1
+                              (enumerate-interval 0 n)))))
+
+(list-fib-squares 10)
+
+(defun product-of-squares-of-odd-elements (sequence)
+  (accumulate #'*/2
+              1
+              (mapper #'square/1
+                      (filter #'odd?/1 sequence))))
+
+(product-of-squares-of-odd-elements (list 1 2 3 4 5))
+
 (io:format "Chapter 2 loaded.~n")
