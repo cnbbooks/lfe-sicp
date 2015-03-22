@@ -11,12 +11,12 @@ Filtering a sequence to select only those elements that satisfy a given predicat
 
 ```lisp
 (defun filter
- ((_ '())
-  '())
- ((predicate (cons head tail))
-  (if (funcall predicate head)
-      (cons head (filter predicate tail))
-      (filter predicate tail))))
+  ((_ '())
+   '())
+  ((predicate (cons head tail))
+   (if (funcall predicate head)
+       (cons head (filter predicate tail))
+       (filter predicate tail))))
 ```
 
 For example,
@@ -51,10 +51,10 @@ All that remains to implement signal-flow diagrams is to enumerate the sequence 
 
 ```lisp
 (defun enumerate-interval
- ((low high) (when (> low high))
-  '())
- ((low high)
-  (cons low (enumerate-interval (+ low 1) high))))
+  ((low high) (when (> low high))
+   '())
+  ((low high)
+   (cons low (enumerate-interval (+ low 1) high))))
 ```
 
 ```lisp
@@ -66,13 +66,13 @@ To enumerate the leaves of a tree, we can use [^2]:
 
 ```lisp
 (defun enumerate-tree
- (('())
-  '())
- (((cons head tail))
-  (append (enumerate-tree head)
-          (enumerate-tree tail)))
- ((tree)
-  (list tree)))
+  (('())
+   '())
+  (((cons head tail))
+   (append (enumerate-tree head)
+           (enumerate-tree tail)))
+  ((tree)
+   (list tree)))
 ```
 
 ```lisp

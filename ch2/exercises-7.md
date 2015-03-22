@@ -29,9 +29,13 @@ What result is printed by the interpreter in response to evaluating each of the 
 
 ```lisp
 (append (x) (y))
+```
 
+```lisp
 (cons (x) (y))
+```
 
+```lisp
 (list (x) (y))
 ```
 

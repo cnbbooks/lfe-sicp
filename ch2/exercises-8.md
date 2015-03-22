@@ -5,10 +5,10 @@
 Define a function ``square-tree`` analogous to the ``square-list`` function of exercise 2.21. That is, ``square-list`` should behave as follows:
 
 ```lisp
-(square-tree
- (list 1
-       (list 2 (list 3 4) 5)
-       (list 6 7)))
+> (square-tree
+    (list 1
+          (list 2 (list 3 4) 5)
+          (list 6 7)))
 (1 (4 (9 16) 25) (36 49))
 ```
 
