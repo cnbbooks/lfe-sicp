@@ -5,6 +5,9 @@ In working with compound data, we've stressed how data abstraction permits us to
 In the section [Formulating Abstractions with Higher-Order Functions]() we saw how program abstractions, implemented as higher-order functions, can capture common patterns in programs that deal with numerical data. Our ability to formulate analogous operations for working with compound data depends crucially on the style in which we manipulate our data structures. Consider, for example, the following function, analogous to the ``count-leaves/2`` function of the section [Hierarchical Structures](), which takes a tree as argument and computes the sum of the squares of the leaves that are odd:
 
 ```lisp
+(defun odd? (n)
+  (=:= 1 (rem (trunc n) 2)))
+
 (defun sum-odd-squares
   (('())
     0)

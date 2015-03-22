@@ -278,9 +278,6 @@ circumference
 (defun even? (n)
   (=:= 0 (rem (trunc n) 2)))
 
-(defun odd? (n)
-  (=:= 1 (rem (trunc n) 2)))
-
 ;; Greatest Common Divisors
 
 (defun gcd (a b)

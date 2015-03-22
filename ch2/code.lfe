@@ -233,4 +233,66 @@
 (len (list x x))
 (count-leaves (list x x))
 
+;; Mapping over trees
+
+(defun scale-tree
+  (('() _)
+   '())
+  (((cons head tail) factor)
+   (cons (scale-tree head factor)
+         (scale-tree tail factor)))
+  ((tree factor)
+    (* tree factor)))
+
+(scale-tree (list 1 (list 2 (list 3 4) 5) (list 6 7)) 100)
+
+(defun scale-tree (tree factor)
+  (lists:map #'scale-sub-tree/1 tree))
+
+(defun scale-sub-tree
+  ((sub-tree) (when (is_integer sub-tree))
+   (* sub-tree factor))
+  ((sub-tree)
+   (scale-tree sub-tree factor)))
+
+(scale-tree (list 1 (list 2 (list 3 4) 5) (list 6 7)) 100)
+
+(defun odd? (n)
+  (=:= 1 (rem (trunc n) 2)))
+
+(defun sum-odd-squares
+  (('())
+    0)
+  (((cons head tail))
+    (+ (sum-odd-squares head)
+       (sum-odd-squares tail)))
+  ((elem)
+    (if (odd?)
+        (square elem)
+        0)))
+
+(defun even-fibs (n)
+  (fletrec ((next (k)
+              (if (> k n)
+                  '()
+                  (let ((f (fib k)))
+                    (if (even? f)
+                        (cons f (next (+ k 1)))
+                        (next (+ k 1)))))))
+    (next 0)))
+
+;; Sequence Operations
+
+(mapper #'square/1 (list 1 2 3 4 5))
+
+(defun filter
+ ((_ '())
+  '())
+ ((predicate (cons head tail))
+  (if (funcall predicate head)
+      (cons head (filter predicate tail))
+      (filter predicate tail))))
+
+(filter #'odd?/1 (list 1 2 3 4 5))
+
 (io:format "Chapter 2 loaded.~n")
