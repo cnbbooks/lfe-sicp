@@ -52,7 +52,7 @@ A signal-processing engineer would find it natural to conceptualize these proces
 
 <a name="figure-7"></a>
 
-![Signal-flow plans](images/XXX.png)
+![Signal-flow plans](images/ch2-Z-G-17.png)
 
 **Figure 2.7**: The signal-flow plans for the procedures ``sum-odd-squares/1`` (top) and ``even-fibs/1`` (bottom) reveal the commonality between the two programs.
 
