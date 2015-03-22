@@ -21,7 +21,11 @@ Another way to think of sequences whose elements are sequences is as *trees*. Th
 
 **Figure 2.6**: The list structure in figure 2.5 viewed as a tree.
 
-Recursion is a natural tool for dealing with tree structures, since we can often reduce operations on trees to operations on their branches, which reduce in turn to operations on the branches of the branches, and so on, until we reach the leaves of the tree. As an example, compare the ``len/1`` procedure of the section [Representing Sequences]() with the ``count-leaves/1`` procedure, which returns the total number of leaves of a tree:
+Recursion is a natural tool for dealing with tree structures, since we can
+often reduce operations on trees to operations on their branches, which reduce
+in turn to operations on the branches of the branches, and so on, until we
+reach the leaves of the tree. As an example, compare the ``len/1`` function of
+the section [Representing Sequences]() with the ``count-leaves/1`` function, which returns the total number of leaves of a tree:
 
 ```lisp
 > (set x (cons (list 1 2) (list 3 4)))
@@ -55,7 +59,7 @@ Finally, by taking ``car``s we reach actual leaves, so we need another base case
 
 * ``count-leaves/1`` of a leaf is 1.
 
-Here is the complete procedure:
+Here is the complete function:
 
 ```lisp
 (defun count-leaves

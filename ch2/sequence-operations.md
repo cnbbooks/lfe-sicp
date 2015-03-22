@@ -104,7 +104,13 @@ For ``even-fibs/1``, we enumerate the integers from 0 to $$n$$, generate the Fib
 
 The value of expressing programs as sequence operations is that this helps us make program designs that are modular, that is, designs that are constructed by combining relatively independent pieces. We can encourage modular design by providing a library of standard components together with a conventional interface for connecting the components in flexible ways.
 
-Modular construction is a powerful strategy for controlling complexity in engineering design. In real signal-processing applications, for example, designers regularly build systems by cascading elements selected from standardized families of filters and transducers. Similarly, sequence operations provide a library of standard program elements that we can mix and match. For instance, we can reuse pieces from the ``sum-odd-squares/1`` and ``even-fibs/1`` procedures in a program that constructs a list of the squares of the first $$n + 1$$ Fibonacci numbers:
+Modular construction is a powerful strategy for controlling complexity in
+engineering design. In real signal-processing applications, for example,
+designers regularly build systems by cascading elements selected from
+standardized families of filters and transducers. Similarly, sequence
+operations provide a library of standard program elements that we can mix and
+match. For instance, we can reuse pieces from the ``sum-odd-squares/1`` and
+``even-fibs/1`` functions in a program that constructs a list of the squares of the first $$n + 1$$ Fibonacci numbers:
 
 ```lisp
 (defun list-fib-squares (n)

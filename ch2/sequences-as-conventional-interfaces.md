@@ -20,7 +20,7 @@ In the section [Formulating Abstractions with Higher-Order Functions]() we saw h
         0)))
 ```
 
-On the surface, this procedure is very different from the following one, which constructs a list of all the even Fibonacci numbers $$Fib(k)$$, where $$k$$ is less than or equal to a given integer $$n$$:
+On the surface, this function is very different from the following one, which constructs a list of all the even Fibonacci numbers $$Fib(k)$$, where $$k$$ is less than or equal to a given integer $$n$$:
 
 ```lisp
 (defun even-fibs (n)
@@ -54,6 +54,16 @@ A signal-processing engineer would find it natural to conceptualize these proces
 
 ![Signal-flow plans](images/ch2-Z-G-17.png)
 
-**Figure 2.7**: The signal-flow plans for the procedures ``sum-odd-squares/1`` (top) and ``even-fibs/1`` (bottom) reveal the commonality between the two programs.
+**Figure 2.7**: The signal-flow plans for the functions ``sum-odd-squares/1`` (top) and ``even-fibs/1`` (bottom) reveal the commonality between the two programs.
 
-Unfortunately, the two function definitions above fail to exhibit this signal-flow structure. For instance, if we examine the ``sum-odd-squares/1`` function, we find that the enumeration is implemented partly by the pattern matching tests and partly by the tree-recursive structure of the function. Similarly, the accumulation is found partly in the tests and partly in the addition used in the recursion. In general, there are no distinct parts of either function that correspond to the elements in the signal-flow description. Our two procedures decompose the computations in a different way, spreading the enumeration over the program and mingling it with the map, the filter, and the accumulation. If we could organize our programs to make the signal-flow structure manifest in the procedures we write, this would increase the conceptual clarity of the resulting code.
+Unfortunately, the two function definitions above fail to exhibit this
+signal-flow structure. For instance, if we examine the ``sum-odd-squares/1``
+function, we find that the enumeration is implemented partly by the pattern
+matching tests and partly by the tree-recursive structure of the function.
+Similarly, the accumulation is found partly in the tests and partly in the
+addition used in the recursion. In general, there are no distinct parts of
+either function that correspond to the elements in the signal-flow description.
+Our two functions decompose the computations in a different way, spreading the
+enumeration over the program and mingling it with the map, the filter, and the
+accumulation. If we could organize our programs to make the signal-flow
+structure manifest in the functions we write, this would increase the conceptual clarity of the resulting code.

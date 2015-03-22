@@ -12,7 +12,7 @@ Define a function ``square-tree`` analogous to the ``square-list`` function of e
 (1 (4 (9 16) 25) (36 49))
 ```
 
-Define ``square-tree`` both directly (i.e., without using any higher-order procedures) and also by using ``map`` and recursion.
+Define ``square-tree`` both directly (i.e., without using any higher-order functions) and also by using ``map`` and recursion.
 
 
 #### Exercise 2.31
