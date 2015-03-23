@@ -40,11 +40,14 @@ $$
 
 #### Exercise 1.3
 
-Define a function that takes three numbers as arguments and returns the sum of the squares of the two larger numbers.
+Define a function that takes three numbers as arguments and returns the sum of
+the squares of the two larger numbers.
 
 #### Exercise 1.4
 
-Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following function:
+Observe that our model of evaluation allows for combinations whose operators
+are compound expressions. Use this observation to describe the behavior of the
+following function:
 
 ```lisp
 (defun a-plus-abs-b (a b)
@@ -56,7 +59,9 @@ Observe that our model of evaluation allows for combinations whose operators are
 
 #### Exercise 1.5
 
-Alice Algol has invented a test to determine whether the interpreter she is faced with is using applicative-order evaluation or normal-order evaluation. She defines the following two functions:
+Ben Bitdiddle has invented a test to determine whether the interpreter he is
+faced with is using applicative-order evaluation or normal-order evaluation. He
+defines the following two functions:
 
 ```lisp
 (defun p () (p))
@@ -69,12 +74,17 @@ Alice Algol has invented a test to determine whether the interpreter she is face
       y))
 ```
 
-Then she evaluates the expression
+Then he evaluates the expression
 
 ```lisp
 (test 0 (p))
 ```
+What behavior will Ben observe with an interpreter that uses applicative-order
+evaluation? What behavior will he observe with an interpreter that uses
+normal-order evaluation? Explain your answer. (Assume that the evaluation rule
+for the special form if is the same whether the interpreter is using normal or
+applicative order: The predicate expression is evaluated first, and the result
+determines whether to evaluate the consequent or the alternative expression.)
 
-What behavior will Alice observe with an interpreter that uses applicative-order evaluation? What behavior will she observe with an interpreter that uses normal-order evaluation? Explain your answer. (Assume that the evaluation rule for the special form if is the same whether the interpreter is using normal or applicative order: The predicate expression is evaluated first, and the result determines whether to evaluate the consequent or the alternative expression.)
 
 
