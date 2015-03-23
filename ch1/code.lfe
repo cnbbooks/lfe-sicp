@@ -62,24 +62,30 @@ circumference
   (cond ((> x 0) x)
         ((== x 0) 0)
         ((< x 0) (- x))))
+
 (defun abs (x)
   (cond ((< x 0) (- x))
         ('true x)))
+
 (defun abs (x)
   (if (< x 0)
       (- x)
       x))
+
 (defun abs (x)
   (case (< x 0)
         ('true (- x))
         (_ x)))
+
 (defun abs
   ((x) (when (> x 0)) x)
   ((x) (when (== x 0)) 0)
   ((x) (when (< x 0)) (- x)))
+
 (defun abs
   ((x) (when (< x 0)) (- x))
   ((x) x))
+
 (defun gte (x y)
   (or (> x y) (== x y)))
 (defun gte (x y)
@@ -92,31 +98,43 @@ circumference
       guess
       (sqrt (improve guess x)
             x)))
+
 (defun improve (guess x)
   (average guess (/ x guess)))
+
 (defun average (x y)
   (/ (+ x y) 2))
+
 (defun good-enough? (guess x)
   (< (abs (- (square guess) x)) 0.001))
+
 (defun sqrt (x)
   (sqrt (* 0.5 x) x))
-(sqrt 1)
-(sqrt 2)
-(sqrt 9)
-(sqrt (+ 100 37))
-(sqrt (+ (sqrt 2) (sqrt 3)))
-(square (sqrt 1000))
+
+;; Commented out to make code-loading of this file faster
+;;(sqrt 1)
+;;(sqrt 2)
+;;(sqrt 9)
+;;(sqrt (+ 100 37))
+;;(sqrt (+ (sqrt 2) (sqrt 3)))
+;;(square (sqrt 1000))
 
 ;; Functions as Black-Box Abstractions
 
 (defun square (x) (* x x))
+
 (defun square (x)
   (exp (double (log x))))
+
 (defun double (x) (+ x x))
+
 (defun square (x) (* x x))
+
 (defun square (y) (* y y))
+
 (defun good-enough? (guess x)
   (< (abs (- (square guess) x)) 0.001))
+
 (defun sqrt (x)
   (sqrt (* 0.5 x) x))
 
@@ -191,10 +209,12 @@ circumference
     ;; the main body of the function
     (sqrt-rec (* 0.5 x))))
 
-(c "ch1/sqrt.lfe")
-(sqrt:sqrt 25)
-(sqrt:sqrt 1)
-(sqrt:sqrt 2)
+;; Commented out to make code-loading of this file faster
+;;(c "ch1/sqrt.lfe")
+;;(sqrt:sqrt 25)
+;;(sqrt:sqrt 1)
+;;(sqrt:sqrt 2)
+
 ;; This next one should throw an error
 ;; (sqrt:sqrt 1 25)
 
@@ -251,7 +271,8 @@ circumference
         ((== kinds-of-coins 4) 25)
         ((== kinds-of-coins 5) 50)))
 
-(count-change 100)
+;; Commented out to make code-loading of this file faster
+;;(count-change 100)
 
 ;; Exponentiation
 
@@ -377,9 +398,10 @@ circumference
     (* (sum f (+ a (/ dx 2.0)) #'add-dx/1 b)
        dx)))
 
-(integral #'cube/1 0 1 0.01)
-(integral #'cube/1 0 1 0.001)
-(integral #'cube/1 0 1 0.0001)
+;; Commented out to make code-loading of this file faster
+;;(integral #'cube/1 0 1 0.01)
+;;(integral #'cube/1 0 1 0.001)
+;;(integral #'cube/1 0 1 0.0001)
 
 ;; Constructing Functions Using Lambda
 
@@ -462,11 +484,12 @@ circumference
           (else
            (error "Values are not of opposite sign")))))
 
-(half-interval-method #'math:sin/1 2.0 4.0)
+;; Commented out to make code-loading of this file faster
+;;(half-interval-method #'math:sin/1 2.0 4.0)
 
-(half-interval-method (lambda (x) (- (* x x x) (* 2 x) 3))
-                       1.0
-                       2.0)
+;;(half-interval-method (lambda (x) (- (* x x x) (* 2 x) 3))
+;;                       1.0
+;;                       2.0)
 
 (defun fixed-point (f first-guess)
   (fletrec ((close-enough? (v1 v2)
@@ -478,12 +501,11 @@ circumference
                     (try-it next)))))
     (try-it first-guess)))
 
-(set tolerance 0.00001)
-
-(fixed-point #'math:cos/1 1.0)
-
-(fixed-point (lambda (y) (+ (math:sin y) (math:cos y)))
-             1.0)
+;; Commented out to make code-loading of this file faster
+;;(set tolerance 0.00001)
+;;(fixed-point #'math:cos/1 1.0)
+;;(fixed-point (lambda (y) (+ (math:sin y) (math:cos y)))
+;;             1.0)
 
 (defun sqrt (x)
   (fixed-point (lambda (y) (/ x y))
@@ -499,7 +521,8 @@ circumference
   (lambda (x)
     (average x (funcall f x))))
 
-(funcall (average-damp #'square/1) 10)
+;; Commented out to make code-loading of this file faster
+;;(funcall (average-damp #'square/1) 10)
 
 (defun sqrt (x)
   (fixed-point (average-damp (lambda (y) (/ x y)))
@@ -514,11 +537,10 @@ circumference
     (/ (- (funcall g (+ x dx)) (funcall g x))
        dx)))
 
-(set dx 0.00001)
-
-(defun cube (x) (* x x x))
-
-(funcall (deriv #'cube/1) 5)
+;; Commented out to make code-loading of this file faster
+;;(set dx 0.00001)
+;;(defun cube (x) (* x x x))
+;;(funcall (deriv #'cube/1) 5)
 
 (defun newton-transform (g)
   (lambda (x)
