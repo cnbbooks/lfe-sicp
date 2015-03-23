@@ -68,7 +68,7 @@ Another way to write the absolute-value function is
         ('true x)))
 ```
 
-which could be expressed in English as "If ``x`` is less than zero return ``-x``; otherwise return ``x``." Since in LFE a ``cond`` with no ``true`` predicates returns ``false``, if we want a final, "default" value, we need to provide a predicate that always evaluates to ``true``. The simplest such predicate is the atom ``true``. [^3]
+which could be expressed in English as "If ``x`` is less than zero return ``-x``; otherwise return ``x``." Since in LFE a ``cond`` with no ``true`` predicates returns ``false``, if we want a final, "default" value, we need to provide a predicate that always evaluates to ``true``. The simplest such predicate is ``true``.
 
 #### The ``if`` Form
 
@@ -87,7 +87,7 @@ This uses the special form ``if``, a restricted type of conditional that can be 
 (if <predicate> <consequent> <alternative>)
 ```
 
-To evaluate an ``if`` expression, the interpreter starts by evaluating the ``<predicate>`` part of the expression. If the ``<predicate>`` evaluates to a ``true`` value, the interpreter then evaluates the ``<consequent>`` and returns its value. Otherwise it evaluates the ``<alternative>`` and returns its value.[^4]
+To evaluate an ``if`` expression, the interpreter starts by evaluating the ``<predicate>`` part of the expression. If the ``<predicate>`` evaluates to a ``true`` value, the interpreter then evaluates the ``<consequent>`` and returns its value. Otherwise it evaluates the ``<alternative>`` and returns its value.[^3]
 
 
 #### The ``case`` Form
@@ -112,7 +112,7 @@ We could rewrite our absolute-value function using ``case`` like this:
         (_ x)))
 ```
 
-When the final pattern matched against is the "I-don't-care variable",[^5] the effect is the same as the final ``'true`` in the ``cond`` form: if all else fails to match, the expression associated with the ``_`` pattern is returned.
+When the final pattern matched against is the "I-don't-care variable",[^4] the effect is the same as the final ``'true`` in the ``cond`` form: if all else fails to match, the expression associated with the ``_`` pattern is returned.
 
 #### Function Argument Patterns
 
@@ -189,15 +189,13 @@ or alternatively as
 
 ----
 
-[^1]: "Interpreted as either true or false" means this: In LFE, there are two distinguished values that are denoted by the atoms ``true`` and ``false``. When the interpreter checks a predicate's value, if the result cannot be interpreted as either ``true`` or ``false``, an error is raised (for ``cond`` and ``if`` you will see an ``if_clause`` exception).
+[^1]: "Interpreted as either true or false" means this: In LFE, there are two distinguished values that are denoted by ``true`` and ``false``. When the interpreter checks a predicate's value, if the result cannot be interpreted as either ``true`` or ``false``, an error is raised (for ``cond`` and ``if`` you will see an ``if_clause`` exception).
 
 [^2]: ``abs`` also uses the "minus" operator ``-``, which, when used with a single operand, as in ``(- x)``, indicates negation. 
 
-[^3]: Note that atoms in LFE must be quoted (to distinguish them from variables or functions). In situations where there is no evaluation, no quote is necessary. As such, return values of atoms will always be rendered without a quote. Similarly, when discussing the values ``true`` and ``false`` in this book, we will do so without quotes, as there is no evaluation!
+[^3]: A minor difference between ``if`` and ``cond`` is that the ``<e>`` part of each ``cond`` clause may be a sequence of expressions. If the corresponding ``<p>`` is found to be ``true``, the expressions ``<e>`` are evaluated in sequence and the value of the final expression in the sequence is returned as the value of the ``cond``. In an ``if`` expression, however, the ``<consequent>`` and ``<alternative>`` must be single expressions. 
 
-[^4]: A minor difference between ``if`` and ``cond`` is that the ``<e>`` part of each ``cond`` clause may be a sequence of expressions. If the corresponding ``<p>`` is found to be ``true``, the expressions ``<e>`` are evaluated in sequence and the value of the final expression in the sequence is returned as the value of the ``cond``. In an ``if`` expression, however, the ``<consequent>`` and ``<alternative>`` must be single expressions. 
-
-[^5]: The single underscore, anonymous variable, "blah", "don't care", or "throw-away" variable has a long history in computing. Many languages, including Prolog, C, Erlang, OCaml, Pyton, Ruby, etc., share a tradition of treating the underscore as a special variable; special in the sense that the value is not seen as being of any pertinent interest in the given context. In Prolog and Erlang, and thus LFE, the anonymous variable has a significant functional purpose: it is never bound to a value and as such can be used multiple times in pattern matching without throwing an error (which would happen in Prolog or Erlang if you tried to match multiple patterns with a regular, bound variable).
+[^4]: The single underscore, anonymous variable, "blah", "don't care", or "throw-away" variable has a long history in computing. Many languages, including Prolog, C, Erlang, OCaml, Pyton, Ruby, etc., share a tradition of treating the underscore as a special variable; special in the sense that the value is not seen as being of any pertinent interest in the given context. In Prolog and Erlang, and thus LFE, the anonymous variable has a significant functional purpose: it is never bound to a value and as such can be used multiple times in pattern matching without throwing an error (which would happen in Prolog or Erlang if you tried to match multiple patterns with a regular, bound variable).
 
 
 
