@@ -16,7 +16,11 @@ Perhaps one of Church's more defining characteristics was his drive: he delibera
 
 These were some of the most compelling challenges in mathematics at that time. All of them ended up meeting at the cross-roads of the λ&#8209;calculus.
 
-Church had started working on the λ&#8209;calculus when attempting to address the Russell Parardox [^6]. However, it was not that goal toward which the λ&#8209;calculus was ultimately applied. Instead, it became useful -- essential, even -- in his efforts to define what he called "calculability" and what is now more commonly referred to as *computability*.[^7] In this the λ&#8209;calculus was an unparalleled success, allowing Church to solve the *Entschiedungsproblem* using the concept of recursive functions. Thus was laid the foundation upon which John McCarthy was able to build the first programming language which used the λ&#8209;calculus: Lisp.
+Church had started working on the λ&#8209;calculus when attempting to address the Russell Parardox [^6]. However, it was not that goal toward which the λ&#8209;calculus was ultimately applied. Instead, it became useful -- essential, even -- in his efforts to define what he called "calculability" and what is now more commonly referred to as *computability*.[^7] In this the λ&#8209;calculus was an unparalleled success, allowing Church to solve the *Entschiedungsproblem* using the concept of recursive functions. 
+
+Syntacitcally, Church's -notation made a significant improvement upon that found in the *Principia Mathematica* [^8]. Given the *Principia* phrase $$φx̂$$ and the λ&#8209;calculus equivalent, $$λx φx$$ one benefits from the use of the later by virtue of the fact that the latter unambiguouslt states that the variable $$x$$ is bound by the term-forming operator λ.
+
+Thus was laid the foundation upon which John McCarthy was able to build the first programming language which used the λ&#8209;calculus: Lisp.
 
 ---
 
@@ -33,3 +37,5 @@ Church had started working on the λ&#8209;calculus when attempting to address t
 [^6]: See [Russell's paradox](http://en.wikipedia.org/wiki/Russell%27s_paradox).
 
 [^7]: "Computability" was the term which Turing used.
+
+[^8]: See the discussion of "Propositional Functions" in the section "The Notation in Principia Mathematica":  http://plato.stanford.edu/entries/pm-notation/#4
