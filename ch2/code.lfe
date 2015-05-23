@@ -356,3 +356,38 @@
 (product-of-squares-of-odd-elements (list 1 2 3 4 5))
 
 (io:format "Chapter 2 loaded.~n")
+
+;; Nested Mappings
+
+(defun flatmap (func seq)
+  (accumulate append '() (mapper func seq)))
+
+(defun prime-sum? (pair)
+  (prime? (+ (car pair) (cadr pair))))
+
+(defun make-pair-sum (pair)
+  (list (car pair) (cadr pair) (+ (car pair) (cadr pair))))
+
+(defun prime-sum-pairs (n)
+  (mapper #'make-pair-sum/1
+          (filter #'prime-sum?/1
+                  (flatmap
+                  (lambda (i)
+                    (map (lambda (j) (list i j))
+                         (enumerate-interval 1 (- i 1))))
+                  (enumerate-interval 1 n)))))
+
+(defun permutations
+  (('())                     ; empty set?
+   (list '()))               ; sequence containing empty set
+  ((s)
+   (flatmap (lambda (x)
+              (map (lambda (p) (cons x p))
+                   (permutations (remove x s))))
+            s)))
+
+(defun remove (item sequence)
+  (filter (lambda (x) (not (=:= x item)))
+          sequence))
+
+
