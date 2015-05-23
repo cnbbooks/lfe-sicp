@@ -10,7 +10,7 @@ Write a function to find all ordered triples of distinct positive integers $$i$$
 
 #### Exercise 2.42
 
-<a name="figure-1=8"></a>
+<a name="figure-2-8"></a>
 ![A solution to the eight-queens puzzle](images/ch2-Z-G-23.png)
 
 **Figure 2.8**:  A solution to the eight-queens puzzle.
