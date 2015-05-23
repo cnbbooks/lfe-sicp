@@ -24,7 +24,7 @@ Here is a way to generate the sequence of pairs: For each integer $$i< n$$, enum
                     (enumerate-interval 1 n)))
 ```
 
-The combination of mapping and accumulating with append is so common in this sort of program that we will isolate it as a separate procedure:
+The combination of mapping and accumulating with append is so common in this sort of program that we will isolate it as a separate procedure[^3]:
 
 ```lisp
 (defun flatmap (func seq)
@@ -58,7 +58,7 @@ Combining all these steps yields the complete procedure:
                   (enumerate-interval 1 n)))))
 ```
 
-Nested mappings are also useful for sequences other than those that enumerate intervals. Suppose we wish to generate all the permutations of a set S; that is, all the ways of ordering the items in the set. For instance, the permutations of {1,2,3} are {1,2,3}, { 1,3,2}, {2,1,3}, { 2,3,1}, { 3,1,2}, and { 3,2,1}. Here is a plan for generating the permutations of $$S$$: For each item $$x$$ in $$S$$, recursively generate the sequence of permutations of $$S - x$$,[^3] and adjoin $$x$$ to the front of each one. This yields, for each $$x$$ in $$S$$, the sequence of permutations of $$S$$ that begin with $$x$$. Combining these sequences for all $$x$$ gives all the permutations of $$S$$: [^4]
+Nested mappings are also useful for sequences other than those that enumerate intervals. Suppose we wish to generate all the permutations of a set S; that is, all the ways of ordering the items in the set. For instance, the permutations of {1,2,3} are {1,2,3}, { 1,3,2}, {2,1,3}, { 2,3,1}, { 3,1,2}, and { 3,2,1}. Here is a plan for generating the permutations of $$S$$: For each item $$x$$ in $$S$$, recursively generate the sequence of permutations of $$S - x$$,[^4] and adjoin $$x$$ to the front of each one. This yields, for each $$x$$ in $$S$$, the sequence of permutations of $$S$$ that begin with $$x$$. Combining these sequences for all $$x$$ gives all the permutations of $$S$$: [^5]
 
 ```lisp
 (defun permutations
@@ -86,9 +86,11 @@ Notice how this strategy reduces the problem of generating permutations of $$S$$
 
 [^2]: We're representing a pair here as a list of two elements rather than as a Lisp pair. Thus, the "pair" ``(i,j)`` is represented as ``(list i j)``, not ``(cons i j)``.
 
-[^3]: The set $$S - x$$ is the set of all elements of $$S$$, excluding $$x$$.
+[^3]: We are using this for pedagogical purposes; in real projects you would use ``(funcall #'lists:append/1 nested-list)``.
 
-[^4]: Semicolons in LFE code are used to introduce comments. Everything from the semicolon to the end of the line is ignored by the interpreter. In this book we don't use many comments; we try to make our programs self-documenting by using descriptive names.
+[^4]: The set $$S - x$$ is the set of all elements of $$S$$, excluding $$x$$.
+
+[^5]: Semicolons in LFE code are used to introduce comments. Everything from the semicolon to the end of the line is ignored by the interpreter. In this book we don't use many comments; we try to make our programs self-documenting by using descriptive names.
 
 
 
