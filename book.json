@@ -1,5 +1,5 @@
 {
-    "version": "2.x.x",
+    "gitbook": ">=2.0.0",
     "title": "Structure and Interpretation of Computer Programs",
     "description": "The LFE Edition of the Classic Scheme Book",
     "plugins": [
