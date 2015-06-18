@@ -1,4 +1,5 @@
 {
+    "version": "2.x.x",
     "title": "Structure and Interpretation of Computer Programs",
     "description": "The LFE Edition of the Classic Scheme Book",
     "plugins": [
