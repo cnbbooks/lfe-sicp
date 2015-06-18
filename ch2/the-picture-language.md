@@ -6,11 +6,35 @@ Part of the elegance of this picture language is that there is only one kind of 
 
 To combine images, we use various operations that construct new painters from given painters. For example, the beside operation takes two painters and produces a new, compound painter that draws the first painter's image in the left half of the frame and the second painter's image in the right half of the frame. Similarly, below takes two painters and produces a compound painter that draws the first painter's image below the second painter's image. Some operations transform a single painter to produce a new painter. For example, flip-vert takes a painter and produces a painter that draws its image upside-down, and flip-horiz produces a painter that draws the original painter's image left-to-right reversed.
 
-Figure 2.10:  Images produced by the wave painter, with respect to four different frames. The frames, shown with dotted lines, are not part of the images.
+<a name="figure-2-10"></a>
+![Images produced by the wave painter, with respect to four different frames. The frames, shown with dotted lines, are not part of the images](images/ch2-Z-G-26.png)
 
-Figure 2.11:  Images of William Barton Rogers, founder and first president of MIT, painted with respect to the same four frames as in figure 2.10 (original image reprinted with the permission of the MIT Museum).
+**Figure 2.10**:  Images produced by the wave painter, with respect to four different frames. The frames, shown with dotted lines, are not part of the images.
 
-Figure 2.12 shows the drawing of a painter called wave4 that is built up in two stages starting from ``wave``:
+<a name="figure-2-11"></a>
+![Images of William Barton Rogers, founder and first president of MIT, painted with respect to the same four frames as in figure 2.10 (original image reprinted with the permission of the MIT Museum).](images/ch2-Z-G-30.png)
+
+**Figure 2.11**:  Images of William Barton Rogers, founder and first president of MIT, painted with respect to the same four frames as in figure 2.10 (original image reprinted with the permission of the MIT Museum).
+
+Figure 2.12 shows the drawing of a painter called ``wave4`` that is built up in two stages starting from ``wave``:
+
+<a name="figure-2-12"></a>
+
+```lisp
+(defun wave2 (beside wave (flip-vert wave)))
+(defun wave4 (below wave2 wave2))
+```
+
+![Creating a complex figure, starting from the wave painter of figure 2.10.](images/ch2-Z-G-35.png)
+
+```lisp
+(defun wave2 (beside wave (flip-vert wave)))
+(defun wave4 (below wave2 wave2))
+```
+
+**Figure 2.12**: Creating a complex figure, starting from the wave painter of figure 2.10.
+
+In building up a complex image in this manner we are exploiting the fact that painters are closed under the language's means of combination. The beside or below of two painters is itself a painter; therefore, we can use it as an element in making more complex painters. As with building up list structure using cons, the closure of our data under the means of combination is crucial to the ability to create complex structures while using only a few operations.
 
 ----
 
