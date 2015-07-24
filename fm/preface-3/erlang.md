@@ -1,10 +1,10 @@
 ### A Recap of Erlang's Genesis
 
-Though the LFE edition of *Structure and Interpretation of Computer Programs* is a reworking of the Scheme original to LFE and while both version focus entirely upon Lisp, we would be remiss if a brief history of Erlang -- upon which LFE firmly rests -- was not covered as well. One of the most concise and informative sources of Erlang history is the paper that Joe Armstrong wrote[^1] for the third History of Programming Languages[^2] conference. 
+Though the LFE edition of *Structure and Interpretation of Computer Programs* is a reworking of the Scheme original to LFE and while both version focus entirely upon Lisp, we would be remiss if a brief history of Erlang -- upon which LFE firmly rests -- was not covered as well. One of the most concise and informative sources of Erlang history is the paper that Joe Armstrong wrote[^1] for the third History of Programming Languages[^2] conference.
 
 What evolved into Erlang started out as the simple task of "solving Ericsson's software problem." [^3] Practically, this involved a series of initial experiments in programming simple telephony systems in a variety of languages. The results of this, namely as follows, fueled the next round of experiments:
 
-* Small languages seemed better at succinctly addresssing the problem space.
+* Small languages seemed better at succinctly addressing the problem space.
 * The functional programming paradigm was appreciated, if sometimes viewed as awkward.
 * Logic programming provided the most elegant solutions in the given problem space.
 * Support for concurrency was viewed as essential.
@@ -23,12 +23,12 @@ Furthermore, Bjarne Däcker defined the following capabilities for a language to
 * To enable hardware interaction
 * To support very large scale software systems
 * To support complex interactions
-* To provide non-stop operationm (on the order of years)
+* To provide non-stop operation (on the order of years)
 * To allow for system updates without downtime
 * To provide high-nines reliability
 * To provide fault-tolerance for both hardware and software
 
-With these guiding principles, Erlang in its Prolog form emerged over the course of 1986 and 1987. Robert Virding joined Armstrong in this effort during this time period, [^5] helping with such tasks as rewriting the initial prototype and improving overall concurrency performance. 
+With these guiding principles, Erlang in its Prolog form emerged over the course of 1986 and 1987. Robert Virding joined Armstrong in this effort during this time period, [^5] helping with such tasks as rewriting the initial prototype and improving overall concurrency performance.
 
 ----
 
