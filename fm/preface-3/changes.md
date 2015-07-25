@@ -11,11 +11,11 @@ to no impact on its essence. These liberties include the following:
 
 * The Lisp-2 syntax of LFE is used instead of the Lisp-1 syntax of a Scheme.
 * As an extension of that first point, features such as pattern matching in function heads, guards, multi-arity functions, etc., are used extensively, often leading to more concise functions that their original, Scheme counterparts.
-* When pertienent, features from LFE and Erlang are introduced in conjunction
+* When pertinent, features from LFE and Erlang are introduced in conjunction
   with the subject matter of the original text.
 * Very rarely some of the original text or footnotes might be omitted when not at all applicable
   to LFE.
-* LFE doesn't support nested ``defun``s like Scheme supports nested ``define``s; ``flet`` and ``flectrec`` are used instead. However, as a result, these are introduced before ``let``. This is awkward, but not diasterous.
+* LFE doesn't support nested ``defun``s like Scheme supports nested ``define``s; ``flet`` and ``flectrec`` are used instead. However, as a result, these are introduced before ``let``. This is awkward, but not disastrous.
 * The LFE Edition uses LaTeX, and as such, equations are much easier to read.
 * Updating examples to modern, accepted forms (e.g., the Ackermann function).
 * Exercises are broken out into their own sections (while preserving their original order and placement in the chapters).
