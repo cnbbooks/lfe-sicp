@@ -32,7 +32,7 @@ The download and installation of Erlang is not covered in this book; information
 
 #### Getting and Compiling LFE
 
-You may obtain LFE via ``git``, creating a subdirectory in the ``scip`` directory:
+You may obtain LFE via ``git``, creating a subdirectory in the ``sicp`` directory:
 
 ```bash
 cd sicp
