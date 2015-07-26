@@ -79,7 +79,7 @@ the square root of some $$x$$ is $$\frac{x}{2}$$:[^4]
 
 Note that we used the same name as a previous function, the iterative function
 that took two arguments. In LFE, not only do functions and variables have a
-difference namespace (unlike Scheme), but functions are also dfferentiated by
+difference namespace (unlike Scheme), but functions are also differentiated by
 their arity. As such, functions with different arity may share the same
 name.[^5]
 

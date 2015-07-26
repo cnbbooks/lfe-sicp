@@ -158,11 +158,11 @@ Note that in both definitions above our argument pattern is simply ``x``. We are
 
 In addition to primitive predicates such as ``<``, ``=``, and ``>``, there are logical composition operations, which enable us to construct compound predicates. The three most frequently used are these:
 
-* ``(and <e1> ... <en>)`` - 
+* ``(and <e1> ... <en>)`` -
   The interpreter evaluates the expressions ``<e>`` one at a time, in left-to-right order. If any ``<e>`` evaluates to ``false``, the value of the ``and`` expression is ``false``, and the rest of the ``<e>``'s are not evaluated. If all ``<e>``'s evaluate to ``true`` values, the value of the ``and`` expression is ``true``.
-* ``(or <e1> ... <en>)`` - 
+* ``(or <e1> ... <en>)`` -
    The interpreter evaluates the expressions ``<e>`` one at a time, in left-to-right order. If any ``<e>`` evaluates to a ``true`` value, the value of the ``or`` expression is ``true``, and the rest of the ``<e>``'s are not evaluated. If all ``<e>``'s evaluate to ``false``, the value of the ``or`` expression is ``false``.
-* ``(not <e>)`` - 
+* ``(not <e>)`` -
   The value of a ``not`` expression is ``true`` when the expression ``<e>`` evaluates to ``false``, and ``false`` otherwise.
 
 Notice that ``and`` and ``or`` are special forms, not functions, because the subexpressions are not necessarily all evaluated. ``not`` is an ordinary function.
@@ -174,7 +174,7 @@ As an example of how these are used, the condition that a number $$x$$ be in the
 ```
 
 As another example, we can define a predicate to test whether one number is greater than or equal to another as
- 
+
 ```lisp
 (defun gte (x y)
   (or (> x y) (== x y)))
@@ -191,11 +191,11 @@ or alternatively as
 
 [^1]: "Interpreted as either true or false" means this: In LFE, there are two distinguished values that are denoted by ``true`` and ``false``. When the interpreter checks a predicate's value, if the result cannot be interpreted as either ``true`` or ``false``, an error is raised (for ``cond`` and ``if`` you will see an ``if_clause`` exception).
 
-[^2]: ``abs`` also uses the "minus" operator ``-``, which, when used with a single operand, as in ``(- x)``, indicates negation. 
+[^2]: ``abs`` also uses the "minus" operator ``-``, which, when used with a single operand, as in ``(- x)``, indicates negation.
 
-[^3]: A minor difference between ``if`` and ``cond`` is that the ``<e>`` part of each ``cond`` clause may be a sequence of expressions. If the corresponding ``<p>`` is found to be ``true``, the expressions ``<e>`` are evaluated in sequence and the value of the final expression in the sequence is returned as the value of the ``cond``. In an ``if`` expression, however, the ``<consequent>`` and ``<alternative>`` must be single expressions. 
+[^3]: A minor difference between ``if`` and ``cond`` is that the ``<e>`` part of each ``cond`` clause may be a sequence of expressions. If the corresponding ``<p>`` is found to be ``true``, the expressions ``<e>`` are evaluated in sequence and the value of the final expression in the sequence is returned as the value of the ``cond``. In an ``if`` expression, however, the ``<consequent>`` and ``<alternative>`` must be single expressions.
 
-[^4]: The single underscore, anonymous variable, "blah", "don't care", or "throw-away" variable has a long history in computing. Many languages, including Prolog, C, Erlang, OCaml, Pyton, Ruby, etc., share a tradition of treating the underscore as a special variable; special in the sense that the value is not seen as being of any pertinent interest in the given context. In Prolog and Erlang, and thus LFE, the anonymous variable has a significant functional purpose: it is never bound to a value and as such can be used multiple times in pattern matching without throwing an error (which would happen in Prolog or Erlang if you tried to match multiple patterns with a regular, bound variable).
+[^4]: The single underscore, anonymous variable, "blah", "don't care", or "throw-away" variable has a long history in computing. Many languages, including Prolog, C, Erlang, OCaml, Python, Ruby, etc., share a tradition of treating the underscore as a special variable; special in the sense that the value is not seen as being of any pertinent interest in the given context. In Prolog and Erlang, and thus LFE, the anonymous variable has a significant functional purpose: it is never bound to a value and as such can be used multiple times in pattern matching without throwing an error (which would happen in Prolog or Erlang if you tried to match multiple patterns with a regular, bound variable).
 
 
 
