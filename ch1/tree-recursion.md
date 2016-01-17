@@ -132,7 +132,7 @@ We can now answer our original question about changing a dollar:
 
 [^2]: For example, work through in detail how the reduction rule applies to the problem of making change for 10 cents using pennies and nickels.
 
-[^3]: One approach to coping with redundant computations is to arrange matters so that we automatically construct a table of values as they are computed. Each time we are asked to apply the function to some argument, we first look to see if the value is already stored in the table, in which case we avoid performing the redundant computation. This strategy, known as *tabulation* or *memoization*, can be implemented in a straightforward way. Tabulation can sometimes be used to transform processes that require an exponential number of steps (such as ``count-change``) into processes whose space and time requirements grow linearly with the input. See exercise 3.27.
+[^3]: One approach to coping with redundant computations is to arrange matters so that we automatically construct a table of values as they are computed. Each time we are asked to apply the function to some argument, we first look to see if the value is already stored in the table, in which case we avoid performing the redundant computation. This strategy, known as *tabulation* or *memorization*, can be implemented in a straightforward way. Tabulation can sometimes be used to transform processes that require an exponential number of steps (such as ``count-change``) into processes whose space and time requirements grow linearly with the input. See exercise 3.27.
 
 
 
