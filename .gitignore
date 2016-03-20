@@ -33,6 +33,8 @@ tramp
 
 # Gitbook
 _book
+node_modules
+npm-debug.log
 
 # LFE
 *.beam

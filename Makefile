@@ -8,14 +8,16 @@ PROD_PATH=$(BASE_DIR)/$(PROD_DIR)
 STAGE_DIR=$(PROD_DIR)
 STAGE_PATH=$(BASE_DIR)/$(STAGE_DIR)
 
-setup:
-	@npm install gitbook -g
-	@npm install gitbook-plugin-ga -g
+deps:
+	@npm install -g gitbook-cli
 
-build:
+setup:
+	@gitbook install
+
+build-book:
 	gitbook build $(SRC) --output=$(PROD_DIR)
 
-run:
+run-book:
 	gitbook serve $(SRC)
 
 staging: build
