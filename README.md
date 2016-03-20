@@ -22,7 +22,7 @@ This is a huge project, and we can use your help! Got an idea? Found a bug?
 
 ### Building the Book
 
-Install the dependencies:
+To build a local copy of the book, install the dependencies:
 
 ```bash
 $ make deps
@@ -30,14 +30,15 @@ $ make deps
 
 On Linux, you'll need to run that with ``sudo``.
 
-Install the gitbook modules:
+Then install the gitbook modules:
 
 ```bash
 $ make setup
 ```
 
-Build the book:
+Finally, build the book:
 
 ```bash
 $ make book
 ```
+
