@@ -14,10 +14,10 @@ deps:
 setup:
 	@gitbook install
 
-build-book:
+book:
 	gitbook build $(SRC) --output=$(PROD_DIR)
 
-run-book:
+book-server:
 	gitbook serve $(SRC)
 
 staging: build
@@ -28,3 +28,4 @@ publish: build
 	-git commit -a && git push origin master
 	git subtree push --prefix $(PROD_DIR) origin gh-pages
 
+.PHONY: book
