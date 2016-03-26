@@ -60,7 +60,7 @@ This doesn't work either. Explain.
 The built-in LFE function ``lists:foreach/2`` is similar to our ``mapper/2`` and the built-in ``lists:map/2``. It takes as arguments a function and a list of elements. However, rather than forming a list of the results, ``foreach/2`` just applies the function to each of the elements in turn, from left to right. The values returned by applying the function to the elements are not used at all -- ``foreach/2`` is used with functions that perform an action, such as printing. For example,
 
 ```lisp
-> (lists:foreach (lambda (x) (io:format "~n~p~n (list x)))
+> (lists:foreach (lambda (x) (io:format "~n~p~n" (list x)))
                  (list 57 321 88))
 57
 321
