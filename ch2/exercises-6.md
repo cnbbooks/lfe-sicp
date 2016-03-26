@@ -27,14 +27,14 @@ Louis Reasoner tries to rewrite the first square-list function of exercise 2.21 
 
 ```lisp
 (defun square-list (items)
-  (square-list items '())
+  (square-list items '()))
 
 (defun square-list
   (('() answer) answer)
   (((cons head tail) answer)
-    (iter tail
-          (cons (square head)
-                answer))))
+    (square-list tail
+                 (cons (square head)
+                       answer))))
 ```
 
 Unfortunately, defining ``square-list`` this way produces the answer list in the reverse order of the one desired. Why?
@@ -43,14 +43,14 @@ Louis then tries to fix his bug by interchanging the arguments to cons:
 
 ```lisp
 (defun square-list (items)
-  (square-list items '())
+  (square-list items '()))
 
 (defun square-list
   (('() answer) answer)
   (((cons head tail) answer)
-    (iter tail
-          (cons answer
-                (square head)))))
+    (square-list tail
+                 (cons answer
+                       (square head)))))
 ```
 
 This doesn't work either. Explain.
