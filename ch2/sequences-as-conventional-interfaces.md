@@ -15,7 +15,7 @@ In the section [Formulating Abstractions with Higher-Order Functions]() we saw h
     (+ (sum-odd-squares head)
        (sum-odd-squares tail)))
   ((elem)
-    (if (odd?)
+    (if (funcall #'odd?/1 elem)
         (square elem)
         0)))
 ```
