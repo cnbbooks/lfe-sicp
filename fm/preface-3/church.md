@@ -11,14 +11,14 @@ While a graduate student, Church was hit by a trolley car and spent time in a ho
 Perhaps one of Church's more defining characteristics was his drive: he deliberately focused on prominent problems in mathematics and attacked them with great force of will. A few of the problems he had focused on in the early 1930s were:
 
 1. Known paradoxes entailed by Bertrand Russell's theory of types [^5]
-1. David Hilbert's *Entschiedungsproblem*, and
+1. David Hilbert's *Entscheidungsproblem*, and
 1. The implications of Gödel's completeness theorem.
 
 These were some of the most compelling challenges in mathematics at that time. All of them ended up meeting at the cross-roads of the λ&#8209;calculus.
 
-Church had started working on the λ&#8209;calculus when attempting to address the Russell Parardox [^6]. However, it was not that goal toward which the λ&#8209;calculus was ultimately applied. Instead, it became useful -- essential, even -- in his efforts to define what he called "calculability" and what is now more commonly referred to as *computability*.[^7] In this the λ&#8209;calculus was an unparalleled success, allowing Church to solve the *Entschiedungsproblem* using the concept of recursive functions.
+Church had started working on the λ&#8209;calculus when attempting to address the Russell Paradox [^6]. However, it was not that goal toward which the λ&#8209;calculus was ultimately applied. Instead, it became useful -- essential, even -- in his efforts to define what he called "calculability" and what is now more commonly referred to as *computability*.[^7] In this the λ&#8209;calculus was an unparalleled success, allowing Church to solve the *Entscheidungsproblem* using the concept of recursive functions.
 
-Syntactically, Church's λ&#8209;-notation made a significant improvement upon that found in the *Principia Mathematica* [^8]. Given the *Principia* phrase $$\phi x̂$$ and the λ&#8209;calculus equivalent, $$\lambda x \phi x$$, one benefits from the use of the latter by virtue of the fact that it unambiguously states that the variable $$x$$ is bound by the term-forming operator $$\lambda$$. This innovation was necessary for Church's work and a powerful tool that was put to use by John McCarthy when he built the first programming language which used the λ&#8209;calculus: Lisp.
+Syntactically, Church's λ&#8209;notation made a significant improvement upon that found in the *Principia Mathematica* [^8]. Given the *Principia* phrase $$\phi x̂$$ and the λ&#8209;calculus equivalent, $$\lambda x \phi x$$, one benefits from the use of the latter by virtue of the fact that it unambiguously states that the variable $$x$$ is bound by the term-forming operator $$\lambda$$. This innovation was necessary for Church's work and a powerful tool that was put to use by John McCarthy when he built the first programming language which used the λ&#8209;calculus: Lisp.
 
 ---
 
