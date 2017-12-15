@@ -23,6 +23,6 @@ to no impact on its essence. These liberties include the following:
 Some of the terminology in the text has also been changed to maintain
 consistency with that used by the Erlang and LFE community. Most prominently,
 readers of the original text will notice that we do not use the term
-"procedure" but have instead opted for the more common term "function."
+"procedure" but have instead opted for the more common term "function".
 
 
