@@ -1,0 +1,4 @@
+[submodule "book"]
+	path = book
+	url = git@github.com:cnbbooks/lfe-sicp.git
+	branch = master
