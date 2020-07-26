@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js lfe-pdp">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Functions as Returned Values - Structure and Interpretation of Computer Programs</title>
+    
+    
+
+
+    <!-- Custom HTML head -->
+    
+
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="The LFE Edition of the Classic Scheme Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+    <link rel="stylesheet" href="../css/custom.css">
+    
+
+    
+</head>
+
+<body>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "../";
+        var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "lfe-pdp" : "lfe-pdp";
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('lfe-pdp')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <div class="sidebar-scrollbox">
+            <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/title-page.html"><strong aria-hidden="true">1.1.</strong> Title Page</a></li><li class="chapter-item expanded "><a href="../fm/copyright-page.html"><strong aria-hidden="true">1.2.</strong> Copyright Page</a></li><li class="chapter-item expanded "><a href="../fm/dedication.html"><strong aria-hidden="true">1.3.</strong> Dedication</a></li><li class="chapter-item expanded "><a href="../fm/foreword.html"><strong aria-hidden="true">1.4.</strong> Foreword</a></li><li class="chapter-item expanded "><a href="../fm/lfe-foreword.html"><strong aria-hidden="true">1.5.</strong> Foreword to the LFE Edition</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/index.html"><strong aria-hidden="true">1.6.</strong> Preface to the LFE Edition</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/preface-3/origins.html"><strong aria-hidden="true">1.6.1.</strong> The Hidden Origins of Lisp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/preface-3/peano.html"><strong aria-hidden="true">1.6.1.1.</strong> Giuseppe Peano</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/russell.html"><strong aria-hidden="true">1.6.1.2.</strong> Bertrand Russell</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/church.html"><strong aria-hidden="true">1.6.1.3.</strong> Alonzo Church</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/mccarthy.html"><strong aria-hidden="true">1.6.1.4.</strong> John McCarthy</a></li></ol></li><li class="chapter-item expanded "><a href="../fm/preface-3/erlang.html"><strong aria-hidden="true">1.6.2.</strong> A Recap of Erlang's Genesis</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/lfe.html"><strong aria-hidden="true">1.6.3.</strong> The Inspiration for LFE</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/21stcent.html"><strong aria-hidden="true">1.6.4.</strong> The Place of Lisp in the 21st Century</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/changes.html"><strong aria-hidden="true">1.6.5.</strong> Notes on Changes from the Original</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/sources.html"><strong aria-hidden="true">1.6.6.</strong> Obtaining the Book and Related Code</a></li></ol></li><li class="chapter-item expanded "><a href="../fm/preface-2.html"><strong aria-hidden="true">1.7.</strong> Preface to the Second Edition</a></li><li class="chapter-item expanded "><a href="../fm/preface-1.html"><strong aria-hidden="true">1.8.</strong> Preface to the First Edition</a></li><li class="chapter-item expanded "><a href="../fm/acknowledgments.html"><strong aria-hidden="true">1.9.</strong> Acknowledgments</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/building-abstractions-with-functions.html"><strong aria-hidden="true">2.</strong> Building Abstractions with Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/programming-in-lisp.html"><strong aria-hidden="true">2.1.</strong> Programming in Lisp</a></li><li class="chapter-item expanded "><a href="../ch1/the-elements-of-programming.html"><strong aria-hidden="true">2.2.</strong> The Elements of Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/expressions.html"><strong aria-hidden="true">2.2.1.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="../ch1/naming-and-the-environment.html"><strong aria-hidden="true">2.2.2.</strong> Naming and the Environment</a></li><li class="chapter-item expanded "><a href="../ch1/evaluating-combinations.html"><strong aria-hidden="true">2.2.3.</strong> Evaluating Combinations</a></li><li class="chapter-item expanded "><a href="../ch1/compound-functions.html"><strong aria-hidden="true">2.2.4.</strong> Compound Functions</a></li><li class="chapter-item expanded "><a href="../ch1/the-substitution-model-for-function-application.html"><strong aria-hidden="true">2.2.5.</strong> The Substitution Model for Function Application</a></li><li class="chapter-item expanded "><a href="../ch1/conditional-expressions-and-predicates.html"><strong aria-hidden="true">2.2.6.</strong> Conditional Expressions and Predicates</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-1.html"><strong aria-hidden="true">2.2.7.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/example-square-roots-by-newtons-method.html"><strong aria-hidden="true">2.2.8.</strong> Example: Square Roots by Newton's Method</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-2.html"><strong aria-hidden="true">2.2.9.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-black-box-abstractions.html"><strong aria-hidden="true">2.2.10.</strong> Functions as Black-Box Abstractions</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/functions-and-the-processes-they-generate.html"><strong aria-hidden="true">2.3.</strong> Functions and the Processes They Generate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/linear-recursion-and-iteration.html"><strong aria-hidden="true">2.3.1.</strong> Linear Recursion and Iteration</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-3.html"><strong aria-hidden="true">2.3.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/tree-recursion.html"><strong aria-hidden="true">2.3.3.</strong> Tree Recursion</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-4.html"><strong aria-hidden="true">2.3.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/orders-of-growth.html"><strong aria-hidden="true">2.3.5.</strong> Orders of Growth</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-5.html"><strong aria-hidden="true">2.3.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/exponentiation.html"><strong aria-hidden="true">2.3.7.</strong> Exponentiation</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-6.html"><strong aria-hidden="true">2.3.8.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/greatest-common-divisors.html"><strong aria-hidden="true">2.3.9.</strong> Greatest Common Divisors</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-7.html"><strong aria-hidden="true">2.3.10.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/example-testing-for-primality.html"><strong aria-hidden="true">2.3.11.</strong> Example: Testing for Primality</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-8.html"><strong aria-hidden="true">2.3.12.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/formulating-abstractions-with-higher-order-functions.html"><strong aria-hidden="true">2.4.</strong> Formulating Abstractions with Higher-Order Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/functions-as-arguments.html"><strong aria-hidden="true">2.4.1.</strong> Functions as Arguments</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-9.html"><strong aria-hidden="true">2.4.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/constructing-functions-using-lambda.html"><strong aria-hidden="true">2.4.3.</strong> Constructing Functions Using Lambda</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-10.html"><strong aria-hidden="true">2.4.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-general-methods.html"><strong aria-hidden="true">2.4.5.</strong> Functions as General Methods</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-11.html"><strong aria-hidden="true">2.4.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-returned-values.html" class="active"><strong aria-hidden="true">2.4.7.</strong> Functions as Returned Values</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-12.html"><strong aria-hidden="true">2.4.8.</strong> Exercises</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../ch2/building-abstractions-with-data.html"><strong aria-hidden="true">3.</strong> Building Abstractions with Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/introduction-to-data-abstraction.html"><strong aria-hidden="true">3.1.</strong> Introduction to Data Abstraction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/example-arithmetic-operationsfor-rational-numbers.html"><strong aria-hidden="true">3.1.1.</strong> Example: Arithmetic Operations for Rational Numbers</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-1.html"><strong aria-hidden="true">3.1.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/abstraction-barriers.html"><strong aria-hidden="true">3.1.3.</strong> Abstraction Barriers</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-2.html"><strong aria-hidden="true">3.1.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/what-is-meant-by-data.html"><strong aria-hidden="true">3.1.5.</strong> What Is Meant by Data?</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-3.html"><strong aria-hidden="true">3.1.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/extended-exercise-interval-arithmetic.html"><strong aria-hidden="true">3.1.7.</strong> Extended Exercise: Interval Arithmetic</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-4.html"><strong aria-hidden="true">3.1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-data-and-the-closure-property.html"><strong aria-hidden="true">3.2.</strong> Hierarchical Data and the Closure Property</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/representing-sequences.html"><strong aria-hidden="true">3.2.1.</strong> Representing Sequences</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/representing-sequences-list-operations.html"><strong aria-hidden="true">3.2.1.1.</strong> List operations</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-5.html"><strong aria-hidden="true">3.2.1.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/representing-sequences-mapping-over-lists.html"><strong aria-hidden="true">3.2.1.3.</strong> Mapping over lists</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-6.html"><strong aria-hidden="true">3.2.1.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-structures.html"><strong aria-hidden="true">3.2.2.</strong> Hierarchical Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/exercises-7.html"><strong aria-hidden="true">3.2.2.1.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-structures-mapping-over-trees.html"><strong aria-hidden="true">3.2.2.2.</strong> Mapping over trees</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-8.html"><strong aria-hidden="true">3.2.2.3.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/sequences-as-conventional-interfaces.html"><strong aria-hidden="true">3.2.3.</strong> Sequences as Conventional Interfaces</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/sequence-operations.html"><strong aria-hidden="true">3.2.3.1.</strong> Sequence operations</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-9.html"><strong aria-hidden="true">3.2.3.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/nested-mappings.html"><strong aria-hidden="true">3.2.3.3.</strong> Nested mappings</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-10.html"><strong aria-hidden="true">3.2.3.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/example-picture-language.html"><strong aria-hidden="true">3.2.4.</strong> Example: A Picture Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/the-picture-language.html"><strong aria-hidden="true">3.2.4.1.</strong> The picture language</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-11.html"><strong aria-hidden="true">3.2.4.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/higher-order-operations.html"><strong aria-hidden="true">3.2.4.3.</strong> Higher order operations</a></li><li class="chapter-item expanded "><a href="../ch2/frames.html"><strong aria-hidden="true">3.2.4.4.</strong> Frames</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-12.html"><strong aria-hidden="true">3.2.4.5.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/painters.html"><strong aria-hidden="true">3.2.4.6.</strong> Painters</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-13.html"><strong aria-hidden="true">3.2.4.7.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/transforming-and-combining-painters.html"><strong aria-hidden="true">3.2.4.8.</strong> Transforming and combining painters</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-14.html"><strong aria-hidden="true">3.2.4.9.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/levels-of-language-for-robust-design.html"><strong aria-hidden="true">3.2.4.10.</strong> Levels of language for robust design</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-15.html"><strong aria-hidden="true">3.2.4.11.</strong> Exercises</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.</strong> Symbolic Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.1.</strong> Quotation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.2.</strong> Example: Symbolic Differentiation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.3.</strong> Example: Representing Sets</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.4.</strong> Example: Huffman Encoding Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.</strong> Multiple Representations for Abstract Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.1.</strong> Representations for Complex Numbers</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.2.</strong> Tagged data</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.3.</strong> Data-Directed Programming and Additivity</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.</strong> Systems with Generic Operations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.1.</strong> Generic Arithmetic Operations</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.2.</strong> Combining Data of Different Types</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.3.</strong> Example: Symbolic Algebra</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.</strong> Modularity, Objects, and State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.</strong> Assignment and Local State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.1.</strong> Local State Variables</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.2.</strong> The Benefits of Introducing Assignment</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.3.</strong> The Costs of Introducing Assignment</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.</strong> The Environment Model of Evaluation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.1.</strong> The Rules for Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.2.</strong> Applying Simple Functions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.3.</strong> Frames as the Repository of Local State</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.4.</strong> Internal Definitions</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.</strong> Modeling with Mutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.1.</strong> Mutable List Structure</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.2.</strong> Representing Queues</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.3.</strong> Representing Tables</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.4.</strong> A Simulator for Digital Circuits</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.5.</strong> Propagation of Constraints</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.</strong> Concurrency: Time Is of the Essence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.1.</strong> The Nature of Time in Concurrent Systems</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.2.</strong> Mechanisms for Controlling Concurrency</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.</strong> Streams</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.1.</strong> Streams Are Delayed Lists</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.2.</strong> Infinite Streams</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.3.</strong> Exploiting the Stream Paradigm</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.4.</strong> Streams and Delayed Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.5.</strong> Modularity of Functional Programs and Modularity of Objects</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.</strong> Metalinguistic Abstraction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.</strong> The Metacircular Evaluator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.1.</strong> The Core of the Evaluator</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.2.</strong> Representing Expressions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.3.</strong> Evaluator Data Structures</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.4.</strong> Running the Evaluator as a Program</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.5.</strong> Data as Programs</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.6.</strong> Internal Definitions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.7.</strong> Separating Syntactic Analysis from Execution</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.</strong> Variations on a Scheme -- Lazy Evaluation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.1.</strong> Normal Order and Applicative Order</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.2.</strong> An Interpreter with Lazy Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.3.</strong> Streams as Lazy Lists</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.</strong> Variations on a Scheme -- Nondeterministic Computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.1.</strong> Amb and Search</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.2.</strong> Examples of Nondeterministic Programs</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.3.</strong> Implementing the Amb Evaluator</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.</strong> Logic Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.1.</strong> Deductive Information Retrieval</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.2.</strong> How the Query System Works</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.3.</strong> Is Logic Programming Mathematical Logic?</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.4.</strong> Implementing the Query System</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.</strong> Computing with Register Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.</strong> Designing Register Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.1.</strong> A Language for Describing Register Machines</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.2.</strong> Abstraction in Machine Design</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.3.</strong> Subroutines</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.4.</strong> Using a Stack to Implement Recursion</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.5.</strong> Instruction Summary</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.</strong> A Register-Machine Simulator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.1.</strong> The Machine Model</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.2.</strong> The Assembler</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.3.</strong> Generating Execution Functions for Instructions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.4.</strong> Monitoring Machine Performance</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.</strong> Storage Allocation and Garbage Collection</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.1.</strong> Memory as Vectors</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.2.</strong> Maintaining the Illusion of Infinite Memory</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.</strong> The Explicit-Control Evaluator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.1.</strong> The Core of the Explicit-Control Evaluator</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.2.</strong> Sequence Evaluation and Tail Recursion</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.3.</strong> Conditionals, Assignments, and Definitions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.4.</strong> Running the Evaluator</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.</strong> Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.1.</strong> Structure of the Compiler</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.2.</strong> Compiling Expressions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.3.</strong> Compiling Combinations</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.4.</strong> Combining Instruction Sequences</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.5.</strong> An Example of Compiled Code</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.6.</strong> Lexical Addressing</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.7.</strong> Interfacing Compiled Code to the Evaluator</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../bm/references.html"><strong aria-hidden="true">7.</strong> References</a></li><li class="chapter-item expanded "><a href="../bm/list-of-exercises.html"><strong aria-hidden="true">8.</strong> List of Exercises</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../feedback.html">Feedback</a></li><li class="chapter-item expanded affix "><a href="../redirects/docs.html">LFE Documentation</a></li><li class="chapter-item expanded affix "><a href="../redirects/mdbook.html">Built with mdBook</a></li></ol>
+        </div>
+        <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar-hover-placeholder"></div>
+            <div id="menu-bar" class="menu-bar sticky bordered">
+                <div class="left-buttons">
+                    <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                        aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <button id="theme-toggle" class="icon-button" type="button" title="Change theme"
+                        aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                        <i class="fa fa-paint-brush"></i>
+                    </button>
+                    <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="lfe-pdp">LFE PDP</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="light">Light</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="rust">Rust</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="coal">Coal</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="navy">Navy</button></li>
+                        <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button>
+                        </li>
+                    </ul>
+                    
+                    <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    
+                </div>
+
+                <h1 class="menu-title">Structure and Interpretation of Computer Programs</h1>
+
+                <div class="right-buttons">
+                    <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <i id="print-button" class="fa fa-print"></i>
+                    </a>
+                    
+                    <a href="https://github.com/cnbbooks/lfe-sicp/" title="Git repository" aria-label="Git repository">
+                        <i id="git-repository-button" class="fa fa-github"></i>
+                    </a>
+                    
+                </div>
+            </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar"
+                        placeholder="Search this book ..." aria-controls="searchresults-outer"
+                        aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <h3><a class="header" href="#functions-as-returned-values" id="functions-as-returned-values">Functions as Returned Values</a></h3>
+<p>The previous examples demonstrate how the ability to pass functions as arguments significantly enhances the expressive power of our programming language. We can achieve even more expressive power by creating functions whose returned values are themselves functions.</p>
+<p>We can illustrate this idea by looking again at the fixed-point example described at the end of the section <a href="">Functions as General Methods</a>. We formulated a new version of the square-root function as a fixed-point search, starting with the observation that $$\sqrt x$$ is a fixed-point of the function $$y \mapsto \frac{x}{y}$$. Then we used average damping to make the approximations converge. Average damping is a useful general technique in itself. Namely, given a function $$f$$, we consider the function whose value at $$x$$ is equal to the average of $$x$$ and $$f(x)$$.</p>
+<p>We can express the idea of average damping by means of the following function:</p>
+<pre><code class="language-lisp">(defun average-damp (f)
+  (lambda (x)
+    (average x (funcall f x))))
+</code></pre>
+<p><code>average-damp/1</code> is a function that takes as its argument a function <code>f</code> and returns as its value a function (produced by the <code>lambda</code>) that, when applied to a number <code>x</code>, produces the average of <code>x</code> and <code>(f x)</code>. For example, applying <code>average-damp/1</code> to the <code>square/1</code> function produces a function whose value at some number $$x$$ is the average of $$x$$ and $$x^2$$. Applying this resulting function to 10 returns the average of 10 and 100, or 55:<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<pre><code class="language-lisp">&gt; (funcall (average-damp #'square/1) 10)
+55.0
+</code></pre>
+<p>Using <code>average-damp/1</code>, we can reformulate the <code>sqrt/1</code> function as follows:</p>
+<pre><code class="language-lisp">(defun sqrt (x)
+  (fixed-point (average-damp (lambda (y) (/ x y)))
+               1.0))
+</code></pre>
+<p>Notice how this formulation makes explicit the three ideas in the method: fixed-point search, average damping, and the function $$y \mapsto \frac{x}{y}$$. It is instructive to compare this formulation of the square-root method with the original version given in the section <a href="">Example: Square Roots by Newton's Method</a>. Bear in mind that these functions express the same process, and notice how much clearer the idea becomes when we express the process in terms of these abstractions. In general, there are many ways to formulate a process as a function. Experienced programmers know how to choose procedural formulations that are particularly perspicuous, and where useful elements of the process are exposed as separate entities that can be reused in other applications. As a simple example of reuse, notice that the cube root of $$x$$ is a fixed point of the function $$y \mapsto \frac{x}{y^2}$$, so we can immediately generalize our square-root function to one that extracts cube roots:<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+<pre><code class="language-lisp">(defun cube-root (x)
+  (fixed-point (average-damp (lambda (y) (/ x (square y))))
+               1.0))
+</code></pre>
+<h4><a class="header" href="#newtons-method" id="newtons-method">Newton's method</a></h4>
+<p>When we first introduced the square-root function in the section <a href="">Example: Square Roots by Newton's Method</a>, we mentioned that this was a special case of <em>Newton's method</em>. If $$x \mapsto g(x)$$ is a differentiable function, then a solution of the equation $$g(x) = 0$$ is a fixed point of the function $$x \mapsto f(x)$$ where</p>
+<p>$$
+\begin{align}
+f(x) = r - \frac{g(x)}{Dg(x)}
+\end{align}
+$$</p>
+<p>and $$Dg(x)$$ is the derivative of $$g$$ evaluated at $$x$$. Newton's method is the use of the fixed-point method we saw above to approximate a solution of the equation by finding a fixed point of the function $$f$$.<sup class="footnote-reference"><a href="#3">3</a></sup> For many functions $$g$$ and for sufficiently good initial guesses for $$x$$, Newton's method converges very rapidly to a solution of $$g(x) = 0$$.<sup class="footnote-reference"><a href="#4">4</a></sup></p>
+<p>In order to implement Newton's method as a function, we must first express the idea of derivative. Note that &quot;derivative,&quot; like average damping, is something that transforms a function into another function. For instance, the derivative of the function $$x \mapsto x^3$$ is the function $$x \mapsto 3x^2$$. In general, if $$g$$ is a function and $$dx$$ is a small number, then the derivative $$Dg$$ of $$g$$ is the function whose value at any number $$x$$ is given (in the limit of small $$dx$$) by</p>
+<p>$$
+\begin{align}
+Dg(x) = \frac{g(x + dx) - g(x)}{dx}
+\end{align}
+$$</p>
+<p>Thus, we can express the idea of derivative (taking $$dx$$ to be, say, 0.00001) as the function</p>
+<pre><code class="language-lisp">(defun deriv (g)
+  (lambda (x)
+    (/ (- (funcall g (+ x dx)) (funcall g x))
+       dx)))
+</code></pre>
+<p>along with the definition</p>
+<pre><code class="language-lisp">&gt; (set dx 0.00001)
+1.0e-5
+</code></pre>
+<p>Like <code>average-damp/1</code>, <code>deriv/1</code> is a function that takes a function as argument and returns a function as value. For example, to approximate the derivative of $$x \mapsto x^3$$ at 5 (whose exact value is 75) we can evaluate</p>
+<pre><code class="language-lisp">&gt; (defun cube (x) (* x x x))
+cube
+&gt; (funcall (deriv #'cube/1) 5)
+75.00014999664018
+</code></pre>
+<p>With the aid of <code>deriv/1</code>, we can express Newton's method as a fixed-point process:</p>
+<pre><code class="language-lisp">(defun newton-transform (g)
+  (lambda (x)
+    (- x (/ (funcall g x) (funcall (deriv g) x)))))
+
+(defun newtons-method (g guess)
+  (fixed-point (newton-transform g) guess))
+</code></pre>
+<p>The <code>newton-transform/1</code> function expresses the formula at the beginning of this section, and <code>newtons-method/2</code> is readily defined in terms of this. It takes as arguments a function that computes the function for which we want to find a zero, together with an initial guess. For instance, to find the square root of $$x$$, we can use Newton's method to find a zero of the function $$y \mapsto y^2 - x$$ starting with an initial guess of 1.<sup class="footnote-reference"><a href="#5">5</a></sup> This provides yet another form of the square-root function:</p>
+<pre><code class="language-lisp">(defun sqrt (x)
+  (newtons-method (lambda (y) (- (square y) x))
+                  1.0))
+</code></pre>
+<h4><a class="header" href="#abstractions-and-first-class-functions" id="abstractions-and-first-class-functions">Abstractions and first-class functions</a></h4>
+<p>We've seen two ways to express the square-root computation as an instance of a more general method, once as a fixed-point search and once using Newton's method. Since Newton's method was itself expressed as a fixed-point process, we actually saw two ways to compute square roots as fixed points. Each method begins with a function and finds a fixed point of some transformation of the function. We can express this general idea itself as a function:</p>
+<pre><code class="language-lisp">(defun fixed-point-of-transform (g transform guess)
+  (fixed-point (transform g) guess))
+</code></pre>
+<p>This very general function takes as its arguments a function <code>g</code> that computes some function, a function that transforms <code>g</code>, and an initial guess. The returned result is a fixed point of the transformed function.</p>
+<p>Using this abstraction, we can recast the first square-root computation from this section (where we look for a fixed point of the average-damped version of $$y \mapsto \frac{x}{y}
+$$) as an instance of this general method:</p>
+<pre><code class="language-lisp">(defun sqrt (x)
+  (fixed-point-of-transform (lambda (y) (/ x y))
+                            average-damp
+                            1.0))
+</code></pre>
+<p>Similarly, we can express the second square-root computation from this section (an instance of Newton's method that finds a fixed point of the Newton transform of $$y \mapsto y^2 - x$$) as</p>
+<pre><code class="language-lisp">(defun sqrt (x)
+  (fixed-point-of-transform (lambda (y) (- (square y) x))
+                            newton-transform
+                            1.0))
+</code></pre>
+<p>We began the section <a href="">Formulating Abstractions with Higher-Order Functions</a> with the observation that compound functions are a crucial abstraction mechanism, because they permit us to express general methods of computing as explicit elements in our programming language. Now we've seen how higher-order functions permit us to manipulate these general methods to create further abstractions.</p>
+<p>As programmers, we should be alert to opportunities to identify the underlying abstractions in our programs and to build upon them and generalize them to create more powerful abstractions. This is not to say that one should always write programs in the most abstract way possible; expert programmers know how to choose the level of abstraction appropriate to their task. But it is important to be able to think in terms of these abstractions, so that we can be ready to apply them in new contexts. The significance of higher-order functions is that they enable us to represent these abstractions explicitly as elements in our programming language, so that they can be handled just like other computational elements.</p>
+<p>In general, programming languages impose restrictions on the ways in which computational elements can be manipulated. Elements with the fewest restrictions are said to have <em>first-class</em> status. Some of the &quot;rights and privileges&quot; of first-class elements are:<sup class="footnote-reference"><a href="#6">6</a></sup></p>
+<ul>
+<li>They may be named by variables.</li>
+<li>They may be passed as arguments to functions.</li>
+<li>They may be returned as the results of functions.</li>
+<li>They may be included in data structures.<sup class="footnote-reference"><a href="#7">7</a></sup></li>
+</ul>
+<p>Lisp, unlike other common programming languages, awards functions full first-class status. This poses challenges for efficient implementation, but the resulting gain in expressive power is enormous.<sup class="footnote-reference"><a href="#8">8</a></sup></p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Observe that this is a combination whose operator is itself a combination. Exercise 1.4 already demonstrated the ability to form such combinations, but that was only a toy example. Here we begin to see the real need for such combinations -- when applying a function that is obtained as the value returned by a higher-order function.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>See exercise 1.45 for a further generalization.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>Elementary calculus books usually describe Newton's method in terms of the sequence of approximations $$x_{n+1} = x_n - g(x_n)/Dg(x_n)$$. Having language for talking about processes and using the idea of fixed points simplifies the description of the method.</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>Newton's method does not always converge to an answer, but it can be shown that in favorable cases each iteration doubles the number-of-digits accuracy of the approximation to the solution. In such cases, Newton's method will converge much more rapidly than the half-interval method.</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
+<p>For finding square roots, Newton's method converges rapidly to the correct solution from any starting point.</p>
+</div>
+<div class="footnote-definition" id="6"><sup class="footnote-definition-label">6</sup>
+<p>The notion of first-class status of programming-language elements is due to the British computer scientist Christopher Strachey (1916-1975).</p>
+</div>
+<div class="footnote-definition" id="7"><sup class="footnote-definition-label">7</sup>
+<p>We'll see examples of this after we introduce data structures in the next chapter 2.</p>
+</div>
+<div class="footnote-definition" id="8"><sup class="footnote-definition-label">8</sup>
+<p>The major implementation cost of first-class functions is that allowing functions to be returned as values requires reserving storage for a function's free variables even while the function is not executing. In the Scheme implementation we will study in the section <a href="">The Metacircular Evaluator</a>, these variables are stored in the function's environment.</p>
+</div>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../ch1/exercises-11.html" class="mobile-nav-chapters previous"
+                        title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="../ch1/exercises-12.html" class="mobile-nav-chapters next"
+                        title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a rel="prev" href="../ch1/exercises-11.html" class="nav-chapters previous" title="Previous chapter"
+                aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a rel="next" href="../ch1/exercises-12.html" class="nav-chapters next" title="Next chapter"
+                aria-label="Next chapter" aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+
+        // make sure we don't activate google analytics if the developer is
+        // inspecting the book locally...
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-38274766-4', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+    
+
+    
+
+    
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+    
+
+    
+
+    
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>

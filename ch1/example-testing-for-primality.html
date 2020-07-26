@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js lfe-pdp">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Example: Testing for Primality - Structure and Interpretation of Computer Programs</title>
+    
+    
+
+
+    <!-- Custom HTML head -->
+    
+
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="The LFE Edition of the Classic Scheme Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+    <link rel="stylesheet" href="../css/custom.css">
+    
+
+    
+</head>
+
+<body>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "../";
+        var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "lfe-pdp" : "lfe-pdp";
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('lfe-pdp')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <div class="sidebar-scrollbox">
+            <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/title-page.html"><strong aria-hidden="true">1.1.</strong> Title Page</a></li><li class="chapter-item expanded "><a href="../fm/copyright-page.html"><strong aria-hidden="true">1.2.</strong> Copyright Page</a></li><li class="chapter-item expanded "><a href="../fm/dedication.html"><strong aria-hidden="true">1.3.</strong> Dedication</a></li><li class="chapter-item expanded "><a href="../fm/foreword.html"><strong aria-hidden="true">1.4.</strong> Foreword</a></li><li class="chapter-item expanded "><a href="../fm/lfe-foreword.html"><strong aria-hidden="true">1.5.</strong> Foreword to the LFE Edition</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/index.html"><strong aria-hidden="true">1.6.</strong> Preface to the LFE Edition</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/preface-3/origins.html"><strong aria-hidden="true">1.6.1.</strong> The Hidden Origins of Lisp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/preface-3/peano.html"><strong aria-hidden="true">1.6.1.1.</strong> Giuseppe Peano</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/russell.html"><strong aria-hidden="true">1.6.1.2.</strong> Bertrand Russell</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/church.html"><strong aria-hidden="true">1.6.1.3.</strong> Alonzo Church</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/mccarthy.html"><strong aria-hidden="true">1.6.1.4.</strong> John McCarthy</a></li></ol></li><li class="chapter-item expanded "><a href="../fm/preface-3/erlang.html"><strong aria-hidden="true">1.6.2.</strong> A Recap of Erlang's Genesis</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/lfe.html"><strong aria-hidden="true">1.6.3.</strong> The Inspiration for LFE</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/21stcent.html"><strong aria-hidden="true">1.6.4.</strong> The Place of Lisp in the 21st Century</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/changes.html"><strong aria-hidden="true">1.6.5.</strong> Notes on Changes from the Original</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/sources.html"><strong aria-hidden="true">1.6.6.</strong> Obtaining the Book and Related Code</a></li></ol></li><li class="chapter-item expanded "><a href="../fm/preface-2.html"><strong aria-hidden="true">1.7.</strong> Preface to the Second Edition</a></li><li class="chapter-item expanded "><a href="../fm/preface-1.html"><strong aria-hidden="true">1.8.</strong> Preface to the First Edition</a></li><li class="chapter-item expanded "><a href="../fm/acknowledgments.html"><strong aria-hidden="true">1.9.</strong> Acknowledgments</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/building-abstractions-with-functions.html"><strong aria-hidden="true">2.</strong> Building Abstractions with Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/programming-in-lisp.html"><strong aria-hidden="true">2.1.</strong> Programming in Lisp</a></li><li class="chapter-item expanded "><a href="../ch1/the-elements-of-programming.html"><strong aria-hidden="true">2.2.</strong> The Elements of Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/expressions.html"><strong aria-hidden="true">2.2.1.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="../ch1/naming-and-the-environment.html"><strong aria-hidden="true">2.2.2.</strong> Naming and the Environment</a></li><li class="chapter-item expanded "><a href="../ch1/evaluating-combinations.html"><strong aria-hidden="true">2.2.3.</strong> Evaluating Combinations</a></li><li class="chapter-item expanded "><a href="../ch1/compound-functions.html"><strong aria-hidden="true">2.2.4.</strong> Compound Functions</a></li><li class="chapter-item expanded "><a href="../ch1/the-substitution-model-for-function-application.html"><strong aria-hidden="true">2.2.5.</strong> The Substitution Model for Function Application</a></li><li class="chapter-item expanded "><a href="../ch1/conditional-expressions-and-predicates.html"><strong aria-hidden="true">2.2.6.</strong> Conditional Expressions and Predicates</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-1.html"><strong aria-hidden="true">2.2.7.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/example-square-roots-by-newtons-method.html"><strong aria-hidden="true">2.2.8.</strong> Example: Square Roots by Newton's Method</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-2.html"><strong aria-hidden="true">2.2.9.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-black-box-abstractions.html"><strong aria-hidden="true">2.2.10.</strong> Functions as Black-Box Abstractions</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/functions-and-the-processes-they-generate.html"><strong aria-hidden="true">2.3.</strong> Functions and the Processes They Generate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/linear-recursion-and-iteration.html"><strong aria-hidden="true">2.3.1.</strong> Linear Recursion and Iteration</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-3.html"><strong aria-hidden="true">2.3.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/tree-recursion.html"><strong aria-hidden="true">2.3.3.</strong> Tree Recursion</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-4.html"><strong aria-hidden="true">2.3.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/orders-of-growth.html"><strong aria-hidden="true">2.3.5.</strong> Orders of Growth</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-5.html"><strong aria-hidden="true">2.3.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/exponentiation.html"><strong aria-hidden="true">2.3.7.</strong> Exponentiation</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-6.html"><strong aria-hidden="true">2.3.8.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/greatest-common-divisors.html"><strong aria-hidden="true">2.3.9.</strong> Greatest Common Divisors</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-7.html"><strong aria-hidden="true">2.3.10.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/example-testing-for-primality.html" class="active"><strong aria-hidden="true">2.3.11.</strong> Example: Testing for Primality</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-8.html"><strong aria-hidden="true">2.3.12.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/formulating-abstractions-with-higher-order-functions.html"><strong aria-hidden="true">2.4.</strong> Formulating Abstractions with Higher-Order Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/functions-as-arguments.html"><strong aria-hidden="true">2.4.1.</strong> Functions as Arguments</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-9.html"><strong aria-hidden="true">2.4.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/constructing-functions-using-lambda.html"><strong aria-hidden="true">2.4.3.</strong> Constructing Functions Using Lambda</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-10.html"><strong aria-hidden="true">2.4.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-general-methods.html"><strong aria-hidden="true">2.4.5.</strong> Functions as General Methods</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-11.html"><strong aria-hidden="true">2.4.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-returned-values.html"><strong aria-hidden="true">2.4.7.</strong> Functions as Returned Values</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-12.html"><strong aria-hidden="true">2.4.8.</strong> Exercises</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../ch2/building-abstractions-with-data.html"><strong aria-hidden="true">3.</strong> Building Abstractions with Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/introduction-to-data-abstraction.html"><strong aria-hidden="true">3.1.</strong> Introduction to Data Abstraction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/example-arithmetic-operationsfor-rational-numbers.html"><strong aria-hidden="true">3.1.1.</strong> Example: Arithmetic Operations for Rational Numbers</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-1.html"><strong aria-hidden="true">3.1.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/abstraction-barriers.html"><strong aria-hidden="true">3.1.3.</strong> Abstraction Barriers</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-2.html"><strong aria-hidden="true">3.1.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/what-is-meant-by-data.html"><strong aria-hidden="true">3.1.5.</strong> What Is Meant by Data?</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-3.html"><strong aria-hidden="true">3.1.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/extended-exercise-interval-arithmetic.html"><strong aria-hidden="true">3.1.7.</strong> Extended Exercise: Interval Arithmetic</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-4.html"><strong aria-hidden="true">3.1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-data-and-the-closure-property.html"><strong aria-hidden="true">3.2.</strong> Hierarchical Data and the Closure Property</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/representing-sequences.html"><strong aria-hidden="true">3.2.1.</strong> Representing Sequences</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/representing-sequences-list-operations.html"><strong aria-hidden="true">3.2.1.1.</strong> List operations</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-5.html"><strong aria-hidden="true">3.2.1.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/representing-sequences-mapping-over-lists.html"><strong aria-hidden="true">3.2.1.3.</strong> Mapping over lists</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-6.html"><strong aria-hidden="true">3.2.1.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-structures.html"><strong aria-hidden="true">3.2.2.</strong> Hierarchical Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/exercises-7.html"><strong aria-hidden="true">3.2.2.1.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-structures-mapping-over-trees.html"><strong aria-hidden="true">3.2.2.2.</strong> Mapping over trees</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-8.html"><strong aria-hidden="true">3.2.2.3.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/sequences-as-conventional-interfaces.html"><strong aria-hidden="true">3.2.3.</strong> Sequences as Conventional Interfaces</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/sequence-operations.html"><strong aria-hidden="true">3.2.3.1.</strong> Sequence operations</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-9.html"><strong aria-hidden="true">3.2.3.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/nested-mappings.html"><strong aria-hidden="true">3.2.3.3.</strong> Nested mappings</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-10.html"><strong aria-hidden="true">3.2.3.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/example-picture-language.html"><strong aria-hidden="true">3.2.4.</strong> Example: A Picture Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/the-picture-language.html"><strong aria-hidden="true">3.2.4.1.</strong> The picture language</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-11.html"><strong aria-hidden="true">3.2.4.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/higher-order-operations.html"><strong aria-hidden="true">3.2.4.3.</strong> Higher order operations</a></li><li class="chapter-item expanded "><a href="../ch2/frames.html"><strong aria-hidden="true">3.2.4.4.</strong> Frames</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-12.html"><strong aria-hidden="true">3.2.4.5.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/painters.html"><strong aria-hidden="true">3.2.4.6.</strong> Painters</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-13.html"><strong aria-hidden="true">3.2.4.7.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/transforming-and-combining-painters.html"><strong aria-hidden="true">3.2.4.8.</strong> Transforming and combining painters</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-14.html"><strong aria-hidden="true">3.2.4.9.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/levels-of-language-for-robust-design.html"><strong aria-hidden="true">3.2.4.10.</strong> Levels of language for robust design</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-15.html"><strong aria-hidden="true">3.2.4.11.</strong> Exercises</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.</strong> Symbolic Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.1.</strong> Quotation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.2.</strong> Example: Symbolic Differentiation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.3.</strong> Example: Representing Sets</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.4.</strong> Example: Huffman Encoding Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.</strong> Multiple Representations for Abstract Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.1.</strong> Representations for Complex Numbers</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.2.</strong> Tagged data</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.3.</strong> Data-Directed Programming and Additivity</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.</strong> Systems with Generic Operations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.1.</strong> Generic Arithmetic Operations</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.2.</strong> Combining Data of Different Types</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.3.</strong> Example: Symbolic Algebra</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.</strong> Modularity, Objects, and State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.</strong> Assignment and Local State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.1.</strong> Local State Variables</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.2.</strong> The Benefits of Introducing Assignment</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.3.</strong> The Costs of Introducing Assignment</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.</strong> The Environment Model of Evaluation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.1.</strong> The Rules for Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.2.</strong> Applying Simple Functions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.3.</strong> Frames as the Repository of Local State</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.4.</strong> Internal Definitions</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.</strong> Modeling with Mutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.1.</strong> Mutable List Structure</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.2.</strong> Representing Queues</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.3.</strong> Representing Tables</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.4.</strong> A Simulator for Digital Circuits</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.5.</strong> Propagation of Constraints</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.</strong> Concurrency: Time Is of the Essence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.1.</strong> The Nature of Time in Concurrent Systems</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.2.</strong> Mechanisms for Controlling Concurrency</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.</strong> Streams</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.1.</strong> Streams Are Delayed Lists</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.2.</strong> Infinite Streams</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.3.</strong> Exploiting the Stream Paradigm</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.4.</strong> Streams and Delayed Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.5.</strong> Modularity of Functional Programs and Modularity of Objects</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.</strong> Metalinguistic Abstraction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.</strong> The Metacircular Evaluator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.1.</strong> The Core of the Evaluator</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.2.</strong> Representing Expressions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.3.</strong> Evaluator Data Structures</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.4.</strong> Running the Evaluator as a Program</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.5.</strong> Data as Programs</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.6.</strong> Internal Definitions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.7.</strong> Separating Syntactic Analysis from Execution</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.</strong> Variations on a Scheme -- Lazy Evaluation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.1.</strong> Normal Order and Applicative Order</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.2.</strong> An Interpreter with Lazy Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.3.</strong> Streams as Lazy Lists</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.</strong> Variations on a Scheme -- Nondeterministic Computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.1.</strong> Amb and Search</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.2.</strong> Examples of Nondeterministic Programs</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.3.</strong> Implementing the Amb Evaluator</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.</strong> Logic Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.1.</strong> Deductive Information Retrieval</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.2.</strong> How the Query System Works</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.3.</strong> Is Logic Programming Mathematical Logic?</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.4.</strong> Implementing the Query System</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.</strong> Computing with Register Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.</strong> Designing Register Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.1.</strong> A Language for Describing Register Machines</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.2.</strong> Abstraction in Machine Design</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.3.</strong> Subroutines</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.4.</strong> Using a Stack to Implement Recursion</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.5.</strong> Instruction Summary</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.</strong> A Register-Machine Simulator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.1.</strong> The Machine Model</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.2.</strong> The Assembler</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.3.</strong> Generating Execution Functions for Instructions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.4.</strong> Monitoring Machine Performance</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.</strong> Storage Allocation and Garbage Collection</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.1.</strong> Memory as Vectors</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.2.</strong> Maintaining the Illusion of Infinite Memory</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.</strong> The Explicit-Control Evaluator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.1.</strong> The Core of the Explicit-Control Evaluator</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.2.</strong> Sequence Evaluation and Tail Recursion</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.3.</strong> Conditionals, Assignments, and Definitions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.4.</strong> Running the Evaluator</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.</strong> Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.1.</strong> Structure of the Compiler</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.2.</strong> Compiling Expressions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.3.</strong> Compiling Combinations</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.4.</strong> Combining Instruction Sequences</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.5.</strong> An Example of Compiled Code</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.6.</strong> Lexical Addressing</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.7.</strong> Interfacing Compiled Code to the Evaluator</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../bm/references.html"><strong aria-hidden="true">7.</strong> References</a></li><li class="chapter-item expanded "><a href="../bm/list-of-exercises.html"><strong aria-hidden="true">8.</strong> List of Exercises</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../feedback.html">Feedback</a></li><li class="chapter-item expanded affix "><a href="../redirects/docs.html">LFE Documentation</a></li><li class="chapter-item expanded affix "><a href="../redirects/mdbook.html">Built with mdBook</a></li></ol>
+        </div>
+        <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar-hover-placeholder"></div>
+            <div id="menu-bar" class="menu-bar sticky bordered">
+                <div class="left-buttons">
+                    <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                        aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <button id="theme-toggle" class="icon-button" type="button" title="Change theme"
+                        aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                        <i class="fa fa-paint-brush"></i>
+                    </button>
+                    <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="lfe-pdp">LFE PDP</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="light">Light</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="rust">Rust</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="coal">Coal</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="navy">Navy</button></li>
+                        <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button>
+                        </li>
+                    </ul>
+                    
+                    <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    
+                </div>
+
+                <h1 class="menu-title">Structure and Interpretation of Computer Programs</h1>
+
+                <div class="right-buttons">
+                    <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <i id="print-button" class="fa fa-print"></i>
+                    </a>
+                    
+                    <a href="https://github.com/cnbbooks/lfe-sicp/" title="Git repository" aria-label="Git repository">
+                        <i id="git-repository-button" class="fa fa-github"></i>
+                    </a>
+                    
+                </div>
+            </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar"
+                        placeholder="Search this book ..." aria-controls="searchresults-outer"
+                        aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <h3><a class="header" href="#example-testing-for-primality" id="example-testing-for-primality">Example: Testing for Primality</a></h3>
+<p>This section describes two methods for checking the primality of an integer $$n$$, one with order of growth $$\Theta(\sqrt n$$), and a &quot;probabilistic&quot; algorithm with order of growth $$\Theta(\log n)$$. The exercises at the end of this section suggest programming projects based on these algorithms.</p>
+<h4><a class="header" href="#searching-for-divisors" id="searching-for-divisors">Searching for divisors</a></h4>
+<p>Since ancient times, mathematicians have been fascinated by problems concerning prime numbers, and many people have worked on the problem of determining ways to test if numbers are prime. One way to test if a number is prime is to find the number's divisors. The following program finds the smallest integral divisor (greater than 1) of a given number $$n$$. It does this in a straightforward way, by testing $$n$$ for divisibility by successive integers starting with 2.</p>
+<pre><code class="language-lisp">(defun smallest-divisor (n)
+  (find-divisor n 2))
+
+(defun find-divisor (n test-divisor)
+  (cond ((&gt; (square test-divisor) n) n)
+        ((divides? test-divisor n) test-divisor)
+        ('true (find-divisor n (+ test-divisor 1)))))
+
+(defun divides? (a b)
+  (== (rem b a) 0))
+</code></pre>
+<p>We can test whether a number is prime as follows: n is prime if and only if n is its own smallest divisor.</p>
+<pre><code class="language-lisp">(defun prime? (n)
+  (== n (smallest-divisor n)))
+</code></pre>
+<p>The end test for <code>find-divisor/2</code> is based on the fact that if $$n$$ is not prime it must have a divisor less than or equal to $$\sqrt n$$.<sup class="footnote-reference"><a href="#1">1</a></sup> This means that the algorithm need only test divisors between 1 and $$\sqrt n$$. Consequently, the number of steps required to identify $$n$$ as prime will have order of growth $$\Theta(\sqrt n)$$.</p>
+<h4><a class="header" href="#the-fermat-test" id="the-fermat-test">The Fermat test</a></h4>
+<p>The $$\Theta(\log n)$$ primality test is based on a result from number theory known as Fermat's Little Theorem.<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+<p><strong>Fermat's Little Theorem</strong>: If $$n$$ is a prime number and $$a$$ is any positive integer less than $$n$$, then $$a$$ raised to the $$n$$th power is congruent to a modulo $$n$$.</p>
+<p>(Two numbers are said to be <em>congruent modulo</em> $$n$$ if they both have the same remainder when divided by $$n$$. The remainder of a number $$a$$ when divided by $$n$$ is also referred to as the <em>remainder of</em> $$a$$ <em>modulo</em> $$n$$, or simply as $$a$$ <em>modulo</em> $$n$$.)</p>
+<p>If $$n$$ is not prime, then, in general, most of the numbers $$a \lt n$$ will not satisfy the above relation. This leads to the following algorithm for testing primality: Given a number $$n$$, pick a random number $$a \lt n$$ and compute the remainder of $$a^n$$ modulo $$n$$. If the result is not equal to $$a$$, then $$n$$ is certainly not prime. If it is $$a$$, then chances are good that $$n$$ is prime. Now pick another random number $$a$$ and test it with the same method. If it also satisfies the equation, then we can be even more confident that $$n$$ is prime. By trying more and more values of $$a$$, we can increase our confidence in the result. This algorithm is known as the Fermat test.</p>
+<p>To implement the Fermat test, we need a function that computes the exponential of a number modulo another number:</p>
+<pre><code class="language-lisp">(defun expmod (base exp m)
+  (cond ((== exp 0) 1)
+        ((even? exp)
+         (rem (square (expmod base (/ exp 2) m))
+              m))
+        ('true
+         (rem (* base (expmod base (- exp 1) m))
+              m))))
+</code></pre>
+<p>This is very similar to the <code>fast-expt/2</code> function of the section <a href="">Exponentiation</a>. It uses successive squaring, so that the number of steps grows logarithmically with the exponent.<sup class="footnote-reference"><a href="#3">3</a></sup></p>
+<p>The Fermat test is performed by choosing at random a number $$a$$ between 1 and $$n - 1$$ inclusive and checking whether the remainder modulo $$n$$ of the $$n$$th power of $$a$$ is equal to $$a$$. The random number $$a$$ is chosen using the <code>uniform/1</code> function from the <code>random</code> module in the Erlang standard library. <code>uniform/1</code> returns a nonnegative integer between <code>1</code> and the provided input, inclusive; this is exactly what we need.</p>
+<pre><code class="language-lisp">(defun fermat-test (n)
+  (flet ((try-it (a)
+           (== (expmod a n n) a)))
+    (try-it (random:uniform (- n 1)))))
+</code></pre>
+<p>The following function runs the test a given number of times, as specified by a parameter. Its value is true if the test succeeds every time, and false otherwise.</p>
+<pre><code class="language-lisp">(defun fast-prime? (n times)
+  (cond ((== n 1) 'true)
+        ((== times 0) 'true)
+        ((fermat-test n) (fast-prime? n (- times 1)))
+        ('true 'false)))
+</code></pre>
+<h4><a class="header" href="#probabilistic-methods" id="probabilistic-methods">Probabilistic methods</a></h4>
+<p>The Fermat test differs in character from most familiar algorithms, in which one computes an answer that is guaranteed to be correct. Here, the answer obtained is only probably correct. More precisely, if $$n$$ ever fails the Fermat test, we can be certain that $$n$$ is not prime. But the fact that $$n$$ passes the test, while an extremely strong indication, is still not a guarantee that $$n$$ is prime. What we would like to say is that for any number $$n$$, if we perform the test enough times and find that $$n$$ always passes the test, then the probability of error in our primality test can be made as small as we like.</p>
+<p>Unfortunately, this assertion is not quite correct. There do exist numbers that fool the Fermat test: numbers $$n$$ that are not prime and yet have the property that $$a^n$$ is congruent to $$a$$ modulo $$n$$ for all integers $$a \lt n$$. Such numbers are extremely rare, so the Fermat test is quite reliable in practice.<sup class="footnote-reference"><a href="#4">4</a></sup> There are variations of the Fermat test that cannot be fooled. In these tests, as with the Fermat method, one tests the primality of an integer $$n$$ by choosing a random integer $$a \lt n$$ and checking some condition that depends upon $$n$$ and $$a$$. (See exercise 1.28 for an example of such a test.) On the other hand, in contrast to the Fermat test, one can prove that, for any $$n$$, the condition does not hold for most of the integers $$a \lt n$$ unless $$n$$ is prime. Thus, if $$n$$ passes the test for some random choice of $$a$$, the chances are better than even that $$n$$ is prime. If $$n$$ passes the test for two random choices of $$a$$, the chances are better than 3 out of 4 that $$n$$ is prime. By running the test with more and more randomly chosen values of $$a$$ we can make the probability of error as small as we like.</p>
+<p>The existence of tests for which one can prove that the chance of error becomes arbitrarily small has sparked interest in algorithms of this type, which have come to be known as <em>probabilistic algorithms</em>. There is a great deal of research activity in this area, and probabilistic algorithms have been fruitfully applied to many fields.<sup class="footnote-reference"><a href="#5">5</a></sup></p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>If $$d$$ is a divisor of $$n$$, then so is $$\frac{n}{d}$$. But $$d$$ and $$\frac{n}{d}$$ cannot both be greater than $$\sqrt n$$.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Pierre de Fermat (1601-1665) is considered to be the founder of modern number theory. He obtained many important number-theoretic results, but he usually announced just the results, without providing his proofs. Fermat's Little Theorem was stated in a letter he wrote in 1640. The first published proof was given by Euler in 1736 (and an earlier, identical proof was discovered in the unpublished manuscripts of Leibniz). The most famous of Fermat's results -- known as Fermat's Last Theorem -- was jotted down in 1637 in his copy of the book <em>Arithmetic</em> (by the third-century Greek mathematician Diophantus) with the remark ``I have discovered a truly remarkable proof, but this margin is too small to contain it.'' Finding a proof of Fermat's Last Theorem became one of the most famous challenges in number theory. A complete solution was finally given in 1995 by Andrew Wiles of Princeton University.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>The reduction steps in the cases where the exponent $$e$$ is greater than 1 are based on the fact that, for any integers $$x$$, $$y$$, and $$m$$, we can find the remainder of $$x$$ times $$y$$ modulo $$m$$ by computing separately the remainders of $$x$$ modulo $$m$$ and $$y$$ modulo $$m$$, multiplying these, and then taking the remainder of the result modulo $$m$$. For instance, in the case where $$e$$ is even, we compute the remainder of $$b^{\frac{e}{2}}$$ modulo $$m$$, square this, and take the remainder modulo $$m$$. This technique is useful because it means we can perform our computation without ever having to deal with numbers much larger than $$m$$. (Compare exercise 1.25.)</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>Numbers that fool the Fermat test are called Carmichael numbers, and little is known about them other than that they are extremely rare. There are 255 Carmichael numbers below 100,000,000. The smallest few are 561, 1105, 1729, 2465, 2821, and 6601. In testing primality of very large numbers chosen at random, the chance of stumbling upon a value that fools the Fermat test is less than the chance that cosmic radiation will cause the computer to make an error in carrying out a &quot;correct&quot; algorithm. Considering an algorithm to be inadequate for the first reason but not for the second illustrates the difference between mathematics and engineering.
+<sup class="footnote-reference"><a href="#5">5</a></sup>: One of the most striking applications of probabilistic prime testing has been to the field of cryptography. Although it is now computationally infeasible to factor an arbitrary 200-digit number, the primality of such a number can be checked in a few seconds with the Fermat test. This fact forms the basis of a technique for constructing &quot;unbreakable codes&quot; suggested by Rivest, Shamir, and Adleman (1977). The resulting RSA algorithm has become a widely used technique for enhancing the security of electronic communications. Because of this and related developments, the study of prime numbers, once considered the epitome of a topic in &quot;pure&quot; mathematics to be studied only for its own sake, now turns out to have important practical applications to cryptography, electronic funds transfer, and information retrieval.</p>
+</div>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../ch1/exercises-7.html" class="mobile-nav-chapters previous"
+                        title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="../ch1/exercises-8.html" class="mobile-nav-chapters next"
+                        title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a rel="prev" href="../ch1/exercises-7.html" class="nav-chapters previous" title="Previous chapter"
+                aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a rel="next" href="../ch1/exercises-8.html" class="nav-chapters next" title="Next chapter"
+                aria-label="Next chapter" aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+
+        // make sure we don't activate google analytics if the developer is
+        // inspecting the book locally...
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-38274766-4', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+    
+
+    
+
+    
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+    
+
+    
+
+    
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>

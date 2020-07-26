@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js lfe-pdp">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Hierarchical Data and the Closure Property - Structure and Interpretation of Computer Programs</title>
+    
+    
+
+
+    <!-- Custom HTML head -->
+    
+
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="The LFE Edition of the Classic Scheme Book">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+    <link rel="stylesheet" href="../css/custom.css">
+    
+
+    
+</head>
+
+<body>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "../";
+        var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "lfe-pdp" : "lfe-pdp";
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('lfe-pdp')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <div class="sidebar-scrollbox">
+            <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/title-page.html"><strong aria-hidden="true">1.1.</strong> Title Page</a></li><li class="chapter-item expanded "><a href="../fm/copyright-page.html"><strong aria-hidden="true">1.2.</strong> Copyright Page</a></li><li class="chapter-item expanded "><a href="../fm/dedication.html"><strong aria-hidden="true">1.3.</strong> Dedication</a></li><li class="chapter-item expanded "><a href="../fm/foreword.html"><strong aria-hidden="true">1.4.</strong> Foreword</a></li><li class="chapter-item expanded "><a href="../fm/lfe-foreword.html"><strong aria-hidden="true">1.5.</strong> Foreword to the LFE Edition</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/index.html"><strong aria-hidden="true">1.6.</strong> Preface to the LFE Edition</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/preface-3/origins.html"><strong aria-hidden="true">1.6.1.</strong> The Hidden Origins of Lisp</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../fm/preface-3/peano.html"><strong aria-hidden="true">1.6.1.1.</strong> Giuseppe Peano</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/russell.html"><strong aria-hidden="true">1.6.1.2.</strong> Bertrand Russell</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/church.html"><strong aria-hidden="true">1.6.1.3.</strong> Alonzo Church</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/mccarthy.html"><strong aria-hidden="true">1.6.1.4.</strong> John McCarthy</a></li></ol></li><li class="chapter-item expanded "><a href="../fm/preface-3/erlang.html"><strong aria-hidden="true">1.6.2.</strong> A Recap of Erlang's Genesis</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/lfe.html"><strong aria-hidden="true">1.6.3.</strong> The Inspiration for LFE</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/21stcent.html"><strong aria-hidden="true">1.6.4.</strong> The Place of Lisp in the 21st Century</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/changes.html"><strong aria-hidden="true">1.6.5.</strong> Notes on Changes from the Original</a></li><li class="chapter-item expanded "><a href="../fm/preface-3/sources.html"><strong aria-hidden="true">1.6.6.</strong> Obtaining the Book and Related Code</a></li></ol></li><li class="chapter-item expanded "><a href="../fm/preface-2.html"><strong aria-hidden="true">1.7.</strong> Preface to the Second Edition</a></li><li class="chapter-item expanded "><a href="../fm/preface-1.html"><strong aria-hidden="true">1.8.</strong> Preface to the First Edition</a></li><li class="chapter-item expanded "><a href="../fm/acknowledgments.html"><strong aria-hidden="true">1.9.</strong> Acknowledgments</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/building-abstractions-with-functions.html"><strong aria-hidden="true">2.</strong> Building Abstractions with Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/programming-in-lisp.html"><strong aria-hidden="true">2.1.</strong> Programming in Lisp</a></li><li class="chapter-item expanded "><a href="../ch1/the-elements-of-programming.html"><strong aria-hidden="true">2.2.</strong> The Elements of Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/expressions.html"><strong aria-hidden="true">2.2.1.</strong> Expressions</a></li><li class="chapter-item expanded "><a href="../ch1/naming-and-the-environment.html"><strong aria-hidden="true">2.2.2.</strong> Naming and the Environment</a></li><li class="chapter-item expanded "><a href="../ch1/evaluating-combinations.html"><strong aria-hidden="true">2.2.3.</strong> Evaluating Combinations</a></li><li class="chapter-item expanded "><a href="../ch1/compound-functions.html"><strong aria-hidden="true">2.2.4.</strong> Compound Functions</a></li><li class="chapter-item expanded "><a href="../ch1/the-substitution-model-for-function-application.html"><strong aria-hidden="true">2.2.5.</strong> The Substitution Model for Function Application</a></li><li class="chapter-item expanded "><a href="../ch1/conditional-expressions-and-predicates.html"><strong aria-hidden="true">2.2.6.</strong> Conditional Expressions and Predicates</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-1.html"><strong aria-hidden="true">2.2.7.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/example-square-roots-by-newtons-method.html"><strong aria-hidden="true">2.2.8.</strong> Example: Square Roots by Newton's Method</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-2.html"><strong aria-hidden="true">2.2.9.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-black-box-abstractions.html"><strong aria-hidden="true">2.2.10.</strong> Functions as Black-Box Abstractions</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/functions-and-the-processes-they-generate.html"><strong aria-hidden="true">2.3.</strong> Functions and the Processes They Generate</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/linear-recursion-and-iteration.html"><strong aria-hidden="true">2.3.1.</strong> Linear Recursion and Iteration</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-3.html"><strong aria-hidden="true">2.3.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/tree-recursion.html"><strong aria-hidden="true">2.3.3.</strong> Tree Recursion</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-4.html"><strong aria-hidden="true">2.3.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/orders-of-growth.html"><strong aria-hidden="true">2.3.5.</strong> Orders of Growth</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-5.html"><strong aria-hidden="true">2.3.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/exponentiation.html"><strong aria-hidden="true">2.3.7.</strong> Exponentiation</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-6.html"><strong aria-hidden="true">2.3.8.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/greatest-common-divisors.html"><strong aria-hidden="true">2.3.9.</strong> Greatest Common Divisors</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-7.html"><strong aria-hidden="true">2.3.10.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/example-testing-for-primality.html"><strong aria-hidden="true">2.3.11.</strong> Example: Testing for Primality</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-8.html"><strong aria-hidden="true">2.3.12.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch1/formulating-abstractions-with-higher-order-functions.html"><strong aria-hidden="true">2.4.</strong> Formulating Abstractions with Higher-Order Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch1/functions-as-arguments.html"><strong aria-hidden="true">2.4.1.</strong> Functions as Arguments</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-9.html"><strong aria-hidden="true">2.4.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/constructing-functions-using-lambda.html"><strong aria-hidden="true">2.4.3.</strong> Constructing Functions Using Lambda</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-10.html"><strong aria-hidden="true">2.4.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-general-methods.html"><strong aria-hidden="true">2.4.5.</strong> Functions as General Methods</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-11.html"><strong aria-hidden="true">2.4.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch1/functions-as-returned-values.html"><strong aria-hidden="true">2.4.7.</strong> Functions as Returned Values</a></li><li class="chapter-item expanded "><a href="../ch1/exercises-12.html"><strong aria-hidden="true">2.4.8.</strong> Exercises</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../ch2/building-abstractions-with-data.html"><strong aria-hidden="true">3.</strong> Building Abstractions with Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/introduction-to-data-abstraction.html"><strong aria-hidden="true">3.1.</strong> Introduction to Data Abstraction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/example-arithmetic-operationsfor-rational-numbers.html"><strong aria-hidden="true">3.1.1.</strong> Example: Arithmetic Operations for Rational Numbers</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-1.html"><strong aria-hidden="true">3.1.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/abstraction-barriers.html"><strong aria-hidden="true">3.1.3.</strong> Abstraction Barriers</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-2.html"><strong aria-hidden="true">3.1.4.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/what-is-meant-by-data.html"><strong aria-hidden="true">3.1.5.</strong> What Is Meant by Data?</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-3.html"><strong aria-hidden="true">3.1.6.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/extended-exercise-interval-arithmetic.html"><strong aria-hidden="true">3.1.7.</strong> Extended Exercise: Interval Arithmetic</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-4.html"><strong aria-hidden="true">3.1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-data-and-the-closure-property.html" class="active"><strong aria-hidden="true">3.2.</strong> Hierarchical Data and the Closure Property</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/representing-sequences.html"><strong aria-hidden="true">3.2.1.</strong> Representing Sequences</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/representing-sequences-list-operations.html"><strong aria-hidden="true">3.2.1.1.</strong> List operations</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-5.html"><strong aria-hidden="true">3.2.1.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/representing-sequences-mapping-over-lists.html"><strong aria-hidden="true">3.2.1.3.</strong> Mapping over lists</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-6.html"><strong aria-hidden="true">3.2.1.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-structures.html"><strong aria-hidden="true">3.2.2.</strong> Hierarchical Structures</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/exercises-7.html"><strong aria-hidden="true">3.2.2.1.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/hierarchical-structures-mapping-over-trees.html"><strong aria-hidden="true">3.2.2.2.</strong> Mapping over trees</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-8.html"><strong aria-hidden="true">3.2.2.3.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/sequences-as-conventional-interfaces.html"><strong aria-hidden="true">3.2.3.</strong> Sequences as Conventional Interfaces</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/sequence-operations.html"><strong aria-hidden="true">3.2.3.1.</strong> Sequence operations</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-9.html"><strong aria-hidden="true">3.2.3.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/nested-mappings.html"><strong aria-hidden="true">3.2.3.3.</strong> Nested mappings</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-10.html"><strong aria-hidden="true">3.2.3.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="../ch2/example-picture-language.html"><strong aria-hidden="true">3.2.4.</strong> Example: A Picture Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ch2/the-picture-language.html"><strong aria-hidden="true">3.2.4.1.</strong> The picture language</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-11.html"><strong aria-hidden="true">3.2.4.2.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/higher-order-operations.html"><strong aria-hidden="true">3.2.4.3.</strong> Higher order operations</a></li><li class="chapter-item expanded "><a href="../ch2/frames.html"><strong aria-hidden="true">3.2.4.4.</strong> Frames</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-12.html"><strong aria-hidden="true">3.2.4.5.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/painters.html"><strong aria-hidden="true">3.2.4.6.</strong> Painters</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-13.html"><strong aria-hidden="true">3.2.4.7.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/transforming-and-combining-painters.html"><strong aria-hidden="true">3.2.4.8.</strong> Transforming and combining painters</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-14.html"><strong aria-hidden="true">3.2.4.9.</strong> Exercises</a></li><li class="chapter-item expanded "><a href="../ch2/levels-of-language-for-robust-design.html"><strong aria-hidden="true">3.2.4.10.</strong> Levels of language for robust design</a></li><li class="chapter-item expanded "><a href="../ch2/exercises-15.html"><strong aria-hidden="true">3.2.4.11.</strong> Exercises</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.</strong> Symbolic Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.1.</strong> Quotation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.2.</strong> Example: Symbolic Differentiation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.3.</strong> Example: Representing Sets</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.3.4.</strong> Example: Huffman Encoding Trees</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.</strong> Multiple Representations for Abstract Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.1.</strong> Representations for Complex Numbers</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.2.</strong> Tagged data</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.4.3.</strong> Data-Directed Programming and Additivity</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.</strong> Systems with Generic Operations</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.1.</strong> Generic Arithmetic Operations</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.2.</strong> Combining Data of Different Types</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">3.5.3.</strong> Example: Symbolic Algebra</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.</strong> Modularity, Objects, and State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.</strong> Assignment and Local State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.1.</strong> Local State Variables</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.2.</strong> The Benefits of Introducing Assignment</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.1.3.</strong> The Costs of Introducing Assignment</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.</strong> The Environment Model of Evaluation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.1.</strong> The Rules for Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.2.</strong> Applying Simple Functions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.3.</strong> Frames as the Repository of Local State</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.2.4.</strong> Internal Definitions</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.</strong> Modeling with Mutable Data</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.1.</strong> Mutable List Structure</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.2.</strong> Representing Queues</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.3.</strong> Representing Tables</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.4.</strong> A Simulator for Digital Circuits</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.3.5.</strong> Propagation of Constraints</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.</strong> Concurrency: Time Is of the Essence</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.1.</strong> The Nature of Time in Concurrent Systems</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.4.2.</strong> Mechanisms for Controlling Concurrency</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.</strong> Streams</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.1.</strong> Streams Are Delayed Lists</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.2.</strong> Infinite Streams</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.3.</strong> Exploiting the Stream Paradigm</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.4.</strong> Streams and Delayed Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">4.5.5.</strong> Modularity of Functional Programs and Modularity of Objects</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.</strong> Metalinguistic Abstraction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.</strong> The Metacircular Evaluator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.1.</strong> The Core of the Evaluator</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.2.</strong> Representing Expressions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.3.</strong> Evaluator Data Structures</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.4.</strong> Running the Evaluator as a Program</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.5.</strong> Data as Programs</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.6.</strong> Internal Definitions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.1.7.</strong> Separating Syntactic Analysis from Execution</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.</strong> Variations on a Scheme -- Lazy Evaluation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.1.</strong> Normal Order and Applicative Order</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.2.</strong> An Interpreter with Lazy Evaluation</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.2.3.</strong> Streams as Lazy Lists</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.</strong> Variations on a Scheme -- Nondeterministic Computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.1.</strong> Amb and Search</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.2.</strong> Examples of Nondeterministic Programs</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.3.3.</strong> Implementing the Amb Evaluator</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.</strong> Logic Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.1.</strong> Deductive Information Retrieval</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.2.</strong> How the Query System Works</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.3.</strong> Is Logic Programming Mathematical Logic?</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">5.4.4.</strong> Implementing the Query System</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.</strong> Computing with Register Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.</strong> Designing Register Machines</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.1.</strong> A Language for Describing Register Machines</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.2.</strong> Abstraction in Machine Design</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.3.</strong> Subroutines</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.4.</strong> Using a Stack to Implement Recursion</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.1.5.</strong> Instruction Summary</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.</strong> A Register-Machine Simulator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.1.</strong> The Machine Model</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.2.</strong> The Assembler</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.3.</strong> Generating Execution Functions for Instructions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.2.4.</strong> Monitoring Machine Performance</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.</strong> Storage Allocation and Garbage Collection</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.1.</strong> Memory as Vectors</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.3.2.</strong> Maintaining the Illusion of Infinite Memory</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.</strong> The Explicit-Control Evaluator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.1.</strong> The Core of the Explicit-Control Evaluator</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.2.</strong> Sequence Evaluation and Tail Recursion</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.3.</strong> Conditionals, Assignments, and Definitions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.4.4.</strong> Running the Evaluator</a></li></ol></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.</strong> Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.1.</strong> Structure of the Compiler</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.2.</strong> Compiling Expressions</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.3.</strong> Compiling Combinations</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.4.</strong> Combining Instruction Sequences</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.5.</strong> An Example of Compiled Code</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.6.</strong> Lexical Addressing</a></li><li class="chapter-item expanded "><a href="../#.html"><strong aria-hidden="true">6.5.7.</strong> Interfacing Compiled Code to the Evaluator</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../bm/references.html"><strong aria-hidden="true">7.</strong> References</a></li><li class="chapter-item expanded "><a href="../bm/list-of-exercises.html"><strong aria-hidden="true">8.</strong> List of Exercises</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../feedback.html">Feedback</a></li><li class="chapter-item expanded affix "><a href="../redirects/docs.html">LFE Documentation</a></li><li class="chapter-item expanded affix "><a href="../redirects/mdbook.html">Built with mdBook</a></li></ol>
+        </div>
+        <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar-hover-placeholder"></div>
+            <div id="menu-bar" class="menu-bar sticky bordered">
+                <div class="left-buttons">
+                    <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                        aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <button id="theme-toggle" class="icon-button" type="button" title="Change theme"
+                        aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                        <i class="fa fa-paint-brush"></i>
+                    </button>
+                    <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="lfe-pdp">LFE PDP</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="light">Light</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="rust">Rust</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="coal">Coal</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="navy">Navy</button></li>
+                        <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button>
+                        </li>
+                    </ul>
+                    
+                    <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    
+                </div>
+
+                <h1 class="menu-title">Structure and Interpretation of Computer Programs</h1>
+
+                <div class="right-buttons">
+                    <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <i id="print-button" class="fa fa-print"></i>
+                    </a>
+                    
+                    <a href="https://github.com/cnbbooks/lfe-sicp/" title="Git repository" aria-label="Git repository">
+                        <i id="git-repository-button" class="fa fa-github"></i>
+                    </a>
+                    
+                </div>
+            </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar"
+                        placeholder="Search this book ..." aria-controls="searchresults-outer"
+                        aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <h2><a class="header" href="#hierarchical-data-and-the-closure-property" id="hierarchical-data-and-the-closure-property">Hierarchical Data and the Closure Property</a></h2>
+<p>As we have seen, pairs provide a primitive &quot;glue&quot; that we can use to construct compound data objects. <a href="#figure-2">Figure 2.2</a> shows a standard way to visualize a pair -- in this case, the pair formed by <code>(cons 1 2)</code>. In this representation, which is called <em>box-and-pointer notation</em>, each object is shown as a <em>pointer</em> to a box. The box for a primitive object contains a representation of the object. For example, the box for a number contains a numeral. The box for a pair is actually a double box, the left part containing (a pointer to) the <code>car</code> of the pair and the right part containing the <code>cdr</code>.</p>
+<p>We have already seen that <code>cons</code> can be used to combine not only numbers but pairs as well. (You made use of this fact, or should have, in doing exercises 2.2 and 2.3.) As a consequence, pairs provide a universal building block from which we can construct all sorts of data structures. <a href="#figure-3">Figure 2.3</a> shows two ways to use pairs to combine the numbers 1, 2, 3, and 4.</p>
+<p><a name="figure-2"></a></p>
+<p><img src="images/ch2-Z-G-11.png" alt="Box-and-pointer representation of (cons 1 2)l" /></p>
+<p><strong>Figure 2.2</strong>:  Box-and-pointer representation of (cons 1 2).</p>
+<p><a name="figure-3"></a></p>
+<p><img src="images/ch2-Z-G-12.png" alt="Two ways to combine 1, 2, 3, and 4 using pairs" /></p>
+<p><strong>Figure 2.3</strong>:  Two ways to combine 1, 2, 3, and 4 using pairs.</p>
+<p>The ability to create pairs whose elements are pairs is the essence of list structure's importance as a representational tool. We refer to this ability as the <em>closure property</em> of <code>cons</code>. In general, an operation for combining data objects satisfies the closure property if the results of combining things with that operation can themselves be combined using the same operation.<sup class="footnote-reference"><a href="#1">1</a></sup> Closure is the key to power in any means of combination because it permits us to create <em>hierarchical</em> structures -- structures made up of parts, which themselves are made up of parts, and so on.</p>
+<p>From the outset of chapter 1, we've made essential use of closure in dealing with functions, because all but the very simplest programs rely on the fact that the elements of a combination can themselves be combinations. In this section, we take up the consequences of closure for compound data. We describe some conventional techniques for using pairs to represent sequences and trees, and we exhibit a graphics language that illustrates closure in a vivid way.<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>The use of the word &quot;closure&quot; here comes from abstract algebra, where a set of elements is said to be closed under an operation if applying the operation to elements in the set produces an element that is again an element of the set. The Lisp community also (unfortunately) uses the word &quot;closure&quot; to describe a totally unrelated concept: A closure is an implementation technique for representing functions with free variables. We do not use the word &quot;closure&quot; in this second sense in this book.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>The notion that a means of combination should satisfy closure is a straightforward idea. Unfortunately, the data combiners provided in many popular programming languages do not satisfy closure, or make closure cumbersome to exploit. In Fortran or Basic, one typically combines data elements by assembling them into arrays -- but one cannot form arrays whose elements are themselves arrays. Pascal and C admit structures whose elements are structures. However, this requires that the programmer manipulate pointers explicitly, and adhere to the restriction that each field of a structure can contain only elements of a prespecified form. Unlike Lisp with its pairs, these languages have no built-in general-purpose glue that makes it easy to manipulate compound data in a uniform way. This limitation lies behind Alan Perlis's comment in his foreword to this book: &quot;In Pascal the plethora of declarable data structures induces a specialization within functions that inhibits and penalizes casual cooperation. It is better to have 100 functions operate on one data structure than to have 10 functions operate on 10 data structures.&quot;</p>
+</div>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../ch2/exercises-4.html" class="mobile-nav-chapters previous"
+                        title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="../ch2/representing-sequences.html" class="mobile-nav-chapters next"
+                        title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a rel="prev" href="../ch2/exercises-4.html" class="nav-chapters previous" title="Previous chapter"
+                aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a rel="next" href="../ch2/representing-sequences.html" class="nav-chapters next" title="Next chapter"
+                aria-label="Next chapter" aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+
+        // make sure we don't activate google analytics if the developer is
+        // inspecting the book locally...
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-38274766-4', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+    
+
+    
+
+    
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+    
+
+    
+
+    
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>
