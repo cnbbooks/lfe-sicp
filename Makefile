@@ -1,31 +1,61 @@
-STAGING_HOST=staging-docs.lfe.io
-STAGING_PATH=/var/www/lfe/staging-docs/sicp
+BIN = mdbook
+GEN := $(shell which $(BIN) 2> /dev/null)
+DOWNLOAD = https://github.com/rust-lang/mdBook/releases
+PUBLISH_DIR = book
+PUBLISH_BRANCH = master
+BUILDER_BRANCH = builder
+TMP_GIT_DIR = /tmp/lfe-sicp-git
 
-SRC=./
-BASE_DIR=$(shell pwd)
-PROD_DIR=_book
-PROD_PATH=$(BASE_DIR)/$(PROD_DIR)
-STAGE_DIR=$(PROD_DIR)
-STAGE_PATH=$(BASE_DIR)/$(STAGE_DIR)
+define BINARY_ERROR
 
-deps:
-	@npm install -g gitbook-cli
+No $(BIN) found in Path.
 
-setup:
-	@gitbook install
+Download $(BIN) from $(DOWNLOAD).
 
-book:
-	gitbook build $(SRC) --output=$(PROD_DIR)
+endef
 
-book-server:
-	gitbook serve $(SRC)
+build:
+ifndef GEN
+	$(error $(BINARY_ERROR))
+endif
+	$(MAKE) backup-book-git
+	@$(GEN) build
+	$(MAKE) restore-book-git
 
-staging: build
-	git pull origin master && \
-	rsync -azP ./$(STAGE_DIR)/* $(STAGING_HOST):$(STAGING_PATH)
+serve:
+	$(MAKE) backup-book-git
+	@$(GEN) serve
+	$(MAKE) restore-book-git
 
-publish: build
-	-git commit -a && git push origin master
-	git subtree push --prefix $(PROD_DIR) origin gh-pages
+run: serve
 
-.PHONY: book
+clean:
+	@rm -f $(PUBLISH_DIR)/README.md
+
+book-init:
+	@git submodule update --init --recursive
+
+backup-book-git:
+	@mkdir -p $(TMP_GIT_DIR)/
+	@mv -v $(PUBLISH_DIR)/.git $(TMP_GIT_DIR)/
+
+restore-book-git:
+	@mv -v $(TMP_GIT_DIR)/.git $(PUBLISH_DIR)/
+
+$(PUBLISH_DIR)/README.md:
+	@echo '# Content for SICP, the LFE Edition' > $(PUBLISH_DIR)/README.md
+	@echo 'Published at [lfe.io/books/sicp/](https://lfe.io/books/sicp/)' >> $(PUBLISH_DIR)/README.md
+	@cd $(PUBLISH_DIR) && git add README.md
+
+publish: clean build $(PUBLISH_DIR)/README.md
+	-@cd $(PUBLISH_DIR) && \
+	git add * && \
+	git commit -am "Regenerated book content." > /dev/null && \
+	git push origin $(PUBLISH_BRANCH) && \
+	cd -  && \
+	git add $(PUBLISH_DIR) && \
+	git commit -am "Updated submodule for recently generated book content." && \
+	git submodule update && \
+	git push origin $(BUILDER_BRANCH)
+
+build-publish: build publish
