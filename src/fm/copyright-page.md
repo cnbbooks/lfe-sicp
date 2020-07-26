@@ -1,7 +1,9 @@
-The first edition of this book was comprised of a series of texts 
-written by faculty of the Electrical Engineering and Computer Science 
-Department at the Massachusetts Institute of Technology. It was edited and 
-produced by The MIT Press under a joint production-distribution arrangement 
+# First Edition
+
+The first edition of this book was comprised of a series of texts
+written by faculty of the Electrical Engineering and Computer Science
+Department at the Massachusetts Institute of Technology. It was edited and
+produced by The MIT Press under a joint production-distribution arrangement
 with the McGraw-Hill Book Company.
 
 **Ordering Information**
@@ -18,19 +20,19 @@ All orders should be addressed to The MIT Press or its local distributor.
 
 © 1996 by The Massachusetts Institute of Technology
 
-Second edition
+# Second Edition
 
 All rights reserved. No part of this book may be reproduced in any form or
-by any electronic or mechanical means (including photocopying, recording, 
-or information storage and retrieval) without permission in writing from 
-the publisher. 
+by any electronic or mechanical means (including photocopying, recording,
+or information storage and retrieval) without permission in writing from
+the publisher.
 
 ![Creative Commons Logo](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)
 
 This work is licensed under a [Creative Commons Attribution-Noncommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/).
 
 This book was set by the authors using the LATEX typesetting system
-and was printed and bound in the United States of America. 
+and was printed and bound in the United States of America.
 
 **Library of Congress Cataloging-in-Publication Data**
 
@@ -54,14 +56,12 @@ Abelson, Harold
 QA76.6.A255         1996
 005.13'3 -- dc20    96-17756
 ```
-Fourth printing, 1999 
+Fourth printing, 1999
 
-LFE Edition
+# LFE Edition
 
-© 2015 by Duncan McGreggor
-
+© 2015-2020 by Duncan McGreggor
 
 ![Creative Commons Logo](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)
 
 This work is licensed under a [Creative Commons Attribution-Noncommercial 3.0 Unported License](http://creativecommons.org/licenses/by-nc/3.0/).
-

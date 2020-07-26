@@ -1,8 +1,8 @@
 # Summary
 
-* [Introduction](README.md)
-   * [Title Page](fm/title-page.md)
-   * [Copyright Page](fm/copyright-page.md)
+* [SICP](README.md)
+* [Copyright Page](fm/copyright-page.md)
+* [Introduction](introduction/README.md)
    * [Dedication](fm/dedication.md)
    * [Foreword](fm/foreword.md)
    * [Foreword to the LFE Edition](fm/lfe-foreword.md)
