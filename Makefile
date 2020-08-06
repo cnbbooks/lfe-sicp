@@ -80,14 +80,14 @@ spell-check:
 
 add-word: WORD ?= ""
 add-word:
-	@echo "*$(WORD)\n#" | aspell -a
+	@echo "*$(WORD)\n#" | aspell -a > /dev/null
 
 add-words: WORDS ?= ""
 add-words:
 	@echo "Adding words:"
 	@for WORD in `echo $(WORDS)| tr "," "\n"| tr "," "\n" | sed -e 's/^[ ]*//' | sed -e 's/[ ]*$$//'`; \
 	do echo "  $$WORD ..."; \
-	echo "*$$WORD\n#" | aspell -a; \
+	echo "*$$WORD\n#" | aspell -a > /dev/null; \
 	done
 	@echo
 

@@ -1,7 +1,9 @@
-# Summary
+[SICP](README.md)
+[Title Page](fm/title.md)
+[Copyright Page](fm/copyright-page.md)
 
-* [SICP](README.md)
-* [Copyright Page](fm/copyright-page.md)
+--------------------
+
 * [Introduction](introduction/README.md)
    * [Dedication](fm/dedication.md)
    * [Foreword](fm/foreword.md)

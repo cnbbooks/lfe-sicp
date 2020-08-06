@@ -18,7 +18,7 @@ All other orders should be addressed to The MIT Press.
 
 All orders should be addressed to The MIT Press or its local distributor.
 
-© 1996 by The Massachusetts Institute of Technology
+&copy; 1996 by The Massachusetts Institute of Technology
 
 # Second Edition
 
@@ -60,7 +60,7 @@ Fourth printing, 1999
 
 # LFE Edition
 
-© 2015-2020 by Duncan McGreggor
+&copy; 2015-2020 by Duncan McGreggor
 
 ![Creative Commons Logo](http://i.creativecommons.org/l/by-nc/3.0/88x31.png)
 

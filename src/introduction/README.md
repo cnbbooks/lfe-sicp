@@ -1,8 +1,3 @@
-# Structure and Interpretation of Computer Programs
-
-*The LFE Edition*
-
-
 ## About
 
 This Gitbook (available [here](http://lfe.gitbooks.io/sicp/))
