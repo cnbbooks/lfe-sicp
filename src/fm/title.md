@@ -34,5 +34,5 @@ LFE translation by Duncan McGreggor
 
 <!-- Named page links below: /-->
 
-[publisher-img]: images/cnbb-pub-logo-1.6.png
+[publisher-img]: ../images/cnbb-pub-logo-1.6.png
 [publisher-site]: http://cnbb.pub/
