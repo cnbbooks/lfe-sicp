@@ -2,7 +2,7 @@
 
 ## Current
 
-The current version of the LFE rebar3 Quick Start is written against LFE 2.0-dev.
+The current version of the SICP is written against LFE 2.0-dev; as such, it has started tracking its own version in sync with LFE releases.
 
 ## Previous
 
