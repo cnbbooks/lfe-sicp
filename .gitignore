@@ -1,44 +1,36 @@
-# -*- mode: gitignore; -*-
+# MacOS
+.DS_Store
+
+# Erlang
+.eunit
+*.o
+*.beam
+*.plt
+erl_crash.dump
+.concrete/DEV_MODE
+
+# rebar 2.x
+.rebar
+rel/example_project
+ebin/*.beam
+deps
+
+# rebar 3
+.rebar3
+_build/
+_checkouts/
+rebar.lock
+.rebar
+rebar/*
+.rebar/*
+rebar3.crashdump
+
+# Emacs
 *~
 \#*\#
+.\#*
 /.emacs.desktop
 /.emacs.desktop.lock
 *.elc
 auto-save-list
 tramp
-.\#*
-
-# Org-mode
-.org-id-locations
-*_archive
-
-# flymake-mode
-*_flymake.*
-
-# eshell files
-/eshell/history
-/eshell/lastdir
-
-# elpa packages
-/elpa/
-
-# reftex files
-*.rel
-
-# AUCTeX auto folder
-/auto/
-
-# cask packages
-.cask/
-
-# Gitbook
-_book
-node_modules
-npm-debug.log
-
-# LFE
-*.beam
-lfe/*
-
-# Images
-*.xcf
