@@ -1,7 +1,0 @@
-[submodule "book"]
-	path = book
-	url = git@github.com:cnbbooks/lfe-sicp.git
-	branch = master
-[submodule "theme"]
-	path = theme
-	url = git@github.com:cnbbooks/lfe-book-theme.git
