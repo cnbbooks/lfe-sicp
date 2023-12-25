@@ -5,7 +5,7 @@
 
 ## About
 
-This Gitbook (available [here](http://lfe.gitbooks.io/sicp/))
+This Gitbook (available [here](https://cnbbooks.github.io/lfe-sicp))
 is a work in progress, converting the MIT classic
 [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/)
 to Lisp Flavored Erlang. We are forever indebted to Harold Abelson, Gerald
