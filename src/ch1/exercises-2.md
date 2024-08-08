@@ -46,20 +46,18 @@ numbers?
 
 #### Exercise 1.8.
 
-Newton's method for cube roots is based on the fact that if $$y$$ is an
-approximation to the cube root of $$x$$, then a better approximation is given
+Newton's method for cube roots is based on the fact that if \\(y\\) is an
+approximation to the cube root of \\(x\\), then a better approximation is given
 by the value
 
-$$
+\\[
 \begin{align}
 \frac{\frac{x}{y^2}+2y}
 {3}
 \end{align}
-$$
+\\]
 
 Use this formula to implement a cube-root function analogous to the square-root
 function. (In the section [Functions as Returned Values]() we will see how to
 implement Newton's method in general as an abstraction of these square-root and
 cube-root functions.)
-
-

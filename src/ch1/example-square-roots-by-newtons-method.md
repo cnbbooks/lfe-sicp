@@ -4,11 +4,11 @@ Functions, as introduced above, are much like ordinary mathematical functions. T
 
 As a case in point, consider the problem of computing square roots. We can define the square-root function as
 
-$$
+\\[
 \begin{align}
 \sqrt{r} = \text{the } y \text{ such that } y \geq 0 \text{ and } y^2 = x
 \end{align}
-$$
+\\]
 
 This describes a perfectly legitimate mathematical function. We could use it to recognize whether one number is the square root of another, or to derive facts about square roots in general. On the other hand, the definition does not describe a function. Indeed, it tells us almost nothing about how to actually find the square root of a given number. It will not help matters to rephrase this definition in pseudo-LFE:
 
@@ -22,7 +22,7 @@ This only begs the question.
 
 The contrast between function and function is a reflection of the general distinction between describing properties of things and describing how to do things, or, as it is sometimes referred to, the distinction between declarative knowledge and imperative knowledge. In mathematics we are usually concerned with declarative (what is) descriptions, whereas in computer science we are usually concerned with imperative (how to) descriptions.[^1]
 
-How does one compute square roots? The most common way is to use Newton's method of successive approximations, which says that whenever we have a guess $$y$$ for the value of the square root of a number $$x$$, we can perform a simple manipulation to get a better guess (one closer to the actual square root) by averaging $$y$$ with $$x/y$$.[^2] For example, we can compute the square root of 2 as follows. Suppose our initial guess is 1:
+How does one compute square roots? The most common way is to use Newton's method of successive approximations, which says that whenever we have a guess \\(y\\) for the value of the square root of a number \\(x\\), we can perform a simple manipulation to get a better guess (one closer to the actual square root) by averaging \\(y\\) with \\(x/y\\).[^2] For example, we can compute the square root of 2 as follows. Suppose our initial guess is 1:
 
 | Guess  | Quotient                | Average                            |
 |:------:|:-----------------------:|:----------------------------------:|
@@ -70,7 +70,7 @@ differs from the radicand by less than a predetermined tolerance (here
 ```
 
 Finally, we need a way to get started. For instance, we can always guess that
-the square root of some $$x$$ is $$\frac{x}{2}$$:[^4]
+the square root of some \\(x\\) is \\(\frac{x}{2}\\):[^4]
 
 ```lisp
 (defun sqrt (x)
@@ -117,7 +117,7 @@ than the ordinary ability to call a function.[^7]
 
 [^3]: We will usually give predicates names ending with question marks, to help us remember that they are predicates. This is just a stylistic convention. As far as the interpreter is concerned, the question mark is just an ordinary character.
 
-[^4]: We could also have expressed our initial guess as an integer. As with many Lisp implementations, LFE will convert an integer to a float if an operation (such as division) would result in a non-integer. The first two editions of this text, however, used MIT Scheme and not LFE. MIT Scheme *did* distinguish between exact integers and decimal values, and dividing two integers produces a rational number rather than a decimal. For example, dividing 10 by 6 yielded $$\frac{5}{3}$$, while dividing 10.0 by 6.0 yielded 1.6666666666666667. (We will learn how to implement arithmetic on rational numbers in the section [Example: Arithmetic Operations for Rational Numbers]().) In MIT Scheme, if the initial guess had been an integer and the passed argument $$x$$ was an integer, all subsequent values produced in the square-root computation would have been rational numbers rather than decimals. Mixed operations on rational numbers and decimals always yielded decimals, so starting with an initial guess that was a decimal forced all subsequent values to be decimals.
+[^4]: We could also have expressed our initial guess as an integer. As with many Lisp implementations, LFE will convert an integer to a float if an operation (such as division) would result in a non-integer. The first two editions of this text, however, used MIT Scheme and not LFE. MIT Scheme *did* distinguish between exact integers and decimal values, and dividing two integers produces a rational number rather than a decimal. For example, dividing 10 by 6 yielded \\( \frac{5}{3} \\), while dividing 10.0 by 6.0 yielded 1.6666666666666667. (We will learn how to implement arithmetic on rational numbers in the section [Example: Arithmetic Operations for Rational Numbers]().) In MIT Scheme, if the initial guess had been an integer and the passed argument \\( x \\) was an integer, all subsequent values produced in the square-root computation would have been rational numbers rather than decimals. Mixed operations on rational numbers and decimals always yielded decimals, so starting with an initial guess that was a decimal forced all subsequent values to be decimals.
 
 [^5]: Not only is this common practice in Erlang and LFE, but it is considered good style.If two functions of differing arity share the same name it is understood that they should be designed to solve the same problem.
 

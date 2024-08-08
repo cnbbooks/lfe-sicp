@@ -165,7 +165,7 @@ In addition to primitive predicates such as ``<``, ``=``, and ``>``, there are l
 
 Notice that ``and`` and ``or`` are special forms, not functions, because the subexpressions are not necessarily all evaluated. ``not`` is an ordinary function.
 
-As an example of how these are used, the condition that a number $$x$$ be in the range $$5 < x < 10$$ may be expressed as
+As an example of how these are used, the condition that a number \\(x\\) be in the range \\(5 < x < 10\\) may be expressed as
 
 ```lisp
 (and (> x 5) (< x 10))

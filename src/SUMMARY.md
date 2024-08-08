@@ -7,7 +7,6 @@
 * [Introduction](introduction/README.md)
    * [Dedication](fm/dedication.md)
    * [Foreword](fm/foreword.md)
-   * [Foreword to the LFE Edition](fm/lfe-foreword.md)
    * [Preface to the LFE Edition](fm/preface-3/README.md)
       * [The Hidden Origins of Lisp](fm/preface-3/origins.md)
          * [Giuseppe Peano](fm/preface-3/peano.md)

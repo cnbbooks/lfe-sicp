@@ -44,7 +44,7 @@ Having defined square, we can now use it:
 81
 ```
 
-We can also use square as a building block in defining other functions. For example, $$x^2$$ + $$y^2$$ can be expressed as
+We can also use square as a building block in defining other functions. For example, \\(x^2 + y^2\\) can be expressed as
 
 ```lisp
 (+ (square x) (square y))
