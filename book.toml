@@ -16,6 +16,7 @@ default-theme = "lfe-pdp"
 preferred-dark-theme = "lfe-pdp"
 google-analytics = "UA-38274766-4"
 git-repository-url = "https://github.com/cnbbooks/lfe-sicp/"
+
 [output.html.search]
 limit-results = 20
 use-boolean-and = true
@@ -24,3 +25,9 @@ boost-hierarchy = 2
 boost-paragraph = 1
 expand = true
 heading-split-level = 2
+
+[output.html.print]
+enable = true
+
+[output.pdf]
+browser-binary-path = "/Users/oubiwann/Applications/Web/Google Chrome.app/Contents/MacOS/Google Chrome"
