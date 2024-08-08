@@ -83,7 +83,7 @@ difference namespace (unlike Scheme), but functions are also differentiated by
 their arity. As such, functions with different arity may share the same
 name.[^5]
 
-If we type these definitions to the interpreter, we can use ``sqrt/1``[^6] just
+If we type these definitions to the interpreter, we can use `sqrt/1` [^6] just
 as we can use any function:
 
 ```lisp

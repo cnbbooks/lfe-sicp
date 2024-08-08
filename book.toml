@@ -29,5 +29,14 @@ heading-split-level = 2
 [output.html.print]
 enable = true
 
-[output.pdf]
-browser-binary-path = "/Users/oubiwann/Applications/Web/Google Chrome.app/Contents/MacOS/Google Chrome"
+#[output.pdf]
+#browser-binary-path = "/Users/oubiwann/Applications/Web/Google Chrome.app/Contents/MacOS/Google Chrome"
+
+#[output.epub]
+#cover-image = "src/images/cover-large.jpg"
+
+[output.typst]
+
+[output.typst.output]
+format = "pdf"
+	

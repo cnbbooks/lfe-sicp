@@ -130,7 +130,7 @@ Write ``mapper-n/2`` and then fill in the missing expressions in the following f
 
 #### Exercise 2.38
 
-The ``accumulate/3`` function is also known as ``fold-right/3``[^2], because it combines the first element of the sequence with the result of combining all the elements to the right. There is also a ``fold-left/3``[^3], which is similar to ``fold-right/3``, except that it combines elements working in the opposite direction:
+The ``accumulate/3`` function is also known as `fold-right/3` [^2], because it combines the first element of the sequence with the result of combining all the elements to the right. There is also a `fold-left/3` [^3], which is similar to ``fold-right/3``, except that it combines elements working in the opposite direction:
 
 ```lisp
 (defun fold-left
