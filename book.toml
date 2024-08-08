@@ -14,8 +14,9 @@ build-dir = "book"
 [output.html]
 default-theme = "lfe-pdp"
 preferred-dark-theme = "lfe-pdp"
-google-analytics = "UA-38274766-4"
+#google-analytics = "UA-38274766-4"
 git-repository-url = "https://github.com/cnbbooks/lfe-sicp/"
+mathjax-support = true
 
 [output.html.search]
 limit-results = 20
