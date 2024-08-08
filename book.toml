@@ -36,8 +36,8 @@ enable = true
 #[output.epub]
 #cover-image = "src/images/cover-large.jpg"
 
-[output.typst]
+#[output.typst]
 
-[output.typst.output]
-format = "pdf"
+#[output.typst.output]
+#format = "pdf"
 	
