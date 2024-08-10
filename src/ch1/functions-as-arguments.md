@@ -20,13 +20,13 @@ The second computes the sum of the cubes of the integers in the given range:
 
 The third computes the sum of a sequence of terms in the series
 
-$$
+\\[
 \begin{align}
 \frac{1}{1 \cdot 3} + \frac{1}{5 \cdot 7} + \frac{1}{9 \cdot 11} + \dots
 \end{align}
-$$
+\\]
 
-which converges to $$\frac{\pi}{8}$$ (very slowly):[^1]
+which converges to \\(\frac{\pi}{8}\\) (very slowly):[^1]
 
 ```lisp
 (defun pi-sum (a b)
@@ -47,11 +47,11 @@ These three functions clearly share a common underlying pattern. They are for th
 
 The presence of such a common pattern is strong evidence that there is a useful abstraction waiting to be brought to the surface. Indeed, mathematicians long ago identified the abstraction of summation of a series and invented "sigma notation," for example
 
-$$
+\\[
 \begin{align}
 \sum_{n=a}^{b} f(n) = f(a) + \dots + f(b)
 \end{align}
-$$
+\\]
 
 to express this concept. The power of sigma notation is that it allows mathematicians to deal with the concept of summation itself rather than only with particular sums -- for example, to formulate general results about sums that are independent of the particular series being summed.
 
@@ -108,16 +108,16 @@ We can also define pi-sum in the same way:[^2]
     (sum #'pi-term/1 a #'pi-next/1 b)))
 ```
 
-Using these functions, we can compute an approximation to $$\pi$$:
+Using these functions, we can compute an approximation to \\(\pi\\):
 
 ```lisp
 > (* 8 (pi-sum 1 100000))
 3.141572653589795
 ```
 
-Once we have ``sum/4``, we can use it as a building block in formulating further concepts. For instance, the definite integral of a function $$f$$ between the limits $$a$$ and $$b$$ can be approximated numerically using the formula
+Once we have ``sum/4``, we can use it as a building block in formulating further concepts. For instance, the definite integral of a function \\(f\\) between the limits \\(a\\) and \\(b\\) can be approximated numerically using the formula
 
-$$
+\\[
 \begin{align}
 \int_a^b f = \left[
 f\left(a + \frac{dx}{2} \right) +
@@ -125,9 +125,9 @@ f\left(a + dx + \frac{dx}{2} \right) +
 f\left(a + 2dx + \frac{dx}{2} \right) + \dots
 \right] dx
 \end{align}
-$$
+\\]
 
-for small values of $$dx$$. We can express this directly as a function:
+for small values of \\(dx\\). We can express this directly as a function:
 
 ```lisp
 (defun integral (f a b dx)
@@ -150,7 +150,7 @@ for small values of $$dx$$. We can express this directly as a function:
 
 ----
 
-[^1]: This series, usually written in the equivalent form $$\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots $$, is due to Leibniz. We'll see how to use this as the basis for some fancy numerical tricks in the section [Exploiting the Stream Paradigm]().
+[^1]: This series, usually written in the equivalent form \\(\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots \\), is due to Leibniz. We'll see how to use this as the basis for some fancy numerical tricks in the section [Exploiting the Stream Paradigm]().
 
 [^2]: Notice that we have used ``flet``s (from the section [Functions as Black-Box Abstractions]()) to embed the definitions of ``pi-next/1`` and ``pi-term/1`` within ``pi-sum/2``, since these functions are unlikely to be useful for any other purpose. We will learn more about how these work when we get to the section [Constructing Functions Using Lambda]().
 

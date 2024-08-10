@@ -75,23 +75,23 @@ we would apply it the same way as we did the ``lambda`` expression:
 
 Another use of ``lambda`` is in creating local variables. We often need local variables in our functions other than those that have been bound as formal parameters. For example, suppose we wish to compute the function
 
-$$
+\\[
 \begin{align}
 f(x, y) = x(1 + xy)^2 + y(1 -y) + (1 + xy)(1 - y)
 \end{align}
-$$
+\\]
 
 which we could also express as
 
-$$
+\\[
 \begin{align}
-a = & \ 1 + xy \\
-b = & \ 1 - y \\
+a = & \ 1 + xy \\\\
+b = & \ 1 - y \\\\
 f(x, y) = & \ ra^2 + yb + ab.
 \end{align}
-$$
+\\]
 
-In writing a function to compute $$f$$, we would like to include as local variables not only $$x$$ and $$y$$ but also the names of intermediate quantities like $$a$$ and $$b$$. One way to accomplish this is to use an auxiliary function to bind the local variables:
+In writing a function to compute \\(f\\), we would like to include as local variables not only \\(x\\) and \\(y\\) but also the names of intermediate quantities like \\(a\\) and \\(b\\). One way to accomplish this is to use an auxiliary function to bind the local variables:
 
 ```lisp
 (defun f (x y)
@@ -178,4 +178,4 @@ We can see from this equivalence that the scope of a variable specified by a ``l
 
 ----
 
-[^1]: It would be clearer and less intimidating to people learning Lisp if a name more obvious than ``lambda``, such as ``make-function``, were used. But the convention is firmly entrenched. The notation is adopted from the $$\lambda$$ calculus, a mathematical formalism introduced by the mathematical logician Alonzo Church (1941). Church developed the $$\lambda$$ calculus to provide a rigorous foundation for studying the notions of function and function application. The $$\lambda$$ calculus has become a basic tool for mathematical investigations of the semantics of programming languages.
+[^1]: It would be clearer and less intimidating to people learning Lisp if a name more obvious than ``lambda``, such as ``make-function``, were used. But the convention is firmly entrenched. The notation is adopted from the \\(\lambda\\) calculus, a mathematical formalism introduced by the mathematical logician Alonzo Church (1941). Church developed the \\(\lambda\\) calculus to provide a rigorous foundation for studying the notions of function and function application. The \\(\lambda\\) calculus has become a basic tool for mathematical investigations of the semantics of programming languages.
