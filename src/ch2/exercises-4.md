@@ -52,19 +52,19 @@ Show that under the assumption of small percentage tolerances there is a simple 
 
 After considerable work, Alyssa P. Hacker delivers her finished system. Several years later, after she has forgotten all about it, she gets a frenzied call from an irate user, Lem E. Tweakit. It seems that Lem has noticed that the formula for parallel resistors can be written in two algebraically equivalent ways:
 
-$$
+\\[
 \begin{align}
 \frac{R_1 R_2}{R_1 + R_2}
 \end{align}
-$$
+\\]
 
 and
 
-$$
+\\[
 \begin{align}
 \frac{1}{\frac{1}{R_1} + \frac{1}{R_2}}
 \end{align}
-$$
+\\]
 
 He has written the following two programs, each of which computes the parallel-resistors formula differently:
 
@@ -84,7 +84,7 @@ Lem complains that Alyssa's program gives different answers for the two ways of 
 
 #### Exercise 2.14
 
-Demonstrate that Lem is right. Investigate the behavior of the system on a variety of arithmetic expressions. Make some intervals A and B, and use them in computing the expressions $$\frac{A}{A}$$ and $$\frac{A}{B}$$. You will get the most insight by using intervals whose width is a small percentage of the center value. Examine the results of the computation in center-percent form (see exercise 2.12).
+Demonstrate that Lem is right. Investigate the behavior of the system on a variety of arithmetic expressions. Make some intervals A and B, and use them in computing the expressions \\(\frac{A}{A}\\) and \\(\frac{A}{B}\\). You will get the most insight by using intervals whose width is a small percentage of the center value. Examine the results of the computation in center-percent form (see exercise 2.12).
 
 #### Exercise 2.15
 

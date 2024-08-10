@@ -17,23 +17,23 @@ Fill in the missing expressions to complete the following definitions of some ba
 
 #### Exercise 2.34
 
-Evaluating a polynomial in $$x$$ at a given value of $$x$$ can be formulated as an accumulation. We evaluate the polynomial
+Evaluating a polynomial in \\(x\\) at a given value of \\(x\\) can be formulated as an accumulation. We evaluate the polynomial
 
-$$
+\\[
 \begin{align}
 a_n x^n + a_{n - 1} x^{n -1} + \cdots + a_1 x + a_0
 \end{align}
-$$
+\\]
 
 using a well-known algorithm called *Horner's rule*, which structures the computation as
 
-$$
+\\[
 \begin{align}
 ( \cdots (a_n x + a_{n -1})x + \cdots + a_1)x + a_0
 \end{align}
-$$
+\\]
 
-In other words, we start with $$a_n$$, multiply by $$x$$, add $$a_{n-1}$$, multiply by $$x$$, and so on, until we reach $$a_0$$.[^1] Fill in the following template to produce a procedure that evaluates a polynomial using Horner's rule. Assume that the coefficients of the polynomial are arranged in a sequence, from $$a_0$$ through $$a_n$$.
+In other words, we start with \\(a_n\\), multiply by \\(x\\), add \\(a_{n-1}\\), multiply by \\(x\\), and so on, until we reach \\(a_0\\).[^1] Fill in the following template to produce a procedure that evaluates a polynomial using Horner's rule. Assume that the coefficients of the polynomial are arranged in a sequence, from \\(a_0\\) through \\(a_n\\).
 
 ```lisp
 (defun horner-eval (x coefficient-sequence)
@@ -42,7 +42,7 @@ In other words, we start with $$a_n$$, multiply by $$x$$, add $$a_{n-1}$$, multi
               coefficient-sequence))
 ```
 
-For example, to compute $$1 + 3x + 5x^3 + x^5$$ at $$x = 2$$ you would evaluate
+For example, to compute \\(1 + 3x + 5x^3 + x^5\\) at \\(x = 2\\) you would evaluate
 
 ```lisp
 (horner-eval 2 (list 1 3 0 5 0 1))
@@ -72,22 +72,22 @@ The procedure ``accumulate-n/3`` is similar to ``accumulate/3`` except that it t
 
 #### Exercise 2.37
 
-Suppose we represent vectors $$v = (v_i)$$ as sequences of numbers, and matrices $$m = (m_{ij})$$ as sequences of vectors (the rows of the matrix). For example, the matrix
+Suppose we represent vectors \\[v = (v_i)\\) as sequences of numbers, and matrices \\(m = (m_{ij})\\) as sequences of vectors (the rows of the matrix). For example, the matrix
 
-$$
+\\[
 \begin{bmatrix}
-1 & 2 & 3 & 4 \\
-4 & 5 & 6 & 6 \\
+1 & 2 & 3 & 4 \\\\
+4 & 5 & 6 & 6 \\\\
 6 & 7 & 8 & 9
 \end{bmatrix}
-$$
+\\[
 
 is represented as the sequence ``((1 2 3 4) (4 5 6 6) (6 7 8 9))``. With this representation, we can use sequence operations to concisely express the basic matrix and vector operations. These operations (which are described in any book on matrix algebra) are the following:
 
-* ``(dot-product v w)`` - returns the sum $$\Sigma_i v_i w_i$$
-* ``(matrix-*-vector m v)`` - returns the vector of $$t$$ where $$t_i = \Sigma_j m_{ij} v_j$$
-* ``(matrix-*-matrix m n)`` - returns the matrix $$p$$ where $$p_{ij} = \Sigma_k m_{ik} n_{kj}$$
-* ``(transpose m)`` - returns the matrix $$n$$, where $$n_{ij} = m_{ji}$$ 
+* ``(dot-product v w)`` - returns the sum \\(\Sigma_i v_i w_i\\)
+* ``(matrix-*-vector m v)`` - returns the vector of \\(t\\) where \\(t_i = \Sigma_j m_{ij} v_j\\)
+* ``(matrix-*-matrix m n)`` - returns the matrix \\(p\) where \\(p_{ij} = \Sigma_k m_{ik} n_{kj}\\)
+* ``(transpose m)`` - returns the matrix \\(n\\), where \\(n_{ij} = m_{ji}\\) 
 
 We can define the dot product as [^2]
 
@@ -171,7 +171,7 @@ Complete the following definitions of reverse (exercise 2.18) in terms of ``fold
 ```
 ----
 
-[^1]: According to Knuth (1981), this rule was formulated by W. G. Horner early in the nineteenth century, but the method was actually used by Newton over a hundred years earlier. Horner's rule evaluates the polynomial using fewer additions and multiplications than does the straightforward method of first computing an $$x^n$$, then adding $$a_{n-1} x^{n-1}$$, and so on. In fact, it is possible to prove that any algorithm for evaluating arbitrary polynomials must use at least as many additions and multiplications as does Horner's rule, and thus Horner's rule is an optimal algorithm for polynomial evaluation. This was proved (for the number of additions) by A. M. Ostrowski in his 1954 paper "On Two Problems in Abstract Algebra Connected with Horner's rule" that essentially founded the modern study of optimal algorithms. (For an overview of Ostrowski's life and work, see [Walter Gautschi's paper](https://www.cs.purdue.edu/homes/wxg/AMOengl.pdf).) The analogous statement for multiplications was proved by V. Y. Pan in 1966. The book by Borodin and Munro (1975) provides an overview of these and other results about optimal algorithms.
+[^1]: According to Knuth (1981), this rule was formulated by W. G. Horner early in the nineteenth century, but the method was actually used by Newton over a hundred years earlier. Horner's rule evaluates the polynomial using fewer additions and multiplications than does the straightforward method of first computing an \\(x^n\\), then adding \\(a_{n-1} x^{n-1}\\) and so on. In fact, it is possible to prove that any algorithm for evaluating arbitrary polynomials must use at least as many additions and multiplications as does Horner's rule, and thus Horner's rule is an optimal algorithm for polynomial evaluation. This was proved (for the number of additions) by A. M. Ostrowski in his 1954 paper "On Two Problems in Abstract Algebra Connected with Horner's rule" that essentially founded the modern study of optimal algorithms. (For an overview of Ostrowski's life and work, see [Walter Gautschi's paper](https://www.cs.purdue.edu/homes/wxg/AMOengl.pdf).) The analogous statement for multiplications was proved by V. Y. Pan in 1966. The book by Borodin and Munro (1975) provides an overview of these and other results about optimal algorithms.
 
 [^2]: This is available in the Erlang standard library as ``lists:foldr/3``.
 

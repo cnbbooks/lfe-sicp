@@ -8,7 +8,7 @@ Define a function ``cubic/3`` that can be used together with the ``newtons-metho
 (newtons-method (cubic a b c) 1)
 ```
 
-to approximate zeros of the cubic $$x^3 + ax^2 + bx + c$$.
+to approximate zeros of the cubic \\(x^3 + ax^2 + bx + c\\).
 
 #### Exercise 1.41
 
@@ -20,7 +20,7 @@ Define a function ``double`` that takes a function of one argument as argument a
 
 #### Exercise 1.42
 
-Let $$f$$ and $$g$$ be two one-argument functions. The *composition* $$f$$ after $$g$$ is defined to be the function $$x \mapsto f(g(x))$$. Define a function ``compose`` that implements composition. For example, if ``inc/1`` is a function that adds 1 to its argument,
+Let \\(f\\) and \\(g\\) be two one-argument functions. The *composition* \\(f\\) after \\(g\\) is defined to be the function \\(x \mapsto f(g(x))\\). Define a function ``compose`` that implements composition. For example, if ``inc/1`` is a function that adds 1 to its argument,
 
 ```lisp
 > (funcall (compose square inc) 6)
@@ -29,7 +29,7 @@ Let $$f$$ and $$g$$ be two one-argument functions. The *composition* $$f$$ after
 
 #### Exercise 1.43
 
-If $$f$$ is a numerical function and $$n$$ is a positive integer, then we can form the $$n$$th repeated application of $$f$$, which is defined to be the function whose value at x is $$f(f( \cdots (f(x)) \cdots ))$$. For example, if $$f$$ is the function $$x \mapsto x + 1$$, then the $$n$$th repeated application of $$f$$ is the function $$x \mapsto x + n$$. If $$f$$ is the operation of squaring a number, then the $$n$$th repeated application of $$f$$ is the function that raises its argument to the $$2^n$$th power. Write a function that takes as inputs a function that computes $$f$$ and a positive integer $$n$$ and returns the function that computes the $$n$$th repeated application of $$f$$. Your function should be able to be used as follows:
+If \\(f\\) is a numerical function and \\(n\\) is a positive integer, then we can form the \\(n\\)th repeated application of \\(f\\), which is defined to be the function whose value at x is \\(f(f( \cdots (f(x)) \cdots ))\\). For example, if \\(f\\) is the function \\(x \mapsto x + 1\\), then the \\(n\\)th repeated application of \\(f\\) is the function \\(x \mapsto x + n\\). If \\(f\\) is the operation of squaring a number, then the \\(n\\)th repeated application of \\(f\\) is the function that raises its argument to the \\(2^n\\)th power. Write a function that takes as inputs a function that computes \\(f\\) and a positive integer \\(n\\) and returns the function that computes the \\(n\\)th repeated application of \\(f\\). Your function should be able to be used as follows:
 
 ```lisp
 (funcall (repeated square 2) 5)
@@ -40,11 +40,11 @@ Hint: You may find it convenient to use compose from exercise 1.42.
 
 #### Exercise 1.44
 
-The idea of $$smoothing$$ a function is an important concept in signal processing. If $$f$$ is a function and $$dx$$ is some small number, then the smoothed version of $$f$$ is the function whose value at a point $$x$$ is the average of $$f(x - dx)$$, $$f(x)$$, and $$f(x + dx)$$. Write a function ``smooth`` that takes as input a function that computes $$f$$ and returns a function that computes the smoothed $$f$$. It is sometimes valuable to repeatedly smooth a function (that is, smooth the smoothed function, and so on) to obtained the *n-fold smoothed function*. Show how to generate the *n*-fold smoothed function of any given function using ``smooth`` as well as ``repeated`` from exercise 1.43.
+The idea of \\(smoothing\\) a function is an important concept in signal processing. If \\(f\\) is a function and \\(dx\\) is some small number, then the smoothed version of \\(f\\) is the function whose value at a point \\(x\\) is the average of \\(f(x - dx)\\), \\(f(x)\\), and \\(f(x + dx)\\). Write a function ``smooth`` that takes as input a function that computes \\(f\\) and returns a function that computes the smoothed \\(f\\). It is sometimes valuable to repeatedly smooth a function (that is, smooth the smoothed function, and so on) to obtained the *n-fold smoothed function*. Show how to generate the *n*-fold smoothed function of any given function using ``smooth`` as well as ``repeated`` from exercise 1.43.
 
 #### Exercise 1.45
 
-We saw in the section [Functions as General Methods]() that attempting to compute square roots by naively finding a fixed point of $$y \mapsto \frac{x}{y}$$ does not converge, and that this can be fixed by average damping. The same method works for finding cube roots as fixed points of the average-damped $$y \mapsto \frac{x}{y^2}. Unfortunately, the process does not work for fourth roots -- a single average damp is not enough to make a fixed-point search for $$y \mapts \frac{x}{y^3}$$ converge. On the other hand, if we average damp twice (i.e., use the average damp of the average damp of $$y \mapsto \frac{x}{y^3}) the fixed-point search does converge. Do some experiments to determine how many average damps are required to compute $$n$$th roots as a fixed-point search based upon repeated average damping of $$y \mapsto \frac{x}{y^{n-1}}$$. Use this to implement a simple function for computing $$n$$th roots using ``fixed-point/2``, ``average-damp/1``, and the ``repeated`` function of exercise 1.43. Assume that any arithmetic operations you need are available as primitives.
+We saw in the section [Functions as General Methods]() that attempting to compute square roots by naively finding a fixed point of \\(y \mapsto \frac{x}{y}\\) does not converge, and that this can be fixed by average damping. The same method works for finding cube roots as fixed points of the average-damped \\(y \mapsto \frac{x}{y^2}\\). Unfortunately, the process does not work for fourth roots -- a single average damp is not enough to make a fixed-point search for \\(y \mapsto \frac{x}{y^3}\\) converge. On the other hand, if we average damp twice (i.e., use the average damp of the average damp of \\(y \mapsto \frac{x}{y^3}\\)) the fixed-point search does converge. Do some experiments to determine how many average damps are required to compute \\(n\\)th roots as a fixed-point search based upon repeated average damping of \\(y \mapsto \frac{x}{y^{n-1}}\\). Use this to implement a simple function for computing \\(n\\)th roots using ``fixed-point/2``, ``average-damp/1``, and the ``repeated`` function of exercise 1.43. Assume that any arithmetic operations you need are available as primitives.
 
 #### Exercise 1.46
 

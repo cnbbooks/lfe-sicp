@@ -107,7 +107,7 @@ Compare that to our first implementation, noting how much more clear the code wi
 ```
 
 
-For ``even-fibs/1``, we enumerate the integers from 0 to $$n$$, generate the Fibonacci number for each of these integers, filter the resulting sequence to keep only the even elements, and accumulate the results into a list:
+For ``even-fibs/1``, we enumerate the integers from 0 to \\(n\\), generate the Fibonacci number for each of these integers, filter the resulting sequence to keep only the even elements, and accumulate the results into a list:
 
 ```lisp
 (defun even-fibs (n)
@@ -140,7 +140,7 @@ designers regularly build systems by cascading elements selected from
 standardized families of filters and transducers. Similarly, sequence
 operations provide a library of standard program elements that we can mix and
 match. For instance, we can reuse pieces from the ``sum-odd-squares/1`` and
-``even-fibs/1`` functions in a program that constructs a list of the squares of the first $$n + 1$$ Fibonacci numbers:
+``even-fibs/1`` functions in a program that constructs a list of the squares of the first \\(n + 1\\) Fibonacci numbers:
 
 ```lisp
 (defun list-fib-squares (n)

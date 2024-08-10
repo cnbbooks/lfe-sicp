@@ -20,7 +20,7 @@ In the section [Formulating Abstractions with Higher-Order Functions]() we saw h
         0)))
 ```
 
-On the surface, this function is very different from the following one, which constructs a list of all the even Fibonacci numbers $$Fib(k)$$, where $$k$$ is less than or equal to a given integer $$n$$:
+On the surface, this function is very different from the following one, which constructs a list of all the even Fibonacci numbers \\(Fib(k)\\), where \\(k\\) is less than or equal to a given integer \\(n\\):
 
 ```lisp
 (defun even-fibs (n)
@@ -43,7 +43,7 @@ Despite the fact that these two functions are structurally very different, a mor
 
 The second program
 
-* enumerates the integers from 0 to $$n$$;
+* enumerates the integers from 0 to \\(n\\);
 * computes the Fibonacci number for each integer;
 * filters them, selecting the even ones; and
 * accumulates the results using ``cons``, starting with the empty list.

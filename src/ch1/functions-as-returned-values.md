@@ -2,7 +2,7 @@
 
 The previous examples demonstrate how the ability to pass functions as arguments significantly enhances the expressive power of our programming language. We can achieve even more expressive power by creating functions whose returned values are themselves functions.
 
-We can illustrate this idea by looking again at the fixed-point example described at the end of the section [Functions as General Methods](). We formulated a new version of the square-root function as a fixed-point search, starting with the observation that $$\sqrt x$$ is a fixed-point of the function $$y \mapsto \frac{x}{y}$$. Then we used average damping to make the approximations converge. Average damping is a useful general technique in itself. Namely, given a function $$f$$, we consider the function whose value at $$x$$ is equal to the average of $$x$$ and $$f(x)$$.
+We can illustrate this idea by looking again at the fixed-point example described at the end of the section [Functions as General Methods](). We formulated a new version of the square-root function as a fixed-point search, starting with the observation that \\(\sqrt x\\) is a fixed-point of the function \\(y \mapsto \frac{x}{y}\\). Then we used average damping to make the approximations converge. Average damping is a useful general technique in itself. Namely, given a function \\(f\\), we consider the function whose value at \\(x\\) is equal to the average of \\(x\\) and \\(f(x)\\).
 
 We can express the idea of average damping by means of the following function:
 
@@ -12,7 +12,7 @@ We can express the idea of average damping by means of the following function:
     (average x (funcall f x))))
 ```
 
-``average-damp/1`` is a function that takes as its argument a function ``f`` and returns as its value a function (produced by the ``lambda``) that, when applied to a number ``x``, produces the average of ``x`` and ``(f x)``. For example, applying ``average-damp/1`` to the ``square/1`` function produces a function whose value at some number $$x$$ is the average of $$x$$ and $$x^2$$. Applying this resulting function to 10 returns the average of 10 and 100, or 55:[^1]
+``average-damp/1`` is a function that takes as its argument a function ``f`` and returns as its value a function (produced by the ``lambda``) that, when applied to a number ``x``, produces the average of ``x`` and ``(f x)``. For example, applying ``average-damp/1`` to the ``square/1`` function produces a function whose value at some number \\(x\\) is the average of \\(x\\) and \\(x^2\\). Applying this resulting function to 10 returns the average of 10 and 100, or 55:[^1]
 
 ```lisp
 > (funcall (average-damp #'square/1) 10)
@@ -27,7 +27,7 @@ Using ``average-damp/1``, we can reformulate the ``sqrt/1`` function as follows:
                1.0))
 ```
 
-Notice how this formulation makes explicit the three ideas in the method: fixed-point search, average damping, and the function $$y \mapsto \frac{x}{y}$$. It is instructive to compare this formulation of the square-root method with the original version given in the section [Example: Square Roots by Newton's Method](). Bear in mind that these functions express the same process, and notice how much clearer the idea becomes when we express the process in terms of these abstractions. In general, there are many ways to formulate a process as a function. Experienced programmers know how to choose procedural formulations that are particularly perspicuous, and where useful elements of the process are exposed as separate entities that can be reused in other applications. As a simple example of reuse, notice that the cube root of $$x$$ is a fixed point of the function $$y \mapsto \frac{x}{y^2}$$, so we can immediately generalize our square-root function to one that extracts cube roots:[^2]
+Notice how this formulation makes explicit the three ideas in the method: fixed-point search, average damping, and the function \\(y \mapsto \frac{x}{y}\\). It is instructive to compare this formulation of the square-root method with the original version given in the section [Example: Square Roots by Newton's Method](). Bear in mind that these functions express the same process, and notice how much clearer the idea becomes when we express the process in terms of these abstractions. In general, there are many ways to formulate a process as a function. Experienced programmers know how to choose procedural formulations that are particularly perspicuous, and where useful elements of the process are exposed as separate entities that can be reused in other applications. As a simple example of reuse, notice that the cube root of \\(x\\) is a fixed point of the function \\(y \mapsto \frac{x}{y^2}\\), so we can immediately generalize our square-root function to one that extracts cube roots:[^2]
 
 ```lisp
 (defun cube-root (x)
@@ -37,25 +37,25 @@ Notice how this formulation makes explicit the three ideas in the method: fixed-
 
 #### Newton's method
 
-When we first introduced the square-root function in the section [Example: Square Roots by Newton's Method](), we mentioned that this was a special case of *Newton's method*. If $$x \mapsto g(x)$$ is a differentiable function, then a solution of the equation $$g(x) = 0$$ is a fixed point of the function $$x \mapsto f(x)$$ where
+When we first introduced the square-root function in the section [Example: Square Roots by Newton's Method](), we mentioned that this was a special case of *Newton's method*. If \\(x \mapsto g(x)\\) is a differentiable function, then a solution of the equation \\(g(x) = 0\\) is a fixed point of the function \\(x \mapsto f(x)\\) where
 
-$$
+\\[
 \begin{align}
 f(x) = r - \frac{g(x)}{Dg(x)}
 \end{align}
-$$
+\\]
 
-and $$Dg(x)$$ is the derivative of $$g$$ evaluated at $$x$$. Newton's method is the use of the fixed-point method we saw above to approximate a solution of the equation by finding a fixed point of the function $$f$$.[^3] For many functions $$g$$ and for sufficiently good initial guesses for $$x$$, Newton's method converges very rapidly to a solution of $$g(x) = 0$$.[^4]
+and \\(Dg(x)\\) is the derivative of \\(g\\) evaluated at \\(x\\). Newton's method is the use of the fixed-point method we saw above to approximate a solution of the equation by finding a fixed point of the function \\(f\\).[^3] For many functions \\(g\\) and for sufficiently good initial guesses for \\(x\\), Newton's method converges very rapidly to a solution of \\(g(x) = 0\\).[^4]
 
-In order to implement Newton's method as a function, we must first express the idea of derivative. Note that "derivative," like average damping, is something that transforms a function into another function. For instance, the derivative of the function $$x \mapsto x^3$$ is the function $$x \mapsto 3x^2$$. In general, if $$g$$ is a function and $$dx$$ is a small number, then the derivative $$Dg$$ of $$g$$ is the function whose value at any number $$x$$ is given (in the limit of small $$dx$$) by
+In order to implement Newton's method as a function, we must first express the idea of derivative. Note that "derivative," like average damping, is something that transforms a function into another function. For instance, the derivative of the function \\((x \mapsto x^3\\) is the function \\(x \mapsto 3x^2\\). In general, if \\(g\\) is a function and \\(dx\\) is a small number, then the derivative \\(Dg\\) of \\(g\\) is the function whose value at any number \\(x\\) is given (in the limit of small \\(dx\\)) by
 
-$$
+\\[
 \begin{align}
 Dg(x) = \frac{g(x + dx) - g(x)}{dx}
 \end{align}
-$$
+\\]
 
-Thus, we can express the idea of derivative (taking $$dx$$ to be, say, 0.00001) as the function
+Thus, we can express the idea of derivative (taking \\(dx\\) to be, say, 0.00001) as the function
 
 ```lisp
 (defun deriv (g)
@@ -71,7 +71,7 @@ along with the definition
 1.0e-5
 ```
 
-Like ``average-damp/1``, ``deriv/1`` is a function that takes a function as argument and returns a function as value. For example, to approximate the derivative of $$x \mapsto x^3$$ at 5 (whose exact value is 75) we can evaluate
+Like ``average-damp/1``, ``deriv/1`` is a function that takes a function as argument and returns a function as value. For example, to approximate the derivative of \\(x \mapsto x^3\\) at 5 (whose exact value is 75) we can evaluate
 
 ```lisp
 > (defun cube (x) (* x x x))
@@ -91,7 +91,7 @@ With the aid of ``deriv/1``, we can express Newton's method as a fixed-point pro
   (fixed-point (newton-transform g) guess))
 ```
 
-The ``newton-transform/1`` function expresses the formula at the beginning of this section, and ``newtons-method/2`` is readily defined in terms of this. It takes as arguments a function that computes the function for which we want to find a zero, together with an initial guess. For instance, to find the square root of $$x$$, we can use Newton's method to find a zero of the function $$y \mapsto y^2 - x$$ starting with an initial guess of 1.[^5] This provides yet another form of the square-root function:
+The ``newton-transform/1`` function expresses the formula at the beginning of this section, and ``newtons-method/2`` is readily defined in terms of this. It takes as arguments a function that computes the function for which we want to find a zero, together with an initial guess. For instance, to find the square root of \\(x\\), we can use Newton's method to find a zero of the function \\(y \mapsto y^2 - x\\) starting with an initial guess of 1.[^5] This provides yet another form of the square-root function:
 
 ```lisp
 (defun sqrt (x)
@@ -110,8 +110,8 @@ We've seen two ways to express the square-root computation as an instance of a m
 
 This very general function takes as its arguments a function ``g`` that computes some function, a function that transforms ``g``, and an initial guess. The returned result is a fixed point of the transformed function.
 
-Using this abstraction, we can recast the first square-root computation from this section (where we look for a fixed point of the average-damped version of $$y \mapsto \frac{x}{y}
-$$) as an instance of this general method:
+Using this abstraction, we can recast the first square-root computation from this section (where we look for a fixed point of the average-damped version of \\(y \mapsto \frac{x}{y}
+\\)) as an instance of this general method:
 
 ```lisp
 (defun sqrt (x)
@@ -120,7 +120,7 @@ $$) as an instance of this general method:
                             1.0))
 ```
 
-Similarly, we can express the second square-root computation from this section (an instance of Newton's method that finds a fixed point of the Newton transform of $$y \mapsto y^2 - x$$) as
+Similarly, we can express the second square-root computation from this section (an instance of Newton's method that finds a fixed point of the Newton transform of \\(y \mapsto y^2 - x\\)) as
 
 ```lisp
 (defun sqrt (x)
@@ -148,7 +148,7 @@ Lisp, unlike other common programming languages, awards functions full first-cla
 
 [^2]: See exercise 1.45 for a further generalization.
 
-[^3]: Elementary calculus books usually describe Newton's method in terms of the sequence of approximations $$x_{n+1} = x_n - g(x_n)/Dg(x_n)$$. Having language for talking about processes and using the idea of fixed points simplifies the description of the method.
+[^3]: Elementary calculus books usually describe Newton's method in terms of the sequence of approximations \\(x_{n+1} = x_n - g(x_n)/Dg(x_n)\\). Having language for talking about processes and using the idea of fixed points simplifies the description of the method.
 
 [^4]: Newton's method does not always converge to an answer, but it can be shown that in favorable cases each iteration doubles the number-of-digits accuracy of the approximation to the solution. In such cases, Newton's method will converge much more rapidly than the half-interval method.
 

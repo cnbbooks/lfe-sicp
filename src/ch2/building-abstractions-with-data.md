@@ -18,7 +18,7 @@ Consider the task of designing a system to perform arithmetic with rational numb
 
 The use of compound data also enables us to increase the modularity of our programs. If we can manipulate rational numbers directly as objects in their own right, then we can separate the part of our program that deals with rational numbers per se from the details of how rational numbers may be represented as pairs of integers. The general technique of isolating the parts of a program that deal with how data objects are represented from the parts of a program that deal with how data objects are used is a powerful design methodology called *data abstraction*. We will see how data abstraction makes programs much easier to design, maintain, and modify.
 
-The use of compound data leads to a real increase in the expressive power of our programming language. Consider the idea of forming a "linear combination" $$a x + b y$$. We might like to write a function that would accept $$a$$, $$b$$, $$x$$, and $$y$$ as arguments and return the value of ax + by. This presents no difficulty if the arguments are to be numbers, because we can readily define the function
+The use of compound data leads to a real increase in the expressive power of our programming language. Consider the idea of forming a "linear combination" \\(a x + b y\\). We might like to write a function that would accept \\(a\\), \\(b\\), \\(x\\), and \\(y\\) as arguments and return the value of ax + by. This presents no difficulty if the arguments are to be numbers, because we can readily define the function
 
 ```lisp
 (defun linear-combination (a b x y)

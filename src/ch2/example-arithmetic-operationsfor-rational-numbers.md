@@ -10,40 +10,40 @@ Let us begin by assuming that we already have a way of constructing a rational n
 
 We are using here a powerful strategy of synthesis: *wishful thinking*. We haven't yet said how a rational number is represented, or how the functions ``numer/1``, ``denom/1``, and ``make-rat/2`` should be implemented. Even so, if we did have these three functions, we could then add, subtract, multiply, divide, and test equality by using the following relations:
 
-$$
+\\[
 \begin{align}
 \frac{n_1}{d_1} + \frac{n_2}{d_2} =
 \frac{n_1 d_2 + n_2 d_1}{d_1 d_2}
 \end{align}
-$$
+\\]
 
-$$
+\\[
 \begin{align}
 \frac{n_1}{d_1} - \frac{n_2}{d_2} =
 \frac{n_1 d_2 - n_2 d_1}{d_1 d_2}
 \end{align}
-$$
+\\]
 
-$$
+\\[
 \begin{align}
 \frac{n_1}{d_1} \cdot \frac{n_2}{d_2} =
 \frac{n_1 n_2}{d_1 d_2}
 \end{align}
-$$
+\\]
 
-$$
+\\[
 \begin{align}
 \frac{\frac{n_1}{d_1}}{\frac{n_2}{d_2}} =
 \frac{n_1 d_2}{d_1 n_2}
 \end{align}
-$$
+\\]
 
-$$
+\\[
 \begin{align}
 \frac{n_1}{d_1} = \frac{n_2}{d_2} \text{if and only if }
 n_1 d_2 = n_2 d_1
 \end{align}
-$$
+\\]
 
 We can express these rules as functions:
 
@@ -182,4 +182,4 @@ as desired. This modification was accomplished by changing the constructor ``mak
 
 [^1]: The name ``cons`` stands for "construct." The names ``car`` and ``cdr`` derive from the original implementation of Lisp on the [IBM 704](http://en.wikipedia.org/wiki/IBM_704). That machine had an addressing scheme that allowed one to reference the "address" and "decrement" parts of a memory location. ``car`` stands for "Contents of Address part of Register" and ``cdr`` (pronounced "could-er" or "cudder") stands for "Contents of Decrement part of Register."
 
-[^2]: In fact, something is lost: about 2 $$\mu$$seconds. Arguably, this could be within a margin of uncertainty, though the results are consistent. The timing was performed upon the LFE author's 2009 MacBook Air using ``(set counts (lists:seq 1 10000))`` and ``(/ (lists:sum (lists:map (lambda (_) (element 1 (timer:tc #'numer/1 (list one-half)))) counts)) (length counts))``. Without pattern matching, results ranged between 7 and 8 $$\mu$$seconds; with pattern matching, results ranged from 8 to 11 $$\mu$$seconds.
+[^2]: In fact, something is lost: about 2 \\(\mu\\)seconds. Arguably, this could be within a margin of uncertainty, though the results are consistent. The timing was performed upon the LFE author's 2009 MacBook Air using ``(set counts (lists:seq 1 10000))`` and ``(/ (lists:sum (lists:map (lambda (_) (element 1 (timer:tc #'numer/1 (list one-half)))) counts)) (length counts))``. Without pattern matching, results ranged between 7 and 8 \\(\mu\\)seconds; with pattern matching, results ranged from 8 to 11 \\(\mu\\)seconds.

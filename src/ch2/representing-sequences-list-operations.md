@@ -1,9 +1,9 @@
 #### List Operations
 
-The use of pairs to represent sequences of elements as lists is accompanied by conventional programming techniques for manipulating lists by successively "``cdr``ing down" the lists. For example, the function ``list-ref/2`` takes as arguments a list and a number $$n$$ and returns the $$n$$th item of the list. In Erlang, and thus LFE, is customary to number the elements of the list beginning with 1. The method for computing ``list-ref/2`` is the following: [^1]
+The use of pairs to represent sequences of elements as lists is accompanied by conventional programming techniques for manipulating lists by successively "``cdr``ing down" the lists. For example, the function ``list-ref/2`` takes as arguments a list and a number \\(n\\) and returns the \\(n\\)th item of the list. In Erlang, and thus LFE, is customary to number the elements of the list beginning with 1. The method for computing ``list-ref/2`` is the following: [^1]
 
-* For $$n = 1$$, ``list-ref/2`` should return the ``car`` of the list.
-* Otherwise, ``list-ref/2`` should return the $$n$$th item of the ``cdr`` of the list.
+* For \\(n = 1\\), ``list-ref/2`` should return the ``car`` of the list.
+* Otherwise, ``list-ref/2`` should return the \\(n\\)th item of the ``cdr`` of the list.
 
 ```lisp
 (defun list-ref
